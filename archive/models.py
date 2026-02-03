@@ -333,3 +333,39 @@ class AssetTag(models.Model):
         constraints = [
             models.UniqueConstraint(fields=["asset", "tag"], name="uniq_asset_tag")
         ]
+
+
+class GameCompleteness(models.Model):
+    class Status(models.TextChoices):
+        MISSING = "MISSING", "Missing"
+        PARTIAL = "PARTIAL", "Partial"
+        COMPLETE = "COMPLETE", "Complete"
+        COMPLETE_NEEDS_UPGRADE = "COMPLETE_NEEDS_UPGRADE", "Complete (Needs Upgrade)"
+
+    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name="completeness")
+    scope = models.CharField(max_length=64)
+    # examples: "NFL_ALL", "STEELERS_ALL", "UGA_ALL", "UGA_2010s"
+
+    status = models.CharField(max_length=32, choices=Status.choices)
+    best_full_quality_score = models.PositiveSmallIntegerField(null=True, blank=True)
+
+    has_full = models.BooleanField(default=False)
+    has_condensed = models.BooleanField(default=False)
+    has_all22 = models.BooleanField(default=False)
+
+    computed_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["game", "scope"],
+                name="uniq_game_scope_completeness"
+            )
+        ]
+        indexes = [
+            models.Index(fields=["scope", "status"]),
+            models.Index(fields=["status"]),
+        ]
+
+    def __str__(self):
+        return f"{self.game} [{self.scope}] → {self.status}"
