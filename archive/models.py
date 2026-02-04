@@ -105,7 +105,7 @@ class Team(models.Model):
     # Optional JSON for ids like espn/team id, sportsref slug, etc.
     external_ids = models.JSONField(blank=True, default=dict)
 
-    logo = models.ImageField(upload_to="teams/logs/", null=True)
+    logo = models.ImageField(upload_to="teams/logos/", null=True)
     primary_color = models.CharField(max_length=6, null=True)
     secondary_color = models.CharField(max_length=6, null=True)
     tertiary_color = models.CharField(max_length=6, null=True)
