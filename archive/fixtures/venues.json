@@ -1,0 +1,1498 @@
+[
+{
+  "model": "archive.venue",
+  "pk": 1,
+  "fields": {
+    "name": "InfoCision Stadium - Summa Field",
+    "city": "Akron",
+    "state": "Ohio",
+    "country": "US",
+    "capacity": 30000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 2,
+  "fields": {
+    "name": "Saban Field at Bryant-Denny Stadium",
+    "city": "Tuscaloosa",
+    "state": "Alabama",
+    "country": "US",
+    "capacity": 100077
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 3,
+  "fields": {
+    "name": "Kidd Brewer Stadium",
+    "city": "Boone",
+    "state": "North Carolina",
+    "country": "US",
+    "capacity": 24050
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 4,
+  "fields": {
+    "name": "Arizona Stadium",
+    "city": "Tucson",
+    "state": "Arizona",
+    "country": "US",
+    "capacity": 56029
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 5,
+  "fields": {
+    "name": "Mountain America Stadium",
+    "city": "Tempe",
+    "state": "Arizona",
+    "country": "US",
+    "capacity": 53599
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 6,
+  "fields": {
+    "name": "Donald W. Reynolds Razorback Stadium",
+    "city": "Fayetteville",
+    "state": "Arkansas",
+    "country": "US",
+    "capacity": 72000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 7,
+  "fields": {
+    "name": "Centennial Bank Stadium",
+    "city": "State University",
+    "state": "Arkansas",
+    "country": "US",
+    "capacity": 30964
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 8,
+  "fields": {
+    "name": "Blaik Field at Michie Stadium",
+    "city": "West Point",
+    "state": "New York",
+    "country": "US",
+    "capacity": 38000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 9,
+  "fields": {
+    "name": "Pat Dye Field at Jordan-Hare Stadium",
+    "city": "Auburn",
+    "state": "Alabama",
+    "country": "US",
+    "capacity": 87451
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 10,
+  "fields": {
+    "name": "Scheumann Stadium",
+    "city": "Muncie",
+    "state": "Indiana",
+    "country": "US",
+    "capacity": 22500
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 11,
+  "fields": {
+    "name": "McLane Stadium",
+    "city": "Waco",
+    "state": "Texas",
+    "country": "US",
+    "capacity": 45140
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 12,
+  "fields": {
+    "name": "Albertsons Stadium",
+    "city": "Boise",
+    "state": "Idaho",
+    "country": "US",
+    "capacity": 37000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 13,
+  "fields": {
+    "name": "Alumni Stadium",
+    "city": "Chestnut Hill",
+    "state": "Massachusetts",
+    "country": "US",
+    "capacity": 44500
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 14,
+  "fields": {
+    "name": "Doyt L. Perry Stadium",
+    "city": "Bowling Green",
+    "state": "Ohio",
+    "country": "US",
+    "capacity": 24000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 15,
+  "fields": {
+    "name": "University at Buffalo Stadium",
+    "city": "Buffalo",
+    "state": "New York",
+    "country": "US",
+    "capacity": 29013
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 16,
+  "fields": {
+    "name": "LaVell Edwards Stadium",
+    "city": "Provo",
+    "state": "Utah",
+    "country": "US",
+    "capacity": 63470
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 17,
+  "fields": {
+    "name": "Memorial Stadium",
+    "city": "Berkeley",
+    "state": "California",
+    "country": "US",
+    "capacity": 63186
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 18,
+  "fields": {
+    "name": "Kelly/Shorts Stadium",
+    "city": "Mount Pleasant",
+    "state": "Michigan",
+    "country": "US",
+    "capacity": 30255
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 19,
+  "fields": {
+    "name": "Jerry Richardson Stadium",
+    "city": "Charlotte",
+    "state": "North Carolina",
+    "country": "US",
+    "capacity": 15314
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 20,
+  "fields": {
+    "name": "Nippert Stadium",
+    "city": "Cincinnati",
+    "state": "Ohio",
+    "country": "US",
+    "capacity": 40000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 21,
+  "fields": {
+    "name": "Memorial Stadium",
+    "city": "Clemson",
+    "state": "South Carolina",
+    "country": "US",
+    "capacity": 81500
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 22,
+  "fields": {
+    "name": "Brooks Stadium",
+    "city": "Conway",
+    "state": "South Carolina",
+    "country": "US",
+    "capacity": 21000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 23,
+  "fields": {
+    "name": "Folsom Field",
+    "city": "Boulder",
+    "state": "Colorado",
+    "country": "US",
+    "capacity": 53613
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 24,
+  "fields": {
+    "name": "Sonny Lubick Field at Canvas Stadium",
+    "city": "Fort Collins",
+    "state": "Colorado",
+    "country": "US",
+    "capacity": 41200
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 25,
+  "fields": {
+    "name": "Delaware Stadium",
+    "city": "Newark",
+    "state": "Delaware",
+    "country": "US",
+    "capacity": 18309
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 26,
+  "fields": {
+    "name": "Wallace Wade Stadium",
+    "city": "Durham",
+    "state": "North Carolina",
+    "country": "US",
+    "capacity": 33941
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 27,
+  "fields": {
+    "name": "Dowdy-Ficklen Stadium",
+    "city": "Greenville",
+    "state": "North Carolina",
+    "country": "US",
+    "capacity": 50000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 28,
+  "fields": {
+    "name": "Rynearson Stadium",
+    "city": "Ypsilanti",
+    "state": "Michigan",
+    "country": "US",
+    "capacity": 30200
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 29,
+  "fields": {
+    "name": "Flagler Credit Union Stadium",
+    "city": "Boca Raton",
+    "state": "Florida",
+    "country": "US",
+    "capacity": 30000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 30,
+  "fields": {
+    "name": "Florida Field at Ben Hill Griffin Stadium",
+    "city": "Gainesville",
+    "state": "Florida",
+    "country": "US",
+    "capacity": 88548
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 31,
+  "fields": {
+    "name": "Bobby Bowden Field at Doak Campbell Stadium",
+    "city": "Tallahassee",
+    "state": "Florida",
+    "country": "US",
+    "capacity": 82300
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 32,
+  "fields": {
+    "name": "Valley Children's Stadium",
+    "city": "Fresno",
+    "state": "California",
+    "country": "US",
+    "capacity": 41031
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 33,
+  "fields": {
+    "name": "Sanford Stadium",
+    "city": "Athens",
+    "state": "Georgia",
+    "country": "US",
+    "capacity": 92746
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 34,
+  "fields": {
+    "name": "Paulson Stadium",
+    "city": "Statesboro",
+    "state": "Georgia",
+    "country": "US",
+    "capacity": 24300
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 35,
+  "fields": {
+    "name": "Center Parc Stadium",
+    "city": "Atlanta",
+    "state": "Georgia",
+    "country": "US",
+    "capacity": 24333
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 36,
+  "fields": {
+    "name": "Bobby Dodd Stadium at Hyundai Field",
+    "city": "Atlanta",
+    "state": "Georgia",
+    "country": "US",
+    "capacity": 55000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 37,
+  "fields": {
+    "name": "T.C. Ching Athletics Complex",
+    "city": "Honolulu",
+    "state": "Hawaii",
+    "country": "US",
+    "capacity": 16909
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 38,
+  "fields": {
+    "name": "TDECU Stadium",
+    "city": "Houston",
+    "state": "Texas",
+    "country": "US",
+    "capacity": 40000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 39,
+  "fields": {
+    "name": "Memorial Stadium",
+    "city": "Champaign",
+    "state": "Illinois",
+    "country": "US",
+    "capacity": 60670
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 40,
+  "fields": {
+    "name": "Memorial Stadium",
+    "city": "Bloomington",
+    "state": "Indiana",
+    "country": "US",
+    "capacity": 52929
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 41,
+  "fields": {
+    "name": "Kinnick Stadium",
+    "city": "Iowa City",
+    "state": "Iowa",
+    "country": "US",
+    "capacity": 70585
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 42,
+  "fields": {
+    "name": "Jack Trice Stadium",
+    "city": "Ames",
+    "state": "Iowa",
+    "country": "US",
+    "capacity": 61500
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 43,
+  "fields": {
+    "name": "AmFirst Stadium",
+    "city": "Jacksonville",
+    "state": "Alabama",
+    "country": "US",
+    "capacity": 24000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 44,
+  "fields": {
+    "name": "Bridgeforth Stadium",
+    "city": "Harrisonburg",
+    "state": "Virginia",
+    "country": "US",
+    "capacity": 24877
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 45,
+  "fields": {
+    "name": "David Booth Kansas Memorial Stadium",
+    "city": "Lawrence",
+    "state": "Kansas",
+    "country": "US",
+    "capacity": 50071
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 46,
+  "fields": {
+    "name": "Bill Snyder Family Football Stadium",
+    "city": "Manhattan",
+    "state": "Kansas",
+    "country": "US",
+    "capacity": 50300
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 47,
+  "fields": {
+    "name": "Fifth Third Stadium",
+    "city": "Kennesaw",
+    "state": "Georgia",
+    "country": "US",
+    "capacity": 10200
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 48,
+  "fields": {
+    "name": "Dix Stadium",
+    "city": "Kent",
+    "state": "Ohio",
+    "country": "US",
+    "capacity": 29287
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 49,
+  "fields": {
+    "name": "Kroger Field",
+    "city": "Lexington",
+    "state": "Kentucky",
+    "country": "US",
+    "capacity": 67606
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 50,
+  "fields": {
+    "name": "Arthur L. Williams Stadium",
+    "city": "Lynchburg",
+    "state": "Virginia",
+    "country": "US",
+    "capacity": 25000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 51,
+  "fields": {
+    "name": "Cajun Field",
+    "city": "Lafayette",
+    "state": "Louisiana",
+    "country": "US",
+    "capacity": 31000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 52,
+  "fields": {
+    "name": "Joe Aillet Stadium",
+    "city": "Ruston",
+    "state": "Louisiana",
+    "country": "US",
+    "capacity": 30600
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 53,
+  "fields": {
+    "name": "L&N Federal Credit Union Stadium",
+    "city": "Louisville",
+    "state": "Kentucky",
+    "country": "US",
+    "capacity": 61000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 54,
+  "fields": {
+    "name": "Tiger Stadium",
+    "city": "Baton Rouge",
+    "state": "Louisiana",
+    "country": "US",
+    "capacity": 102321
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 55,
+  "fields": {
+    "name": "Joan C. Edwards Stadium",
+    "city": "Huntington",
+    "state": "West Virginia",
+    "country": "US",
+    "capacity": 38019
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 56,
+  "fields": {
+    "name": "SECU Stadium",
+    "city": "College Park",
+    "state": "Maryland",
+    "country": "US",
+    "capacity": 51500
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 57,
+  "fields": {
+    "name": "Simmons Bank Liberty Stadium",
+    "city": "Memphis",
+    "state": "Tennessee",
+    "country": "US",
+    "capacity": 61008
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 58,
+  "fields": {
+    "name": "Hard Rock Stadium",
+    "city": "Coral Gables",
+    "state": "Florida",
+    "country": "US",
+    "capacity": 64767
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 59,
+  "fields": {
+    "name": "Fred C. Yager Stadium",
+    "city": "Oxford",
+    "state": "Ohio",
+    "country": "US",
+    "capacity": 24286
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 60,
+  "fields": {
+    "name": "Michigan Stadium",
+    "city": "Ann Arbor",
+    "state": "Michigan",
+    "country": "US",
+    "capacity": 106201
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 61,
+  "fields": {
+    "name": "Spartan Stadium",
+    "city": "East Lansing",
+    "state": "Michigan",
+    "country": "US",
+    "capacity": 75005
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 62,
+  "fields": {
+    "name": "Johnny \"Red\" Floyd Stadium",
+    "city": "Murfreesboro",
+    "state": "Tennessee",
+    "country": "US",
+    "capacity": 31000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 63,
+  "fields": {
+    "name": "Huntington Bank Stadium",
+    "city": "Minneapolis",
+    "state": "Minnesota",
+    "country": "US",
+    "capacity": 50000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 64,
+  "fields": {
+    "name": "Davis Wade Stadium at Scott Field",
+    "city": "Mississippi State",
+    "state": "Mississippi",
+    "country": "US",
+    "capacity": 61337
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 65,
+  "fields": {
+    "name": "Faurot Field at Memorial Stadium",
+    "city": "Columbia",
+    "state": "Missouri",
+    "country": "US",
+    "capacity": 71004
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 66,
+  "fields": {
+    "name": "Robert W. Plaster Stadium",
+    "city": "Springfield",
+    "state": "Missouri",
+    "country": "US",
+    "capacity": 17500
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 67,
+  "fields": {
+    "name": "Navy-Marine Corps Memorial Stadium",
+    "city": "Annapolis",
+    "state": "Maryland",
+    "country": "US",
+    "capacity": 34000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 68,
+  "fields": {
+    "name": "Carter-Finley Stadium",
+    "city": "Raleigh",
+    "state": "North Carolina",
+    "country": "US",
+    "capacity": 57583
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 69,
+  "fields": {
+    "name": "Memorial Stadium, Tom Osborne Field",
+    "city": "Lincoln",
+    "state": "Nebraska",
+    "country": "US",
+    "capacity": 81091
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 70,
+  "fields": {
+    "name": "Mackay Stadium",
+    "city": "Reno",
+    "state": "Nevada",
+    "country": "US",
+    "capacity": 29993
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 71,
+  "fields": {
+    "name": "University Stadium",
+    "city": "Albuquerque",
+    "state": "New Mexico",
+    "country": "US",
+    "capacity": 42000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 72,
+  "fields": {
+    "name": "Aggie Memorial Stadium",
+    "city": "Las Cruces",
+    "state": "New Mexico",
+    "country": "US",
+    "capacity": 30343
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 73,
+  "fields": {
+    "name": "Kenan Stadium",
+    "city": "Chapel Hill",
+    "state": "North Carolina",
+    "country": "US",
+    "capacity": 63000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 74,
+  "fields": {
+    "name": "DATCU Stadium",
+    "city": "Denton",
+    "state": "Texas",
+    "country": "US",
+    "capacity": 30850
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 75,
+  "fields": {
+    "name": "Brigham Field at Huskie Stadium",
+    "city": "De Kalb",
+    "state": "Illinois",
+    "country": "US",
+    "capacity": 30998
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 76,
+  "fields": {
+    "name": "Northwestern Medicine Field at Martin Stadium",
+    "city": "Evanston",
+    "state": "Illinois",
+    "country": "US",
+    "capacity": 12023
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 77,
+  "fields": {
+    "name": "Notre Dame Stadium",
+    "city": "Notre Dame",
+    "state": "Indiana",
+    "country": "US",
+    "capacity": 80795
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 78,
+  "fields": {
+    "name": "Peden Stadium",
+    "city": "Athens",
+    "state": "Ohio",
+    "country": "US",
+    "capacity": 24000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 79,
+  "fields": {
+    "name": "Ohio Stadium",
+    "city": "Columbus",
+    "state": "Ohio",
+    "country": "US",
+    "capacity": 104944
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 80,
+  "fields": {
+    "name": "Gaylord Family Oklahoma Memorial Stadium",
+    "city": "Norman",
+    "state": "Oklahoma",
+    "country": "US",
+    "capacity": 82112
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 81,
+  "fields": {
+    "name": "Boone Pickens Stadium",
+    "city": "Stillwater",
+    "state": "Oklahoma",
+    "country": "US",
+    "capacity": 60218
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 82,
+  "fields": {
+    "name": "S.B. Ballard Stadium",
+    "city": "Norfolk",
+    "state": "Virginia",
+    "country": "US",
+    "capacity": 19818
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 83,
+  "fields": {
+    "name": "Vaught-Hemingway Stadium",
+    "city": "University",
+    "state": "Mississippi",
+    "country": "US",
+    "capacity": 60580
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 84,
+  "fields": {
+    "name": "Autzen Stadium",
+    "city": "Eugene",
+    "state": "Oregon",
+    "country": "US",
+    "capacity": 53800
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 85,
+  "fields": {
+    "name": "Reser Stadium",
+    "city": "Corvallis",
+    "state": "Oregon",
+    "country": "US",
+    "capacity": 46200
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 86,
+  "fields": {
+    "name": "Beaver Stadium",
+    "city": "University Park",
+    "state": "Pennsylvania",
+    "country": "US",
+    "capacity": 107282
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 87,
+  "fields": {
+    "name": "Acrisure Stadium",
+    "city": "Pittsburgh",
+    "state": "Pennsylvania",
+    "country": "US",
+    "capacity": 68400
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 88,
+  "fields": {
+    "name": "Ross-Ade Stadium",
+    "city": "West Lafayette",
+    "state": "Indiana",
+    "country": "US",
+    "capacity": 62500
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 89,
+  "fields": {
+    "name": "Rice Stadium",
+    "city": "Houston",
+    "state": "Texas",
+    "country": "US",
+    "capacity": 70000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 90,
+  "fields": {
+    "name": "SHI Stadium",
+    "city": "Piscataway",
+    "state": "New Jersey",
+    "country": "US",
+    "capacity": 52454
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 91,
+  "fields": {
+    "name": "Shell Energy Stadium",
+    "city": "Huntsville",
+    "state": "Texas",
+    "country": "US",
+    "capacity": 20656
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 92,
+  "fields": {
+    "name": "Snapdragon Stadium",
+    "city": "San Diego",
+    "state": "California",
+    "country": "US",
+    "capacity": 35000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 93,
+  "fields": {
+    "name": "CEFCU Stadium",
+    "city": "San Jose",
+    "state": "California",
+    "country": "US",
+    "capacity": 21520
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 94,
+  "fields": {
+    "name": "Gerald J. Ford Stadium",
+    "city": "Dallas",
+    "state": "Texas",
+    "country": "US",
+    "capacity": 32000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 95,
+  "fields": {
+    "name": "Hancock Whitney Stadium",
+    "city": "Mobile",
+    "state": "Alabama",
+    "country": "US",
+    "capacity": 25450
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 96,
+  "fields": {
+    "name": "Williams-Brice Stadium",
+    "city": "Columbia",
+    "state": "South Carolina",
+    "country": "US",
+    "capacity": 80250
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 97,
+  "fields": {
+    "name": "Raymond James Stadium",
+    "city": "Tampa",
+    "state": "Florida",
+    "country": "US",
+    "capacity": 65857
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 98,
+  "fields": {
+    "name": "Carlisle-Faulkner Field at M.M. Roberts Stadium",
+    "city": "Hattiesburg",
+    "state": "Mississippi",
+    "country": "US",
+    "capacity": 36000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 99,
+  "fields": {
+    "name": "JMA Wireless Dome",
+    "city": "Syracuse",
+    "state": "New York",
+    "country": "US",
+    "capacity": 49250
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 100,
+  "fields": {
+    "name": "Amon G. Carter",
+    "city": "Fort Worth",
+    "state": "Texas",
+    "country": "US",
+    "capacity": 46000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 101,
+  "fields": {
+    "name": "Neyland Stadium",
+    "city": "Knoxville",
+    "state": "Tennessee",
+    "country": "US",
+    "capacity": 102455
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 102,
+  "fields": {
+    "name": "Darrell K. Royal-Texas Memorial Stadium",
+    "city": "Austin",
+    "state": "Texas",
+    "country": "US",
+    "capacity": 100119
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 103,
+  "fields": {
+    "name": "Kyle Field",
+    "city": "College Station",
+    "state": "Texas",
+    "country": "US",
+    "capacity": 102733
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 104,
+  "fields": {
+    "name": "UFCU Stadium",
+    "city": "San Marcos",
+    "state": "Texas",
+    "country": "US",
+    "capacity": 30000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 105,
+  "fields": {
+    "name": "Jones AT&T Stadium",
+    "city": "Lubbock",
+    "state": "Texas",
+    "country": "US",
+    "capacity": 58930
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 106,
+  "fields": {
+    "name": "Glass Bowl",
+    "city": "Toledo",
+    "state": "Ohio",
+    "country": "US",
+    "capacity": 26248
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 107,
+  "fields": {
+    "name": "Veterans Memorial Stadium",
+    "city": "Troy",
+    "state": "Alabama",
+    "country": "US",
+    "capacity": 30000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 108,
+  "fields": {
+    "name": "Yulman Stadium",
+    "city": "New Orleans",
+    "state": "Louisiana",
+    "country": "US",
+    "capacity": 30000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 109,
+  "fields": {
+    "name": "Skelly Field at H.A. Chapman Stadium",
+    "city": "Tulsa",
+    "state": "Oklahoma",
+    "country": "US",
+    "capacity": 30000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 110,
+  "fields": {
+    "name": "Protective Stadium",
+    "city": "Birmingham",
+    "state": "Alabama",
+    "country": "US",
+    "capacity": 47100
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 111,
+  "fields": {
+    "name": "Rose Bowl",
+    "city": "Los Angeles",
+    "state": "California",
+    "country": "US",
+    "capacity": 92542
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 112,
+  "fields": {
+    "name": "Malone Stadium",
+    "city": "Monroe",
+    "state": "Louisiana",
+    "country": "US",
+    "capacity": 30427
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 113,
+  "fields": {
+    "name": "Los Angeles Memorial Coliseum",
+    "city": "Los Angeles",
+    "state": "California",
+    "country": "US",
+    "capacity": 77500
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 114,
+  "fields": {
+    "name": "Rice-Eccles Stadium",
+    "city": "Salt Lake City",
+    "state": "Utah",
+    "country": "US",
+    "capacity": 45017
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 115,
+  "fields": {
+    "name": "Merlin Olsen Field at Maverik Stadium",
+    "city": "Logan",
+    "state": "Utah",
+    "country": "US",
+    "capacity": 30257
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 116,
+  "fields": {
+    "name": "Sun Bowl Stadium",
+    "city": "El Paso",
+    "state": "Texas",
+    "country": "US",
+    "capacity": 52000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 117,
+  "fields": {
+    "name": "Stanford Stadium",
+    "city": "Stanford",
+    "state": "California",
+    "country": "US",
+    "capacity": 50000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 118,
+  "fields": {
+    "name": "Lincoln Financial Field",
+    "city": "Philadelphia",
+    "state": "Pennsylvania",
+    "country": "US",
+    "capacity": 68532
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 119,
+  "fields": {
+    "name": "Acrisure Bounce House",
+    "city": "Orlando",
+    "state": "Florida",
+    "country": "US",
+    "capacity": 45301
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 120,
+  "fields": {
+    "name": "Rentschler Field",
+    "city": "Storrs",
+    "state": "Connecticut",
+    "country": "US",
+    "capacity": 40000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 121,
+  "fields": {
+    "name": "Warren McGuirk Alumni Stadium",
+    "city": "Amherst",
+    "state": "Massachusetts",
+    "country": "US",
+    "capacity": 19000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 122,
+  "fields": {
+    "name": "Allegiant Stadium",
+    "city": "Las Vegas",
+    "state": "Nevada",
+    "country": "US",
+    "capacity": 65000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 123,
+  "fields": {
+    "name": "Alamodome",
+    "city": "San Antonio",
+    "state": "Texas",
+    "country": "US",
+    "capacity": 65000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 124,
+  "fields": {
+    "name": "FirstBank Stadium",
+    "city": "Nashville",
+    "state": "Tennessee",
+    "country": "US",
+    "capacity": 41448
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 125,
+  "fields": {
+    "name": "Scott Stadium",
+    "city": "Charlottesville",
+    "state": "Virginia",
+    "country": "US",
+    "capacity": 61500
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 126,
+  "fields": {
+    "name": "Lane Stadium",
+    "city": "Blacksburg",
+    "state": "Virginia",
+    "country": "US",
+    "capacity": 66233
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 127,
+  "fields": {
+    "name": "Allegacy Federal Credit Union Stadium",
+    "city": "Winston-Salem",
+    "state": "North Carolina",
+    "country": "US",
+    "capacity": 31500
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 128,
+  "fields": {
+    "name": "Husky Stadium",
+    "city": "Seattle",
+    "state": "Washington",
+    "country": "US",
+    "capacity": 72500
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 129,
+  "fields": {
+    "name": "Martin Stadium",
+    "city": "Pullman",
+    "state": "Washington",
+    "country": "US",
+    "capacity": 35117
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 130,
+  "fields": {
+    "name": "Mountaineer Field at Milan Puskar Stadium",
+    "city": "Morgantown",
+    "state": "West Virginia",
+    "country": "US",
+    "capacity": 60000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 131,
+  "fields": {
+    "name": "Houchens Industries-L.T. Smith Stadium",
+    "city": "Bowling Green",
+    "state": "Kentucky",
+    "country": "US",
+    "capacity": 22000
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 132,
+  "fields": {
+    "name": "Waldo Stadium",
+    "city": "Kalamazoo",
+    "state": "Michigan",
+    "country": "US",
+    "capacity": 30200
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 133,
+  "fields": {
+    "name": "Camp Randall Stadium",
+    "city": "Madison",
+    "state": "Wisconsin",
+    "country": "US",
+    "capacity": 80321
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 134,
+  "fields": {
+    "name": "War Memorial Stadium",
+    "city": "Laramie",
+    "state": "Wyoming",
+    "country": "US",
+    "capacity": 29181
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 135,
+  "fields": {
+    "name": "Falcon Stadium",
+    "city": "USAF Academy",
+    "state": "Colorado",
+    "country": "US",
+    "capacity": 46692
+  }
+},
+{
+  "model": "archive.venue",
+  "pk": 136,
+  "fields": {
+    "name": "Pitbull Stadium",
+    "city": "Miami",
+    "state": "Florida",
+    "country": "US",
+    "capacity": 23500
+  }
+}
+]

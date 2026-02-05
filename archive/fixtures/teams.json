@@ -1,0 +1,5252 @@
+[
+{
+  "model": "archive.team",
+  "pk": 1,
+  "fields": {
+    "name": "Air Force",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "USAF Academy",
+    "state": "CO",
+    "country": "US",
+    "school_name": "United States Air Force Academy",
+    "mascot": "Falcons",
+    "external_ids": {
+      "sports_reference": "air-force"
+    },
+    "logo": "teams/logos/air-force_logo.png",
+    "primary_color": "003087",
+    "secondary_color": "8A8D8F",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 2,
+  "fields": {
+    "name": "Akron",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Akron",
+    "state": "OH",
+    "country": "US",
+    "school_name": "University of Akron",
+    "mascot": "Zips",
+    "external_ids": {
+      "sports_reference": "akron"
+    },
+    "logo": "teams/logos/akron_logo.png",
+    "primary_color": "041E42",
+    "secondary_color": "A89968",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 3,
+  "fields": {
+    "name": "Alabama",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Tuscaloosa",
+    "state": "AL",
+    "country": "US",
+    "school_name": "University of Alabama",
+    "mascot": "Crimson Tide",
+    "external_ids": {
+      "sports_reference": "alabama"
+    },
+    "logo": "teams/logos/alabama_logo.png",
+    "primary_color": "9E1B32",
+    "secondary_color": "828A8F",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 4,
+  "fields": {
+    "name": "Appalachian State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Boone",
+    "state": "NC",
+    "country": "US",
+    "school_name": "Appalachian State University",
+    "mascot": "Mountaineers",
+    "external_ids": {
+      "sports_reference": "appalachian-state"
+    },
+    "logo": "teams/logos/appalachian-state_logo.png",
+    "primary_color": "222222",
+    "secondary_color": "FFCC00",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 5,
+  "fields": {
+    "name": "Arizona",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Tucson",
+    "state": "AZ",
+    "country": "US",
+    "school_name": "University of Arizona",
+    "mascot": "Wildcats",
+    "external_ids": {
+      "sports_reference": "arizona"
+    },
+    "logo": "teams/logos/arizona_logo.png",
+    "primary_color": "CC0033",
+    "secondary_color": "003366",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 6,
+  "fields": {
+    "name": "Arizona State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Tempe",
+    "state": "AZ",
+    "country": "US",
+    "school_name": "Arizona State University",
+    "mascot": "Sun Devils",
+    "external_ids": {
+      "sports_reference": "arizona-state"
+    },
+    "logo": "teams/logos/arizona-state_logo.png",
+    "primary_color": "8C1D40",
+    "secondary_color": "FFC627",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 7,
+  "fields": {
+    "name": "Arkansas",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Fayetteville",
+    "state": "AR",
+    "country": "US",
+    "school_name": "University of Arkansas",
+    "mascot": "Razorbacks",
+    "external_ids": {
+      "sports_reference": "arkansas"
+    },
+    "logo": "teams/logos/arkansas_logo.png",
+    "primary_color": "9D2235",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 8,
+  "fields": {
+    "name": "Arkansas State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Jonesboro",
+    "state": "AR",
+    "country": "US",
+    "school_name": "Arkansas State University",
+    "mascot": "Red Wolves",
+    "external_ids": {
+      "sports_reference": "arkansas-state"
+    },
+    "logo": "teams/logos/arkansas-state_logo.png",
+    "primary_color": "CC092F",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 9,
+  "fields": {
+    "name": "Army",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "West Point",
+    "state": "NY",
+    "country": "US",
+    "school_name": "United States Military Academy",
+    "mascot": "Black Knights",
+    "external_ids": {
+      "sports_reference": "army"
+    },
+    "logo": "teams/logos/army_logo.png",
+    "primary_color": "000000",
+    "secondary_color": "D4BF9A",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 10,
+  "fields": {
+    "name": "Auburn",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Auburn",
+    "state": "AL",
+    "country": "US",
+    "school_name": "Auburn University",
+    "mascot": "Tigers",
+    "external_ids": {
+      "sports_reference": "auburn"
+    },
+    "logo": "teams/logos/auburn_logo.png",
+    "primary_color": "0C2340",
+    "secondary_color": "E87722",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 11,
+  "fields": {
+    "name": "Ball State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Muncie",
+    "state": "IN",
+    "country": "US",
+    "school_name": "Ball State University",
+    "mascot": "Cardinals",
+    "external_ids": {
+      "sports_reference": "ball-state"
+    },
+    "logo": "teams/logos/ball-state_logo.png",
+    "primary_color": "BA0C2F",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 12,
+  "fields": {
+    "name": "Baylor",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Waco",
+    "state": "TX",
+    "country": "US",
+    "school_name": "Baylor University",
+    "mascot": "Bears",
+    "external_ids": {
+      "sports_reference": "baylor"
+    },
+    "logo": "teams/logos/baylor_logo.png",
+    "primary_color": "154734",
+    "secondary_color": "FFB81C",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 13,
+  "fields": {
+    "name": "Boise State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Boise",
+    "state": "ID",
+    "country": "US",
+    "school_name": "Boise State University",
+    "mascot": "Broncos",
+    "external_ids": {
+      "sports_reference": "boise-state"
+    },
+    "logo": "teams/logos/boise-state_logo.png",
+    "primary_color": "0033A0",
+    "secondary_color": "D64309",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 14,
+  "fields": {
+    "name": "Boston College",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Chestnut Hill",
+    "state": "MA",
+    "country": "US",
+    "school_name": "Boston College",
+    "mascot": "Eagles",
+    "external_ids": {
+      "sports_reference": "boston-college"
+    },
+    "logo": "teams/logos/boston-college_logo.png",
+    "primary_color": "8C2232",
+    "secondary_color": "D4A04A",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 15,
+  "fields": {
+    "name": "Bowling Green",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Bowling Green",
+    "state": "OH",
+    "country": "US",
+    "school_name": "Bowling Green State University",
+    "mascot": "Falcons",
+    "external_ids": {
+      "sports_reference": "bowling-green-state"
+    },
+    "logo": "teams/logos/bowling-green-state_logo.png",
+    "primary_color": "FE5000",
+    "secondary_color": "4F2C1D",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 16,
+  "fields": {
+    "name": "Buffalo",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Buffalo",
+    "state": "NY",
+    "country": "US",
+    "school_name": "University at Buffalo",
+    "mascot": "Bulls",
+    "external_ids": {
+      "sports_reference": "buffalo"
+    },
+    "logo": "teams/logos/buffalo_logo.png",
+    "primary_color": "005BBB",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 17,
+  "fields": {
+    "name": "BYU",
+    "alternate_name": "Brigham Young",
+    "short_name": "",
+    "city": "Provo",
+    "state": "UT",
+    "country": "US",
+    "school_name": "Brigham Young University",
+    "mascot": "Cougars",
+    "external_ids": {
+      "sports_reference": "brigham-young"
+    },
+    "logo": "teams/logos/brigham-young_logo.png",
+    "primary_color": "002E5D",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 18,
+  "fields": {
+    "name": "California",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Berkeley",
+    "state": "CA",
+    "country": "US",
+    "school_name": "University of California, Berkeley",
+    "mascot": "Golden Bears",
+    "external_ids": {
+      "sports_reference": "california"
+    },
+    "logo": "teams/logos/california_logo.png",
+    "primary_color": "003262",
+    "secondary_color": "FDB515",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 19,
+  "fields": {
+    "name": "Central Michigan",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Mount Pleasant",
+    "state": "MI",
+    "country": "US",
+    "school_name": "Central Michigan University",
+    "mascot": "Chippewas",
+    "external_ids": {
+      "sports_reference": "central-michigan"
+    },
+    "logo": "teams/logos/central-michigan_logo.png",
+    "primary_color": "6A0032",
+    "secondary_color": "FFC82E",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 20,
+  "fields": {
+    "name": "Charlotte",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Charlotte",
+    "state": "NC",
+    "country": "US",
+    "school_name": "University of North Carolina at Charlotte",
+    "mascot": "49ers",
+    "external_ids": {
+      "sports_reference": "charlotte"
+    },
+    "logo": "teams/logos/charlotte_logo.png",
+    "primary_color": "005035",
+    "secondary_color": "A49665",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 21,
+  "fields": {
+    "name": "Cincinnati",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Cincinnati",
+    "state": "OH",
+    "country": "US",
+    "school_name": "University of Cincinnati",
+    "mascot": "Bearcats",
+    "external_ids": {
+      "sports_reference": "cincinnati"
+    },
+    "logo": "teams/logos/cincinnati_logo.png",
+    "primary_color": "E00122",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 22,
+  "fields": {
+    "name": "Clemson",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Clemson",
+    "state": "SC",
+    "country": "US",
+    "school_name": "Clemson University",
+    "mascot": "Tigers",
+    "external_ids": {
+      "sports_reference": "clemson"
+    },
+    "logo": "teams/logos/clemson_logo.png",
+    "primary_color": "F56600",
+    "secondary_color": "522D80",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 23,
+  "fields": {
+    "name": "Coastal Carolina",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Conway",
+    "state": "SC",
+    "country": "US",
+    "school_name": "Coastal Carolina University",
+    "mascot": "Chanticleers",
+    "external_ids": {
+      "sports_reference": "coastal-carolina"
+    },
+    "logo": "teams/logos/coastal-carolina_logo.png",
+    "primary_color": "006F71",
+    "secondary_color": "A27752",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 24,
+  "fields": {
+    "name": "Colorado",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Boulder",
+    "state": "CO",
+    "country": "US",
+    "school_name": "University of Colorado Boulder",
+    "mascot": "Buffaloes",
+    "external_ids": {
+      "sports_reference": "colorado"
+    },
+    "logo": "teams/logos/colorado_logo.png",
+    "primary_color": "CFB87C",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 25,
+  "fields": {
+    "name": "Colorado State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Fort Collins",
+    "state": "CO",
+    "country": "US",
+    "school_name": "Colorado State University",
+    "mascot": "Rams",
+    "external_ids": {
+      "sports_reference": "colorado-state"
+    },
+    "logo": "teams/logos/colorado-state_logo.png",
+    "primary_color": "1E4D2B",
+    "secondary_color": "C8C372",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 26,
+  "fields": {
+    "name": "Delaware",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Newark",
+    "state": "DE",
+    "country": "US",
+    "school_name": "University of Delaware",
+    "mascot": "Fightin' Blue Hens",
+    "external_ids": {
+      "sports_reference": "delaware"
+    },
+    "logo": "teams/logos/delaware_logo.png",
+    "primary_color": "00539F",
+    "secondary_color": "FFDD31",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 27,
+  "fields": {
+    "name": "Duke",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Durham",
+    "state": "NC",
+    "country": "US",
+    "school_name": "Duke University",
+    "mascot": "Blue Devils",
+    "external_ids": {
+      "sports_reference": "duke"
+    },
+    "logo": "teams/logos/duke_logo.png",
+    "primary_color": "003087",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 28,
+  "fields": {
+    "name": "East Carolina",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Greenville",
+    "state": "NC",
+    "country": "US",
+    "school_name": "East Carolina University",
+    "mascot": "Pirates",
+    "external_ids": {
+      "sports_reference": "east-carolina"
+    },
+    "logo": "teams/logos/east-carolina_logo.png",
+    "primary_color": "592A8A",
+    "secondary_color": "FFC72C",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 29,
+  "fields": {
+    "name": "Eastern Michigan",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Ypsilanti",
+    "state": "MI",
+    "country": "US",
+    "school_name": "Eastern Michigan University",
+    "mascot": "Eagles",
+    "external_ids": {
+      "sports_reference": "eastern-michigan"
+    },
+    "logo": "teams/logos/eastern-michigan_logo.png",
+    "primary_color": "006633",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 30,
+  "fields": {
+    "name": "Florida Atlantic",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Boca Raton",
+    "state": "FL",
+    "country": "US",
+    "school_name": "Florida Atlantic University",
+    "mascot": "Owls",
+    "external_ids": {
+      "sports_reference": "florida-atlantic"
+    },
+    "logo": "teams/logos/florida-atlantic_logo.png",
+    "primary_color": "003366",
+    "secondary_color": "CC0000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 31,
+  "fields": {
+    "name": "FIU",
+    "alternate_name": "Florida International",
+    "short_name": "",
+    "city": "Miami",
+    "state": "FL",
+    "country": "US",
+    "school_name": "Florida International University",
+    "mascot": "Panthers",
+    "external_ids": {
+      "sports_reference": "florida-international"
+    },
+    "logo": "teams/logos/florida-international_logo.png",
+    "primary_color": "002F65",
+    "secondary_color": "B6862C",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 32,
+  "fields": {
+    "name": "Florida",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Gainesville",
+    "state": "FL",
+    "country": "US",
+    "school_name": "University of Florida",
+    "mascot": "Gators",
+    "external_ids": {
+      "sports_reference": "florida"
+    },
+    "logo": "teams/logos/florida_logo.png",
+    "primary_color": "0021A5",
+    "secondary_color": "FA4616",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 33,
+  "fields": {
+    "name": "Florida State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Tallahassee",
+    "state": "FL",
+    "country": "US",
+    "school_name": "Florida State University",
+    "mascot": "Seminoles",
+    "external_ids": {
+      "sports_reference": "florida-state"
+    },
+    "logo": "teams/logos/florida-state_logo.png",
+    "primary_color": "782F40",
+    "secondary_color": "CEB888",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 34,
+  "fields": {
+    "name": "Fresno State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Fresno",
+    "state": "CA",
+    "country": "US",
+    "school_name": "California State University, Fresno",
+    "mascot": "Bulldogs",
+    "external_ids": {
+      "sports_reference": "fresno-state"
+    },
+    "logo": "teams/logos/fresno-state_logo.png",
+    "primary_color": "DB0032",
+    "secondary_color": "13294B",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 35,
+  "fields": {
+    "name": "Georgia",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Athens",
+    "state": "GA",
+    "country": "US",
+    "school_name": "University of Georgia",
+    "mascot": "Bulldogs",
+    "external_ids": {
+      "sports_reference": "georgia"
+    },
+    "logo": "teams/logos/georgia_logo.png",
+    "primary_color": "BA0C2F",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 36,
+  "fields": {
+    "name": "Georgia Southern",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Statesboro",
+    "state": "GA",
+    "country": "US",
+    "school_name": "Georgia Southern University",
+    "mascot": "Eagles",
+    "external_ids": {
+      "sports_reference": "georgia-southern"
+    },
+    "logo": "teams/logos/georgia-southern_logo.png",
+    "primary_color": "011E41",
+    "secondary_color": "87714D",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 37,
+  "fields": {
+    "name": "Georgia State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Atlanta",
+    "state": "GA",
+    "country": "US",
+    "school_name": "Georgia State University",
+    "mascot": "Panthers",
+    "external_ids": {
+      "sports_reference": "georgia-state"
+    },
+    "logo": "teams/logos/georgia-state_logo.png",
+    "primary_color": "0039A6",
+    "secondary_color": "CC0000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 38,
+  "fields": {
+    "name": "Georgia Tech",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Atlanta",
+    "state": "GA",
+    "country": "US",
+    "school_name": "Georgia Tech",
+    "mascot": "Yellow Jackets",
+    "external_ids": {
+      "sports_reference": "georgia-tech"
+    },
+    "logo": "teams/logos/georgia-tech_logo.png",
+    "primary_color": "B3A369",
+    "secondary_color": "003057",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 39,
+  "fields": {
+    "name": "Hawaii",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Honolulu",
+    "state": "HI",
+    "country": "US",
+    "school_name": "University of Hawaiʻi at Mānoa",
+    "mascot": "Rainbow Warriors",
+    "external_ids": {
+      "sports_reference": "hawaii"
+    },
+    "logo": "teams/logos/hawaii_logo.png",
+    "primary_color": "024731",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 40,
+  "fields": {
+    "name": "Houston",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Houston",
+    "state": "TX",
+    "country": "US",
+    "school_name": "University of Houston",
+    "mascot": "Cougars",
+    "external_ids": {
+      "sports_reference": "houston"
+    },
+    "logo": "teams/logos/houston_logo.png",
+    "primary_color": "C8102E",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 41,
+  "fields": {
+    "name": "Illinois",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Urbana-Champaign",
+    "state": "IL",
+    "country": "US",
+    "school_name": "University of Illinois Urbana-Champaign",
+    "mascot": "Fighting Illini",
+    "external_ids": {
+      "sports_reference": "illinois"
+    },
+    "logo": "teams/logos/illinois_logo.png",
+    "primary_color": "E84A27",
+    "secondary_color": "13294B",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 42,
+  "fields": {
+    "name": "Indiana",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Bloomington",
+    "state": "IN",
+    "country": "US",
+    "school_name": "Indiana University Bloomington",
+    "mascot": "Hoosiers",
+    "external_ids": {
+      "sports_reference": "indiana"
+    },
+    "logo": "teams/logos/indiana_logo.png",
+    "primary_color": "990000",
+    "secondary_color": "EEEDEB",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 43,
+  "fields": {
+    "name": "Iowa",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Iowa City",
+    "state": "IA",
+    "country": "US",
+    "school_name": "University of Iowa",
+    "mascot": "Hawkeyes",
+    "external_ids": {
+      "sports_reference": "iowa"
+    },
+    "logo": "teams/logos/iowa_logo.png",
+    "primary_color": "FFCD00",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 44,
+  "fields": {
+    "name": "Iowa State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Ames",
+    "state": "IA",
+    "country": "US",
+    "school_name": "Iowa State University",
+    "mascot": "Cyclones",
+    "external_ids": {
+      "sports_reference": "iowa-state"
+    },
+    "logo": "teams/logos/iowa-state_logo.png",
+    "primary_color": "C8102E",
+    "secondary_color": "F1BE48",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 45,
+  "fields": {
+    "name": "Jacksonville State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Jacksonville",
+    "state": "AL",
+    "country": "US",
+    "school_name": "Jacksonville State University",
+    "mascot": "Gamecocks",
+    "external_ids": {
+      "sports_reference": "jacksonville-state"
+    },
+    "logo": "teams/logos/jacksonville-state_logo.png",
+    "primary_color": "CC0000",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 46,
+  "fields": {
+    "name": "James Madison",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Harrisonburg",
+    "state": "VA",
+    "country": "US",
+    "school_name": "James Madison University",
+    "mascot": "Dukes",
+    "external_ids": {
+      "sports_reference": "james-madison"
+    },
+    "logo": "teams/logos/james-madison_logo.png",
+    "primary_color": "450084",
+    "secondary_color": "CBB677",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 47,
+  "fields": {
+    "name": "Kansas",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Lawrence",
+    "state": "KS",
+    "country": "US",
+    "school_name": "University of Kansas",
+    "mascot": "Jayhawks",
+    "external_ids": {
+      "sports_reference": "kansas"
+    },
+    "logo": "teams/logos/kansas_logo.png",
+    "primary_color": "0051BA",
+    "secondary_color": "E8000D",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 48,
+  "fields": {
+    "name": "Kansas State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Manhattan",
+    "state": "KS",
+    "country": "US",
+    "school_name": "Kansas State University",
+    "mascot": "Wildcats",
+    "external_ids": {
+      "sports_reference": "kansas-state"
+    },
+    "logo": "teams/logos/kansas-state_logo.png",
+    "primary_color": "512888",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 49,
+  "fields": {
+    "name": "Kennesaw State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Kennesaw",
+    "state": "GA",
+    "country": "US",
+    "school_name": "Kennesaw State University",
+    "mascot": "Owls",
+    "external_ids": {
+      "sports_reference": "kennesaw-state"
+    },
+    "logo": "teams/logos/kennesaw-state_logo.png",
+    "primary_color": "FDBB30",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 50,
+  "fields": {
+    "name": "Kent State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Kent",
+    "state": "OH",
+    "country": "US",
+    "school_name": "Kent State University",
+    "mascot": "Golden Flashes",
+    "external_ids": {
+      "sports_reference": "kent-state"
+    },
+    "logo": "teams/logos/kent-state_logo.png",
+    "primary_color": "002664",
+    "secondary_color": "EAAB00",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 51,
+  "fields": {
+    "name": "Kentucky",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Lexington",
+    "state": "KY",
+    "country": "US",
+    "school_name": "University of Kentucky",
+    "mascot": "Wildcats",
+    "external_ids": {
+      "sports_reference": "kentucky"
+    },
+    "logo": "teams/logos/kentucky_logo.png",
+    "primary_color": "0033A0",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 52,
+  "fields": {
+    "name": "Liberty",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Lynchburg",
+    "state": "VA",
+    "country": "US",
+    "school_name": "Liberty University",
+    "mascot": "Flames",
+    "external_ids": {
+      "sports_reference": "liberty"
+    },
+    "logo": "teams/logos/liberty_logo.png",
+    "primary_color": "002D62",
+    "secondary_color": "C41230",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 53,
+  "fields": {
+    "name": "Louisiana",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Lafayette",
+    "state": "LA",
+    "country": "US",
+    "school_name": "University of Louisiana at Lafayette",
+    "mascot": "Ragin' Cajuns",
+    "external_ids": {
+      "sports_reference": "louisiana-lafayette"
+    },
+    "logo": "teams/logos/louisiana-lafayette_logo.png",
+    "primary_color": "CE181E",
+    "secondary_color": "0A0A0A",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 54,
+  "fields": {
+    "name": "Louisiana Tech",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Ruston",
+    "state": "LA",
+    "country": "US",
+    "school_name": "Louisiana Tech University",
+    "mascot": "Bulldogs",
+    "external_ids": {
+      "sports_reference": "louisiana-tech"
+    },
+    "logo": "teams/logos/louisiana-tech_logo.png",
+    "primary_color": "002F8B",
+    "secondary_color": "E31B23",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 55,
+  "fields": {
+    "name": "Louisville",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Louisville",
+    "state": "KY",
+    "country": "US",
+    "school_name": "University of Louisville",
+    "mascot": "Cardinals",
+    "external_ids": {
+      "sports_reference": "louisville"
+    },
+    "logo": "teams/logos/louisville_logo.png",
+    "primary_color": "AD0000",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 56,
+  "fields": {
+    "name": "LSU",
+    "alternate_name": "Louisiana State",
+    "short_name": "",
+    "city": "Baton Rouge",
+    "state": "LA",
+    "country": "US",
+    "school_name": "Louisiana State University",
+    "mascot": "Tigers",
+    "external_ids": {
+      "sports_reference": "louisiana-state"
+    },
+    "logo": "teams/logos/louisiana-state_logo.png",
+    "primary_color": "461D7C",
+    "secondary_color": "FDD023",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 57,
+  "fields": {
+    "name": "Marshall",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Huntington",
+    "state": "WV",
+    "country": "US",
+    "school_name": "Marshall University",
+    "mascot": "Thundering Herd",
+    "external_ids": {
+      "sports_reference": "marshall"
+    },
+    "logo": "teams/logos/marshall_logo.png",
+    "primary_color": "00B140",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 58,
+  "fields": {
+    "name": "Maryland",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "College Park",
+    "state": "MD",
+    "country": "US",
+    "school_name": "University of Maryland, College Park",
+    "mascot": "Terrapins",
+    "external_ids": {
+      "sports_reference": "maryland"
+    },
+    "logo": "teams/logos/maryland_logo.png",
+    "primary_color": "E03A3E",
+    "secondary_color": "FFD520",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 59,
+  "fields": {
+    "name": "Memphis",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Memphis",
+    "state": "TN",
+    "country": "US",
+    "school_name": "University of Memphis",
+    "mascot": "Tigers",
+    "external_ids": {
+      "sports_reference": "memphis"
+    },
+    "logo": "teams/logos/memphis_logo.png",
+    "primary_color": "003087",
+    "secondary_color": "898D8D",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 60,
+  "fields": {
+    "name": "Miami (FL)",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Coral Gables",
+    "state": "FL",
+    "country": "US",
+    "school_name": "University of Miami",
+    "mascot": "Hurricanes",
+    "external_ids": {
+      "sports_reference": "miami-fl"
+    },
+    "logo": "teams/logos/miami-fl_logo.png",
+    "primary_color": "F47321",
+    "secondary_color": "005030",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 61,
+  "fields": {
+    "name": "Miami (OH)",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Oxford",
+    "state": "OH",
+    "country": "US",
+    "school_name": "Miami University",
+    "mascot": "RedHawks",
+    "external_ids": {
+      "sports_reference": "miami-oh"
+    },
+    "logo": "teams/logos/miami-oh_logo.png",
+    "primary_color": "C3142D",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 62,
+  "fields": {
+    "name": "Michigan",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Ann Arbor",
+    "state": "MI",
+    "country": "US",
+    "school_name": "University of Michigan",
+    "mascot": "Wolverines",
+    "external_ids": {
+      "sports_reference": "michigan"
+    },
+    "logo": "teams/logos/michigan_logo.png",
+    "primary_color": "00274C",
+    "secondary_color": "FFCB05",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 63,
+  "fields": {
+    "name": "Michigan State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "East Lansing",
+    "state": "MI",
+    "country": "US",
+    "school_name": "Michigan State University",
+    "mascot": "Spartans",
+    "external_ids": {
+      "sports_reference": "michigan-state"
+    },
+    "logo": "teams/logos/michigan-state_logo.png",
+    "primary_color": "18453B",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 64,
+  "fields": {
+    "name": "Middle Tennessee",
+    "alternate_name": "Middle Tennessee State",
+    "short_name": "",
+    "city": "Murfreesboro",
+    "state": "TN",
+    "country": "US",
+    "school_name": "Middle Tennessee State University",
+    "mascot": "Blue Raiders",
+    "external_ids": {
+      "sports_reference": "middle-tennessee-state"
+    },
+    "logo": "teams/logos/middle-tennessee-state_logo.png",
+    "primary_color": "0066CC",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 65,
+  "fields": {
+    "name": "Minnesota",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Minneapolis",
+    "state": "MN",
+    "country": "US",
+    "school_name": "University of Minnesota",
+    "mascot": "Golden Gophers",
+    "external_ids": {
+      "sports_reference": "minnesota"
+    },
+    "logo": "teams/logos/minnesota_logo.png",
+    "primary_color": "7A0019",
+    "secondary_color": "FFCC33",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 66,
+  "fields": {
+    "name": "Mississippi State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Starkville",
+    "state": "MS",
+    "country": "US",
+    "school_name": "Mississippi State University",
+    "mascot": "Bulldogs",
+    "external_ids": {
+      "sports_reference": "mississippi-state"
+    },
+    "logo": "teams/logos/mississippi-state_logo.png",
+    "primary_color": "660000",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 67,
+  "fields": {
+    "name": "Missouri",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Columbia",
+    "state": "MO",
+    "country": "US",
+    "school_name": "University of Missouri",
+    "mascot": "Tigers",
+    "external_ids": {
+      "sports_reference": "missouri"
+    },
+    "logo": "teams/logos/missouri_logo.png",
+    "primary_color": "F1B82D",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 68,
+  "fields": {
+    "name": "Missouri State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Springfield",
+    "state": "MO",
+    "country": "US",
+    "school_name": "Missouri State University",
+    "mascot": "Bears",
+    "external_ids": {
+      "sports_reference": "missouri-state"
+    },
+    "logo": "teams/logos/missouri-state_logo.png",
+    "primary_color": "5E0009",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 69,
+  "fields": {
+    "name": "Navy",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Annapolis",
+    "state": "MD",
+    "country": "US",
+    "school_name": "United States Naval Academy",
+    "mascot": "Midshipmen",
+    "external_ids": {
+      "sports_reference": "navy"
+    },
+    "logo": "teams/logos/navy_logo.png",
+    "primary_color": "00205B",
+    "secondary_color": "C5B783",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 70,
+  "fields": {
+    "name": "NC State",
+    "alternate_name": "North Carolina State",
+    "short_name": "",
+    "city": "Raleigh",
+    "state": "NC",
+    "country": "US",
+    "school_name": "North Carolina State University",
+    "mascot": "Wolfpack",
+    "external_ids": {
+      "sports_reference": "north-carolina-state"
+    },
+    "logo": "teams/logos/north-carolina-state_logo.png",
+    "primary_color": "CC0000",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 71,
+  "fields": {
+    "name": "Nebraska",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Lincoln",
+    "state": "NE",
+    "country": "US",
+    "school_name": "University of Nebraska–Lincoln",
+    "mascot": "Cornhuskers",
+    "external_ids": {
+      "sports_reference": "nebraska"
+    },
+    "logo": "teams/logos/nebraska_logo.png",
+    "primary_color": "E41C38",
+    "secondary_color": "F5F1E7",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 72,
+  "fields": {
+    "name": "Nevada",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Reno",
+    "state": "NV",
+    "country": "US",
+    "school_name": "University of Nevada, Reno",
+    "mascot": "Wolf Pack",
+    "external_ids": {
+      "sports_reference": "nevada"
+    },
+    "logo": "teams/logos/nevada_logo.png",
+    "primary_color": "003366",
+    "secondary_color": "807F84",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 73,
+  "fields": {
+    "name": "New Mexico",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Albuquerque",
+    "state": "NM",
+    "country": "US",
+    "school_name": "University of New Mexico",
+    "mascot": "Lobos",
+    "external_ids": {
+      "sports_reference": "new-mexico"
+    },
+    "logo": "teams/logos/new-mexico_logo.png",
+    "primary_color": "BA0C2F",
+    "secondary_color": "63666A",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 74,
+  "fields": {
+    "name": "New Mexico State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Las Cruces",
+    "state": "NM",
+    "country": "US",
+    "school_name": "New Mexico State University",
+    "mascot": "Aggies",
+    "external_ids": {
+      "sports_reference": "new-mexico-state"
+    },
+    "logo": "teams/logos/new-mexico-state_logo.png",
+    "primary_color": "891216",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 75,
+  "fields": {
+    "name": "North Carolina",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Chapel Hill",
+    "state": "NC",
+    "country": "US",
+    "school_name": "University of North Carolina at Chapel Hill",
+    "mascot": "Tar Heels",
+    "external_ids": {
+      "sports_reference": "north-carolina"
+    },
+    "logo": "teams/logos/north-carolina_logo.png",
+    "primary_color": "7BAFD4",
+    "secondary_color": "13294B",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 76,
+  "fields": {
+    "name": "North Texas",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Denton",
+    "state": "TX",
+    "country": "US",
+    "school_name": "University of North Texas",
+    "mascot": "Mean Green",
+    "external_ids": {
+      "sports_reference": "north-texas"
+    },
+    "logo": "teams/logos/north-texas_logo.png",
+    "primary_color": "00853E",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 77,
+  "fields": {
+    "name": "Northern Illinois",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "DeKalb",
+    "state": "IL",
+    "country": "US",
+    "school_name": "Northern Illinois University",
+    "mascot": "Huskies",
+    "external_ids": {
+      "sports_reference": "northern-illinois"
+    },
+    "logo": "teams/logos/northern-illinois_logo.png",
+    "primary_color": "BA0C2F",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 78,
+  "fields": {
+    "name": "Northwestern",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Evanston",
+    "state": "IL",
+    "country": "US",
+    "school_name": "Northwestern University",
+    "mascot": "Wildcats",
+    "external_ids": {
+      "sports_reference": "northwestern"
+    },
+    "logo": "teams/logos/northwestern_logo.png",
+    "primary_color": "4E2A84",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 79,
+  "fields": {
+    "name": "Notre Dame",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "South Bend",
+    "state": "IN",
+    "country": "US",
+    "school_name": "University of Notre Dame",
+    "mascot": "Fighting Irish",
+    "external_ids": {
+      "sports_reference": "notre-dame"
+    },
+    "logo": "teams/logos/notre-dame_logo.png",
+    "primary_color": "0C2340",
+    "secondary_color": "C99700",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 80,
+  "fields": {
+    "name": "Ohio",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Athens",
+    "state": "OH",
+    "country": "US",
+    "school_name": "Ohio University",
+    "mascot": "Bobcats",
+    "external_ids": {
+      "sports_reference": "ohio"
+    },
+    "logo": "teams/logos/ohio_logo.png",
+    "primary_color": "00694E",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 81,
+  "fields": {
+    "name": "Ohio State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Columbus",
+    "state": "OH",
+    "country": "US",
+    "school_name": "Ohio State University",
+    "mascot": "Buckeyes",
+    "external_ids": {
+      "sports_reference": "ohio-state"
+    },
+    "logo": "teams/logos/ohio-state_logo.png",
+    "primary_color": "BB0000",
+    "secondary_color": "666666",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 82,
+  "fields": {
+    "name": "Oklahoma",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Norman",
+    "state": "OK",
+    "country": "US",
+    "school_name": "University of Oklahoma",
+    "mascot": "Sooners",
+    "external_ids": {
+      "sports_reference": "oklahoma"
+    },
+    "logo": "teams/logos/oklahoma_logo.png",
+    "primary_color": "841617",
+    "secondary_color": "FDF9D8",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 83,
+  "fields": {
+    "name": "Oklahoma State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Stillwater",
+    "state": "OK",
+    "country": "US",
+    "school_name": "Oklahoma State University–Stillwater",
+    "mascot": "Cowboys",
+    "external_ids": {
+      "sports_reference": "oklahoma-state"
+    },
+    "logo": "teams/logos/oklahoma-state_logo.png",
+    "primary_color": "FF7300",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 84,
+  "fields": {
+    "name": "Old Dominion",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Norfolk",
+    "state": "VA",
+    "country": "US",
+    "school_name": "Old Dominion University",
+    "mascot": "Monarchs",
+    "external_ids": {
+      "sports_reference": "old-dominion"
+    },
+    "logo": "teams/logos/old-dominion_logo.png",
+    "primary_color": "003057",
+    "secondary_color": "7C878E",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 85,
+  "fields": {
+    "name": "Ole Miss",
+    "alternate_name": "Mississippi",
+    "short_name": "",
+    "city": "Oxford",
+    "state": "MS",
+    "country": "US",
+    "school_name": "University of Mississippi",
+    "mascot": "Rebels",
+    "external_ids": {
+      "sports_reference": "mississippi"
+    },
+    "logo": "teams/logos/mississippi_logo.png",
+    "primary_color": "CE1126",
+    "secondary_color": "14213D",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 86,
+  "fields": {
+    "name": "Oregon",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Eugene",
+    "state": "OR",
+    "country": "US",
+    "school_name": "University of Oregon",
+    "mascot": "Ducks",
+    "external_ids": {
+      "sports_reference": "oregon"
+    },
+    "logo": "teams/logos/oregon_logo.png",
+    "primary_color": "154733",
+    "secondary_color": "FEE123",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 87,
+  "fields": {
+    "name": "Oregon State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Corvallis",
+    "state": "OR",
+    "country": "US",
+    "school_name": "Oregon State University",
+    "mascot": "Beavers",
+    "external_ids": {
+      "sports_reference": "oregon-state"
+    },
+    "logo": "teams/logos/oregon-state_logo.png",
+    "primary_color": "D73F09",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 88,
+  "fields": {
+    "name": "Penn State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "University Park",
+    "state": "PA",
+    "country": "US",
+    "school_name": "Pennsylvania State University",
+    "mascot": "Nittany Lions",
+    "external_ids": {
+      "sports_reference": "penn-state"
+    },
+    "logo": "teams/logos/penn-state_logo.png",
+    "primary_color": "041E42",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 89,
+  "fields": {
+    "name": "Pittsburgh",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Pittsburgh",
+    "state": "PA",
+    "country": "US",
+    "school_name": "University of Pittsburgh",
+    "mascot": "Panthers",
+    "external_ids": {
+      "sports_reference": "pittsburgh"
+    },
+    "logo": "teams/logos/pittsburgh_logo.png",
+    "primary_color": "003594",
+    "secondary_color": "FFB81C",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 90,
+  "fields": {
+    "name": "Purdue",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "West Lafayette",
+    "state": "IN",
+    "country": "US",
+    "school_name": "Purdue University",
+    "mascot": "Boilermakers",
+    "external_ids": {
+      "sports_reference": "purdue"
+    },
+    "logo": "teams/logos/purdue_logo.png",
+    "primary_color": "CEB888",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 91,
+  "fields": {
+    "name": "Rice",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Houston",
+    "state": "TX",
+    "country": "US",
+    "school_name": "Rice University",
+    "mascot": "Owls",
+    "external_ids": {
+      "sports_reference": "rice"
+    },
+    "logo": "teams/logos/rice_logo.png",
+    "primary_color": "00205B",
+    "secondary_color": "5E6A71",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 92,
+  "fields": {
+    "name": "Rutgers",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Piscataway",
+    "state": "NJ",
+    "country": "US",
+    "school_name": "Rutgers University–New Brunswick",
+    "mascot": "Scarlet Knights",
+    "external_ids": {
+      "sports_reference": "rutgers"
+    },
+    "logo": "teams/logos/rutgers_logo.png",
+    "primary_color": "CC0033",
+    "secondary_color": "5F6A72",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 93,
+  "fields": {
+    "name": "Sam Houston",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Huntsville",
+    "state": "TX",
+    "country": "US",
+    "school_name": "Sam Houston State University",
+    "mascot": "Bearkats",
+    "external_ids": {
+      "sports_reference": "sam-houston-state"
+    },
+    "logo": "teams/logos/sam-houston-state_logo.png",
+    "primary_color": "F58025",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 94,
+  "fields": {
+    "name": "San Diego State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "San Diego",
+    "state": "CA",
+    "country": "US",
+    "school_name": "San Diego State University",
+    "mascot": "Aztecs",
+    "external_ids": {
+      "sports_reference": "san-diego-state"
+    },
+    "logo": "teams/logos/san-diego-state_logo.png",
+    "primary_color": "A6192E",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 95,
+  "fields": {
+    "name": "San Jose State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "San Jose",
+    "state": "CA",
+    "country": "US",
+    "school_name": "San Jose State University",
+    "mascot": "Spartans",
+    "external_ids": {
+      "sports_reference": "san-jose-state"
+    },
+    "logo": "teams/logos/san-jose-state_logo.png",
+    "primary_color": "0055A2",
+    "secondary_color": "E5A823",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 96,
+  "fields": {
+    "name": "SMU",
+    "alternate_name": "Southern Methodist",
+    "short_name": "",
+    "city": "University Park",
+    "state": "TX",
+    "country": "US",
+    "school_name": "Southern Methodist University",
+    "mascot": "Mustangs",
+    "external_ids": {
+      "sports_reference": "southern-methodist"
+    },
+    "logo": "teams/logos/southern-methodist_logo.png",
+    "primary_color": "0033A0",
+    "secondary_color": "C8102E",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 97,
+  "fields": {
+    "name": "South Alabama",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Mobile",
+    "state": "AL",
+    "country": "US",
+    "school_name": "University of South Alabama",
+    "mascot": "Jaguars",
+    "external_ids": {
+      "sports_reference": "south-alabama"
+    },
+    "logo": "teams/logos/south-alabama_logo.png",
+    "primary_color": "00205B",
+    "secondary_color": "BF0D3E",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 98,
+  "fields": {
+    "name": "South Carolina",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Columbia",
+    "state": "SC",
+    "country": "US",
+    "school_name": "University of South Carolina",
+    "mascot": "Gamecocks",
+    "external_ids": {
+      "sports_reference": "south-carolina"
+    },
+    "logo": "teams/logos/south-carolina_logo.png",
+    "primary_color": "73000A",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 99,
+  "fields": {
+    "name": "South Florida",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Tampa",
+    "state": "FL",
+    "country": "US",
+    "school_name": "University of South Florida",
+    "mascot": "Bulls",
+    "external_ids": {
+      "sports_reference": "south-florida"
+    },
+    "logo": "teams/logos/south-florida_logo.png",
+    "primary_color": "006747",
+    "secondary_color": "CFC493",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 100,
+  "fields": {
+    "name": "Southern Miss",
+    "alternate_name": "Southern Mississippi",
+    "short_name": "",
+    "city": "Hattiesburg",
+    "state": "MS",
+    "country": "US",
+    "school_name": "University of Southern Mississippi",
+    "mascot": "Golden Eagles",
+    "external_ids": {
+      "sports_reference": "southern-mississippi"
+    },
+    "logo": "teams/logos/southern-mississippi_logo.png",
+    "primary_color": "FFAB00",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 102,
+  "fields": {
+    "name": "Syracuse",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Syracuse",
+    "state": "NY",
+    "country": "US",
+    "school_name": "Syracuse University",
+    "mascot": "Orange",
+    "external_ids": {
+      "sports_reference": "syracuse"
+    },
+    "logo": "teams/logos/syracuse_logo.png",
+    "primary_color": "F76900",
+    "secondary_color": "002244",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 103,
+  "fields": {
+    "name": "TCU",
+    "alternate_name": "Texas Christian",
+    "short_name": "",
+    "city": "Fort Worth",
+    "state": "TX",
+    "country": "US",
+    "school_name": "Texas Christian University",
+    "mascot": "Horned Frogs",
+    "external_ids": {
+      "sports_reference": "texas-christian"
+    },
+    "logo": "teams/logos/texas-christian_logo.png",
+    "primary_color": "4D1979",
+    "secondary_color": "A3A9AC",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 105,
+  "fields": {
+    "name": "Tennessee",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Knoxville",
+    "state": "TN",
+    "country": "US",
+    "school_name": "University of Tennessee",
+    "mascot": "Volunteers",
+    "external_ids": {
+      "sports_reference": "tennessee"
+    },
+    "logo": "teams/logos/tennessee_logo.png",
+    "primary_color": "FF8200",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 106,
+  "fields": {
+    "name": "Texas",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Austin",
+    "state": "TX",
+    "country": "US",
+    "school_name": "University of Texas at Austin",
+    "mascot": "Longhorns",
+    "external_ids": {
+      "sports_reference": "texas"
+    },
+    "logo": "teams/logos/texas_logo.png",
+    "primary_color": "BF5700",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 107,
+  "fields": {
+    "name": "Texas A&M",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "College Station",
+    "state": "TX",
+    "country": "US",
+    "school_name": "Texas A&M University",
+    "mascot": "Aggies",
+    "external_ids": {
+      "sports_reference": "texas-am"
+    },
+    "logo": "teams/logos/texas-am_logo.png",
+    "primary_color": "500000",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 108,
+  "fields": {
+    "name": "Texas State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "San Marcos",
+    "state": "TX",
+    "country": "US",
+    "school_name": "Texas State University",
+    "mascot": "Bobcats",
+    "external_ids": {
+      "sports_reference": "texas-state"
+    },
+    "logo": "teams/logos/texas-state_logo.png",
+    "primary_color": "501214",
+    "secondary_color": "8D734A",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 109,
+  "fields": {
+    "name": "Texas Tech",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Lubbock",
+    "state": "TX",
+    "country": "US",
+    "school_name": "Texas Tech University",
+    "mascot": "Red Raiders",
+    "external_ids": {
+      "sports_reference": "texas-tech"
+    },
+    "logo": "teams/logos/texas-tech_logo.png",
+    "primary_color": "CC0000",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 110,
+  "fields": {
+    "name": "Toledo",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Toledo",
+    "state": "OH",
+    "country": "US",
+    "school_name": "University of Toledo",
+    "mascot": "Rockets",
+    "external_ids": {
+      "sports_reference": "toledo"
+    },
+    "logo": "teams/logos/toledo_logo.png",
+    "primary_color": "15397F",
+    "secondary_color": "FFD200",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 111,
+  "fields": {
+    "name": "Troy",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Troy",
+    "state": "AL",
+    "country": "US",
+    "school_name": "Troy University",
+    "mascot": "Trojans",
+    "external_ids": {
+      "sports_reference": "troy"
+    },
+    "logo": "teams/logos/troy_logo.png",
+    "primary_color": "8A2432",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 112,
+  "fields": {
+    "name": "Tulane",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "New Orleans",
+    "state": "LA",
+    "country": "US",
+    "school_name": "Tulane University",
+    "mascot": "Green Wave",
+    "external_ids": {
+      "sports_reference": "tulane"
+    },
+    "logo": "teams/logos/tulane_logo.png",
+    "primary_color": "006747",
+    "secondary_color": "87CEEB",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 113,
+  "fields": {
+    "name": "Tulsa",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Tulsa",
+    "state": "OK",
+    "country": "US",
+    "school_name": "University of Tulsa",
+    "mascot": "Golden Hurricane",
+    "external_ids": {
+      "sports_reference": "tulsa"
+    },
+    "logo": "teams/logos/tulsa_logo.png",
+    "primary_color": "002D72",
+    "secondary_color": "C8A052",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 114,
+  "fields": {
+    "name": "UAB",
+    "alternate_name": "Alabama-Birmingham",
+    "short_name": "",
+    "city": "Birmingham",
+    "state": "AL",
+    "country": "US",
+    "school_name": "University of Alabama at Birmingham",
+    "mascot": "Blazers",
+    "external_ids": {
+      "sports_reference": "alabama-birmingham"
+    },
+    "logo": "teams/logos/alabama-birmingham_logo.png",
+    "primary_color": "1E6B52",
+    "secondary_color": "D4A017",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 116,
+  "fields": {
+    "name": "UCLA",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Los Angeles",
+    "state": "CA",
+    "country": "US",
+    "school_name": "University of California, Los Angeles",
+    "mascot": "Bruins",
+    "external_ids": {
+      "sports_reference": "ucla"
+    },
+    "logo": "teams/logos/ucla_logo.png",
+    "primary_color": "2D68C4",
+    "secondary_color": "F2A900",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 118,
+  "fields": {
+    "name": "ULM",
+    "alternate_name": "Louisiana-Monroe",
+    "short_name": "",
+    "city": "Monroe",
+    "state": "LA",
+    "country": "US",
+    "school_name": "University of Louisiana at Monroe",
+    "mascot": "Warhawks",
+    "external_ids": {
+      "sports_reference": "louisiana-monroe"
+    },
+    "logo": "teams/logos/louisiana-monroe_logo.png",
+    "primary_color": "840029",
+    "secondary_color": "FFC82E",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 121,
+  "fields": {
+    "name": "USC",
+    "alternate_name": "Southern California",
+    "short_name": "",
+    "city": "Los Angeles",
+    "state": "CA",
+    "country": "US",
+    "school_name": "University of Southern California",
+    "mascot": "Trojans",
+    "external_ids": {
+      "sports_reference": "southern-california"
+    },
+    "logo": "teams/logos/southern-california_logo.png",
+    "primary_color": "990000",
+    "secondary_color": "FFC72C",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 122,
+  "fields": {
+    "name": "Utah",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Salt Lake City",
+    "state": "UT",
+    "country": "US",
+    "school_name": "University of Utah",
+    "mascot": "Utes",
+    "external_ids": {
+      "sports_reference": "utah"
+    },
+    "logo": "teams/logos/utah_logo.png",
+    "primary_color": "CC0000",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 123,
+  "fields": {
+    "name": "Utah State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Logan",
+    "state": "UT",
+    "country": "US",
+    "school_name": "Utah State University",
+    "mascot": "Aggies",
+    "external_ids": {
+      "sports_reference": "utah-state"
+    },
+    "logo": "teams/logos/utah-state_logo.png",
+    "primary_color": "0F2439",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 124,
+  "fields": {
+    "name": "UTEP",
+    "alternate_name": "Texas-El Paso",
+    "short_name": "",
+    "city": "El Paso",
+    "state": "TX",
+    "country": "US",
+    "school_name": "University of Texas at El Paso",
+    "mascot": "Miners",
+    "external_ids": {
+      "sports_reference": "texas-el-paso"
+    },
+    "logo": "teams/logos/texas-el-paso_logo.png",
+    "primary_color": "FF8200",
+    "secondary_color": "041E42",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 125,
+  "fields": {
+    "name": "Stanford",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Stanford",
+    "state": "CA",
+    "country": "US",
+    "school_name": "Stanford University",
+    "mascot": "Cardinal",
+    "external_ids": {
+      "sports_reference": "stanford"
+    },
+    "logo": "teams/logos/stanford_logo.png",
+    "primary_color": "8C1515",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 126,
+  "fields": {
+    "name": "Temple",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Philadelphia",
+    "state": "PA",
+    "country": "US",
+    "school_name": "Temple University",
+    "mascot": "Owls",
+    "external_ids": {
+      "sports_reference": "temple"
+    },
+    "logo": "teams/logos/temple_logo.png",
+    "primary_color": "9D2235",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 127,
+  "fields": {
+    "name": "UCF",
+    "alternate_name": "Central Florida",
+    "short_name": "",
+    "city": "Orlando",
+    "state": "FL",
+    "country": "US",
+    "school_name": "University of Central Florida",
+    "mascot": "Knights",
+    "external_ids": {
+      "sports_reference": "central-florida"
+    },
+    "logo": "teams/logos/central-florida_logo.png",
+    "primary_color": "BA9B37",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 128,
+  "fields": {
+    "name": "UConn",
+    "alternate_name": "Connecticut",
+    "short_name": "",
+    "city": "Storrs",
+    "state": "CT",
+    "country": "US",
+    "school_name": "University of Connecticut",
+    "mascot": "Huskies",
+    "external_ids": {
+      "sports_reference": "connecticut"
+    },
+    "logo": "teams/logos/connecticut_logo.png",
+    "primary_color": "000E2F",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 129,
+  "fields": {
+    "name": "UMass",
+    "alternate_name": "Massachusetts",
+    "short_name": "",
+    "city": "Amherst",
+    "state": "MA",
+    "country": "US",
+    "school_name": "University of Massachusetts Amherst",
+    "mascot": "Minutemen",
+    "external_ids": {
+      "sports_reference": "massachusetts"
+    },
+    "logo": "teams/logos/massachusetts_logo.png",
+    "primary_color": "881C1C",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 130,
+  "fields": {
+    "name": "UNLV",
+    "alternate_name": "Nevada-Las Vegas",
+    "short_name": "",
+    "city": "Las Vegas",
+    "state": "NV",
+    "country": "US",
+    "school_name": "University of Nevada, Las Vegas",
+    "mascot": "Rebels",
+    "external_ids": {
+      "sports_reference": "nevada-las-vegas"
+    },
+    "logo": "teams/logos/nevada-las-vegas_logo.png",
+    "primary_color": "CF0A2C",
+    "secondary_color": "666666",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 131,
+  "fields": {
+    "name": "UTSA",
+    "alternate_name": "Texas-San Antonio",
+    "short_name": "",
+    "city": "San Antonio",
+    "state": "TX",
+    "country": "US",
+    "school_name": "University of Texas at San Antonio",
+    "mascot": "Roadrunners",
+    "external_ids": {
+      "sports_reference": "texas-san-antonio"
+    },
+    "logo": "teams/logos/texas-san-antonio_logo.png",
+    "primary_color": "0C2340",
+    "secondary_color": "F15A22",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 132,
+  "fields": {
+    "name": "Vanderbilt",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Nashville",
+    "state": "TN",
+    "country": "US",
+    "school_name": "Vanderbilt University",
+    "mascot": "Commodores",
+    "external_ids": {
+      "sports_reference": "vanderbilt"
+    },
+    "logo": "teams/logos/vanderbilt_logo.png",
+    "primary_color": "866D4B",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 133,
+  "fields": {
+    "name": "Virginia",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Charlottesville",
+    "state": "VA",
+    "country": "US",
+    "school_name": "University of Virginia",
+    "mascot": "Cavaliers",
+    "external_ids": {
+      "sports_reference": "virginia"
+    },
+    "logo": "teams/logos/virginia_logo.png",
+    "primary_color": "232D4B",
+    "secondary_color": "F84C1E",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 134,
+  "fields": {
+    "name": "Virginia Tech",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Blacksburg",
+    "state": "VA",
+    "country": "US",
+    "school_name": "Virginia Tech",
+    "mascot": "Hokies",
+    "external_ids": {
+      "sports_reference": "virginia-tech"
+    },
+    "logo": "teams/logos/virginia-tech_logo.png",
+    "primary_color": "630031",
+    "secondary_color": "CF4420",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 135,
+  "fields": {
+    "name": "Wake Forest",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Winston-Salem",
+    "state": "NC",
+    "country": "US",
+    "school_name": "Wake Forest University",
+    "mascot": "Demon Deacons",
+    "external_ids": {
+      "sports_reference": "wake-forest"
+    },
+    "logo": "teams/logos/wake-forest_logo.png",
+    "primary_color": "9E7E38",
+    "secondary_color": "000000",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 136,
+  "fields": {
+    "name": "Washington",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Seattle",
+    "state": "WA",
+    "country": "US",
+    "school_name": "University of Washington",
+    "mascot": "Huskies",
+    "external_ids": {
+      "sports_reference": "washington"
+    },
+    "logo": "teams/logos/washington_logo.png",
+    "primary_color": "4B2E83",
+    "secondary_color": "B7A57A",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 137,
+  "fields": {
+    "name": "Washington State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Pullman",
+    "state": "WA",
+    "country": "US",
+    "school_name": "Washington State University",
+    "mascot": "Cougars",
+    "external_ids": {
+      "sports_reference": "washington-state"
+    },
+    "logo": "teams/logos/washington-state_logo.png",
+    "primary_color": "A60F2D",
+    "secondary_color": "4D4D4D",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 138,
+  "fields": {
+    "name": "West Virginia",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Morgantown",
+    "state": "WV",
+    "country": "US",
+    "school_name": "West Virginia University",
+    "mascot": "Mountaineers",
+    "external_ids": {
+      "sports_reference": "west-virginia"
+    },
+    "logo": "teams/logos/west-virginia_logo.png",
+    "primary_color": "002855",
+    "secondary_color": "EAAA00",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 139,
+  "fields": {
+    "name": "Western Kentucky",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Bowling Green",
+    "state": "KY",
+    "country": "US",
+    "school_name": "Western Kentucky University",
+    "mascot": "Hilltoppers",
+    "external_ids": {
+      "sports_reference": "western-kentucky"
+    },
+    "logo": "teams/logos/western-kentucky_logo.png",
+    "primary_color": "C60C30",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 140,
+  "fields": {
+    "name": "Western Michigan",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Kalamazoo",
+    "state": "MI",
+    "country": "US",
+    "school_name": "Western Michigan University",
+    "mascot": "Broncos",
+    "external_ids": {
+      "sports_reference": "western-michigan"
+    },
+    "logo": "teams/logos/western-michigan_logo.png",
+    "primary_color": "6C4023",
+    "secondary_color": "B5A167",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 141,
+  "fields": {
+    "name": "Wisconsin",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Madison",
+    "state": "WI",
+    "country": "US",
+    "school_name": "University of Wisconsin–Madison",
+    "mascot": "Badgers",
+    "external_ids": {
+      "sports_reference": "wisconsin"
+    },
+    "logo": "teams/logos/wisconsin_logo.png",
+    "primary_color": "C5050C",
+    "secondary_color": "FFFFFF",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 142,
+  "fields": {
+    "name": "Wyoming",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Laramie",
+    "state": "WY",
+    "country": "US",
+    "school_name": "University of Wyoming",
+    "mascot": "Cowboys",
+    "external_ids": {
+      "sports_reference": "wyoming"
+    },
+    "logo": "teams/logos/wyoming_logo.png",
+    "primary_color": "492F24",
+    "secondary_color": "FFC425",
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 143,
+  "fields": {
+    "name": "Abilene Christian",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Abilene",
+    "state": "Texas",
+    "country": "US",
+    "school_name": "Abilene Christian University",
+    "mascot": "Wildcats",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 144,
+  "fields": {
+    "name": "Alabama A&M",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Normal",
+    "state": "Alabama",
+    "country": "US",
+    "school_name": "Alabama A&M University",
+    "mascot": "Bulldogs",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 145,
+  "fields": {
+    "name": "Alabama State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Montgomery",
+    "state": "Alabama",
+    "country": "US",
+    "school_name": "Alabama State University",
+    "mascot": "Hornets",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 146,
+  "fields": {
+    "name": "Albany",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Albany",
+    "state": "New York",
+    "country": "US",
+    "school_name": "State University of New York at Albany",
+    "mascot": "Great Danes",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 147,
+  "fields": {
+    "name": "Alcorn State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Lorman",
+    "state": "Mississippi",
+    "country": "US",
+    "school_name": "Alcorn State University",
+    "mascot": "Braves",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 148,
+  "fields": {
+    "name": "Arkansas-Pine Bluff",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Pine Bluff",
+    "state": "Arkansas",
+    "country": "US",
+    "school_name": "University of Arkansas at Pine Bluff",
+    "mascot": "Golden Lions",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 149,
+  "fields": {
+    "name": "Austin Peay",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Clarksville",
+    "state": "Tennessee",
+    "country": "US",
+    "school_name": "Austin Peay State University",
+    "mascot": "Governors",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 150,
+  "fields": {
+    "name": "Bethune-Cookman",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Daytona Beach",
+    "state": "Florida",
+    "country": "US",
+    "school_name": "Bethune–Cookman University",
+    "mascot": "Wildcats",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 151,
+  "fields": {
+    "name": "Brown",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Providence",
+    "state": "Rhode Island",
+    "country": "US",
+    "school_name": "Brown University",
+    "mascot": "Bears",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 152,
+  "fields": {
+    "name": "Bryant",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Smithfield",
+    "state": "Rhode Island",
+    "country": "US",
+    "school_name": "Bryant University",
+    "mascot": "Bulldogs",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 153,
+  "fields": {
+    "name": "Bucknell",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Lewisburg",
+    "state": "Pennsylvania",
+    "country": "US",
+    "school_name": "Bucknell University",
+    "mascot": "Bison",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 154,
+  "fields": {
+    "name": "Butler",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Indianapolis",
+    "state": "Indiana",
+    "country": "US",
+    "school_name": "Butler University",
+    "mascot": "Bulldogs",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 155,
+  "fields": {
+    "name": "Cal Poly",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "San Luis Obispo",
+    "state": "California",
+    "country": "US",
+    "school_name": "California Polytechnic State University",
+    "mascot": "Mustangs",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 156,
+  "fields": {
+    "name": "Campbell",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Buies Creek",
+    "state": "North Carolina",
+    "country": "US",
+    "school_name": "Campbell University",
+    "mascot": "Fighting Camels",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 157,
+  "fields": {
+    "name": "Central Arkansas",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Conway",
+    "state": "Arkansas",
+    "country": "US",
+    "school_name": "University of Central Arkansas",
+    "mascot": "Bears",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 158,
+  "fields": {
+    "name": "Central Connecticut",
+    "alternate_name": "Central Connecticut State",
+    "short_name": "",
+    "city": "New Britain",
+    "state": "Connecticut",
+    "country": "US",
+    "school_name": "Central Connecticut State University",
+    "mascot": "Blue Devils",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 159,
+  "fields": {
+    "name": "Charleston Southern",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "North Charleston",
+    "state": "South Carolina",
+    "country": "US",
+    "school_name": "Charleston Southern University",
+    "mascot": "Buccaneers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 160,
+  "fields": {
+    "name": "Chattanooga",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Chattanooga",
+    "state": "Tennessee",
+    "country": "US",
+    "school_name": "University of Tennessee at Chattanooga",
+    "mascot": "Mocs",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 161,
+  "fields": {
+    "name": "The Citadel",
+    "alternate_name": "Citadel",
+    "short_name": "",
+    "city": "Charleston",
+    "state": "South Carolina",
+    "country": "US",
+    "school_name": "The Citadel, The Military College of South Carolina",
+    "mascot": "Bulldogs",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 162,
+  "fields": {
+    "name": "Colgate",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Hamilton",
+    "state": "New York",
+    "country": "US",
+    "school_name": "Colgate University",
+    "mascot": "Raiders",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 163,
+  "fields": {
+    "name": "Columbia",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "New York",
+    "state": "New York",
+    "country": "US",
+    "school_name": "Columbia University",
+    "mascot": "Lions",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 164,
+  "fields": {
+    "name": "Cornell",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Ithaca",
+    "state": "New York",
+    "country": "US",
+    "school_name": "Cornell University",
+    "mascot": "Big Red",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 165,
+  "fields": {
+    "name": "Dartmouth",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Hanover",
+    "state": "New Hampshire",
+    "country": "US",
+    "school_name": "Dartmouth College",
+    "mascot": "Big Green",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 166,
+  "fields": {
+    "name": "Davidson",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Davidson",
+    "state": "North Carolina",
+    "country": "US",
+    "school_name": "Davidson College",
+    "mascot": "Wildcats",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 167,
+  "fields": {
+    "name": "Dayton",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Dayton",
+    "state": "Ohio",
+    "country": "US",
+    "school_name": "University of Dayton",
+    "mascot": "Flyers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 168,
+  "fields": {
+    "name": "Delaware State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Dover",
+    "state": "Delaware",
+    "country": "US",
+    "school_name": "Delaware State University",
+    "mascot": "Hornets",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 169,
+  "fields": {
+    "name": "Drake",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Des Moines",
+    "state": "Iowa",
+    "country": "US",
+    "school_name": "Drake University",
+    "mascot": "Bulldogs",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 170,
+  "fields": {
+    "name": "Duquesne",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Pittsburgh",
+    "state": "Pennsylvania",
+    "country": "US",
+    "school_name": "Duquesne University",
+    "mascot": "Dukes",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 171,
+  "fields": {
+    "name": "East Tennessee State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Johnson City",
+    "state": "Tennessee",
+    "country": "US",
+    "school_name": "East Tennessee State University",
+    "mascot": "Buccaneers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 172,
+  "fields": {
+    "name": "East Texas A&M",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Commerce",
+    "state": "Texas",
+    "country": "US",
+    "school_name": "East Texas A&M University",
+    "mascot": "Lions",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 173,
+  "fields": {
+    "name": "Eastern Illinois",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Charleston",
+    "state": "Illinois",
+    "country": "US",
+    "school_name": "Eastern Illinois University",
+    "mascot": "Panthers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 174,
+  "fields": {
+    "name": "Eastern Kentucky",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Richmond",
+    "state": "Kentucky",
+    "country": "US",
+    "school_name": "Eastern Kentucky University",
+    "mascot": "Colonels",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 175,
+  "fields": {
+    "name": "Eastern Washington",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Cheney",
+    "state": "Washington",
+    "country": "US",
+    "school_name": "Eastern Washington University",
+    "mascot": "Eagles",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 176,
+  "fields": {
+    "name": "Elon",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Elon",
+    "state": "North Carolina",
+    "country": "US",
+    "school_name": "Elon University",
+    "mascot": "Phoenix",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 177,
+  "fields": {
+    "name": "Florida A&M",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Tallahassee",
+    "state": "Florida",
+    "country": "US",
+    "school_name": "Florida A&M University",
+    "mascot": "Rattlers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 178,
+  "fields": {
+    "name": "Fordham",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "New York",
+    "state": "New York",
+    "country": "US",
+    "school_name": "Fordham University",
+    "mascot": "Rams",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 179,
+  "fields": {
+    "name": "Furman",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Greenville",
+    "state": "South Carolina",
+    "country": "US",
+    "school_name": "Furman University",
+    "mascot": "Paladins",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 180,
+  "fields": {
+    "name": "Gardner-Webb",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Boiling Springs",
+    "state": "North Carolina",
+    "country": "US",
+    "school_name": "Gardner–Webb University",
+    "mascot": "Runnin' Bulldogs",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 181,
+  "fields": {
+    "name": "Georgetown",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Washington",
+    "state": "District of Columbia",
+    "country": "US",
+    "school_name": "Georgetown University",
+    "mascot": "Hoyas",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 182,
+  "fields": {
+    "name": "Grambling State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Grambling",
+    "state": "Louisiana",
+    "country": "US",
+    "school_name": "Grambling State University",
+    "mascot": "Tigers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 183,
+  "fields": {
+    "name": "Hampton",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Hampton",
+    "state": "Virginia",
+    "country": "US",
+    "school_name": "Hampton University",
+    "mascot": "Pirates",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 184,
+  "fields": {
+    "name": "Harvard",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Cambridge",
+    "state": "Massachusetts",
+    "country": "US",
+    "school_name": "Harvard University",
+    "mascot": "Crimson",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 185,
+  "fields": {
+    "name": "Holy Cross",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Worcester",
+    "state": "Massachusetts",
+    "country": "US",
+    "school_name": "College of the Holy Cross",
+    "mascot": "Crusaders",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 186,
+  "fields": {
+    "name": "Houston Christian",
+    "alternate_name": "Houston Baptist",
+    "short_name": "",
+    "city": "Houston",
+    "state": "Texas",
+    "country": "US",
+    "school_name": "Houston Christian University",
+    "mascot": "Huskies",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 187,
+  "fields": {
+    "name": "Howard",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Washington",
+    "state": "District of Columbia",
+    "country": "US",
+    "school_name": "Howard University",
+    "mascot": "Bison",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 188,
+  "fields": {
+    "name": "Idaho",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Moscow",
+    "state": "Idaho",
+    "country": "US",
+    "school_name": "University of Idaho",
+    "mascot": "Vandals",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 189,
+  "fields": {
+    "name": "Idaho State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Pocatello",
+    "state": "Idaho",
+    "country": "US",
+    "school_name": "Idaho State University",
+    "mascot": "Bengals",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 190,
+  "fields": {
+    "name": "Illinois State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Normal",
+    "state": "Illinois",
+    "country": "US",
+    "school_name": "Illinois State University",
+    "mascot": "Redbirds",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 191,
+  "fields": {
+    "name": "Incarnate Word",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "San Antonio",
+    "state": "Texas",
+    "country": "US",
+    "school_name": "University of the Incarnate Word",
+    "mascot": "Cardinals",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 192,
+  "fields": {
+    "name": "Indiana State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Terre Haute",
+    "state": "Indiana",
+    "country": "US",
+    "school_name": "Indiana State University",
+    "mascot": "Sycamores",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 193,
+  "fields": {
+    "name": "Jackson State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Jackson",
+    "state": "Mississippi",
+    "country": "US",
+    "school_name": "Jackson State University",
+    "mascot": "Tigers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 194,
+  "fields": {
+    "name": "Lafayette",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Easton",
+    "state": "Pennsylvania",
+    "country": "US",
+    "school_name": "Lafayette College",
+    "mascot": "Leopards",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 195,
+  "fields": {
+    "name": "Lamar",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Beaumont",
+    "state": "Texas",
+    "country": "US",
+    "school_name": "Lamar University",
+    "mascot": "Cardinals",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 196,
+  "fields": {
+    "name": "Lehigh",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Bethlehem",
+    "state": "Pennsylvania",
+    "country": "US",
+    "school_name": "Lehigh University",
+    "mascot": "Mountain Hawks",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 197,
+  "fields": {
+    "name": "Lindenwood",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "St. Charles",
+    "state": "Missouri",
+    "country": "US",
+    "school_name": "Lindenwood University",
+    "mascot": "Lions",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 198,
+  "fields": {
+    "name": "LIU",
+    "alternate_name": "Long Island",
+    "short_name": "",
+    "city": "Brookville",
+    "state": "New York",
+    "country": "US",
+    "school_name": "Long Island University",
+    "mascot": "Sharks",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 199,
+  "fields": {
+    "name": "Maine",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Orono",
+    "state": "Maine",
+    "country": "US",
+    "school_name": "University of Maine",
+    "mascot": "Black Bears",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 200,
+  "fields": {
+    "name": "Marist",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Poughkeepsie",
+    "state": "New York",
+    "country": "US",
+    "school_name": "Marist University",
+    "mascot": "Red Foxes",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 201,
+  "fields": {
+    "name": "McNeese",
+    "alternate_name": "McNeese State",
+    "short_name": "",
+    "city": "Lake Charles",
+    "state": "Louisiana",
+    "country": "US",
+    "school_name": "McNeese State University",
+    "mascot": "Cowboys",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 202,
+  "fields": {
+    "name": "Mercer",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Macon",
+    "state": "Georgia",
+    "country": "US",
+    "school_name": "Mercer University",
+    "mascot": "Bears",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 203,
+  "fields": {
+    "name": "Merrimack",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "North Andover",
+    "state": "Massachusetts",
+    "country": "US",
+    "school_name": "Merrimack College",
+    "mascot": "Warriors",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 204,
+  "fields": {
+    "name": "Mississippi Valley State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Itta Bena",
+    "state": "Mississippi",
+    "country": "US",
+    "school_name": "Mississippi Valley State University",
+    "mascot": "Delta Devils",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 205,
+  "fields": {
+    "name": "Monmouth",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "West Long Branch",
+    "state": "New Jersey",
+    "country": "US",
+    "school_name": "Monmouth University",
+    "mascot": "Hawks",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 206,
+  "fields": {
+    "name": "Montana",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Missoula",
+    "state": "Montana",
+    "country": "US",
+    "school_name": "University of Montana",
+    "mascot": "Grizzlies",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 207,
+  "fields": {
+    "name": "Montana State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Bozeman",
+    "state": "Montana",
+    "country": "US",
+    "school_name": "Montana State University",
+    "mascot": "Bobcats",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 208,
+  "fields": {
+    "name": "Morehead State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Morehead",
+    "state": "Kentucky",
+    "country": "US",
+    "school_name": "Morehead State University",
+    "mascot": "Eagles",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 209,
+  "fields": {
+    "name": "Morgan State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Baltimore",
+    "state": "Maryland",
+    "country": "US",
+    "school_name": "Morgan State University",
+    "mascot": "Bears",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 210,
+  "fields": {
+    "name": "Murray State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Murray",
+    "state": "Kentucky",
+    "country": "US",
+    "school_name": "Murray State University",
+    "mascot": "Racers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 211,
+  "fields": {
+    "name": "New Hampshire",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Durham",
+    "state": "New Hampshire",
+    "country": "US",
+    "school_name": "University of New Hampshire",
+    "mascot": "Wildcats",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 212,
+  "fields": {
+    "name": "Nicholls",
+    "alternate_name": "Nicholls State",
+    "short_name": "",
+    "city": "Thibodaux",
+    "state": "Louisiana",
+    "country": "US",
+    "school_name": "Nicholls State University",
+    "mascot": "Colonels",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 213,
+  "fields": {
+    "name": "Norfolk State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Norfolk",
+    "state": "Virginia",
+    "country": "US",
+    "school_name": "Norfolk State University",
+    "mascot": "Spartans",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 214,
+  "fields": {
+    "name": "North Alabama",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Florence",
+    "state": "Alabama",
+    "country": "US",
+    "school_name": "University of North Alabama",
+    "mascot": "Lions",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 215,
+  "fields": {
+    "name": "North Carolina A&T",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Greensboro",
+    "state": "North Carolina",
+    "country": "US",
+    "school_name": "North Carolina A&T State University",
+    "mascot": "Aggies",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 216,
+  "fields": {
+    "name": "North Carolina Central",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Durham",
+    "state": "North Carolina",
+    "country": "US",
+    "school_name": "North Carolina Central University",
+    "mascot": "Eagles",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 217,
+  "fields": {
+    "name": "North Dakota",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Grand Forks",
+    "state": "North Dakota",
+    "country": "US",
+    "school_name": "University of North Dakota",
+    "mascot": "Fighting Hawks",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 218,
+  "fields": {
+    "name": "North Dakota State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Fargo",
+    "state": "North Dakota",
+    "country": "US",
+    "school_name": "North Dakota State University",
+    "mascot": "Bison",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 219,
+  "fields": {
+    "name": "Northern Arizona",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Flagstaff",
+    "state": "Arizona",
+    "country": "US",
+    "school_name": "Northern Arizona University",
+    "mascot": "Lumberjacks",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 220,
+  "fields": {
+    "name": "Northern Colorado",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Greeley",
+    "state": "Colorado",
+    "country": "US",
+    "school_name": "University of Northern Colorado",
+    "mascot": "Bears",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 221,
+  "fields": {
+    "name": "Northern Iowa",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Cedar Falls",
+    "state": "Iowa",
+    "country": "US",
+    "school_name": "University of Northern Iowa",
+    "mascot": "Panthers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 222,
+  "fields": {
+    "name": "Northwestern State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Natchitoches",
+    "state": "Louisiana",
+    "country": "US",
+    "school_name": "Northwestern State University",
+    "mascot": "Demons",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 223,
+  "fields": {
+    "name": "Penn",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Philadelphia",
+    "state": "Pennsylvania",
+    "country": "US",
+    "school_name": "University of Pennsylvania",
+    "mascot": "Quakers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 224,
+  "fields": {
+    "name": "Portland State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Portland",
+    "state": "Oregon",
+    "country": "US",
+    "school_name": "Portland State University",
+    "mascot": "Vikings",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 225,
+  "fields": {
+    "name": "Prairie View A&M",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Prairie View",
+    "state": "Texas",
+    "country": "US",
+    "school_name": "Prairie View A&M University",
+    "mascot": "Panthers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 226,
+  "fields": {
+    "name": "Presbyterian",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Clinton",
+    "state": "South Carolina",
+    "country": "US",
+    "school_name": "Presbyterian College",
+    "mascot": "Blue Hose",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 227,
+  "fields": {
+    "name": "Princeton",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Princeton",
+    "state": "New Jersey",
+    "country": "US",
+    "school_name": "Princeton University",
+    "mascot": "Tigers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 228,
+  "fields": {
+    "name": "Rhode Island",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Kingston",
+    "state": "Rhode Island",
+    "country": "US",
+    "school_name": "University of Rhode Island",
+    "mascot": "Rams",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 229,
+  "fields": {
+    "name": "Richmond",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Richmond",
+    "state": "Virginia",
+    "country": "US",
+    "school_name": "University of Richmond",
+    "mascot": "Spiders",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 230,
+  "fields": {
+    "name": "Robert Morris",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Moon Township",
+    "state": "Pennsylvania",
+    "country": "US",
+    "school_name": "Robert Morris University",
+    "mascot": "Colonials",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 231,
+  "fields": {
+    "name": "Sacramento State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Sacramento",
+    "state": "California",
+    "country": "US",
+    "school_name": "California State University, Sacramento",
+    "mascot": "Hornets",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 232,
+  "fields": {
+    "name": "Sacred Heart",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Fairfield",
+    "state": "Connecticut",
+    "country": "US",
+    "school_name": "Sacred Heart University",
+    "mascot": "Pioneers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 233,
+  "fields": {
+    "name": "Saint Francis (PA)",
+    "alternate_name": "St. Francis (PA)",
+    "short_name": "",
+    "city": "Loretto",
+    "state": "Pennsylvania",
+    "country": "US",
+    "school_name": "Saint Francis University",
+    "mascot": "Red Flash",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 234,
+  "fields": {
+    "name": "St. Thomas",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Saint Paul",
+    "state": "Minnesota",
+    "country": "US",
+    "school_name": "University of St. Thomas",
+    "mascot": "Tommies",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 235,
+  "fields": {
+    "name": "Samford",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Birmingham",
+    "state": "Alabama",
+    "country": "US",
+    "school_name": "Samford University",
+    "mascot": "Bulldogs",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 236,
+  "fields": {
+    "name": "San Diego",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "San Diego",
+    "state": "California",
+    "country": "US",
+    "school_name": "University of San Diego",
+    "mascot": "Toreros",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 237,
+  "fields": {
+    "name": "South Carolina State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Orangeburg",
+    "state": "South Carolina",
+    "country": "US",
+    "school_name": "South Carolina State University",
+    "mascot": "Bulldogs",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 238,
+  "fields": {
+    "name": "South Dakota",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Vermillion",
+    "state": "South Dakota",
+    "country": "US",
+    "school_name": "University of South Dakota",
+    "mascot": "Coyotes",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 239,
+  "fields": {
+    "name": "South Dakota State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Brookings",
+    "state": "South Dakota",
+    "country": "US",
+    "school_name": "South Dakota State University",
+    "mascot": "Jackrabbits",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 240,
+  "fields": {
+    "name": "Southeast Missouri State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Cape Girardeau",
+    "state": "Missouri",
+    "country": "US",
+    "school_name": "Southeast Missouri State University",
+    "mascot": "Redhawks",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 241,
+  "fields": {
+    "name": "Southeastern Louisiana",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Hammond",
+    "state": "Louisiana",
+    "country": "US",
+    "school_name": "Southeastern Louisiana University",
+    "mascot": "Lions",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 242,
+  "fields": {
+    "name": "Southern",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Baton Rouge",
+    "state": "Louisiana",
+    "country": "US",
+    "school_name": "Southern University",
+    "mascot": "Jaguars",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 243,
+  "fields": {
+    "name": "Southern Illinois",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Carbondale",
+    "state": "Illinois",
+    "country": "US",
+    "school_name": "Southern Illinois University Carbondale",
+    "mascot": "Salukis",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 244,
+  "fields": {
+    "name": "Southern Utah",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Cedar City",
+    "state": "Utah",
+    "country": "US",
+    "school_name": "Southern Utah University",
+    "mascot": "Thunderbirds",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 245,
+  "fields": {
+    "name": "Stephen F. Austin",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Nacogdoches",
+    "state": "Texas",
+    "country": "US",
+    "school_name": "Stephen F. Austin State University",
+    "mascot": "Lumberjacks",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 246,
+  "fields": {
+    "name": "Stetson",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "DeLand",
+    "state": "Florida",
+    "country": "US",
+    "school_name": "Stetson University",
+    "mascot": "Hatters",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 247,
+  "fields": {
+    "name": "Stonehill",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Easton",
+    "state": "Massachusetts",
+    "country": "US",
+    "school_name": "Stonehill College",
+    "mascot": "Skyhawks",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 248,
+  "fields": {
+    "name": "Stony Brook",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Stony Brook",
+    "state": "New York",
+    "country": "US",
+    "school_name": "Stony Brook University",
+    "mascot": "Seawolves",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 249,
+  "fields": {
+    "name": "Tarleton State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Stephenville",
+    "state": "Texas",
+    "country": "US",
+    "school_name": "Tarleton State University",
+    "mascot": "Texans",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 250,
+  "fields": {
+    "name": "Tennessee State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Nashville",
+    "state": "Tennessee",
+    "country": "US",
+    "school_name": "Tennessee State University",
+    "mascot": "Tigers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 251,
+  "fields": {
+    "name": "Tennessee Tech",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Cookeville",
+    "state": "Tennessee",
+    "country": "US",
+    "school_name": "Tennessee Technological University",
+    "mascot": "Golden Eagles",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 252,
+  "fields": {
+    "name": "Texas Southern",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Houston",
+    "state": "Texas",
+    "country": "US",
+    "school_name": "Texas Southern University",
+    "mascot": "Tigers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 253,
+  "fields": {
+    "name": "Towson",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Towson",
+    "state": "Maryland",
+    "country": "US",
+    "school_name": "Towson University",
+    "mascot": "Tigers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 254,
+  "fields": {
+    "name": "UC Davis",
+    "alternate_name": "California-Davis",
+    "short_name": "",
+    "city": "Davis",
+    "state": "California",
+    "country": "US",
+    "school_name": "University of California, Davis",
+    "mascot": "Aggies",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 255,
+  "fields": {
+    "name": "UT Martin",
+    "alternate_name": "Tennessee-Martin",
+    "short_name": "",
+    "city": "Martin",
+    "state": "Tennessee",
+    "country": "US",
+    "school_name": "University of Tennessee at Martin",
+    "mascot": "Skyhawks",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 256,
+  "fields": {
+    "name": "Utah Tech",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "St. George",
+    "state": "Utah",
+    "country": "US",
+    "school_name": "Utah Tech University",
+    "mascot": "Trailblazers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 257,
+  "fields": {
+    "name": "UTRGV",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Brownsville&Edinburg",
+    "state": "Texas",
+    "country": "US",
+    "school_name": "University of Texas Rio Grande Valley",
+    "mascot": "Vaqueros",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 258,
+  "fields": {
+    "name": "Valparaiso",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Valparaiso",
+    "state": "Indiana",
+    "country": "US",
+    "school_name": "Valparaiso University",
+    "mascot": "Beacons",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 259,
+  "fields": {
+    "name": "Villanova",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Villanova",
+    "state": "Pennsylvania",
+    "country": "US",
+    "school_name": "Villanova University",
+    "mascot": "Wildcats",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 260,
+  "fields": {
+    "name": "VMI",
+    "alternate_name": "Virginia Military Institute",
+    "short_name": "",
+    "city": "Lexington",
+    "state": "Virginia",
+    "country": "US",
+    "school_name": "Virginia Military Institute",
+    "mascot": "Keydets",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 261,
+  "fields": {
+    "name": "Wagner",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "New York",
+    "state": "New York",
+    "country": "US",
+    "school_name": "Wagner College",
+    "mascot": "Seahawks",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 262,
+  "fields": {
+    "name": "Weber State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Ogden",
+    "state": "Utah",
+    "country": "US",
+    "school_name": "Weber State University",
+    "mascot": "Wildcats",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 263,
+  "fields": {
+    "name": "Western Carolina",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Cullowhee",
+    "state": "North Carolina",
+    "country": "US",
+    "school_name": "Western Carolina University",
+    "mascot": "Catamounts",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 264,
+  "fields": {
+    "name": "Western Illinois",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Macomb",
+    "state": "Illinois",
+    "country": "US",
+    "school_name": "Western Illinois University",
+    "mascot": "Leathernecks",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 265,
+  "fields": {
+    "name": "William & Mary",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Williamsburg",
+    "state": "Virginia",
+    "country": "US",
+    "school_name": "College of William & Mary",
+    "mascot": "Tribe",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 266,
+  "fields": {
+    "name": "Wofford",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Spartanburg",
+    "state": "South Carolina",
+    "country": "US",
+    "school_name": "Wofford College",
+    "mascot": "Terriers",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 267,
+  "fields": {
+    "name": "Yale",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "New Haven",
+    "state": "Connecticut",
+    "country": "US",
+    "school_name": "Yale University",
+    "mascot": "Bulldogs",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+},
+{
+  "model": "archive.team",
+  "pk": 268,
+  "fields": {
+    "name": "Youngstown State",
+    "alternate_name": null,
+    "short_name": "",
+    "city": "Youngstown",
+    "state": "Ohio",
+    "country": "US",
+    "school_name": "Youngstown State University",
+    "mascot": "Penguins",
+    "external_ids": {},
+    "logo": "",
+    "primary_color": null,
+    "secondary_color": null,
+    "tertiary_color": null
+  }
+}
+]

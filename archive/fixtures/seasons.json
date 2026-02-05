@@ -1,0 +1,13 @@
+[
+{
+  "model": "archive.season",
+  "pk": 1,
+  "fields": {
+    "league": 4,
+    "year": 2025,
+    "label": "",
+    "start_date": "2025-08-23",
+    "end_date": "2026-01-19"
+  }
+}
+]

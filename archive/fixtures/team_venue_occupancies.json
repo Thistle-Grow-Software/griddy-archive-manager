@@ -1,0 +1,1362 @@
+[
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 1,
+  "fields": {
+    "team": 1,
+    "venue": 135,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 2,
+  "fields": {
+    "team": 2,
+    "venue": 1,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 3,
+  "fields": {
+    "team": 3,
+    "venue": 2,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 4,
+  "fields": {
+    "team": 4,
+    "venue": 3,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 5,
+  "fields": {
+    "team": 5,
+    "venue": 4,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 6,
+  "fields": {
+    "team": 6,
+    "venue": 5,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 7,
+  "fields": {
+    "team": 7,
+    "venue": 6,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 8,
+  "fields": {
+    "team": 8,
+    "venue": 7,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 9,
+  "fields": {
+    "team": 9,
+    "venue": 8,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 10,
+  "fields": {
+    "team": 10,
+    "venue": 9,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 11,
+  "fields": {
+    "team": 11,
+    "venue": 10,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 12,
+  "fields": {
+    "team": 12,
+    "venue": 11,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 13,
+  "fields": {
+    "team": 13,
+    "venue": 12,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 14,
+  "fields": {
+    "team": 14,
+    "venue": 13,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 15,
+  "fields": {
+    "team": 15,
+    "venue": 14,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 16,
+  "fields": {
+    "team": 16,
+    "venue": 15,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 17,
+  "fields": {
+    "team": 17,
+    "venue": 16,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 18,
+  "fields": {
+    "team": 18,
+    "venue": 17,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 19,
+  "fields": {
+    "team": 19,
+    "venue": 18,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 20,
+  "fields": {
+    "team": 20,
+    "venue": 19,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 21,
+  "fields": {
+    "team": 21,
+    "venue": 20,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 22,
+  "fields": {
+    "team": 22,
+    "venue": 21,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 23,
+  "fields": {
+    "team": 23,
+    "venue": 22,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 24,
+  "fields": {
+    "team": 24,
+    "venue": 23,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 25,
+  "fields": {
+    "team": 25,
+    "venue": 24,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 26,
+  "fields": {
+    "team": 26,
+    "venue": 25,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 27,
+  "fields": {
+    "team": 27,
+    "venue": 26,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 28,
+  "fields": {
+    "team": 28,
+    "venue": 27,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 29,
+  "fields": {
+    "team": 29,
+    "venue": 28,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 30,
+  "fields": {
+    "team": 32,
+    "venue": 30,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 31,
+  "fields": {
+    "team": 30,
+    "venue": 29,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 32,
+  "fields": {
+    "team": 33,
+    "venue": 31,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 33,
+  "fields": {
+    "team": 34,
+    "venue": 32,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 34,
+  "fields": {
+    "team": 35,
+    "venue": 33,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 35,
+  "fields": {
+    "team": 36,
+    "venue": 34,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 36,
+  "fields": {
+    "team": 37,
+    "venue": 35,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 37,
+  "fields": {
+    "team": 38,
+    "venue": 36,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 38,
+  "fields": {
+    "team": 40,
+    "venue": 38,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 39,
+  "fields": {
+    "team": 41,
+    "venue": 39,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 40,
+  "fields": {
+    "team": 42,
+    "venue": 40,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 41,
+  "fields": {
+    "team": 43,
+    "venue": 41,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 42,
+  "fields": {
+    "team": 44,
+    "venue": 42,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 43,
+  "fields": {
+    "team": 45,
+    "venue": 43,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 44,
+  "fields": {
+    "team": 46,
+    "venue": 44,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 45,
+  "fields": {
+    "team": 47,
+    "venue": 45,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 46,
+  "fields": {
+    "team": 48,
+    "venue": 46,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 47,
+  "fields": {
+    "team": 49,
+    "venue": 47,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 48,
+  "fields": {
+    "team": 50,
+    "venue": 48,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 49,
+  "fields": {
+    "team": 51,
+    "venue": 49,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 50,
+  "fields": {
+    "team": 52,
+    "venue": 50,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 51,
+  "fields": {
+    "team": 53,
+    "venue": 51,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 52,
+  "fields": {
+    "team": 54,
+    "venue": 52,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 53,
+  "fields": {
+    "team": 55,
+    "venue": 53,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 54,
+  "fields": {
+    "team": 56,
+    "venue": 54,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 55,
+  "fields": {
+    "team": 57,
+    "venue": 55,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 56,
+  "fields": {
+    "team": 58,
+    "venue": 56,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 57,
+  "fields": {
+    "team": 59,
+    "venue": 57,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 58,
+  "fields": {
+    "team": 60,
+    "venue": 58,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 59,
+  "fields": {
+    "team": 61,
+    "venue": 59,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 60,
+  "fields": {
+    "team": 62,
+    "venue": 60,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 61,
+  "fields": {
+    "team": 63,
+    "venue": 61,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 62,
+  "fields": {
+    "team": 65,
+    "venue": 63,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 63,
+  "fields": {
+    "team": 66,
+    "venue": 64,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 64,
+  "fields": {
+    "team": 67,
+    "venue": 65,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 65,
+  "fields": {
+    "team": 68,
+    "venue": 66,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 66,
+  "fields": {
+    "team": 69,
+    "venue": 67,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 67,
+  "fields": {
+    "team": 71,
+    "venue": 69,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 68,
+  "fields": {
+    "team": 72,
+    "venue": 70,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 69,
+  "fields": {
+    "team": 73,
+    "venue": 71,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 70,
+  "fields": {
+    "team": 74,
+    "venue": 72,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 71,
+  "fields": {
+    "team": 75,
+    "venue": 73,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 72,
+  "fields": {
+    "team": 76,
+    "venue": 74,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 73,
+  "fields": {
+    "team": 77,
+    "venue": 75,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 74,
+  "fields": {
+    "team": 78,
+    "venue": 76,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 75,
+  "fields": {
+    "team": 79,
+    "venue": 77,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 76,
+  "fields": {
+    "team": 80,
+    "venue": 78,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 77,
+  "fields": {
+    "team": 81,
+    "venue": 79,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 78,
+  "fields": {
+    "team": 82,
+    "venue": 80,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 79,
+  "fields": {
+    "team": 83,
+    "venue": 81,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 80,
+  "fields": {
+    "team": 84,
+    "venue": 82,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 81,
+  "fields": {
+    "team": 85,
+    "venue": 83,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 82,
+  "fields": {
+    "team": 86,
+    "venue": 84,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 83,
+  "fields": {
+    "team": 87,
+    "venue": 85,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 84,
+  "fields": {
+    "team": 88,
+    "venue": 86,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 85,
+  "fields": {
+    "team": 90,
+    "venue": 88,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 86,
+  "fields": {
+    "team": 91,
+    "venue": 89,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 87,
+  "fields": {
+    "team": 92,
+    "venue": 90,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 88,
+  "fields": {
+    "team": 93,
+    "venue": 91,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 89,
+  "fields": {
+    "team": 94,
+    "venue": 92,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 90,
+  "fields": {
+    "team": 95,
+    "venue": 93,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 91,
+  "fields": {
+    "team": 96,
+    "venue": 94,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 92,
+  "fields": {
+    "team": 97,
+    "venue": 95,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 93,
+  "fields": {
+    "team": 98,
+    "venue": 96,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 94,
+  "fields": {
+    "team": 99,
+    "venue": 97,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 95,
+  "fields": {
+    "team": 125,
+    "venue": 117,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 96,
+  "fields": {
+    "team": 102,
+    "venue": 99,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 97,
+  "fields": {
+    "team": 126,
+    "venue": 118,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 98,
+  "fields": {
+    "team": 105,
+    "venue": 101,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 99,
+  "fields": {
+    "team": 106,
+    "venue": 102,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 100,
+  "fields": {
+    "team": 107,
+    "venue": 103,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 101,
+  "fields": {
+    "team": 108,
+    "venue": 104,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 102,
+  "fields": {
+    "team": 109,
+    "venue": 105,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 103,
+  "fields": {
+    "team": 110,
+    "venue": 106,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 104,
+  "fields": {
+    "team": 111,
+    "venue": 107,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 105,
+  "fields": {
+    "team": 112,
+    "venue": 108,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 106,
+  "fields": {
+    "team": 113,
+    "venue": 109,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 107,
+  "fields": {
+    "team": 114,
+    "venue": 110,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 108,
+  "fields": {
+    "team": 127,
+    "venue": 119,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 109,
+  "fields": {
+    "team": 116,
+    "venue": 111,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 110,
+  "fields": {
+    "team": 121,
+    "venue": 113,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 111,
+  "fields": {
+    "team": 122,
+    "venue": 114,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 112,
+  "fields": {
+    "team": 123,
+    "venue": 115,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 113,
+  "fields": {
+    "team": 124,
+    "venue": 116,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 114,
+  "fields": {
+    "team": 131,
+    "venue": 123,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 115,
+  "fields": {
+    "team": 132,
+    "venue": 124,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 116,
+  "fields": {
+    "team": 133,
+    "venue": 125,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 117,
+  "fields": {
+    "team": 134,
+    "venue": 126,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 118,
+  "fields": {
+    "team": 135,
+    "venue": 127,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 119,
+  "fields": {
+    "team": 136,
+    "venue": 128,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 120,
+  "fields": {
+    "team": 137,
+    "venue": 129,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 121,
+  "fields": {
+    "team": 138,
+    "venue": 130,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 122,
+  "fields": {
+    "team": 139,
+    "venue": 131,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 123,
+  "fields": {
+    "team": 140,
+    "venue": 132,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 124,
+  "fields": {
+    "team": 141,
+    "venue": 133,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 125,
+  "fields": {
+    "team": 142,
+    "venue": 134,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 126,
+  "fields": {
+    "team": 70,
+    "venue": 68,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 127,
+  "fields": {
+    "team": 89,
+    "venue": 87,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 128,
+  "fields": {
+    "team": 103,
+    "venue": 100,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 129,
+  "fields": {
+    "team": 31,
+    "venue": 136,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 130,
+  "fields": {
+    "team": 64,
+    "venue": 62,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 131,
+  "fields": {
+    "team": 129,
+    "venue": 121,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 132,
+  "fields": {
+    "team": 39,
+    "venue": 37,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 133,
+  "fields": {
+    "team": 130,
+    "venue": 122,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 134,
+  "fields": {
+    "team": 100,
+    "venue": 98,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 135,
+  "fields": {
+    "team": 118,
+    "venue": 112,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamvenueoccupancy",
+  "pk": 136,
+  "fields": {
+    "team": 128,
+    "venue": 120,
+    "start_date": null,
+    "end_date": null
+  }
+}
+]
