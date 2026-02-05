@@ -64,12 +64,10 @@ class SportsRefCFBScraper(BaseScraper):
         cur_count = 1
         total_teams = len(all_teams)
         for team in all_teams:
-            logger.info("Processing team %s (%d of %d)", team["school_name"], cur_count, total_teams)
+            logger.info(f"Processing team {team['school_name']} ({cur_count} of {total_teams})")
 
             if team["school_name"] not in existing_team_names:
-                logger.debug(
-                    "%s is not among the list of current teams. Skipping.", team["school_name"]
-                )
+                logger.debug(f"{team['school_name']} is not among the list of current teams. Skipping.")
                 continue
 
             team.update(
@@ -242,7 +240,7 @@ class SportsRefCFBScraper(BaseScraper):
         game_objects = []
         for gd in games_data:
             if gd["ranker"] in self.processed_games:
-                logger.debug("Already processed game %s. Skipping", gd["ranker"])
+                logger.debug(f"Already processed game {gd['ranker']}. Skipping")
                 continue
             try:
                 game_objects.append(self.transform_sports_ref_json(game_data=gd))

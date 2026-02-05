@@ -19,10 +19,10 @@ class Command(BaseCommand):
             games_data = json.load(infile)
         scraper = SportsRefCFBScraper(season=2025)
         self.stdout.write("Begin loading games data")
-        logger.info("Loading games data from %s", options["data_path"])
+        logger.info(f"Loading games data from {options['data_path']}")
         games_list = scraper.load_games_from_scraped_json(
             games_data=games_data, create=True
         )
 
         self.stdout.write(self.style.SUCCESS(f"Successfully loaded {len(games_list)} games"))
-        logger.info("Created %d game objects", len(games_list))
+        logger.info(f"Created {len(games_list)} game objects")
