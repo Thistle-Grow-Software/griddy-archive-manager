@@ -1,3 +1,4 @@
+import logging
 import re
 import time
 from datetime import date, datetime
@@ -9,6 +10,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
 
 from archive.models import Game, League, Season, Team
+
+logger = logging.getLogger(__name__)
 
 
 class BaseScraper:
@@ -68,7 +71,7 @@ class SportsRefScraper(BaseScraper):
         return [self.parse_team_row(row=row) for row in body_rows]
 
     def extract_venue_info(self, team_info: Tag) -> dict:
-        print("Extracting Venue information")
+        logger.info("Extracting venue information")
         stadium_label = team_info.find(
             "strong", string=lambda s: "stadium" in s.lower()
         )
@@ -98,13 +101,13 @@ class SportsRefScraper(BaseScraper):
         image_tag = soup.find("img", class_="teamlogo")
         supp_data["logo_url"] = image_tag["src"]
 
-        print("Successfully extracted logo URL")
+        logger.info("Successfully extracted logo URL")
 
         team_info = soup.find("div", id="info")
         try:
             supp_data.update(self.extract_venue_info(team_info=team_info))
         except AttributeError:
-            print("No venue information available.")
+            logger.warning("No venue information available")
 
         return supp_data
 
@@ -112,19 +115,20 @@ class SportsRefScraper(BaseScraper):
 
         existing_team_names = Team.objects.values_list("name", flat=True)
 
-        print("Compiling team details")
+        logger.info("Compiling team details")
         all_teams = self.extract_list_of_all_cfb_teams()
-        print("Successfully extracted list of teams")
+        logger.info("Successfully extracted list of teams")
 
         cur_count = 1
         total_teams = len(all_teams)
         for team in all_teams:
-            print(f"\n\n\n===== Processing team {team['school_name']} =====")
-            print(f"No. {cur_count} of {total_teams}")
+            logger.info("Processing team %s", team["school_name"])
+            logger.info("Team %s of %s", cur_count, total_teams)
 
             if team["school_name"] not in existing_team_names:
-                print(
-                    f"{team['school_name']} is not among the list of current teams. Skipping."
+                logger.info(
+                    "%s is not among the list of current teams. Skipping.",
+                    team["school_name"],
                 )
                 continue
 
@@ -271,7 +275,7 @@ class CFBScraper(BaseScraper):
         game_objects = []
         for gd in games_data:
             if gd["ranker"] in self.processed_games:
-                print("Already processed this game. Skipping")
+                logger.info("Already processed this game. Skipping")
                 continue
             try:
                 game_objects.append(self.transform_sports_ref_json(game_data=gd))

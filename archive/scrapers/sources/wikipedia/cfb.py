@@ -1,3 +1,4 @@
+import logging
 import re
 
 from bs4 import BeautifulSoup, Tag
@@ -29,6 +30,8 @@ fcs_columns = [
     "conference",
 ]
 
+logger = logging.getLogger(__name__)
+
 
 class WikipediaCFBScraper(BaseScraper):
     def __init__(self, html_path: str, subdivision: str = "fbs"):
@@ -58,11 +61,9 @@ class WikipediaCFBScraper(BaseScraper):
 
         row_values = [re.sub(r"\[[a-z]+\]", "", c.get_text(strip=True)) for c in cells]
         team_data.update(dict(zip(self.column_headers, row_values)))
-        print("ARMADILLO", self.column_headers)
-        print("BADGER", row_values)
-        from pprint import pprint
-
-        pprint(team_data)
+        logger.debug("Column headers: %s", self.column_headers)
+        logger.debug("Row values: %s", row_values)
+        logger.debug("Team data: %s", team_data)
 
         if self.subdivision == "fcs":
             team_data["nickname"] = team_data.pop("name")

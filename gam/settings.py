@@ -128,3 +128,25 @@ MEDIA_ROOT = os.getenv("MEDIA_ROOT")
 
 GRIDDY_NFL_EMAIL = os.getenv("GRIDDY_NFL_EMAIL")
 GRIDDY_NFL_PASSWORD = os.getenv("GRIDDY_NFL_PASSWORD")
+
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "default": {
+            "format": "%(asctime)s %(levelname)s %(name)s %(message)s",
+        },
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "default",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": LOG_LEVEL,
+    },
+}
