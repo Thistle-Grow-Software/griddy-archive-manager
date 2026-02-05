@@ -1,8 +1,11 @@
 import json
+import logging
 
 from django.core.management.base import BaseCommand
 
 from archive.scrapers import SportsRefCFBScraper
+
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
@@ -15,9 +18,11 @@ class Command(BaseCommand):
         with open(options["data_path"]) as infile:
             games_data = json.load(infile)
         scraper = SportsRefCFBScraper(season=2025)
-        print("Begin loading games data")
+        self.stdout.write("Begin loading games data")
+        logger.info("Loading games data from %s", options["data_path"])
         games_list = scraper.load_games_from_scraped_json(
             games_data=games_data, create=True
         )
 
-        print(games_list)
+        self.stdout.write(self.style.SUCCESS(f"Successfully loaded {len(games_list)} games"))
+        logger.info("Created %d game objects", len(games_list))

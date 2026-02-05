@@ -128,3 +128,48 @@ MEDIA_ROOT = os.getenv("MEDIA_ROOT")
 
 GRIDDY_NFL_EMAIL = os.getenv("GRIDDY_NFL_EMAIL")
 GRIDDY_NFL_PASSWORD = os.getenv("GRIDDY_NFL_PASSWORD")
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/6.0/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Logging configuration
+# https://docs.djangoproject.com/en/6.0/topics/logging/
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {message}",
+            "style": "{",
+        },
+        "simple": {
+            "format": "{levelname} {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "WARNING",
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
+            "propagate": False,
+        },
+        "archive": {
+            "handlers": ["console"],
+            "level": os.getenv("ARCHIVE_LOG_LEVEL", "DEBUG"),
+            "propagate": False,
+        },
+    },
+}
