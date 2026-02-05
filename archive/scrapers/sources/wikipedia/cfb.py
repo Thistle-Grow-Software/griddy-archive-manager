@@ -60,7 +60,7 @@ class WikipediaCFBScraper(BaseScraper):
             team_data["school_name"] = self._extract_formal_name(cells[0])
 
         row_values = [re.sub(r"\[[a-z]+\]", "", c.get_text(strip=True)) for c in cells]
-        team_data.update(dict(zip(self.column_headers, row_values)))
+        team_data.update(dict(zip(self.column_headers, row_values, strict=True)))
         logger.debug(f"Column headers: {self.column_headers}")
         logger.debug(f"Row values: {row_values}")
         logger.debug(f"Team data: {team_data}")

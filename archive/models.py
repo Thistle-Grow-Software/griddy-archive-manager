@@ -124,6 +124,9 @@ class Team(models.Model):
             models.Index(fields=["short_name"]),
         ]
 
+    def __str__(self) -> str:
+        return self.name
+
     @property
     def current_venue(self):
         today = timezone.now().date()
@@ -136,9 +139,6 @@ class Team(models.Model):
             .first()
         )
         return occupancy.venue if occupancy else None
-
-    def __str__(self) -> str:
-        return self.name
 
 
 class OrgUnit(models.Model):
@@ -218,6 +218,10 @@ class TeamAffiliation(models.Model):
             )
         ]
 
+    def __str__(self) -> str:
+        scope = self.season or f"{self.start_date} - {self.end_date or 'present'}"
+        return f"{self.team} → {self.org_unit} ({scope})"
+
 
 class Venue(models.Model):
     name = models.CharField(max_length=160)
@@ -247,6 +251,10 @@ class TeamVenueOccupancy(models.Model):
 
     start_date = models.DateField(null=True)
     end_date = models.DateField(null=True)
+
+    def __str__(self) -> str:
+        end = self.end_date or "present"
+        return f"{self.team} @ {self.venue} ({self.start_date} - {end})"
 
 
 class Game(models.Model):
@@ -442,6 +450,9 @@ class AssetTag(models.Model):
         constraints = [
             models.UniqueConstraint(fields=["asset", "tag"], name="uniq_asset_tag")
         ]
+
+    def __str__(self) -> str:
+        return f"{self.asset.game} - {self.tag}"
 
 
 class GameCompleteness(models.Model):

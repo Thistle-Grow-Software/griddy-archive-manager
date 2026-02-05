@@ -24,5 +24,7 @@ class Command(BaseCommand):
             games_data=games_data, create=True
         )
 
-        self.stdout.write(self.style.SUCCESS(f"Successfully loaded {len(games_list)} games"))
+        self.stdout.write(
+            self.style.SUCCESS(f"Successfully loaded {len(games_list)} games")
+        )
         logger.info(f"Created {len(games_list)} game objects")

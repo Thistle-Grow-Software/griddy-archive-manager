@@ -41,9 +41,14 @@ select = [
     "T20",    # flake8-print (catches stray print statements)
     # "PT",     # flake8-pytest-style (if using pytest-django)
 ]
+ignore = [
+    "E501",
+    "DJ001"
+]
 
 [tool.ruff.lint.per-file-ignores]
-"**/migrations/*.py" = ["E501", "UP", "DJ"]  # auto-generated, don't lint heavily
+"**/models.py" = ["RUF012"]
+"**/migrations/*.py" = ["ALL"]  # auto-generated, don't lint heavily
 "**/settings/*.py" = ["F405", "E501"]                 # wildcard imports common in settings
 "**/settings.py" = ["F405", "E501"]
 "**/tests/**" = ["S101"]                      # assert is fine in tests
