@@ -2,12 +2,17 @@ import re
 import requests
 import time
 
+from datetime import date, datetime
 from random import uniform
-from typing import List, Dict
+from typing import List, Dict, Tuple
+
+from django.db.models import Q
+from django.core.exceptions import ObjectDoesNotExist
 
 from bs4 import BeautifulSoup, Tag
 
-from archive.models import Team
+from archive.models import Team, Game, League, Season
+
 
 class BaseScraper:
     base_url = ""
@@ -123,9 +128,17 @@ class SportsRefScraper(BaseScraper):
 
 class CFBScraper(BaseScraper):
     base_url = "https://www.sports-reference.com"
+    date_format_string = "%b %d, %Y"
+    time_format_string = "%I:%M %p"
 
-    def __init__(self):
+    def __init__(self, season: int):
         self.soup: BeautifulSoup | Tag | None = None
+        self.league = League.objects.get(short_name="NCAA - FBS")
+        self.season = Season.objects.get(league=self.league,
+                                         year=season)
+        self.fcs_schools = set()
+        self.failed_games = []
+        self.processed_games = set()
 
     def fetch_season_table(self, season: int):
         full_url = f"{self.base_url}/cfb/years/{season}-schedule.html"
@@ -135,7 +148,7 @@ class CFBScraper(BaseScraper):
         full_soup = BeautifulSoup(response.text)
         self.soup = full_soup.find(id="schedule")
 
-    def extract_schedule_rows(self) -> List[Dict]:
+    def extract_game_rows_from_schedule(self) -> List[Dict]:
         data = []
         body_rows = self.soup.find("tbody").find_all("tr")
 
@@ -168,6 +181,90 @@ class CFBScraper(BaseScraper):
 
         return data
 
+    def _determine_game_type(self, game_notes: str) -> str:
+        if "bowl" in game_notes.lower():
+            return "BOWL"
+        elif "college football playoff" in game_notes.lower():
+            return "PLAYOFF"
+        else:
+            return "REG"
+
+    def _parse_team_name_for_rank(self, team_name: str) -> Tuple[str | None, Team]:
+        match = re.search(r"\((\d{1,2})\)", team_name)
+        rank = int(match.group(1)) if match else None
+        name = re.sub(r"\(\d{1,2}\)", "", team_name).strip()
+
+        try:
+            team_obj = Team.objects.get(Q(name=name) | Q(alternate_name=name))
+        except ObjectDoesNotExist:
+            self.fcs_schools.add(name)
+            raise
+
+        return rank, team_obj
+
+    def _extract_game_team_info(self, game_data: Dict):
+        teams_info = {}
+
+        winner_is_away = game_data["game_location"] == "@"
+        if winner_is_away:
+            away_team_name = game_data["winner_school_name"]
+            teams_info["final_away_score"] = game_data["winner_points"]
+            home_team_name = game_data["loser_school_name"]
+            teams_info["final_home_score"] = game_data["loser_points"]
+
+        else:
+            away_team_name = game_data["loser_school_name"]
+            teams_info["final_away_score"] = game_data["loser_points"]
+            home_team_name = game_data["winner_school_name"]
+            teams_info["final_home_score"] = game_data["winner_points"]
+
+        ap_rank_away, away_team = self._parse_team_name_for_rank(team_name=away_team_name)
+        ap_rank_home, home_team = self._parse_team_name_for_rank(team_name=home_team_name)
+
+        teams_info["ap_rank_away"] = ap_rank_away
+        teams_info["away_team"] = away_team
+        teams_info["ap_rank_home"] = ap_rank_home
+        teams_info["home_team"] = home_team
+
+        return teams_info
+
+    def transform_sports_ref_json(self, game_data: Dict) -> Game:
+        transformed_data = {
+            "league": self.league,
+            "season": self.season,
+            "date_local": date.strptime(game_data["date_game"], self.date_format_string),
+            "kickoff_time_local": datetime.strptime(game_data["time_game"], self.time_format_string),
+            "week": game_data["week_number"],
+            "game_type": self._determine_game_type(game_data["notes"]),
+            "competition_name": game_data["notes"],
+            "neutral_site": game_data["game_location"] == "N",
+            "external_ids": {
+                "sports_reference": game_data["link_path"].split("/")[-1]
+            },
+            "notes": game_data["notes"],
+            "ordinal": game_data["ranker"],
+            **self._extract_game_team_info(game_data=game_data),
+        }
+        if not transformed_data["neutral_site"]:
+            transformed_data["venue"] = transformed_data["home_team"].current_venue
+
+        return Game(**transformed_data)
+
+    def load_games_from_scraped_json(self, games_data: List[Dict], create: bool = False):
+        game_objects = []
+        for gd in games_data:
+            if gd["ranker"] in self.processed_games:
+                print("Already processed this game. Skipping")
+                continue
+            try:
+                game_objects.append(self.transform_sports_ref_json(game_data=gd))
+                self.processed_games.add(gd["ranker"])
+            except ObjectDoesNotExist:
+                self.failed_games.append(gd)
+        if create:
+            return Game.objects.bulk_create(game_objects)
+        else:
+            return game_objects
 
 def get_conf_short_name(name):
     short_name = ""
@@ -198,22 +295,38 @@ def get_conf_short_name(name):
             short_name = name
     return short_name
 
+
+fbs_columns = [
+    "school",
+    "nickname",
+    "city",
+    "state",
+    "enrollment",
+    "current_conference",
+    "former_conferences",
+    "first_year",
+    "joined_fbs",
+    "first_joined_fbs",
+    "left_fbs"
+]
+
+fcs_columns = [
+    "team",
+    "name",
+    "school",
+    "city",
+    "state",
+    "program_established",
+    "first_fcs_season",
+    "conference"
+]
 class CFBTeamScraper(BaseScraper):
-    def __init__(self, html_path: str):
+    def __init__(self, html_path: str, subdivision: str = "fbs"):
         with open(html_path, "r") as infile:
             self.soup = BeautifulSoup(infile, features="html.parser")
         self.team_table = self._extract_teams_table()
-        self.column_headers = ["school",
-                               "nickname",
-                               "city",
-                               "state",
-                               "enrollment",
-                               "current_conference",
-                               "former_conferences",
-                               "first_year",
-                               "joined_fbs",
-                               "first_joined_fbs",
-                               "left_fbs"]
+        self.subdivision = subdivision
+        self.column_headers = fbs_columns if subdivision == "fbs" else fcs_columns
 
     def _extract_teams_table(self):
         return self.soup.find("table", class_="wikitable sortable jquery-tablesorter")
@@ -229,18 +342,25 @@ class CFBTeamScraper(BaseScraper):
 
     def process_row(self, row: Tag) -> Dict:
         cells = row.find_all("td")
-        team_data = {"school_name": self._extract_formal_name(cell=cells[0])}
+        team_data = {}
+        if self.subdivision == "fbs":
+            team_data["school_name"] = self._extract_formal_name(cells[0])
 
         row_values = [re.sub(r"\[[a-z]+\]", "", c.get_text(strip=True))
                       for c in cells]
         team_data.update(dict(zip(self.column_headers, row_values)))
+        print("ARMADILLO", self.column_headers)
+        print("BADGER", row_values)
+        from pprint import pprint
+        pprint(team_data)
 
+        if self.subdivision == "fcs":
+            team_data["nickname"] = team_data.pop("name")
+            team_data["name"] = team_data.pop("team")
+            team_data["school_name"] = team_data.pop("school")
 
         return team_data
 
     def extract_all_team_data(self):
         return [self.process_row(row=row)
                 for row in self.team_table.find("tbody").find_all("tr")]
-
-
-

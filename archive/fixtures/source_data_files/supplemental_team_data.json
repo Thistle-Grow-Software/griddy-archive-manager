@@ -1,0 +1,1634 @@
+{
+    "Air Force": {
+        "sports_reference_id": "air-force",
+        "venue": {
+            "name": "Falcon Stadium",
+            "capacity": 46692,
+            "city": "USAF Academy",
+            "state": "Colorado"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/air-force.png",
+        "primary_color": "003087",
+        "secondary_color": "8A8D8F"
+    },
+    "Akron": {
+        "sports_reference_id": "akron",
+        "venue": {
+            "name": "InfoCision Stadium - Summa Field",
+            "capacity": 30000,
+            "city": "Akron",
+            "state": "Ohio"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/akron.png",
+        "primary_color": "041E42",
+        "secondary_color": "A89968"
+    },
+    "Alabama": {
+        "sports_reference_id": "alabama",
+        "venue": {
+            "name": "Saban Field at Bryant-Denny Stadium",
+            "capacity": 100077,
+            "city": "Tuscaloosa",
+            "state": "Alabama"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/alabama.png",
+        "primary_color": "9E1B32",
+        "secondary_color": "828A8F"
+    },
+    "Appalachian State": {
+        "sports_reference_id": "appalachian-state",
+        "venue": {
+            "name": "Kidd Brewer Stadium",
+            "capacity": 24050,
+            "city": "Boone",
+            "state": "North Carolina"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/appalachian-state.png",
+        "primary_color": "222222",
+        "secondary_color": "FFCC00"
+    },
+    "Arizona": {
+        "sports_reference_id": "arizona",
+        "venue": {
+            "name": "Arizona Stadium",
+            "capacity": 56029,
+            "city": "Tucson",
+            "state": "Arizona"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/arizona.png",
+        "primary_color": "CC0033",
+        "secondary_color": "003366"
+    },
+    "Arizona State": {
+        "sports_reference_id": "arizona-state",
+        "venue": {
+            "name": "Mountain America Stadium",
+            "capacity": 53599,
+            "city": "Tempe",
+            "state": "Arizona"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/arizona-state.png",
+        "primary_color": "8C1D40",
+        "secondary_color": "FFC627"
+    },
+    "Arkansas": {
+        "sports_reference_id": "arkansas",
+        "venue": {
+            "name": "Donald W. Reynolds Razorback Stadium",
+            "capacity": 72000,
+            "city": "Fayetteville",
+            "state": "Arkansas"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/arkansas.png",
+        "primary_color": "9D2235",
+        "secondary_color": "FFFFFF"
+    },
+    "Arkansas State": {
+        "sports_reference_id": "arkansas-state",
+        "venue": {
+            "name": "Centennial Bank Stadium",
+            "capacity": 30964,
+            "city": "State University",
+            "state": "Arkansas"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/arkansas-state.png",
+        "primary_color": "CC092F",
+        "secondary_color": "000000"
+    },
+    "Army": {
+        "sports_reference_id": "army",
+        "venue": {
+            "name": "Blaik Field at Michie Stadium",
+            "capacity": 38000,
+            "city": "West Point",
+            "state": "New York"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/army.png",
+        "primary_color": "000000",
+        "secondary_color": "D4BF9A"
+    },
+    "Auburn": {
+        "sports_reference_id": "auburn",
+        "venue": {
+            "name": "Pat Dye Field at Jordan-Hare Stadium",
+            "capacity": 87451,
+            "city": "Auburn",
+            "state": "Alabama"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/auburn.png",
+        "primary_color": "0C2340",
+        "secondary_color": "E87722"
+    },
+    "Ball State": {
+        "sports_reference_id": "ball-state",
+        "venue": {
+            "name": "Scheumann Stadium",
+            "capacity": 22500,
+            "city": "Muncie",
+            "state": "Indiana"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/ball-state.png",
+        "primary_color": "BA0C2F",
+        "secondary_color": "FFFFFF"
+    },
+    "Baylor": {
+        "sports_reference_id": "baylor",
+        "venue": {
+            "name": "McLane Stadium",
+            "capacity": 45140,
+            "city": "Waco",
+            "state": "Texas"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/baylor.png",
+        "primary_color": "154734",
+        "secondary_color": "FFB81C"
+    },
+    "Boise State": {
+        "sports_reference_id": "boise-state",
+        "venue": {
+            "name": "Albertsons Stadium",
+            "capacity": 37000,
+            "city": "Boise",
+            "state": "Idaho"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/boise-state.png",
+        "primary_color": "0033A0",
+        "secondary_color": "D64309"
+    },
+    "Boston College": {
+        "sports_reference_id": "boston-college",
+        "venue": {
+            "name": "Alumni Stadium",
+            "capacity": 44500,
+            "city": "Chestnut Hill",
+            "state": "Massachusetts"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/boston-college.png",
+        "primary_color": "8C2232",
+        "secondary_color": "D4A04A"
+    },
+    "Bowling Green": {
+        "sports_reference_id": "bowling-green-state",
+        "venue": {
+            "name": "Doyt L. Perry Stadium",
+            "capacity": 24000,
+            "city": "Bowling Green",
+            "state": "Ohio"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/bowling-green-state.png",
+        "primary_color": "FE5000",
+        "secondary_color": "4F2C1D"
+    },
+    "Buffalo": {
+        "sports_reference_id": "buffalo",
+        "venue": {
+            "name": "University at Buffalo Stadium",
+            "capacity": 29013,
+            "city": "Buffalo",
+            "state": "New York"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/buffalo.png",
+        "primary_color": "005BBB",
+        "secondary_color": "FFFFFF"
+    },
+    "BYU": {
+        "sports_reference_id": "brigham-young",
+        "venue": {
+            "name": "LaVell Edwards Stadium",
+            "capacity": 63470,
+            "city": "Provo",
+            "state": "Utah"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/brigham-young.png",
+        "primary_color": "002E5D",
+        "secondary_color": "FFFFFF"
+    },
+    "California": {
+        "sports_reference_id": "california",
+        "venue": {
+            "name": "Memorial Stadium",
+            "capacity": 63186,
+            "city": "Berkeley",
+            "state": "California"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/california.png",
+        "primary_color": "003262",
+        "secondary_color": "FDB515"
+    },
+    "Central Michigan": {
+        "sports_reference_id": "central-michigan",
+        "venue": {
+            "name": "Kelly/Shorts Stadium",
+            "capacity": 30255,
+            "city": "Mount Pleasant",
+            "state": "Michigan"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/central-michigan.png",
+        "primary_color": "6A0032",
+        "secondary_color": "FFC82E"
+    },
+    "Charlotte": {
+        "sports_reference_id": "charlotte",
+        "venue": {
+            "name": "Jerry Richardson Stadium",
+            "capacity": 15314,
+            "city": "Charlotte",
+            "state": "North Carolina"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/charlotte.png",
+        "primary_color": "005035",
+        "secondary_color": "A49665"
+    },
+    "Cincinnati": {
+        "sports_reference_id": "cincinnati",
+        "venue": {
+            "name": "Nippert Stadium",
+            "capacity": 40000,
+            "city": "Cincinnati",
+            "state": "Ohio"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/cincinnati.png",
+        "primary_color": "E00122",
+        "secondary_color": "000000"
+    },
+    "Clemson": {
+        "sports_reference_id": "clemson",
+        "venue": {
+            "name": "Memorial Stadium",
+            "capacity": 81500,
+            "city": "Clemson",
+            "state": "South Carolina"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/clemson.png",
+        "primary_color": "F56600",
+        "secondary_color": "522D80"
+    },
+    "Coastal Carolina": {
+        "sports_reference_id": "coastal-carolina",
+        "venue": {
+            "name": "Brooks Stadium",
+            "capacity": 21000,
+            "city": "Conway",
+            "state": "South Carolina"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/coastal-carolina.png",
+        "primary_color": "006F71",
+        "secondary_color": "A27752"
+    },
+    "Colorado": {
+        "sports_reference_id": "colorado",
+        "venue": {
+            "name": "Folsom Field",
+            "capacity": 53613,
+            "city": "Boulder",
+            "state": "Colorado"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/colorado.png",
+        "primary_color": "CFB87C",
+        "secondary_color": "000000"
+    },
+    "Colorado State": {
+        "sports_reference_id": "colorado-state",
+        "venue": {
+            "name": "Sonny Lubick Field at Canvas Stadium",
+            "capacity": 41200,
+            "city": "Fort Collins",
+            "state": "Colorado"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/colorado-state.png",
+        "primary_color": "1E4D2B",
+        "secondary_color": "C8C372"
+    },
+    "Delaware": {
+        "sports_reference_id": "delaware",
+        "venue": {
+            "name": "Delaware Stadium",
+            "capacity": 18309,
+            "city": "Newark",
+            "state": "Delaware"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/delaware.png",
+        "primary_color": "00539F",
+        "secondary_color": "FFDD31"
+    },
+    "Duke": {
+        "sports_reference_id": "duke",
+        "venue": {
+            "name": "Wallace Wade Stadium",
+            "capacity": 33941,
+            "city": "Durham",
+            "state": "North Carolina"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/duke.png",
+        "primary_color": "003087",
+        "secondary_color": "FFFFFF"
+    },
+    "East Carolina": {
+        "sports_reference_id": "east-carolina",
+        "venue": {
+            "name": "Dowdy-Ficklen Stadium",
+            "capacity": 50000,
+            "city": "Greenville",
+            "state": "North Carolina"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/east-carolina.png",
+        "primary_color": "592A8A",
+        "secondary_color": "FFC72C"
+    },
+    "Eastern Michigan": {
+        "sports_reference_id": "eastern-michigan",
+        "venue": {
+            "name": "Rynearson Stadium",
+            "capacity": 30200,
+            "city": "Ypsilanti",
+            "state": "Michigan"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/eastern-michigan.png",
+        "primary_color": "006633",
+        "secondary_color": "FFFFFF"
+    },
+    "Florida": {
+        "sports_reference_id": "florida",
+        "venue": {
+            "name": "Florida Field at Ben Hill Griffin Stadium",
+            "capacity": 88548,
+            "city": "Gainesville",
+            "state": "Florida"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/florida.png",
+        "primary_color": "0021A5",
+        "secondary_color": "FA4616"
+    },
+    "Florida Atlantic": {
+        "sports_reference_id": "florida-atlantic",
+        "venue": {
+            "name": "Flagler Credit Union Stadium",
+            "capacity": 30000,
+            "city": "Boca Raton",
+            "state": "Florida"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/florida-atlantic.png",
+        "primary_color": "003366",
+        "secondary_color": "CC0000"
+    },
+    "Florida State": {
+        "sports_reference_id": "florida-state",
+        "venue": {
+            "name": "Bobby Bowden Field at Doak Campbell Stadium",
+            "capacity": 82300,
+            "city": "Tallahassee",
+            "state": "Florida"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/florida-state.png",
+        "primary_color": "782F40",
+        "secondary_color": "CEB888"
+    },
+    "Fresno State": {
+        "sports_reference_id": "fresno-state",
+        "venue": {
+            "name": "Valley Children's Stadium",
+            "capacity": 41031,
+            "city": "Fresno",
+            "state": "California"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/fresno-state.png",
+        "primary_color": "DB0032",
+        "secondary_color": "13294B"
+    },
+    "Georgia": {
+        "sports_reference_id": "georgia",
+        "venue": {
+            "name": "Sanford Stadium",
+            "capacity": 92746,
+            "city": "Athens",
+            "state": "Georgia"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/georgia.png",
+        "primary_color": "BA0C2F",
+        "secondary_color": "000000"
+    },
+    "Georgia Southern": {
+        "sports_reference_id": "georgia-southern",
+        "venue": {
+            "name": "Paulson Stadium",
+            "capacity": 24300,
+            "city": "Statesboro",
+            "state": "Georgia"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/georgia-southern.png",
+        "primary_color": "011E41",
+        "secondary_color": "87714D"
+    },
+    "Georgia State": {
+        "sports_reference_id": "georgia-state",
+        "venue": {
+            "name": "Center Parc Stadium",
+            "capacity": 24333,
+            "city": "Atlanta",
+            "state": "Georgia"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/georgia-state.png",
+        "primary_color": "0039A6",
+        "secondary_color": "CC0000"
+    },
+    "Georgia Tech": {
+        "sports_reference_id": "georgia-tech",
+        "venue": {
+            "name": "Bobby Dodd Stadium at Hyundai Field",
+            "capacity": 55000,
+            "city": "Atlanta",
+            "state": "Georgia"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/georgia-tech.png",
+        "primary_color": "B3A369",
+        "secondary_color": "003057"
+    },
+    "Houston": {
+        "sports_reference_id": "houston",
+        "venue": {
+            "name": "TDECU Stadium",
+            "capacity": 40000,
+            "city": "Houston",
+            "state": "Texas"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/houston.png",
+        "primary_color": "C8102E",
+        "secondary_color": "FFFFFF"
+    },
+    "Illinois": {
+        "sports_reference_id": "illinois",
+        "venue": {
+            "name": "Memorial Stadium",
+            "capacity": 60670,
+            "city": "Champaign",
+            "state": "Illinois"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/illinois.png",
+        "primary_color": "E84A27",
+        "secondary_color": "13294B"
+    },
+    "Indiana": {
+        "sports_reference_id": "indiana",
+        "venue": {
+            "name": "Memorial Stadium",
+            "capacity": 52929,
+            "city": "Bloomington",
+            "state": "Indiana"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/indiana.png",
+        "primary_color": "990000",
+        "secondary_color": "EEEDEB"
+    },
+    "Iowa": {
+        "sports_reference_id": "iowa",
+        "venue": {
+            "name": "Kinnick Stadium",
+            "capacity": 70585,
+            "city": "Iowa City",
+            "state": "Iowa"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/iowa.png",
+        "primary_color": "FFCD00",
+        "secondary_color": "000000"
+    },
+    "Iowa State": {
+        "sports_reference_id": "iowa-state",
+        "venue": {
+            "name": "Jack Trice Stadium",
+            "capacity": 61500,
+            "city": "Ames",
+            "state": "Iowa"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/iowa-state.png",
+        "primary_color": "C8102E",
+        "secondary_color": "F1BE48"
+    },
+    "Jacksonville State": {
+        "sports_reference_id": "jacksonville-state",
+        "venue": {
+            "name": "AmFirst Stadium",
+            "capacity": 24000,
+            "city": "Jacksonville",
+            "state": "Alabama"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/jacksonville-state.png",
+        "primary_color": "CC0000",
+        "secondary_color": "FFFFFF"
+    },
+    "James Madison": {
+        "sports_reference_id": "james-madison",
+        "venue": {
+            "name": "Bridgeforth Stadium",
+            "capacity": 24877,
+            "city": "Harrisonburg",
+            "state": "Virginia"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/james-madison.png",
+        "primary_color": "450084",
+        "secondary_color": "CBB677"
+    },
+    "Kansas": {
+        "sports_reference_id": "kansas",
+        "venue": {
+            "name": "David Booth Kansas Memorial Stadium",
+            "capacity": 50071,
+            "city": "Lawrence",
+            "state": "Kansas"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/kansas.png",
+        "primary_color": "0051BA",
+        "secondary_color": "E8000D"
+    },
+    "Kansas State": {
+        "sports_reference_id": "kansas-state",
+        "venue": {
+            "name": "Bill Snyder Family Football Stadium",
+            "capacity": 50300,
+            "city": "Manhattan",
+            "state": "Kansas"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/kansas-state.png",
+        "primary_color": "512888",
+        "secondary_color": "FFFFFF"
+    },
+    "Kennesaw State": {
+        "sports_reference_id": "kennesaw-state",
+        "venue": {
+            "name": "Fifth Third Stadium",
+            "capacity": 10200,
+            "city": "Kennesaw",
+            "state": "Georgia"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/kennesaw-state.png",
+        "primary_color": "FDBB30",
+        "secondary_color": "000000"
+    },
+    "Kent State": {
+        "sports_reference_id": "kent-state",
+        "venue": {
+            "name": "Dix Stadium",
+            "capacity": 29287,
+            "city": "Kent",
+            "state": "Ohio"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/kent-state.png",
+        "primary_color": "002664",
+        "secondary_color": "EAAB00"
+    },
+    "Kentucky": {
+        "sports_reference_id": "kentucky",
+        "venue": {
+            "name": "Kroger Field",
+            "capacity": 67606,
+            "city": "Lexington",
+            "state": "Kentucky"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/kentucky.png",
+        "primary_color": "0033A0",
+        "secondary_color": "FFFFFF"
+    },
+    "Liberty": {
+        "sports_reference_id": "liberty",
+        "venue": {
+            "name": "Arthur L. Williams Stadium",
+            "capacity": 25000,
+            "city": "Lynchburg",
+            "state": "Virginia"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/liberty.png",
+        "primary_color": "002D62",
+        "secondary_color": "C41230"
+    },
+    "Louisiana": {
+        "sports_reference_id": "louisiana-lafayette",
+        "venue": {
+            "name": "Cajun Field",
+            "capacity": 31000,
+            "city": "Lafayette",
+            "state": "Louisiana"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/louisiana-lafayette.png",
+        "primary_color": "CE181E",
+        "secondary_color": "0A0A0A"
+    },
+    "Louisiana Tech": {
+        "sports_reference_id": "louisiana-tech",
+        "venue": {
+            "name": "Joe Aillet Stadium",
+            "capacity": 30600,
+            "city": "Ruston",
+            "state": "Louisiana"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/louisiana-tech.png",
+        "primary_color": "002F8B",
+        "secondary_color": "E31B23"
+    },
+    "Louisville": {
+        "sports_reference_id": "louisville",
+        "venue": {
+            "name": "L&N Federal Credit Union Stadium",
+            "capacity": 61000,
+            "city": "Louisville",
+            "state": "Kentucky"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/louisville.png",
+        "primary_color": "AD0000",
+        "secondary_color": "000000"
+    },
+    "LSU": {
+        "sports_reference_id": "louisiana-state",
+        "venue": {
+            "name": "Tiger Stadium",
+            "capacity": 102321,
+            "city": "Baton Rouge",
+            "state": "Louisiana"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/louisiana-state.png",
+        "primary_color": "461D7C",
+        "secondary_color": "FDD023"
+    },
+    "Marshall": {
+        "sports_reference_id": "marshall",
+        "venue": {
+            "name": "Joan C. Edwards Stadium",
+            "capacity": 38019,
+            "city": "Huntington",
+            "state": "West Virginia"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/marshall.png",
+        "primary_color": "00B140",
+        "secondary_color": "000000"
+    },
+    "Maryland": {
+        "sports_reference_id": "maryland",
+        "venue": {
+            "name": "SECU Stadium",
+            "capacity": 51500,
+            "city": "College Park",
+            "state": "Maryland"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/maryland.png",
+        "primary_color": "E03A3E",
+        "secondary_color": "FFD520"
+    },
+    "Memphis": {
+        "sports_reference_id": "memphis",
+        "venue": {
+            "name": "Simmons Bank Liberty Stadium",
+            "capacity": 61008,
+            "city": "Memphis",
+            "state": "Tennessee"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/memphis.png",
+        "primary_color": "003087",
+        "secondary_color": "898D8D"
+    },
+    "Miami (FL)": {
+        "sports_reference_id": "miami-fl",
+        "venue": {
+            "name": "Hard Rock Stadium",
+            "capacity": 64767,
+            "city": "Coral Gables",
+            "state": "Florida"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/miami-fl.png",
+        "primary_color": "F47321",
+        "secondary_color": "005030"
+    },
+    "Miami (OH)": {
+        "sports_reference_id": "miami-oh",
+        "venue": {
+            "name": "Fred C. Yager Stadium",
+            "capacity": 24286,
+            "city": "Oxford",
+            "state": "Ohio"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/miami-oh.png",
+        "primary_color": "C3142D",
+        "secondary_color": "000000"
+    },
+    "Michigan": {
+        "sports_reference_id": "michigan",
+        "venue": {
+            "name": "Michigan Stadium",
+            "capacity": 106201,
+            "city": "Ann Arbor",
+            "state": "Michigan"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/michigan.png",
+        "primary_color": "00274C",
+        "secondary_color": "FFCB05"
+    },
+    "Michigan State": {
+        "sports_reference_id": "michigan-state",
+        "venue": {
+            "name": "Spartan Stadium",
+            "capacity": 75005,
+            "city": "East Lansing",
+            "state": "Michigan"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/michigan-state.png",
+        "primary_color": "18453B",
+        "secondary_color": "FFFFFF"
+    },
+    "Minnesota": {
+        "sports_reference_id": "minnesota",
+        "venue": {
+            "name": "Huntington Bank Stadium",
+            "capacity": 50000,
+            "city": "Minneapolis",
+            "state": "Minnesota"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/minnesota.png",
+        "primary_color": "7A0019",
+        "secondary_color": "FFCC33"
+    },
+    "Mississippi State": {
+        "sports_reference_id": "mississippi-state",
+        "venue": {
+            "name": "Davis Wade Stadium at Scott Field",
+            "capacity": 61337,
+            "city": "Mississippi State",
+            "state": "Mississippi"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/mississippi-state.png",
+        "primary_color": "660000",
+        "secondary_color": "FFFFFF"
+    },
+    "Missouri": {
+        "sports_reference_id": "missouri",
+        "venue": {
+            "name": "Faurot Field at Memorial Stadium",
+            "capacity": 71004,
+            "city": "Columbia",
+            "state": "Missouri"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/missouri.png",
+        "primary_color": "F1B82D",
+        "secondary_color": "000000"
+    },
+    "Missouri State": {
+        "sports_reference_id": "missouri-state",
+        "venue": {
+            "name": "Robert W. Plaster Stadium",
+            "capacity": 17500,
+            "city": "Springfield",
+            "state": "Missouri"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/missouri-state.png",
+        "primary_color": "5E0009",
+        "secondary_color": "FFFFFF"
+    },
+    "Navy": {
+        "sports_reference_id": "navy",
+        "venue": {
+            "name": "Navy-Marine Corps Memorial Stadium",
+            "capacity": 34000,
+            "city": "Annapolis",
+            "state": "Maryland"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/navy.png",
+        "primary_color": "00205B",
+        "secondary_color": "C5B783"
+    },
+    "Nebraska": {
+        "sports_reference_id": "nebraska",
+        "venue": {
+            "name": "Memorial Stadium, Tom Osborne Field",
+            "capacity": 81091,
+            "city": "Lincoln",
+            "state": "Nebraska"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/nebraska.png",
+        "primary_color": "E41C38",
+        "secondary_color": "F5F1E7"
+    },
+    "Nevada": {
+        "sports_reference_id": "nevada",
+        "venue": {
+            "name": "Mackay Stadium",
+            "capacity": 29993,
+            "city": "Reno",
+            "state": "Nevada"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/nevada.png",
+        "primary_color": "003366",
+        "secondary_color": "807F84"
+    },
+    "New Mexico": {
+        "sports_reference_id": "new-mexico",
+        "venue": {
+            "name": "University Stadium",
+            "capacity": 42000,
+            "city": "Albuquerque",
+            "state": "New Mexico"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/new-mexico.png",
+        "primary_color": "BA0C2F",
+        "secondary_color": "63666A"
+    },
+    "New Mexico State": {
+        "sports_reference_id": "new-mexico-state",
+        "venue": {
+            "name": "Aggie Memorial Stadium",
+            "capacity": 30343,
+            "city": "Las Cruces",
+            "state": "New Mexico"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/new-mexico-state.png",
+        "primary_color": "891216",
+        "secondary_color": "000000"
+    },
+    "North Carolina": {
+        "sports_reference_id": "north-carolina",
+        "venue": {
+            "name": "Kenan Stadium",
+            "capacity": 63000,
+            "city": "Chapel Hill",
+            "state": "North Carolina"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/north-carolina.png",
+        "primary_color": "7BAFD4",
+        "secondary_color": "13294B"
+    },
+    "North Texas": {
+        "sports_reference_id": "north-texas",
+        "venue": {
+            "name": "DATCU Stadium",
+            "capacity": 30850,
+            "city": "Denton",
+            "state": "Texas"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/north-texas.png",
+        "primary_color": "00853E",
+        "secondary_color": "FFFFFF"
+    },
+    "Northern Illinois": {
+        "sports_reference_id": "northern-illinois",
+        "venue": {
+            "name": "Brigham Field at Huskie Stadium",
+            "capacity": 30998,
+            "city": "De Kalb",
+            "state": "Illinois"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/northern-illinois.png",
+        "primary_color": "BA0C2F",
+        "secondary_color": "000000"
+    },
+    "Northwestern": {
+        "sports_reference_id": "northwestern",
+        "venue": {
+            "name": "Northwestern Medicine Field at Martin Stadium",
+            "capacity": 12023,
+            "city": "Evanston",
+            "state": "Illinois"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/northwestern.png",
+        "primary_color": "4E2A84",
+        "secondary_color": "FFFFFF"
+    },
+    "Notre Dame": {
+        "sports_reference_id": "notre-dame",
+        "venue": {
+            "name": "Notre Dame Stadium",
+            "capacity": 80795,
+            "city": "Notre Dame",
+            "state": "Indiana"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/notre-dame.png",
+        "primary_color": "0C2340",
+        "secondary_color": "C99700"
+    },
+    "Ohio": {
+        "sports_reference_id": "ohio",
+        "venue": {
+            "name": "Peden Stadium",
+            "capacity": 24000,
+            "city": "Athens",
+            "state": "Ohio"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/ohio.png",
+        "primary_color": "00694E",
+        "secondary_color": "FFFFFF"
+    },
+    "Ohio State": {
+        "sports_reference_id": "ohio-state",
+        "venue": {
+            "name": "Ohio Stadium",
+            "capacity": 104944,
+            "city": "Columbus",
+            "state": "Ohio"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/ohio-state.png",
+        "primary_color": "BB0000",
+        "secondary_color": "666666"
+    },
+    "Oklahoma": {
+        "sports_reference_id": "oklahoma",
+        "venue": {
+            "name": "Gaylord Family Oklahoma Memorial Stadium",
+            "capacity": 82112,
+            "city": "Norman",
+            "state": "Oklahoma"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/oklahoma.png",
+        "primary_color": "841617",
+        "secondary_color": "FDF9D8"
+    },
+    "Oklahoma State": {
+        "sports_reference_id": "oklahoma-state",
+        "venue": {
+            "name": "Boone Pickens Stadium",
+            "capacity": 60218,
+            "city": "Stillwater",
+            "state": "Oklahoma"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/oklahoma-state.png",
+        "primary_color": "FF7300",
+        "secondary_color": "000000"
+    },
+    "Old Dominion": {
+        "sports_reference_id": "old-dominion",
+        "venue": {
+            "name": "S.B. Ballard Stadium",
+            "capacity": 19818,
+            "city": "Norfolk",
+            "state": "Virginia"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/old-dominion.png",
+        "primary_color": "003057",
+        "secondary_color": "7C878E"
+    },
+    "Ole Miss": {
+        "sports_reference_id": "mississippi",
+        "venue": {
+            "name": "Vaught-Hemingway Stadium",
+            "capacity": 60580,
+            "city": "University",
+            "state": "Mississippi"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/mississippi.png",
+        "primary_color": "CE1126",
+        "secondary_color": "14213D"
+    },
+    "Oregon": {
+        "sports_reference_id": "oregon",
+        "venue": {
+            "name": "Autzen Stadium",
+            "capacity": 53800,
+            "city": "Eugene",
+            "state": "Oregon"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/oregon.png",
+        "primary_color": "154733",
+        "secondary_color": "FEE123"
+    },
+    "Oregon State": {
+        "sports_reference_id": "oregon-state",
+        "venue": {
+            "name": "Reser Stadium",
+            "capacity": 46200,
+            "city": "Corvallis",
+            "state": "Oregon"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/oregon-state.png",
+        "primary_color": "D73F09",
+        "secondary_color": "000000"
+    },
+    "Penn State": {
+        "sports_reference_id": "penn-state",
+        "venue": {
+            "name": "Beaver Stadium",
+            "capacity": 107282,
+            "city": "University Park",
+            "state": "Pennsylvania"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/penn-state.png",
+        "primary_color": "041E42",
+        "secondary_color": "FFFFFF"
+    },
+    "Purdue": {
+        "sports_reference_id": "purdue",
+        "venue": {
+            "name": "Ross-Ade Stadium",
+            "capacity": 62500,
+            "city": "West Lafayette",
+            "state": "Indiana"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/purdue.png",
+        "primary_color": "CEB888",
+        "secondary_color": "000000"
+    },
+    "Rice": {
+        "sports_reference_id": "rice",
+        "venue": {
+            "name": "Rice Stadium",
+            "capacity": 70000,
+            "city": "Houston",
+            "state": "Texas"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/rice.png",
+        "primary_color": "00205B",
+        "secondary_color": "5E6A71"
+    },
+    "Rutgers": {
+        "sports_reference_id": "rutgers",
+        "venue": {
+            "name": "SHI Stadium",
+            "capacity": 52454,
+            "city": "Piscataway",
+            "state": "New Jersey"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/rutgers.png",
+        "primary_color": "CC0033",
+        "secondary_color": "5F6A72"
+    },
+    "Sam Houston": {
+        "sports_reference_id": "sam-houston-state",
+        "venue": {
+            "name": "Shell Energy Stadium",
+            "capacity": 20656,
+            "city": "Huntsville",
+            "state": "Texas"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/sam-houston-state.png",
+        "primary_color": "F58025",
+        "secondary_color": "FFFFFF"
+    },
+    "San Diego State": {
+        "sports_reference_id": "san-diego-state",
+        "venue": {
+            "name": "Snapdragon Stadium",
+            "capacity": 35000,
+            "city": "San Diego",
+            "state": "California"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/san-diego-state.png",
+        "primary_color": "A6192E",
+        "secondary_color": "000000"
+    },
+    "San Jose State": {
+        "sports_reference_id": "san-jose-state",
+        "venue": {
+            "name": "CEFCU Stadium",
+            "capacity": 21520,
+            "city": "San Jose",
+            "state": "California"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/san-jose-state.png",
+        "primary_color": "0055A2",
+        "secondary_color": "E5A823"
+    },
+    "SMU": {
+        "sports_reference_id": "southern-methodist",
+        "venue": {
+            "name": "Gerald J. Ford Stadium",
+            "capacity": 32000,
+            "city": "Dallas",
+            "state": "Texas"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/southern-methodist.png",
+        "primary_color": "0033A0",
+        "secondary_color": "C8102E"
+    },
+    "South Alabama": {
+        "sports_reference_id": "south-alabama",
+        "venue": {
+            "name": "Hancock Whitney Stadium",
+            "capacity": 25450,
+            "city": "Mobile",
+            "state": "Alabama"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/south-alabama.png",
+        "primary_color": "00205B",
+        "secondary_color": "BF0D3E"
+    },
+    "South Carolina": {
+        "sports_reference_id": "south-carolina",
+        "venue": {
+            "name": "Williams-Brice Stadium",
+            "capacity": 80250,
+            "city": "Columbia",
+            "state": "South Carolina"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/south-carolina.png",
+        "primary_color": "73000A",
+        "secondary_color": "000000"
+    },
+    "South Florida": {
+        "sports_reference_id": "south-florida",
+        "venue": {
+            "name": "Raymond James Stadium",
+            "capacity": 65857,
+            "city": "Tampa",
+            "state": "Florida"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/south-florida.png",
+        "primary_color": "006747",
+        "secondary_color": "CFC493"
+    },
+    "Stanford": {
+        "sports_reference_id": "stanford",
+        "venue": {
+            "name": "Stanford Stadium",
+            "capacity": 50000,
+            "city": "Stanford",
+            "state": "California"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/stanford.png",
+        "primary_color": "8C1515",
+        "secondary_color": "FFFFFF"
+    },
+    "Syracuse": {
+        "sports_reference_id": "syracuse",
+        "venue": {
+            "name": "JMA Wireless Dome",
+            "capacity": 49250,
+            "city": "Syracuse",
+            "state": "New York"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/syracuse.png",
+        "primary_color": "F76900",
+        "secondary_color": "002244"
+    },
+    "Temple": {
+        "sports_reference_id": "temple",
+        "venue": {
+            "name": "Lincoln Financial Field",
+            "capacity": 68532,
+            "city": "Philadelphia",
+            "state": "Pennsylvania"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/temple.png",
+        "primary_color": "9D2235",
+        "secondary_color": "FFFFFF"
+    },
+    "Tennessee": {
+        "sports_reference_id": "tennessee",
+        "venue": {
+            "name": "Neyland Stadium",
+            "capacity": 102455,
+            "city": "Knoxville",
+            "state": "Tennessee"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/tennessee.png",
+        "primary_color": "FF8200",
+        "secondary_color": "FFFFFF"
+    },
+    "Texas": {
+        "sports_reference_id": "texas",
+        "venue": {
+            "name": "Darrell K. Royal-Texas Memorial Stadium",
+            "capacity": 100119,
+            "city": "Austin",
+            "state": "Texas"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/texas.png",
+        "primary_color": "BF5700",
+        "secondary_color": "FFFFFF"
+    },
+    "Texas A&M": {
+        "sports_reference_id": "texas-am",
+        "venue": {
+            "name": "Kyle Field",
+            "capacity": 102733,
+            "city": "College Station",
+            "state": "Texas"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/texas-am.png",
+        "primary_color": "500000",
+        "secondary_color": "FFFFFF"
+    },
+    "Texas State": {
+        "sports_reference_id": "texas-state",
+        "venue": {
+            "name": "UFCU Stadium",
+            "capacity": 30000,
+            "city": "San Marcos",
+            "state": "Texas"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/texas-state.png",
+        "primary_color": "501214",
+        "secondary_color": "8D734A"
+    },
+    "Texas Tech": {
+        "sports_reference_id": "texas-tech",
+        "venue": {
+            "name": "Jones AT&T Stadium",
+            "capacity": 58930,
+            "city": "Lubbock",
+            "state": "Texas"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/texas-tech.png",
+        "primary_color": "CC0000",
+        "secondary_color": "000000"
+    },
+    "Toledo": {
+        "sports_reference_id": "toledo",
+        "venue": {
+            "name": "Glass Bowl",
+            "capacity": 26248,
+            "city": "Toledo",
+            "state": "Ohio"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/toledo.png",
+        "primary_color": "15397F",
+        "secondary_color": "FFD200"
+    },
+    "Troy": {
+        "sports_reference_id": "troy",
+        "venue": {
+            "name": "Veterans Memorial Stadium",
+            "capacity": 30000,
+            "city": "Troy",
+            "state": "Alabama"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/troy.png",
+        "primary_color": "8A2432",
+        "secondary_color": "000000"
+    },
+    "Tulane": {
+        "sports_reference_id": "tulane",
+        "venue": {
+            "name": "Yulman Stadium",
+            "capacity": 30000,
+            "city": "New Orleans",
+            "state": "Louisiana"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/tulane.png",
+        "primary_color": "006747",
+        "secondary_color": "87CEEB"
+    },
+    "Tulsa": {
+        "sports_reference_id": "tulsa",
+        "venue": {
+            "name": "Skelly Field at H.A. Chapman Stadium",
+            "capacity": 30000,
+            "city": "Tulsa",
+            "state": "Oklahoma"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/tulsa.png",
+        "primary_color": "002D72",
+        "secondary_color": "C8A052"
+    },
+    "UAB": {
+        "sports_reference_id": "alabama-birmingham",
+        "venue": {
+            "name": "Protective Stadium",
+            "capacity": 47100,
+            "city": "Birmingham",
+            "state": "Alabama"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/alabama-birmingham.png",
+        "primary_color": "1E6B52",
+        "secondary_color": "D4A017"
+    },
+    "UCF": {
+        "sports_reference_id": "central-florida",
+        "venue": {
+            "name": "Acrisure Bounce House",
+            "capacity": 45301,
+            "city": "Orlando",
+            "state": "Florida"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/central-florida.png",
+        "primary_color": "BA9B37",
+        "secondary_color": "000000"
+    },
+    "UCLA": {
+        "sports_reference_id": "ucla",
+        "venue": {
+            "name": "Rose Bowl",
+            "capacity": 92542,
+            "city": "Los Angeles",
+            "state": "California"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/ucla.png",
+        "primary_color": "2D68C4",
+        "secondary_color": "F2A900"
+    },
+    "USC": {
+        "sports_reference_id": "southern-california",
+        "venue": {
+            "name": "Los Angeles Memorial Coliseum",
+            "capacity": 77500,
+            "city": "Los Angeles",
+            "state": "California"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/southern-california.png",
+        "primary_color": "990000",
+        "secondary_color": "FFC72C"
+    },
+    "Utah": {
+        "sports_reference_id": "utah",
+        "venue": {
+            "name": "Rice-Eccles Stadium",
+            "capacity": 45017,
+            "city": "Salt Lake City",
+            "state": "Utah"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/utah.png",
+        "primary_color": "CC0000",
+        "secondary_color": "000000"
+    },
+    "Utah State": {
+        "sports_reference_id": "utah-state",
+        "venue": {
+            "name": "Merlin Olsen Field at Maverik Stadium",
+            "capacity": 30257,
+            "city": "Logan",
+            "state": "Utah"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/utah-state.png",
+        "primary_color": "0F2439",
+        "secondary_color": "FFFFFF"
+    },
+    "UTEP": {
+        "sports_reference_id": "texas-el-paso",
+        "venue": {
+            "name": "Sun Bowl Stadium",
+            "capacity": 52000,
+            "city": "El Paso",
+            "state": "Texas"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/texas-el-paso.png",
+        "primary_color": "FF8200",
+        "secondary_color": "041E42"
+    },
+    "UTSA": {
+        "sports_reference_id": "texas-san-antonio",
+        "venue": {
+            "name": "Alamodome",
+            "capacity": 65000,
+            "city": "San Antonio",
+            "state": "Texas"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/texas-san-antonio.png",
+        "primary_color": "0C2340",
+        "secondary_color": "F15A22"
+    },
+    "Vanderbilt": {
+        "sports_reference_id": "vanderbilt",
+        "venue": {
+            "name": "FirstBank Stadium",
+            "capacity": 41448,
+            "city": "Nashville",
+            "state": "Tennessee"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/vanderbilt.png",
+        "primary_color": "866D4B",
+        "secondary_color": "000000"
+    },
+    "Virginia": {
+        "sports_reference_id": "virginia",
+        "venue": {
+            "name": "Scott Stadium",
+            "capacity": 61500,
+            "city": "Charlottesville",
+            "state": "Virginia"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/virginia.png",
+        "primary_color": "232D4B",
+        "secondary_color": "F84C1E"
+    },
+    "Virginia Tech": {
+        "sports_reference_id": "virginia-tech",
+        "venue": {
+            "name": "Lane Stadium",
+            "capacity": 66233,
+            "city": "Blacksburg",
+            "state": "Virginia"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/virginia-tech.png",
+        "primary_color": "630031",
+        "secondary_color": "CF4420"
+    },
+    "Wake Forest": {
+        "sports_reference_id": "wake-forest",
+        "venue": {
+            "name": "Allegacy Federal Credit Union Stadium",
+            "capacity": 31500,
+            "city": "Winston-Salem",
+            "state": "North Carolina"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/wake-forest.png",
+        "primary_color": "9E7E38",
+        "secondary_color": "000000"
+    },
+    "Washington": {
+        "sports_reference_id": "washington",
+        "venue": {
+            "name": "Husky Stadium",
+            "capacity": 72500,
+            "city": "Seattle",
+            "state": "Washington"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/washington.png",
+        "primary_color": "4B2E83",
+        "secondary_color": "B7A57A"
+    },
+    "Washington State": {
+        "sports_reference_id": "washington-state",
+        "venue": {
+            "name": "Martin Stadium",
+            "capacity": 35117,
+            "city": "Pullman",
+            "state": "Washington"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/washington-state.png",
+        "primary_color": "A60F2D",
+        "secondary_color": "4D4D4D"
+    },
+    "West Virginia": {
+        "sports_reference_id": "west-virginia",
+        "venue": {
+            "name": "Mountaineer Field at Milan Puskar Stadium",
+            "capacity": 60000,
+            "city": "Morgantown",
+            "state": "West Virginia"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/west-virginia.png",
+        "primary_color": "002855",
+        "secondary_color": "EAAA00"
+    },
+    "Western Kentucky": {
+        "sports_reference_id": "western-kentucky",
+        "venue": {
+            "name": "Houchens Industries-L.T. Smith Stadium",
+            "capacity": 22000,
+            "city": "Bowling Green",
+            "state": "Kentucky"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/western-kentucky.png",
+        "primary_color": "C60C30",
+        "secondary_color": "FFFFFF"
+    },
+    "Western Michigan": {
+        "sports_reference_id": "western-michigan",
+        "venue": {
+            "name": "Waldo Stadium",
+            "capacity": 30200,
+            "city": "Kalamazoo",
+            "state": "Michigan"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/western-michigan.png",
+        "primary_color": "6C4023",
+        "secondary_color": "B5A167"
+    },
+    "Wisconsin": {
+        "sports_reference_id": "wisconsin",
+        "venue": {
+            "name": "Camp Randall Stadium",
+            "capacity": 80321,
+            "city": "Madison",
+            "state": "Wisconsin"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/wisconsin.png",
+        "primary_color": "C5050C",
+        "secondary_color": "FFFFFF"
+    },
+    "Wyoming": {
+        "sports_reference_id": "wyoming",
+        "venue": {
+            "name": "War Memorial Stadium",
+            "capacity": 29181,
+            "city": "Laramie",
+            "state": "Wyoming"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/wyoming.png",
+        "primary_color": "492F24",
+        "secondary_color": "FFC425"
+    },
+    "NC State": {
+        "sports_reference_id": "north-carolina-state",
+        "venue": {
+            "name": "Carter-Finley Stadium",
+            "capacity": 57583,
+            "city": "Raleigh",
+            "state": "North Carolina"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/north-carolina-state.png",
+        "primary_color": "CC0000",
+        "secondary_color": "000000"
+    },
+    "Pittsburgh": {
+        "sports_reference_id": "pittsburgh",
+        "venue": {
+            "name": "Acrisure Stadium",
+            "capacity": 68400,
+            "city": "Pittsburgh",
+            "state": "Pennsylvania"
+        },
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/pittsburgh.png",
+        "primary_color": "003594",
+        "secondary_color": "FFB81C"
+    },
+    "TCU": {
+        "primary_color": "4D1979",
+        "secondary_color": "A3A9AC",
+        "sports_reference_id": "texas-christian",
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/texas-christian.png",
+        "venue": {
+            "name": "Amon G. Carter",
+            "capacity": 46000,
+            "city": "Fort Worth",
+            "state": "Texas"
+        }
+    },
+    "FIU": {
+        "primary_color": "002F65",
+        "secondary_color": "B6862C",
+        "sports_reference_id": "florida-international",
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/florida-international.png",
+        "venue": {
+            "name": "Pitbull Stadium",
+            "capacity": 23500,
+            "city": "Miami",
+            "state": "Florida"
+        }
+    },
+    "Middle Tennessee": {
+        "primary_color": "0066CC",
+        "secondary_color": "000000",
+        "sports_reference_id": "middle-tennessee-state",
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/middle-tennessee-state.png",
+        "venue": {
+            "name": "Johnny \"Red\" Floyd Stadium",
+            "capacity": 31000,
+            "city": "Murfreesboro",
+            "state": "Tennessee"
+        }
+    },
+    "UMass": {
+        "primary_color": "881C1C",
+        "secondary_color": "000000",
+        "sports_reference_id": "massachusetts",
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/massachusetts.png",
+        "venue": {
+            "name": "Warren McGuirk Alumni Stadium",
+            "capacity": 19000,
+            "city": "Amherst",
+            "state": "Massachusetts"
+        }
+    },
+    "Hawai\u02bbi": {
+        "primary_color": "024731",
+        "secondary_color": "FFFFFF",
+        "sports_reference_id": "hawaii",
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/hawaii.png",
+        "venue": {
+            "name": "T.C. Ching Athletics Complex",
+            "capacity": 16909,
+            "city": "Honolulu",
+            "state": "Hawaii"
+        }
+    },
+    "UNLV": {
+        "primary_color": "CF0A2C",
+        "secondary_color": "666666",
+        "sports_reference_id": "nevada-las-vegas",
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/nevada-las-vegas.png",
+        "venue": {
+            "name": "Allegiant Stadium",
+            "capacity": 65000,
+            "city": "Las Vegas",
+            "state": "Nevada"
+        }
+    },
+    "Southern Miss": {
+        "primary_color": "FFAB00",
+        "secondary_color": "000000",
+        "sports_reference_id": "southern-mississippi",
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/southern-mississippi.png",
+        "venue": {
+            "name": "Carlisle-Faulkner Field at M.M. Roberts Stadium",
+            "capacity": 36000,
+            "city": "Hattiesburg",
+            "state": "Mississippi"
+        }
+    },
+    "ULM": {
+        "primary_color": "840029",
+        "secondary_color": "FFC82E",
+        "sports_reference_id": "louisiana-monroe",
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/louisiana-monroe.png",
+        "venue": {
+            "name": "Malone Stadium",
+            "capacity": 30427,
+            "city": "Monroe",
+            "state": "Louisiana"
+        }
+    },
+    "UConn": {
+        "primary_color": "000E2F",
+        "secondary_color": "FFFFFF",
+        "sports_reference_id": "connecticut",
+        "logo_url": "https://cdn.ssref.net/req/202601261/tlogo/ncaa/connecticut.png",
+        "venue": {
+            "name": "Rentschler Field",
+            "capacity": 40000,
+            "city": "Storrs",
+            "state": "Connecticut"
+        }
+    }
+}

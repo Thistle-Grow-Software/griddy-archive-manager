@@ -94,6 +94,7 @@ class Team(models.Model):
     should be modeled via TeamAffiliation (below).
     """
     name = models.CharField(max_length=140)           # "Georgia", "Pittsburgh Steelers"
+    alternate_name = models.CharField(max_length=140, null=True)
     short_name = models.CharField(max_length=40, blank=True, default="")  # "UGA", "PIT"
     city = models.CharField(max_length=80, blank=True, default="")
     state = models.CharField(max_length=60, blank=True, default="")
@@ -116,6 +117,18 @@ class Team(models.Model):
             models.Index(fields=["name"]),
             models.Index(fields=["short_name"]),
         ]
+
+    @property
+    def current_venue(self):
+        today = timezone.now().date()
+        occupancy = (
+            self.venue_occupancies
+            .filter(Q(end_date__isnull=True) | Q(end_date__gte=today))
+            .order_by("-start_date")
+            .select_related("venue")
+            .first()
+        )
+        return occupancy.venue if occupancy else None
 
     def __str__(self) -> str:
         return self.name
@@ -199,14 +212,22 @@ class Venue(models.Model):
         return self.name
 
 
+class TeamVenueOccupancy(models.Model):
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="venue_occupancies")
+    venue = models.ForeignKey(Venue, on_delete=models.PROTECT, related_name="team_occupancies")
+
+    start_date = models.DateField(null=True)
+    end_date = models.DateField(null=True)
+
+
 class Game(models.Model):
     league = models.ForeignKey(League, on_delete=models.PROTECT, related_name="games")
     season = models.ForeignKey(Season, on_delete=models.PROTECT, related_name="games")
-
+    ordinal = models.IntegerField(null=True)
     date_local = models.DateField()
     kickoff_time_local = models.TimeField(null=True, blank=True)
 
-    week = models.CharField(max_length=16, blank=True, default="")  # "W01", "Week 4", "Semi", etc.
+    week = models.IntegerField(null=True)
     game_type = models.CharField(max_length=16, choices=GameType.choices, default=GameType.REG)
     competition_name = models.CharField(max_length=160, blank=True, default="")  # "Rose Bowl", "SEC Championship", etc.
 
