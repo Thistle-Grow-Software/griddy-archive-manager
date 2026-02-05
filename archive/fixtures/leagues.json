@@ -1,0 +1,68 @@
+[
+{
+  "model": "archive.league",
+  "pk": 3,
+  "fields": {
+    "short_name": "NFL",
+    "long_name": "National Football League",
+    "level": "PRO",
+    "country": "US",
+    "notes": ""
+  }
+},
+{
+  "model": "archive.league",
+  "pk": 4,
+  "fields": {
+    "short_name": "NCAA - FBS",
+    "long_name": "NCAA Division I Football Bowl Subdivision",
+    "level": "COLLEGE",
+    "country": "US",
+    "notes": ""
+  }
+},
+{
+  "model": "archive.league",
+  "pk": 5,
+  "fields": {
+    "short_name": "NCAA - FCS",
+    "long_name": "NCAA Division I Football Championship Subdivision",
+    "level": "COLLEGE",
+    "country": "US",
+    "notes": ""
+  }
+},
+{
+  "model": "archive.league",
+  "pk": 6,
+  "fields": {
+    "short_name": "NFHS",
+    "long_name": "National Federation of State High School Associations",
+    "level": "HS",
+    "country": "US",
+    "notes": ""
+  }
+},
+{
+  "model": "archive.league",
+  "pk": 7,
+  "fields": {
+    "short_name": "UFL",
+    "long_name": "United Football League",
+    "level": "PRO",
+    "country": "US",
+    "notes": ""
+  }
+},
+{
+  "model": "archive.league",
+  "pk": 8,
+  "fields": {
+    "short_name": "CFL",
+    "long_name": "Canadian Football League",
+    "level": "PRO",
+    "country": "CA",
+    "notes": ""
+  }
+}
+]

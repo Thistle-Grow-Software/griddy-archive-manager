@@ -1,0 +1,1266 @@
+{
+    "Abilene Christian": {
+        "city": "Abilene",
+        "state": "Texas",
+        "program_established": "1919",
+        "first_fcs_season": "2017",
+        "conference": "UAC",
+        "nickname": "Wildcats",
+        "name": "Abilene Christian",
+        "school_name": "Abilene Christian University"
+    },
+    "Alabama A&M": {
+        "city": "Normal",
+        "state": "Alabama",
+        "program_established": "1912",
+        "first_fcs_season": "1999",
+        "conference": "SWAC",
+        "nickname": "Bulldogs",
+        "name": "Alabama A&M",
+        "school_name": "Alabama A&M University"
+    },
+    "Alabama State": {
+        "city": "Montgomery",
+        "state": "Alabama",
+        "program_established": "1901",
+        "first_fcs_season": "1982",
+        "conference": "SWAC",
+        "nickname": "Hornets",
+        "name": "Alabama State",
+        "school_name": "Alabama State University"
+    },
+    "Albany": {
+        "city": "Albany",
+        "state": "New York",
+        "program_established": "1922",
+        "first_fcs_season": "1999",
+        "conference": "CAA Football",
+        "nickname": "Great Danes",
+        "name": "Albany",
+        "school_name": "State University of New York at Albany"
+    },
+    "Alcorn State": {
+        "city": "Lorman",
+        "state": "Mississippi",
+        "program_established": "1921",
+        "first_fcs_season": "1978",
+        "conference": "SWAC",
+        "nickname": "Braves",
+        "name": "Alcorn State",
+        "school_name": "Alcorn State University"
+    },
+    "Arkansas-Pine Bluff": {
+        "city": "Pine Bluff",
+        "state": "Arkansas",
+        "program_established": "1916",
+        "first_fcs_season": "1998",
+        "conference": "SWAC",
+        "nickname": "Golden Lions",
+        "name": "Arkansas\u2013Pine Bluff",
+        "school_name": "University of Arkansas at Pine Bluff"
+    },
+    "Austin Peay": {
+        "city": "Clarksville",
+        "state": "Tennessee",
+        "program_established": "1930",
+        "first_fcs_season": "1978",
+        "conference": "UAC",
+        "nickname": "Governors",
+        "name": "Austin Peay",
+        "school_name": "Austin Peay State University"
+    },
+    "Bethune-Cookman": {
+        "city": "Daytona Beach",
+        "state": "Florida",
+        "program_established": "1925",
+        "first_fcs_season": "1980",
+        "conference": "SWAC",
+        "nickname": "Wildcats",
+        "name": "Bethune\u2013Cookman",
+        "school_name": "Bethune\u2013Cookman University"
+    },
+    "Brown": {
+        "city": "Providence",
+        "state": "Rhode Island",
+        "program_established": "1878",
+        "first_fcs_season": "1982",
+        "conference": "Ivy",
+        "nickname": "Bears",
+        "name": "Brown",
+        "school_name": "Brown University"
+    },
+    "Bryant": {
+        "city": "Smithfield",
+        "state": "Rhode Island",
+        "program_established": "1999",
+        "first_fcs_season": "2012",
+        "conference": "CAA Football",
+        "nickname": "Bulldogs",
+        "name": "Bryant",
+        "school_name": "Bryant University"
+    },
+    "Bucknell": {
+        "city": "Lewisburg",
+        "state": "Pennsylvania",
+        "program_established": "1883",
+        "first_fcs_season": "1978",
+        "conference": "Patriot",
+        "nickname": "Bison",
+        "name": "Bucknell",
+        "school_name": "Bucknell University"
+    },
+    "Butler": {
+        "city": "Indianapolis",
+        "state": "Indiana",
+        "program_established": "1887",
+        "first_fcs_season": "1993",
+        "conference": "PFL",
+        "nickname": "Bulldogs",
+        "name": "Butler",
+        "school_name": "Butler University"
+    },
+    "Cal Poly": {
+        "city": "San Luis Obispo",
+        "state": "California",
+        "program_established": "1915",
+        "first_fcs_season": "1994",
+        "conference": "Big Sky",
+        "nickname": "Mustangs",
+        "name": "Cal Poly",
+        "school_name": "California Polytechnic State University"
+    },
+    "Campbell": {
+        "city": "Buies Creek",
+        "state": "North Carolina",
+        "program_established": "1925;2008",
+        "first_fcs_season": "2008",
+        "conference": "CAA Football",
+        "nickname": "Fighting Camels",
+        "name": "Campbell",
+        "school_name": "Campbell University"
+    },
+    "Central Arkansas": {
+        "city": "Conway",
+        "state": "Arkansas",
+        "program_established": "1908",
+        "first_fcs_season": "2010",
+        "conference": "UAC",
+        "nickname": "Bears",
+        "name": "Central Arkansas",
+        "school_name": "University of Central Arkansas"
+    },
+    "Central Connecticut": {
+        "city": "New Britain",
+        "state": "Connecticut",
+        "program_established": "1935",
+        "first_fcs_season": "1993",
+        "conference": "NEC",
+        "nickname": "Blue Devils",
+        "name": "Central Connecticut",
+        "school_name": "Central Connecticut State University",
+        "alternate_name": "Central Connecticut State University"
+    },
+    "Charleston Southern": {
+        "city": "North Charleston",
+        "state": "South Carolina",
+        "program_established": "1985",
+        "first_fcs_season": "1993",
+        "conference": "OVC\u2013Big South",
+        "nickname": "Buccaneers",
+        "name": "Charleston Southern",
+        "school_name": "Charleston Southern University"
+    },
+    "Chattanooga": {
+        "city": "Chattanooga",
+        "state": "Tennessee",
+        "program_established": "1899",
+        "first_fcs_season": "1982",
+        "conference": "SoCon",
+        "nickname": "Mocs",
+        "name": "Chattanooga",
+        "school_name": "University of Tennessee at Chattanooga"
+    },
+    "The Citadel": {
+        "city": "Charleston",
+        "state": "South Carolina",
+        "program_established": "1905",
+        "first_fcs_season": "1982",
+        "conference": "SoCon",
+        "nickname": "Bulldogs",
+        "name": "The Citadel",
+        "school_name": "The Citadel, The Military College of South Carolina"
+    },
+    "Colgate": {
+        "city": "Hamilton",
+        "state": "New York",
+        "program_established": "1890",
+        "first_fcs_season": "1982",
+        "conference": "Patriot",
+        "nickname": "Raiders",
+        "name": "Colgate",
+        "school_name": "Colgate University"
+    },
+    "Columbia": {
+        "city": "New York",
+        "state": "New York",
+        "program_established": "1870",
+        "first_fcs_season": "1982",
+        "conference": "Ivy",
+        "nickname": "Lions",
+        "name": "Columbia",
+        "school_name": "Columbia University"
+    },
+    "Cornell": {
+        "city": "Ithaca",
+        "state": "New York",
+        "program_established": "1887",
+        "first_fcs_season": "1982",
+        "conference": "Ivy",
+        "nickname": "Big Red",
+        "name": "Cornell",
+        "school_name": "Cornell University"
+    },
+    "Dartmouth": {
+        "city": "Hanover",
+        "state": "New Hampshire",
+        "program_established": "1881",
+        "first_fcs_season": "1982",
+        "conference": "Ivy",
+        "nickname": "Big Green",
+        "name": "Dartmouth",
+        "school_name": "Dartmouth College"
+    },
+    "Davidson": {
+        "city": "Davidson",
+        "state": "North Carolina",
+        "program_established": "1896",
+        "first_fcs_season": "1978;1993",
+        "conference": "PFL",
+        "nickname": "Wildcats",
+        "name": "Davidson",
+        "school_name": "Davidson College"
+    },
+    "Dayton": {
+        "city": "Dayton",
+        "state": "Ohio",
+        "program_established": "1903",
+        "first_fcs_season": "1993",
+        "conference": "PFL",
+        "nickname": "Flyers",
+        "name": "Dayton",
+        "school_name": "University of Dayton"
+    },
+    "Delaware State": {
+        "city": "Dover",
+        "state": "Delaware",
+        "program_established": "1924",
+        "first_fcs_season": "1978;1980",
+        "conference": "MEAC",
+        "nickname": "Hornets",
+        "name": "Delaware State",
+        "school_name": "Delaware State University"
+    },
+    "Drake": {
+        "city": "Des Moines",
+        "state": "Iowa",
+        "program_established": "1893",
+        "first_fcs_season": "1982;1993",
+        "conference": "PFL",
+        "nickname": "Bulldogs",
+        "name": "Drake",
+        "school_name": "Drake University"
+    },
+    "Duquesne": {
+        "city": "Pittsburgh",
+        "state": "Pennsylvania",
+        "program_established": "1891",
+        "first_fcs_season": "1993",
+        "conference": "NEC",
+        "nickname": "Dukes",
+        "name": "Duquesne",
+        "school_name": "Duquesne University"
+    },
+    "East Tennessee State": {
+        "city": "Johnson City",
+        "state": "Tennessee",
+        "program_established": "1920;2015",
+        "first_fcs_season": "1982;2015",
+        "conference": "SoCon",
+        "nickname": "Buccaneers",
+        "name": "East Tennessee State",
+        "school_name": "East Tennessee State University"
+    },
+    "East Texas A&M": {
+        "city": "Commerce",
+        "state": "Texas",
+        "program_established": "1915",
+        "first_fcs_season": "2025",
+        "conference": "Southland",
+        "nickname": "Lions",
+        "name": "East Texas A&M",
+        "school_name": "East Texas A&M University"
+    },
+    "Eastern Illinois": {
+        "city": "Charleston",
+        "state": "Illinois",
+        "program_established": "1899",
+        "first_fcs_season": "1981",
+        "conference": "OVC\u2013Big South",
+        "nickname": "Panthers",
+        "name": "Eastern Illinois",
+        "school_name": "Eastern Illinois University"
+    },
+    "Eastern Kentucky": {
+        "city": "Richmond",
+        "state": "Kentucky",
+        "program_established": "1891",
+        "first_fcs_season": "1978",
+        "conference": "UAC",
+        "nickname": "Colonels",
+        "name": "Eastern Kentucky",
+        "school_name": "Eastern Kentucky University"
+    },
+    "Eastern Washington": {
+        "city": "Cheney",
+        "state": "Washington",
+        "program_established": "1901",
+        "first_fcs_season": "1984",
+        "conference": "Big Sky",
+        "nickname": "Eagles",
+        "name": "Eastern Washington",
+        "school_name": "Eastern Washington University"
+    },
+    "Elon": {
+        "city": "Elon",
+        "state": "North Carolina",
+        "program_established": "1909",
+        "first_fcs_season": "1999",
+        "conference": "CAA Football",
+        "nickname": "Phoenix",
+        "name": "Elon",
+        "school_name": "Elon University"
+    },
+    "Florida A&M": {
+        "city": "Tallahassee",
+        "state": "Florida",
+        "program_established": "1907",
+        "first_fcs_season": "1979",
+        "conference": "SWAC",
+        "nickname": "Rattlers",
+        "name": "Florida A&M",
+        "school_name": "Florida A&M University"
+    },
+    "Fordham": {
+        "city": "New York",
+        "state": "New York",
+        "program_established": "1881",
+        "first_fcs_season": "1989",
+        "conference": "Patriot",
+        "nickname": "Rams",
+        "name": "Fordham",
+        "school_name": "Fordham University"
+    },
+    "Furman": {
+        "city": "Greenville",
+        "state": "South Carolina",
+        "program_established": "1889",
+        "first_fcs_season": "1982",
+        "conference": "SoCon",
+        "nickname": "Paladins",
+        "name": "Furman",
+        "school_name": "Furman University"
+    },
+    "Gardner-Webb": {
+        "city": "Boiling Springs",
+        "state": "North Carolina",
+        "program_established": "1946",
+        "first_fcs_season": "2002",
+        "conference": "OVC\u2013Big South",
+        "nickname": "Runnin' Bulldogs",
+        "name": "Gardner\u2013Webb",
+        "school_name": "Gardner\u2013Webb University"
+    },
+    "Georgetown": {
+        "city": "Washington",
+        "state": "District of Columbia",
+        "program_established": "1881",
+        "first_fcs_season": "1993",
+        "conference": "Patriot",
+        "nickname": "Hoyas",
+        "name": "Georgetown",
+        "school_name": "Georgetown University"
+    },
+    "Grambling State": {
+        "city": "Grambling",
+        "state": "Louisiana",
+        "program_established": "1927",
+        "first_fcs_season": "1978",
+        "conference": "SWAC",
+        "nickname": "Tigers",
+        "name": "Grambling State",
+        "school_name": "Grambling State University"
+    },
+    "Hampton": {
+        "city": "Hampton",
+        "state": "Virginia",
+        "program_established": "1902",
+        "first_fcs_season": "1997",
+        "conference": "CAA Football",
+        "nickname": "Pirates",
+        "name": "Hampton",
+        "school_name": "Hampton University"
+    },
+    "Harvard": {
+        "city": "Cambridge",
+        "state": "Massachusetts",
+        "program_established": "1873",
+        "first_fcs_season": "1982",
+        "conference": "Ivy",
+        "nickname": "Crimson",
+        "name": "Harvard",
+        "school_name": "Harvard University"
+    },
+    "Holy Cross": {
+        "city": "Worcester",
+        "state": "Massachusetts",
+        "program_established": "1891",
+        "first_fcs_season": "1982",
+        "conference": "Patriot",
+        "nickname": "Crusaders",
+        "name": "Holy Cross",
+        "school_name": "College of the Holy Cross"
+    },
+    "Houston Christian": {
+        "city": "Houston",
+        "state": "Texas",
+        "program_established": "2013",
+        "first_fcs_season": "2014",
+        "conference": "Southland",
+        "nickname": "Huskies",
+        "name": "Houston Christian",
+        "school_name": "Houston Christian University",
+        "alternate_name": "Houston Baptist"
+    },
+    "Howard": {
+        "city": "Washington",
+        "state": "District of Columbia",
+        "program_established": "1882",
+        "first_fcs_season": "1978;1980",
+        "conference": "MEAC",
+        "nickname": "Bison",
+        "name": "Howard",
+        "school_name": "Howard University"
+    },
+    "Idaho": {
+        "city": "Moscow",
+        "state": "Idaho",
+        "program_established": "1893",
+        "first_fcs_season": "1978;2018",
+        "conference": "Big Sky",
+        "nickname": "Vandals",
+        "name": "Idaho",
+        "school_name": "University of Idaho"
+    },
+    "Idaho State": {
+        "city": "Pocatello",
+        "state": "Idaho",
+        "program_established": "1902",
+        "first_fcs_season": "1978",
+        "conference": "Big Sky",
+        "nickname": "Bengals",
+        "name": "Idaho State",
+        "school_name": "Idaho State University"
+    },
+    "Illinois State": {
+        "city": "Normal",
+        "state": "Illinois",
+        "program_established": "1887",
+        "first_fcs_season": "1982",
+        "conference": "MVFC",
+        "nickname": "Redbirds",
+        "name": "Illinois State",
+        "school_name": "Illinois State University"
+    },
+    "Incarnate Word": {
+        "city": "San Antonio",
+        "state": "Texas",
+        "program_established": "2009",
+        "first_fcs_season": "2017",
+        "conference": "Southland",
+        "nickname": "Cardinals",
+        "name": "Incarnate Word",
+        "school_name": "University of the Incarnate Word"
+    },
+    "Indiana State": {
+        "city": "Terre Haute",
+        "state": "Indiana",
+        "program_established": "1895",
+        "first_fcs_season": "1982",
+        "conference": "MVFC",
+        "nickname": "Sycamores",
+        "name": "Indiana State",
+        "school_name": "Indiana State University"
+    },
+    "Jackson State": {
+        "city": "Jackson",
+        "state": "Mississippi",
+        "program_established": "1911",
+        "first_fcs_season": "1978",
+        "conference": "SWAC",
+        "nickname": "Tigers",
+        "name": "Jackson State",
+        "school_name": "Jackson State University"
+    },
+    "Lafayette": {
+        "city": "Easton",
+        "state": "Pennsylvania",
+        "program_established": "1882",
+        "first_fcs_season": "1978",
+        "conference": "Patriot",
+        "nickname": "Leopards",
+        "name": "Lafayette",
+        "school_name": "Lafayette College"
+    },
+    "Lamar": {
+        "city": "Beaumont",
+        "state": "Texas",
+        "program_established": "1923;2009",
+        "first_fcs_season": "1982;2010",
+        "conference": "Southland",
+        "nickname": "Cardinals",
+        "name": "Lamar",
+        "school_name": "Lamar University"
+    },
+    "Lehigh": {
+        "city": "Bethlehem",
+        "state": "Pennsylvania",
+        "program_established": "1884",
+        "first_fcs_season": "1978",
+        "conference": "Patriot",
+        "nickname": "Mountain Hawks",
+        "name": "Lehigh",
+        "school_name": "Lehigh University"
+    },
+    "Lindenwood": {
+        "city": "St. Charles",
+        "state": "Missouri",
+        "program_established": "1990",
+        "first_fcs_season": "2025",
+        "conference": "OVC\u2013Big South",
+        "nickname": "Lions",
+        "name": "Lindenwood",
+        "school_name": "Lindenwood University"
+    },
+    "LIU": {
+        "city": "Brookville",
+        "state": "New York",
+        "program_established": "1957",
+        "first_fcs_season": "2019",
+        "conference": "NEC",
+        "nickname": "Sharks",
+        "name": "LIU",
+        "school_name": "Long Island University"
+    },
+    "Maine": {
+        "city": "Orono",
+        "state": "Maine",
+        "program_established": "1892",
+        "first_fcs_season": "1978",
+        "conference": "CAA Football",
+        "nickname": "Black Bears",
+        "name": "Maine",
+        "school_name": "University of Maine"
+    },
+    "Marist": {
+        "city": "Poughkeepsie",
+        "state": "New York",
+        "program_established": "1965",
+        "first_fcs_season": "1993",
+        "conference": "PFL",
+        "nickname": "Red Foxes",
+        "name": "Marist",
+        "school_name": "Marist University"
+    },
+    "McNeese": {
+        "city": "Lake Charles",
+        "state": "Louisiana",
+        "program_established": "1950",
+        "first_fcs_season": "1982",
+        "conference": "Southland",
+        "nickname": "Cowboys",
+        "name": "McNeese",
+        "school_name": "McNeese State University"
+    },
+    "Mercer": {
+        "city": "Macon",
+        "state": "Georgia",
+        "program_established": "1891;2013",
+        "first_fcs_season": "2013",
+        "conference": "SoCon",
+        "nickname": "Bears",
+        "name": "Mercer",
+        "school_name": "Mercer University"
+    },
+    "Merrimack": {
+        "city": "North Andover",
+        "state": "Massachusetts",
+        "program_established": "1947",
+        "first_fcs_season": "2023",
+        "conference": "Independent",
+        "nickname": "Warriors",
+        "name": "Merrimack",
+        "school_name": "Merrimack College"
+    },
+    "Mississippi Valley State": {
+        "city": "Itta Bena",
+        "state": "Mississippi",
+        "program_established": "1953",
+        "first_fcs_season": "1980",
+        "conference": "SWAC",
+        "nickname": "Delta Devils",
+        "name": "Mississippi Valley State",
+        "school_name": "Mississippi Valley State University"
+    },
+    "Monmouth": {
+        "city": "West Long Branch",
+        "state": "New Jersey",
+        "program_established": "1993",
+        "first_fcs_season": "1994",
+        "conference": "CAA Football",
+        "nickname": "Hawks",
+        "name": "Monmouth",
+        "school_name": "Monmouth University"
+    },
+    "Montana": {
+        "city": "Missoula",
+        "state": "Montana",
+        "program_established": "1897",
+        "first_fcs_season": "1978",
+        "conference": "Big Sky",
+        "nickname": "Grizzlies",
+        "name": "Montana",
+        "school_name": "University of Montana"
+    },
+    "Montana State": {
+        "city": "Bozeman",
+        "state": "Montana",
+        "program_established": "1897",
+        "first_fcs_season": "1978",
+        "conference": "Big Sky",
+        "nickname": "Bobcats",
+        "name": "Montana State",
+        "school_name": "Montana State University"
+    },
+    "Morehead State": {
+        "city": "Morehead",
+        "state": "Kentucky",
+        "program_established": "1924",
+        "first_fcs_season": "1978",
+        "conference": "PFL",
+        "nickname": "Eagles",
+        "name": "Morehead State",
+        "school_name": "Morehead State University"
+    },
+    "Morgan State": {
+        "city": "Baltimore",
+        "state": "Maryland",
+        "program_established": "1897",
+        "first_fcs_season": "1986",
+        "conference": "MEAC",
+        "nickname": "Bears",
+        "name": "Morgan State",
+        "school_name": "Morgan State University"
+    },
+    "Murray State": {
+        "city": "Murray",
+        "state": "Kentucky",
+        "program_established": "1924",
+        "first_fcs_season": "1978",
+        "conference": "MVFC",
+        "nickname": "Racers",
+        "name": "Murray State",
+        "school_name": "Murray State University"
+    },
+    "New Hampshire": {
+        "city": "Durham",
+        "state": "New Hampshire",
+        "program_established": "1893",
+        "first_fcs_season": "1978",
+        "conference": "CAA Football",
+        "nickname": "Wildcats",
+        "name": "New Hampshire",
+        "school_name": "University of New Hampshire"
+    },
+    "Nicholls": {
+        "city": "Thibodaux",
+        "state": "Louisiana",
+        "program_established": "1972",
+        "first_fcs_season": "1980",
+        "conference": "Southland",
+        "nickname": "Colonels",
+        "name": "Nicholls",
+        "school_name": "Nicholls State University"
+    },
+    "Norfolk State": {
+        "city": "Norfolk",
+        "state": "Virginia",
+        "program_established": "1938",
+        "first_fcs_season": "1997",
+        "conference": "MEAC",
+        "nickname": "Spartans",
+        "name": "Norfolk State",
+        "school_name": "Norfolk State University"
+    },
+    "North Alabama": {
+        "city": "Florence",
+        "state": "Alabama",
+        "program_established": "1912",
+        "first_fcs_season": "2022",
+        "conference": "UAC",
+        "nickname": "Lions",
+        "name": "North Alabama",
+        "school_name": "University of North Alabama"
+    },
+    "North Carolina A&T": {
+        "city": "Greensboro",
+        "state": "North Carolina",
+        "program_established": "1901",
+        "first_fcs_season": "1978;1980",
+        "conference": "CAA Football",
+        "nickname": "Aggies",
+        "name": "North Carolina A&T",
+        "school_name": "North Carolina A&T State University"
+    },
+    "North Carolina Central": {
+        "city": "Durham",
+        "state": "North Carolina",
+        "program_established": "1921",
+        "first_fcs_season": "2011",
+        "conference": "MEAC",
+        "nickname": "Eagles",
+        "name": "North Carolina Central",
+        "school_name": "North Carolina Central University"
+    },
+    "North Dakota": {
+        "city": "Grand Forks",
+        "state": "North Dakota",
+        "program_established": "1894",
+        "first_fcs_season": "2012",
+        "conference": "MVFC",
+        "nickname": "Fighting Hawks",
+        "name": "North Dakota",
+        "school_name": "University of North Dakota"
+    },
+    "North Dakota State": {
+        "city": "Fargo",
+        "state": "North Dakota",
+        "program_established": "1894",
+        "first_fcs_season": "2008",
+        "conference": "MVFC",
+        "nickname": "Bison",
+        "name": "North Dakota State",
+        "school_name": "North Dakota State University"
+    },
+    "Northern Arizona": {
+        "city": "Flagstaff",
+        "state": "Arizona",
+        "program_established": "1915",
+        "first_fcs_season": "1978",
+        "conference": "Big Sky",
+        "nickname": "Lumberjacks",
+        "name": "Northern Arizona",
+        "school_name": "Northern Arizona University"
+    },
+    "Northern Colorado": {
+        "city": "Greeley",
+        "state": "Colorado",
+        "program_established": "1892",
+        "first_fcs_season": "2007",
+        "conference": "Big Sky",
+        "nickname": "Bears",
+        "name": "Northern Colorado",
+        "school_name": "University of Northern Colorado"
+    },
+    "Northern Iowa": {
+        "city": "Cedar Falls",
+        "state": "Iowa",
+        "program_established": "1895",
+        "first_fcs_season": "1981",
+        "conference": "MVFC",
+        "nickname": "Panthers",
+        "name": "Northern Iowa",
+        "school_name": "University of Northern Iowa"
+    },
+    "Northwestern State": {
+        "city": "Natchitoches",
+        "state": "Louisiana",
+        "program_established": "1907",
+        "first_fcs_season": "1978",
+        "conference": "Southland",
+        "nickname": "Demons",
+        "name": "Northwestern State",
+        "school_name": "Northwestern State University"
+    },
+    "Penn": {
+        "city": "Philadelphia",
+        "state": "Pennsylvania",
+        "program_established": "1876",
+        "first_fcs_season": "1982",
+        "conference": "Ivy",
+        "nickname": "Quakers",
+        "name": "Penn",
+        "school_name": "University of Pennsylvania"
+    },
+    "Portland State": {
+        "city": "Portland",
+        "state": "Oregon",
+        "program_established": "1947",
+        "first_fcs_season": "1978;1998",
+        "conference": "Big Sky",
+        "nickname": "Vikings",
+        "name": "Portland State",
+        "school_name": "Portland State University"
+    },
+    "Prairie View A&M": {
+        "city": "Prairie View",
+        "state": "Texas",
+        "program_established": "1906",
+        "first_fcs_season": "1978",
+        "conference": "SWAC",
+        "nickname": "Panthers",
+        "name": "Prairie View A&M",
+        "school_name": "Prairie View A&M University"
+    },
+    "Presbyterian": {
+        "city": "Clinton",
+        "state": "South Carolina",
+        "program_established": "1913",
+        "first_fcs_season": "2011",
+        "conference": "PFL",
+        "nickname": "Blue Hose",
+        "name": "Presbyterian",
+        "school_name": "Presbyterian College"
+    },
+    "Princeton": {
+        "city": "Princeton",
+        "state": "New Jersey",
+        "program_established": "1869",
+        "first_fcs_season": "1982",
+        "conference": "Ivy",
+        "nickname": "Tigers",
+        "name": "Princeton",
+        "school_name": "Princeton University"
+    },
+    "Rhode Island": {
+        "city": "Kingston",
+        "state": "Rhode Island",
+        "program_established": "1895",
+        "first_fcs_season": "1978",
+        "conference": "CAA Football",
+        "nickname": "Rams",
+        "name": "Rhode Island",
+        "school_name": "University of Rhode Island"
+    },
+    "Richmond": {
+        "city": "Richmond",
+        "state": "Virginia",
+        "program_established": "1881",
+        "first_fcs_season": "1982",
+        "conference": "Patriot",
+        "nickname": "Spiders",
+        "name": "Richmond",
+        "school_name": "University of Richmond"
+    },
+    "Robert Morris": {
+        "city": "Moon Township",
+        "state": "Pennsylvania",
+        "program_established": "1994",
+        "first_fcs_season": "1998",
+        "conference": "NEC",
+        "nickname": "Colonials",
+        "name": "Robert Morris",
+        "school_name": "Robert Morris University"
+    },
+    "Sacramento State": {
+        "city": "Sacramento",
+        "state": "California",
+        "program_established": "1954",
+        "first_fcs_season": "1993",
+        "conference": "Big Sky",
+        "nickname": "Hornets",
+        "name": "Sacramento State",
+        "school_name": "California State University, Sacramento"
+    },
+    "Sacred Heart": {
+        "city": "Fairfield",
+        "state": "Connecticut",
+        "program_established": "1991",
+        "first_fcs_season": "1999",
+        "conference": "Independent",
+        "nickname": "Pioneers",
+        "name": "Sacred Heart",
+        "school_name": "Sacred Heart University"
+    },
+    "Saint Francis (PA)": {
+        "city": "Loretto",
+        "state": "Pennsylvania",
+        "program_established": "1909",
+        "first_fcs_season": "1993",
+        "conference": "NEC",
+        "nickname": "Red Flash",
+        "name": "Saint Francis (PA)",
+        "school_name": "Saint Francis University",
+        "alternate_name": "St. Francis (PA)"
+    },
+    "St. Thomas": {
+        "city": "Saint Paul",
+        "state": "Minnesota",
+        "program_established": "1904",
+        "first_fcs_season": "2025",
+        "conference": "PFL",
+        "nickname": "Tommies",
+        "name": "St. Thomas",
+        "school_name": "University of St. Thomas"
+    },
+    "Samford": {
+        "city": "Birmingham",
+        "state": "Alabama",
+        "program_established": "1902",
+        "first_fcs_season": "1989",
+        "conference": "SoCon",
+        "nickname": "Bulldogs",
+        "name": "Samford",
+        "school_name": "Samford University"
+    },
+    "San Diego": {
+        "city": "San Diego",
+        "state": "California",
+        "program_established": "1956",
+        "first_fcs_season": "1993",
+        "conference": "PFL",
+        "nickname": "Toreros",
+        "name": "San Diego",
+        "school_name": "University of San Diego"
+    },
+    "South Carolina State": {
+        "city": "Orangeburg",
+        "state": "South Carolina",
+        "program_established": "1906",
+        "first_fcs_season": "1978;1980",
+        "conference": "MEAC",
+        "nickname": "Bulldogs",
+        "name": "South Carolina State",
+        "school_name": "South Carolina State University"
+    },
+    "South Dakota": {
+        "city": "Vermillion",
+        "state": "South Dakota",
+        "program_established": "1889",
+        "first_fcs_season": "2012",
+        "conference": "MVFC",
+        "nickname": "Coyotes",
+        "name": "South Dakota",
+        "school_name": "University of South Dakota"
+    },
+    "South Dakota State": {
+        "city": "Brookings",
+        "state": "South Dakota",
+        "program_established": "1889",
+        "first_fcs_season": "2008",
+        "conference": "MVFC",
+        "nickname": "Jackrabbits",
+        "name": "South Dakota State",
+        "school_name": "South Dakota State University"
+    },
+    "Southeast Missouri State": {
+        "city": "Cape Girardeau",
+        "state": "Missouri",
+        "program_established": "1902",
+        "first_fcs_season": "1990",
+        "conference": "OVC\u2013Big South",
+        "nickname": "Redhawks",
+        "name": "Southeast Missouri State",
+        "school_name": "Southeast Missouri State University"
+    },
+    "Southeastern Louisiana": {
+        "city": "Hammond",
+        "state": "Louisiana",
+        "program_established": "1930;2003",
+        "first_fcs_season": "1980;2003",
+        "conference": "Southland",
+        "nickname": "Lions",
+        "name": "Southeastern Louisiana",
+        "school_name": "Southeastern Louisiana University"
+    },
+    "Southern": {
+        "city": "Baton Rouge",
+        "state": "Louisiana",
+        "program_established": "1915",
+        "first_fcs_season": "1978",
+        "conference": "SWAC",
+        "nickname": "Jaguars",
+        "name": "Southern",
+        "school_name": "Southern University"
+    },
+    "Southern Illinois": {
+        "city": "Carbondale",
+        "state": "Illinois",
+        "program_established": "1904",
+        "first_fcs_season": "1982",
+        "conference": "MVFC",
+        "nickname": "Salukis",
+        "name": "Southern Illinois",
+        "school_name": "Southern Illinois University Carbondale"
+    },
+    "Southern Utah": {
+        "city": "Cedar City",
+        "state": "Utah",
+        "program_established": "1929",
+        "first_fcs_season": "1993",
+        "conference": "UAC",
+        "nickname": "Thunderbirds",
+        "name": "Southern Utah",
+        "school_name": "Southern Utah University"
+    },
+    "Stephen F. Austin": {
+        "city": "Nacogdoches",
+        "state": "Texas",
+        "program_established": "1923",
+        "first_fcs_season": "1986",
+        "conference": "Southland",
+        "nickname": "Lumberjacks",
+        "name": "Stephen F. Austin",
+        "school_name": "Stephen F. Austin State University"
+    },
+    "Stetson": {
+        "city": "DeLand",
+        "state": "Florida",
+        "program_established": "1901;2013",
+        "first_fcs_season": "2013",
+        "conference": "PFL",
+        "nickname": "Hatters",
+        "name": "Stetson",
+        "school_name": "Stetson University"
+    },
+    "Stonehill": {
+        "city": "Easton",
+        "state": "Massachusetts",
+        "program_established": "1970",
+        "first_fcs_season": "2025",
+        "conference": "NEC",
+        "nickname": "Skyhawks",
+        "name": "Stonehill",
+        "school_name": "Stonehill College"
+    },
+    "Stony Brook": {
+        "city": "Stony Brook",
+        "state": "New York",
+        "program_established": "1969",
+        "first_fcs_season": "1999",
+        "conference": "CAA Football",
+        "nickname": "Seawolves",
+        "name": "Stony Brook",
+        "school_name": "Stony Brook University"
+    },
+    "Tarleton State": {
+        "city": "Stephenville",
+        "state": "Texas",
+        "program_established": "1899",
+        "first_fcs_season": "2024",
+        "conference": "UAC",
+        "nickname": "Texans",
+        "name": "Tarleton State",
+        "school_name": "Tarleton State University"
+    },
+    "Tennessee State": {
+        "city": "Nashville",
+        "state": "Tennessee",
+        "program_established": "1916",
+        "first_fcs_season": "1981",
+        "conference": "OVC\u2013Big South",
+        "nickname": "Tigers",
+        "name": "Tennessee State",
+        "school_name": "Tennessee State University"
+    },
+    "Tennessee Tech": {
+        "city": "Cookeville",
+        "state": "Tennessee",
+        "program_established": "1917",
+        "first_fcs_season": "1978",
+        "conference": "OVC\u2013Big South",
+        "nickname": "Golden Eagles",
+        "name": "Tennessee Tech",
+        "school_name": "Tennessee Technological University"
+    },
+    "Texas Southern": {
+        "city": "Houston",
+        "state": "Texas",
+        "program_established": "1947",
+        "first_fcs_season": "1978",
+        "conference": "SWAC",
+        "nickname": "Tigers",
+        "name": "Texas Southern",
+        "school_name": "Texas Southern University"
+    },
+    "Towson": {
+        "city": "Towson",
+        "state": "Maryland",
+        "program_established": "1968",
+        "first_fcs_season": "1987",
+        "conference": "CAA Football",
+        "nickname": "Tigers",
+        "name": "Towson",
+        "school_name": "Towson University"
+    },
+    "UC Davis": {
+        "city": "Davis",
+        "state": "California",
+        "program_established": "1915",
+        "first_fcs_season": "2007",
+        "conference": "Big Sky",
+        "nickname": "Aggies",
+        "name": "UC Davis",
+        "school_name": "University of California, Davis"
+    },
+    "UT Martin": {
+        "city": "Martin",
+        "state": "Tennessee",
+        "program_established": "1953",
+        "first_fcs_season": "1992",
+        "conference": "OVC\u2013Big South",
+        "nickname": "Skyhawks",
+        "name": "UT Martin",
+        "school_name": "University of Tennessee at Martin"
+    },
+    "Utah Tech": {
+        "city": "St. George",
+        "state": "Utah",
+        "program_established": "1911",
+        "first_fcs_season": "2024",
+        "conference": "UAC",
+        "nickname": "Trailblazers",
+        "name": "Utah Tech",
+        "school_name": "Utah Tech University"
+    },
+    "UTRGV": {
+        "city": "Brownsville&Edinburg",
+        "state": "Texas",
+        "program_established": "2025",
+        "first_fcs_season": "2025",
+        "conference": "Southland",
+        "nickname": "Vaqueros",
+        "name": "UTRGV",
+        "school_name": "University of Texas Rio Grande Valley"
+    },
+    "Valparaiso": {
+        "city": "Valparaiso",
+        "state": "Indiana",
+        "program_established": "1906",
+        "first_fcs_season": "1993",
+        "conference": "PFL",
+        "nickname": "Beacons",
+        "name": "Valparaiso",
+        "school_name": "Valparaiso University"
+    },
+    "Villanova": {
+        "city": "Villanova",
+        "state": "Pennsylvania",
+        "program_established": "1894",
+        "first_fcs_season": "1987",
+        "conference": "Patriot",
+        "nickname": "Wildcats",
+        "name": "Villanova",
+        "school_name": "Villanova University"
+    },
+    "VMI": {
+        "city": "Lexington",
+        "state": "Virginia",
+        "program_established": "1873",
+        "first_fcs_season": "1982",
+        "conference": "SoCon",
+        "nickname": "Keydets",
+        "name": "VMI",
+        "school_name": "Virginia Military Institute",
+        "alternate_name": "Virginia Military Institute"
+    },
+    "Wagner": {
+        "city": "New York",
+        "state": "New York",
+        "program_established": "1927",
+        "first_fcs_season": "1993",
+        "conference": "NEC",
+        "nickname": "Seahawks",
+        "name": "Wagner",
+        "school_name": "Wagner College"
+    },
+    "Weber State": {
+        "city": "Ogden",
+        "state": "Utah",
+        "program_established": "1962",
+        "first_fcs_season": "1978",
+        "conference": "Big Sky",
+        "nickname": "Wildcats",
+        "name": "Weber State",
+        "school_name": "Weber State University"
+    },
+    "Western Carolina": {
+        "city": "Cullowhee",
+        "state": "North Carolina",
+        "program_established": "1931",
+        "first_fcs_season": "1982",
+        "conference": "SoCon",
+        "nickname": "Catamounts",
+        "name": "Western Carolina",
+        "school_name": "Western Carolina University"
+    },
+    "Western Illinois": {
+        "city": "Macomb",
+        "state": "Illinois",
+        "program_established": "1903",
+        "first_fcs_season": "1981",
+        "conference": "OVC\u2013Big South",
+        "nickname": "Leathernecks",
+        "name": "Western Illinois",
+        "school_name": "Western Illinois University"
+    },
+    "William & Mary": {
+        "city": "Williamsburg",
+        "state": "Virginia",
+        "program_established": "1893",
+        "first_fcs_season": "1982",
+        "conference": "Patriot",
+        "nickname": "Tribe",
+        "name": "William & Mary",
+        "school_name": "College of William & Mary"
+    },
+    "Wofford": {
+        "city": "Spartanburg",
+        "state": "South Carolina",
+        "program_established": "1889",
+        "first_fcs_season": "1995",
+        "conference": "SoCon",
+        "nickname": "Terriers",
+        "name": "Wofford",
+        "school_name": "Wofford College"
+    },
+    "Yale": {
+        "city": "New Haven",
+        "state": "Connecticut",
+        "program_established": "1872",
+        "first_fcs_season": "1982",
+        "conference": "Ivy",
+        "nickname": "Bulldogs",
+        "name": "Yale",
+        "school_name": "Yale University"
+    },
+    "Youngstown State": {
+        "city": "Youngstown",
+        "state": "Ohio",
+        "program_established": "1938",
+        "first_fcs_season": "1981",
+        "conference": "MVFC",
+        "nickname": "Penguins",
+        "name": "Youngstown State",
+        "school_name": "Youngstown State University"
+    }
+}

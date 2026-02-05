@@ -1,0 +1,233 @@
+[
+{
+  "model": "archive.orgunit",
+  "pk": 1,
+  "fields": {
+    "league": 3,
+    "short_name": "AFC",
+    "long_name": "American Football Conference",
+    "org_type": "CONFERENCE",
+    "parent": null
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 2,
+  "fields": {
+    "league": 3,
+    "short_name": "NFC",
+    "long_name": "National Football Conference",
+    "org_type": "CONFERENCE",
+    "parent": null
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 3,
+  "fields": {
+    "league": 3,
+    "short_name": "AFCE",
+    "long_name": "AFC East",
+    "org_type": "DIVISION",
+    "parent": 1
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 4,
+  "fields": {
+    "league": 3,
+    "short_name": "AFCN",
+    "long_name": "AFC North",
+    "org_type": "DIVISION",
+    "parent": 1
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 5,
+  "fields": {
+    "league": 3,
+    "short_name": "AFCS",
+    "long_name": "AFC South",
+    "org_type": "DIVISION",
+    "parent": 1
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 6,
+  "fields": {
+    "league": 3,
+    "short_name": "AFCW",
+    "long_name": "AFC West",
+    "org_type": "DIVISION",
+    "parent": 1
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 7,
+  "fields": {
+    "league": 3,
+    "short_name": "NFCE",
+    "long_name": "NFC East",
+    "org_type": "DIVISION",
+    "parent": 2
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 8,
+  "fields": {
+    "league": 3,
+    "short_name": "NFCN",
+    "long_name": "NFC North",
+    "org_type": "DIVISION",
+    "parent": 2
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 9,
+  "fields": {
+    "league": 3,
+    "short_name": "NFCS",
+    "long_name": "NFC South",
+    "org_type": "DIVISION",
+    "parent": 2
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 10,
+  "fields": {
+    "league": 3,
+    "short_name": "NFCW",
+    "long_name": "NFC West",
+    "org_type": "DIVISION",
+    "parent": 2
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 11,
+  "fields": {
+    "league": 4,
+    "short_name": "American",
+    "long_name": "American Conference",
+    "org_type": "CONFERENCE",
+    "parent": null
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 12,
+  "fields": {
+    "league": 4,
+    "short_name": "ACC",
+    "long_name": "Atlantic Coast Conference",
+    "org_type": "CONFERENCE",
+    "parent": null
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 13,
+  "fields": {
+    "league": 4,
+    "short_name": "Big Ten",
+    "long_name": "Big Ten Conference",
+    "org_type": "CONFERENCE",
+    "parent": null
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 14,
+  "fields": {
+    "league": 4,
+    "short_name": "Big 12",
+    "long_name": "Big 12 Conference",
+    "org_type": "CONFERENCE",
+    "parent": null
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 15,
+  "fields": {
+    "league": 4,
+    "short_name": "CUSA",
+    "long_name": "Conference USA",
+    "org_type": "CONFERENCE",
+    "parent": null
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 16,
+  "fields": {
+    "league": 4,
+    "short_name": "Ind",
+    "long_name": "Independents",
+    "org_type": "CONFERENCE",
+    "parent": null
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 17,
+  "fields": {
+    "league": 4,
+    "short_name": "MAC",
+    "long_name": "Mid-American Conference",
+    "org_type": "CONFERENCE",
+    "parent": null
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 18,
+  "fields": {
+    "league": 4,
+    "short_name": "MWC",
+    "long_name": "Mountain West Conference",
+    "org_type": "CONFERENCE",
+    "parent": null
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 19,
+  "fields": {
+    "league": 4,
+    "short_name": "Pac-12",
+    "long_name": "Pac 12 Conference",
+    "org_type": "CONFERENCE",
+    "parent": null
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 20,
+  "fields": {
+    "league": 4,
+    "short_name": "SEC",
+    "long_name": "Southeastern Conference",
+    "org_type": "CONFERENCE",
+    "parent": null
+  }
+},
+{
+  "model": "archive.orgunit",
+  "pk": 21,
+  "fields": {
+    "league": 4,
+    "short_name": "SBC",
+    "long_name": "Sun Belt Conference",
+    "org_type": "CONFERENCE",
+    "parent": null
+  }
+}
+]

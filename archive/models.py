@@ -61,13 +61,14 @@ class SourceType(models.TextChoices):
 # -------------------------
 
 class League(models.Model):
-    name = models.CharField(max_length=120, unique=True)
+    short_name = models.CharField(max_length=10, unique=True)
+    long_name = models.CharField(max_length=120, unique=True)
     level = models.CharField(max_length=16, choices=Level.choices, default=Level.OTHER)
     country = models.CharField(max_length=2, default="US")  # ISO-3166-1 alpha-2
     notes = models.TextField(blank=True, default="")
 
     def __str__(self) -> str:
-        return self.name
+        return self.short_name
 
 
 class Season(models.Model):
@@ -93,6 +94,7 @@ class Team(models.Model):
     should be modeled via TeamAffiliation (below).
     """
     name = models.CharField(max_length=140)           # "Georgia", "Pittsburgh Steelers"
+    alternate_name = models.CharField(max_length=140, null=True)
     short_name = models.CharField(max_length=40, blank=True, default="")  # "UGA", "PIT"
     city = models.CharField(max_length=80, blank=True, default="")
     state = models.CharField(max_length=60, blank=True, default="")
@@ -104,12 +106,29 @@ class Team(models.Model):
     # Optional JSON for ids like espn/team id, sportsref slug, etc.
     external_ids = models.JSONField(blank=True, default=dict)
 
+    logo = models.ImageField(upload_to="teams/logos/", null=True)
+    primary_color = models.CharField(max_length=6, null=True)
+    secondary_color = models.CharField(max_length=6, null=True)
+    tertiary_color = models.CharField(max_length=6, null=True)
+
     class Meta:
         # Not truly unique globally, but this helps reduce duplicates.
         indexes = [
             models.Index(fields=["name"]),
             models.Index(fields=["short_name"]),
         ]
+
+    @property
+    def current_venue(self):
+        today = timezone.now().date()
+        occupancy = (
+            self.venue_occupancies
+            .filter(Q(end_date__isnull=True) | Q(end_date__gte=today))
+            .order_by("-start_date")
+            .select_related("venue")
+            .first()
+        )
+        return occupancy.venue if occupancy else None
 
     def __str__(self) -> str:
         return self.name
@@ -133,20 +152,21 @@ class OrgUnit(models.Model):
         OTHER = "OTHER", "Other"
 
     league = models.ForeignKey(League, on_delete=models.PROTECT, related_name="org_units")
-    name = models.CharField(max_length=120)
+    short_name = models.CharField(max_length=10)
+    long_name = models.CharField(max_length=120)
     org_type = models.CharField(max_length=20, choices=OrgType.choices, default=OrgType.OTHER)
     parent = models.ForeignKey("self", null=True, blank=True, on_delete=models.PROTECT, related_name="children")
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=["league", "org_type", "name"], name="uniq_orgunit_scope")
+            models.UniqueConstraint(fields=["league", "org_type", "short_name"], name="uniq_orgunit_scope")
         ]
         indexes = [
             models.Index(fields=["league", "org_type"]),
         ]
 
     def __str__(self) -> str:
-        return f"{self.league.name}: {self.name} ({self.org_type})"
+        return f"{self.league.short_name}: {self.short_name} ({self.org_type})"
 
 
 class TeamAffiliation(models.Model):
@@ -178,19 +198,36 @@ class Venue(models.Model):
     city = models.CharField(max_length=80, blank=True, default="")
     state = models.CharField(max_length=60, blank=True, default="")
     country = models.CharField(max_length=2, default="US")
+    capacity = models.IntegerField(null=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["name", "city", "state"],
+                name="uniq_venue_city_state"
+            )
+        ]
 
     def __str__(self) -> str:
         return self.name
 
 
+class TeamVenueOccupancy(models.Model):
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="venue_occupancies")
+    venue = models.ForeignKey(Venue, on_delete=models.PROTECT, related_name="team_occupancies")
+
+    start_date = models.DateField(null=True)
+    end_date = models.DateField(null=True)
+
+
 class Game(models.Model):
     league = models.ForeignKey(League, on_delete=models.PROTECT, related_name="games")
     season = models.ForeignKey(Season, on_delete=models.PROTECT, related_name="games")
-
+    ordinal = models.IntegerField(null=True)
     date_local = models.DateField()
     kickoff_time_local = models.TimeField(null=True, blank=True)
 
-    week = models.CharField(max_length=16, blank=True, default="")  # "W01", "Week 4", "Semi", etc.
+    week = models.IntegerField(null=True)
     game_type = models.CharField(max_length=16, choices=GameType.choices, default=GameType.REG)
     competition_name = models.CharField(max_length=160, blank=True, default="")  # "Rose Bowl", "SEC Championship", etc.
 
@@ -333,3 +370,39 @@ class AssetTag(models.Model):
         constraints = [
             models.UniqueConstraint(fields=["asset", "tag"], name="uniq_asset_tag")
         ]
+
+
+class GameCompleteness(models.Model):
+    class Status(models.TextChoices):
+        MISSING = "MISSING", "Missing"
+        PARTIAL = "PARTIAL", "Partial"
+        COMPLETE = "COMPLETE", "Complete"
+        COMPLETE_NEEDS_UPGRADE = "COMPLETE_NEEDS_UPGRADE", "Complete (Needs Upgrade)"
+
+    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name="completeness")
+    scope = models.CharField(max_length=64)
+    # examples: "NFL_ALL", "STEELERS_ALL", "UGA_ALL", "UGA_2010s"
+
+    status = models.CharField(max_length=32, choices=Status.choices)
+    best_full_quality_score = models.PositiveSmallIntegerField(null=True, blank=True)
+
+    has_full = models.BooleanField(default=False)
+    has_condensed = models.BooleanField(default=False)
+    has_all22 = models.BooleanField(default=False)
+
+    computed_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["game", "scope"],
+                name="uniq_game_scope_completeness"
+            )
+        ]
+        indexes = [
+            models.Index(fields=["scope", "status"]),
+            models.Index(fields=["status"]),
+        ]
+
+    def __str__(self):
+        return f"{self.game} [{self.scope}] → {self.status}"

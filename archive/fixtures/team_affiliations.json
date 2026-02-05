@@ -1,0 +1,1498 @@
+[
+{
+  "model": "archive.teamaffiliation",
+  "pk": 1,
+  "fields": {
+    "team": 1,
+    "org_unit": 18,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 2,
+  "fields": {
+    "team": 2,
+    "org_unit": 17,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 3,
+  "fields": {
+    "team": 3,
+    "org_unit": 20,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 4,
+  "fields": {
+    "team": 4,
+    "org_unit": 21,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 5,
+  "fields": {
+    "team": 5,
+    "org_unit": 14,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 6,
+  "fields": {
+    "team": 6,
+    "org_unit": 14,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 7,
+  "fields": {
+    "team": 7,
+    "org_unit": 20,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 8,
+  "fields": {
+    "team": 8,
+    "org_unit": 21,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 9,
+  "fields": {
+    "team": 9,
+    "org_unit": 11,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 10,
+  "fields": {
+    "team": 10,
+    "org_unit": 20,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 11,
+  "fields": {
+    "team": 11,
+    "org_unit": 17,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 12,
+  "fields": {
+    "team": 12,
+    "org_unit": 14,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 13,
+  "fields": {
+    "team": 13,
+    "org_unit": 18,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 14,
+  "fields": {
+    "team": 14,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 15,
+  "fields": {
+    "team": 15,
+    "org_unit": 17,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 16,
+  "fields": {
+    "team": 16,
+    "org_unit": 17,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 17,
+  "fields": {
+    "team": 17,
+    "org_unit": 14,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 18,
+  "fields": {
+    "team": 18,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 19,
+  "fields": {
+    "team": 19,
+    "org_unit": 17,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 20,
+  "fields": {
+    "team": 20,
+    "org_unit": 11,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 21,
+  "fields": {
+    "team": 21,
+    "org_unit": 14,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 22,
+  "fields": {
+    "team": 22,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 23,
+  "fields": {
+    "team": 23,
+    "org_unit": 21,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 24,
+  "fields": {
+    "team": 24,
+    "org_unit": 14,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 25,
+  "fields": {
+    "team": 25,
+    "org_unit": 18,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 26,
+  "fields": {
+    "team": 26,
+    "org_unit": 15,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 27,
+  "fields": {
+    "team": 27,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 28,
+  "fields": {
+    "team": 28,
+    "org_unit": 11,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 29,
+  "fields": {
+    "team": 29,
+    "org_unit": 17,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 30,
+  "fields": {
+    "team": 30,
+    "org_unit": 11,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 31,
+  "fields": {
+    "team": 31,
+    "org_unit": 15,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 32,
+  "fields": {
+    "team": 32,
+    "org_unit": 20,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 33,
+  "fields": {
+    "team": 33,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 34,
+  "fields": {
+    "team": 34,
+    "org_unit": 18,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 35,
+  "fields": {
+    "team": 35,
+    "org_unit": 20,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 36,
+  "fields": {
+    "team": 36,
+    "org_unit": 21,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 37,
+  "fields": {
+    "team": 37,
+    "org_unit": 21,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 38,
+  "fields": {
+    "team": 38,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 39,
+  "fields": {
+    "team": 39,
+    "org_unit": 18,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 40,
+  "fields": {
+    "team": 40,
+    "org_unit": 14,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 41,
+  "fields": {
+    "team": 41,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 42,
+  "fields": {
+    "team": 42,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 43,
+  "fields": {
+    "team": 43,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 44,
+  "fields": {
+    "team": 44,
+    "org_unit": 14,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 45,
+  "fields": {
+    "team": 45,
+    "org_unit": 15,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 46,
+  "fields": {
+    "team": 46,
+    "org_unit": 21,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 47,
+  "fields": {
+    "team": 47,
+    "org_unit": 14,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 48,
+  "fields": {
+    "team": 48,
+    "org_unit": 14,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 49,
+  "fields": {
+    "team": 49,
+    "org_unit": 15,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 50,
+  "fields": {
+    "team": 50,
+    "org_unit": 17,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 51,
+  "fields": {
+    "team": 51,
+    "org_unit": 20,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 52,
+  "fields": {
+    "team": 52,
+    "org_unit": 15,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 53,
+  "fields": {
+    "team": 53,
+    "org_unit": 21,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 54,
+  "fields": {
+    "team": 54,
+    "org_unit": 15,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 55,
+  "fields": {
+    "team": 55,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 56,
+  "fields": {
+    "team": 56,
+    "org_unit": 20,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 57,
+  "fields": {
+    "team": 57,
+    "org_unit": 21,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 58,
+  "fields": {
+    "team": 58,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 59,
+  "fields": {
+    "team": 59,
+    "org_unit": 11,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 60,
+  "fields": {
+    "team": 60,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 61,
+  "fields": {
+    "team": 61,
+    "org_unit": 17,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 62,
+  "fields": {
+    "team": 62,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 63,
+  "fields": {
+    "team": 63,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 64,
+  "fields": {
+    "team": 64,
+    "org_unit": 15,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 65,
+  "fields": {
+    "team": 65,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 66,
+  "fields": {
+    "team": 66,
+    "org_unit": 20,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 67,
+  "fields": {
+    "team": 67,
+    "org_unit": 20,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 68,
+  "fields": {
+    "team": 68,
+    "org_unit": 15,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 69,
+  "fields": {
+    "team": 69,
+    "org_unit": 11,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 70,
+  "fields": {
+    "team": 70,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 71,
+  "fields": {
+    "team": 71,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 72,
+  "fields": {
+    "team": 72,
+    "org_unit": 18,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 73,
+  "fields": {
+    "team": 73,
+    "org_unit": 18,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 74,
+  "fields": {
+    "team": 74,
+    "org_unit": 15,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 75,
+  "fields": {
+    "team": 75,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 76,
+  "fields": {
+    "team": 76,
+    "org_unit": 11,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 77,
+  "fields": {
+    "team": 77,
+    "org_unit": 17,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 78,
+  "fields": {
+    "team": 78,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 79,
+  "fields": {
+    "team": 79,
+    "org_unit": 16,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 80,
+  "fields": {
+    "team": 80,
+    "org_unit": 17,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 81,
+  "fields": {
+    "team": 81,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 82,
+  "fields": {
+    "team": 82,
+    "org_unit": 20,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 83,
+  "fields": {
+    "team": 83,
+    "org_unit": 14,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 84,
+  "fields": {
+    "team": 84,
+    "org_unit": 21,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 85,
+  "fields": {
+    "team": 85,
+    "org_unit": 20,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 86,
+  "fields": {
+    "team": 86,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 87,
+  "fields": {
+    "team": 87,
+    "org_unit": 19,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 88,
+  "fields": {
+    "team": 88,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 89,
+  "fields": {
+    "team": 89,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 90,
+  "fields": {
+    "team": 90,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 91,
+  "fields": {
+    "team": 91,
+    "org_unit": 11,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 92,
+  "fields": {
+    "team": 92,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 93,
+  "fields": {
+    "team": 93,
+    "org_unit": 15,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 94,
+  "fields": {
+    "team": 94,
+    "org_unit": 18,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 95,
+  "fields": {
+    "team": 95,
+    "org_unit": 18,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 96,
+  "fields": {
+    "team": 96,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 97,
+  "fields": {
+    "team": 97,
+    "org_unit": 21,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 98,
+  "fields": {
+    "team": 98,
+    "org_unit": 20,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 99,
+  "fields": {
+    "team": 99,
+    "org_unit": 11,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 100,
+  "fields": {
+    "team": 100,
+    "org_unit": 21,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 102,
+  "fields": {
+    "team": 102,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 103,
+  "fields": {
+    "team": 103,
+    "org_unit": 14,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 105,
+  "fields": {
+    "team": 105,
+    "org_unit": 20,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 106,
+  "fields": {
+    "team": 106,
+    "org_unit": 20,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 107,
+  "fields": {
+    "team": 107,
+    "org_unit": 20,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 108,
+  "fields": {
+    "team": 108,
+    "org_unit": 21,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 109,
+  "fields": {
+    "team": 109,
+    "org_unit": 14,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 110,
+  "fields": {
+    "team": 110,
+    "org_unit": 17,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 111,
+  "fields": {
+    "team": 111,
+    "org_unit": 21,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 112,
+  "fields": {
+    "team": 112,
+    "org_unit": 11,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 113,
+  "fields": {
+    "team": 113,
+    "org_unit": 11,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 114,
+  "fields": {
+    "team": 114,
+    "org_unit": 11,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 116,
+  "fields": {
+    "team": 116,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 118,
+  "fields": {
+    "team": 118,
+    "org_unit": 21,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 121,
+  "fields": {
+    "team": 121,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 122,
+  "fields": {
+    "team": 122,
+    "org_unit": 14,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 123,
+  "fields": {
+    "team": 123,
+    "org_unit": 18,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 224,
+  "fields": {
+    "team": 125,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 227,
+  "fields": {
+    "team": 126,
+    "org_unit": 11,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 238,
+  "fields": {
+    "team": 127,
+    "org_unit": 14,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 240,
+  "fields": {
+    "team": 128,
+    "org_unit": 16,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 242,
+  "fields": {
+    "team": 129,
+    "org_unit": 17,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 243,
+  "fields": {
+    "team": 130,
+    "org_unit": 18,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 247,
+  "fields": {
+    "team": 124,
+    "org_unit": 15,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 248,
+  "fields": {
+    "team": 131,
+    "org_unit": 11,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 249,
+  "fields": {
+    "team": 132,
+    "org_unit": 20,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 250,
+  "fields": {
+    "team": 133,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 251,
+  "fields": {
+    "team": 134,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 252,
+  "fields": {
+    "team": 135,
+    "org_unit": 12,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 253,
+  "fields": {
+    "team": 136,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 254,
+  "fields": {
+    "team": 137,
+    "org_unit": 19,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 255,
+  "fields": {
+    "team": 138,
+    "org_unit": 14,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 256,
+  "fields": {
+    "team": 139,
+    "org_unit": 15,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 257,
+  "fields": {
+    "team": 140,
+    "org_unit": 17,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 258,
+  "fields": {
+    "team": 141,
+    "org_unit": 13,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+},
+{
+  "model": "archive.teamaffiliation",
+  "pk": 259,
+  "fields": {
+    "team": 142,
+    "org_unit": 18,
+    "season": null,
+    "start_date": null,
+    "end_date": null
+  }
+}
+]
