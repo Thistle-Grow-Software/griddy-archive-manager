@@ -2,10 +2,10 @@ from django.db import models
 from django.db.models import Q
 from django.utils import timezone
 
-
 # -------------------------
 # Enums / Choices
 # -------------------------
+
 
 class Level(models.TextChoices):
     HS = "HS", "High School"
@@ -60,6 +60,7 @@ class SourceType(models.TextChoices):
 # Catalog (what exists)
 # -------------------------
 
+
 class League(models.Model):
     short_name = models.CharField(max_length=10, unique=True)
     long_name = models.CharField(max_length=120, unique=True)
@@ -74,13 +75,17 @@ class League(models.Model):
 class Season(models.Model):
     league = models.ForeignKey(League, on_delete=models.PROTECT, related_name="seasons")
     year = models.IntegerField()  # e.g. 2025
-    label = models.CharField(max_length=40, blank=True, default="")  # "2025", "2024-25", etc.
+    label = models.CharField(
+        max_length=40, blank=True, default=""
+    )  # "2025", "2024-25", etc.
     start_date = models.DateField(null=True, blank=True)
     end_date = models.DateField(null=True, blank=True)
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=["league", "year"], name="uniq_season_league_year")
+            models.UniqueConstraint(
+                fields=["league", "year"], name="uniq_season_league_year"
+            )
         ]
 
     def __str__(self) -> str:
@@ -93,7 +98,8 @@ class Team(models.Model):
     League-specific org concepts (conference/division/classification/etc.)
     should be modeled via TeamAffiliation (below).
     """
-    name = models.CharField(max_length=140)           # "Georgia", "Pittsburgh Steelers"
+
+    name = models.CharField(max_length=140)  # "Georgia", "Pittsburgh Steelers"
     alternate_name = models.CharField(max_length=140, null=True)
     short_name = models.CharField(max_length=40, blank=True, default="")  # "UGA", "PIT"
     city = models.CharField(max_length=80, blank=True, default="")
@@ -122,8 +128,9 @@ class Team(models.Model):
     def current_venue(self):
         today = timezone.now().date()
         occupancy = (
-            self.venue_occupancies
-            .filter(Q(end_date__isnull=True) | Q(end_date__gte=today))
+            self.venue_occupancies.filter(
+                Q(end_date__isnull=True) | Q(end_date__gte=today)
+            )
             .order_by("-start_date")
             .select_related("venue")
             .first()
@@ -143,6 +150,7 @@ class OrgUnit(models.Model):
       - HS: GHSA AAAAAAA (type=CLASSIFICATION), Region 8 (type=REGION)
     Scoped to a league.
     """
+
     class OrgType(models.TextChoices):
         CONFERENCE = "CONFERENCE", "Conference"
         DIVISION = "DIVISION", "Division"
@@ -151,15 +159,23 @@ class OrgUnit(models.Model):
         LEAGUE_TIER = "LEAGUE_TIER", "League Tier"
         OTHER = "OTHER", "Other"
 
-    league = models.ForeignKey(League, on_delete=models.PROTECT, related_name="org_units")
+    league = models.ForeignKey(
+        League, on_delete=models.PROTECT, related_name="org_units"
+    )
     short_name = models.CharField(max_length=10)
     long_name = models.CharField(max_length=120)
-    org_type = models.CharField(max_length=20, choices=OrgType.choices, default=OrgType.OTHER)
-    parent = models.ForeignKey("self", null=True, blank=True, on_delete=models.PROTECT, related_name="children")
+    org_type = models.CharField(
+        max_length=20, choices=OrgType.choices, default=OrgType.OTHER
+    )
+    parent = models.ForeignKey(
+        "self", null=True, blank=True, on_delete=models.PROTECT, related_name="children"
+    )
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=["league", "org_type", "short_name"], name="uniq_orgunit_scope")
+            models.UniqueConstraint(
+                fields=["league", "org_type", "short_name"], name="uniq_orgunit_scope"
+            )
         ]
         indexes = [
             models.Index(fields=["league", "org_type"]),
@@ -174,11 +190,22 @@ class TeamAffiliation(models.Model):
     Many-to-many between Team and OrgUnit with optional season scoping.
     Supports realignment over time.
     """
-    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="affiliations")
-    org_unit = models.ForeignKey(OrgUnit, on_delete=models.PROTECT, related_name="team_links")
+
+    team = models.ForeignKey(
+        Team, on_delete=models.CASCADE, related_name="affiliations"
+    )
+    org_unit = models.ForeignKey(
+        OrgUnit, on_delete=models.PROTECT, related_name="team_links"
+    )
 
     # Option A: attach to a Season (simple)
-    season = models.ForeignKey(Season, null=True, blank=True, on_delete=models.PROTECT, related_name="team_affiliations")
+    season = models.ForeignKey(
+        Season,
+        null=True,
+        blank=True,
+        on_delete=models.PROTECT,
+        related_name="team_affiliations",
+    )
 
     # Option B: date range (more precise, optional)
     start_date = models.DateField(null=True, blank=True)
@@ -187,8 +214,7 @@ class TeamAffiliation(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=["team", "org_unit", "season"],
-                name="uniq_team_orgunit_season"
+                fields=["team", "org_unit", "season"], name="uniq_team_orgunit_season"
             )
         ]
 
@@ -203,8 +229,7 @@ class Venue(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=["name", "city", "state"],
-                name="uniq_venue_city_state"
+                fields=["name", "city", "state"], name="uniq_venue_city_state"
             )
         ]
 
@@ -213,8 +238,12 @@ class Venue(models.Model):
 
 
 class TeamVenueOccupancy(models.Model):
-    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="venue_occupancies")
-    venue = models.ForeignKey(Venue, on_delete=models.PROTECT, related_name="team_occupancies")
+    team = models.ForeignKey(
+        Team, on_delete=models.CASCADE, related_name="venue_occupancies"
+    )
+    venue = models.ForeignKey(
+        Venue, on_delete=models.PROTECT, related_name="team_occupancies"
+    )
 
     start_date = models.DateField(null=True)
     end_date = models.DateField(null=True)
@@ -228,14 +257,24 @@ class Game(models.Model):
     kickoff_time_local = models.TimeField(null=True, blank=True)
 
     week = models.IntegerField(null=True)
-    game_type = models.CharField(max_length=16, choices=GameType.choices, default=GameType.REG)
-    competition_name = models.CharField(max_length=160, blank=True, default="")  # "Rose Bowl", "SEC Championship", etc.
+    game_type = models.CharField(
+        max_length=16, choices=GameType.choices, default=GameType.REG
+    )
+    competition_name = models.CharField(
+        max_length=160, blank=True, default=""
+    )  # "Rose Bowl", "SEC Championship", etc.
 
     neutral_site = models.BooleanField(default=False)
-    venue = models.ForeignKey(Venue, null=True, blank=True, on_delete=models.PROTECT, related_name="games")
+    venue = models.ForeignKey(
+        Venue, null=True, blank=True, on_delete=models.PROTECT, related_name="games"
+    )
 
-    home_team = models.ForeignKey(Team, on_delete=models.PROTECT, related_name="home_games")
-    away_team = models.ForeignKey(Team, on_delete=models.PROTECT, related_name="away_games")
+    home_team = models.ForeignKey(
+        Team, on_delete=models.PROTECT, related_name="home_games"
+    )
+    away_team = models.ForeignKey(
+        Team, on_delete=models.PROTECT, related_name="away_games"
+    )
 
     final_home_score = models.IntegerField(null=True, blank=True)
     final_away_score = models.IntegerField(null=True, blank=True)
@@ -252,11 +291,14 @@ class Game(models.Model):
 
     class Meta:
         constraints = [
-            models.CheckConstraint(condition=~Q(home_team=models.F("away_team")), name="chk_home_away_distinct"),
+            models.CheckConstraint(
+                condition=~Q(home_team=models.F("away_team")),
+                name="chk_home_away_distinct",
+            ),
             # This helps dedupe "same league/season/date/teams" games.
             models.UniqueConstraint(
                 fields=["league", "season", "date_local", "home_team", "away_team"],
-                name="uniq_game_identity_basic"
+                name="uniq_game_identity_basic",
             ),
         ]
         indexes = [
@@ -273,9 +315,12 @@ class Game(models.Model):
 # Holdings (what you own)
 # -------------------------
 
+
 class Source(models.Model):
     source_type = models.CharField(max_length=16, choices=SourceType.choices)
-    name = models.CharField(max_length=140)  # "YouTube", "NFL+", "Paramount+", "DVD", "OTA DVR", etc.
+    name = models.CharField(
+        max_length=140
+    )  # "YouTube", "NFL+", "Paramount+", "DVD", "OTA DVR", etc.
     url = models.URLField(blank=True, default="")
     notes = models.TextField(blank=True, default="")
 
@@ -284,10 +329,16 @@ class Source(models.Model):
 
 
 class Acquisition(models.Model):
-    source = models.ForeignKey(Source, on_delete=models.PROTECT, related_name="acquisitions")
+    source = models.ForeignKey(
+        Source, on_delete=models.PROTECT, related_name="acquisitions"
+    )
     acquired_on = models.DateField(default=timezone.now)
-    cost_usd = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
-    rights = models.CharField(max_length=20, choices=Rights.choices, default=Rights.UNKNOWN)
+    cost_usd = models.DecimalField(
+        max_digits=8, decimal_places=2, null=True, blank=True
+    )
+    rights = models.CharField(
+        max_length=20, choices=Rights.choices, default=Rights.UNKNOWN
+    )
     notes = models.TextField(blank=True, default="")
 
     # Optional: store path to receipt/proof in your filesystem
@@ -303,18 +354,33 @@ class VideoAsset(models.Model):
     You can store multiple assets per game (full, condensed, all-22, etc.)
     and select a preferred/best-available copy for viewing.
     """
-    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name="assets")
-    acquisition = models.ForeignKey(Acquisition, null=True, blank=True, on_delete=models.PROTECT, related_name="assets")
 
-    asset_type = models.CharField(max_length=16, choices=AssetType.choices, default=AssetType.FULL)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name="assets")
+    acquisition = models.ForeignKey(
+        Acquisition,
+        null=True,
+        blank=True,
+        on_delete=models.PROTECT,
+        related_name="assets",
+    )
+
+    asset_type = models.CharField(
+        max_length=16, choices=AssetType.choices, default=AssetType.FULL
+    )
 
     file_path = models.CharField(max_length=700)  # absolute or archive-relative
     container = models.CharField(max_length=16, blank=True, default="")  # mkv/mp4/ts
-    video_codec = models.CharField(max_length=32, blank=True, default="")  # h264/hevc/av1
-    audio_codec = models.CharField(max_length=32, blank=True, default="")  # aac/ac3/eac3/flac
+    video_codec = models.CharField(
+        max_length=32, blank=True, default=""
+    )  # h264/hevc/av1
+    audio_codec = models.CharField(
+        max_length=32, blank=True, default=""
+    )  # aac/ac3/eac3/flac
     resolution_w = models.IntegerField(null=True, blank=True)
     resolution_h = models.IntegerField(null=True, blank=True)
-    fps = models.DecimalField(max_digits=6, decimal_places=3, null=True, blank=True)  # 59.940, 29.970, etc.
+    fps = models.DecimalField(
+        max_digits=6, decimal_places=3, null=True, blank=True
+    )  # 59.940, 29.970, etc.
     bitrate_kbps = models.IntegerField(null=True, blank=True)
 
     duration_seconds = models.IntegerField(null=True, blank=True)
@@ -323,7 +389,9 @@ class VideoAsset(models.Model):
     language = models.CharField(max_length=16, blank=True, default="en")
     has_commercials = models.BooleanField(default=True)
 
-    quality_tier = models.CharField(max_length=1, choices=QualityTier.choices, default=QualityTier.C)
+    quality_tier = models.CharField(
+        max_length=1, choices=QualityTier.choices, default=QualityTier.C
+    )
     quality_notes = models.TextField(blank=True, default="")
 
     is_preferred = models.BooleanField(default=False)
@@ -333,7 +401,9 @@ class VideoAsset(models.Model):
     last_verified_at = models.DateTimeField(null=True, blank=True)
 
     # Helpful for browsing
-    source_url = models.URLField(blank=True, default="")  # link to reference page, VOD page, etc.
+    source_url = models.URLField(
+        blank=True, default=""
+    )  # link to reference page, VOD page, etc.
 
     class Meta:
         indexes = [
@@ -347,7 +417,7 @@ class VideoAsset(models.Model):
             models.UniqueConstraint(
                 fields=["game"],
                 condition=Q(is_preferred=True),
-                name="uniq_preferred_asset_per_game"
+                name="uniq_preferred_asset_per_game",
             )
         ]
 
@@ -363,7 +433,9 @@ class Tag(models.Model):
 
 
 class AssetTag(models.Model):
-    asset = models.ForeignKey(VideoAsset, on_delete=models.CASCADE, related_name="tag_links")
+    asset = models.ForeignKey(
+        VideoAsset, on_delete=models.CASCADE, related_name="tag_links"
+    )
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name="asset_links")
 
     class Meta:
@@ -379,7 +451,9 @@ class GameCompleteness(models.Model):
         COMPLETE = "COMPLETE", "Complete"
         COMPLETE_NEEDS_UPGRADE = "COMPLETE_NEEDS_UPGRADE", "Complete (Needs Upgrade)"
 
-    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name="completeness")
+    game = models.ForeignKey(
+        Game, on_delete=models.CASCADE, related_name="completeness"
+    )
     scope = models.CharField(max_length=64)
     # examples: "NFL_ALL", "STEELERS_ALL", "UGA_ALL", "UGA_2010s"
 
@@ -395,8 +469,7 @@ class GameCompleteness(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=["game", "scope"],
-                name="uniq_game_scope_completeness"
+                fields=["game", "scope"], name="uniq_game_scope_completeness"
             )
         ]
         indexes = [

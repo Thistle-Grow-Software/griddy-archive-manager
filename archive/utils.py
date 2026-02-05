@@ -1,4 +1,3 @@
-
 def numberify(data: dict):
     for key, value in data.items():
         try:

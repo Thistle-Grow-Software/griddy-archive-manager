@@ -6,225 +6,599 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='League',
+            name="League",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=120, unique=True)),
-                ('level', models.CharField(choices=[('HS', 'High School'), ('COLLEGE', 'College'), ('PRO', 'Professional'), ('OTHER', 'Other')], default='OTHER', max_length=16)),
-                ('country', models.CharField(default='US', max_length=2)),
-                ('notes', models.TextField(blank=True, default='')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=120, unique=True)),
+                (
+                    "level",
+                    models.CharField(
+                        choices=[
+                            ("HS", "High School"),
+                            ("COLLEGE", "College"),
+                            ("PRO", "Professional"),
+                            ("OTHER", "Other"),
+                        ],
+                        default="OTHER",
+                        max_length=16,
+                    ),
+                ),
+                ("country", models.CharField(default="US", max_length=2)),
+                ("notes", models.TextField(blank=True, default="")),
             ],
         ),
         migrations.CreateModel(
-            name='Source',
+            name="Source",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('source_type', models.CharField(choices=[('STREAMING', 'Streaming Service'), ('YOUTUBE', 'YouTube'), ('PHYSICAL', 'Physical Media (DVD/Blu-ray/etc.)'), ('DVR', 'Personal Capture (DVR/OTA/Cable)'), ('FILE_TRADE', 'Other File Source'), ('OTHER', 'Other')], max_length=16)),
-                ('name', models.CharField(max_length=140)),
-                ('url', models.URLField(blank=True, default='')),
-                ('notes', models.TextField(blank=True, default='')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "source_type",
+                    models.CharField(
+                        choices=[
+                            ("STREAMING", "Streaming Service"),
+                            ("YOUTUBE", "YouTube"),
+                            ("PHYSICAL", "Physical Media (DVD/Blu-ray/etc.)"),
+                            ("DVR", "Personal Capture (DVR/OTA/Cable)"),
+                            ("FILE_TRADE", "Other File Source"),
+                            ("OTHER", "Other"),
+                        ],
+                        max_length=16,
+                    ),
+                ),
+                ("name", models.CharField(max_length=140)),
+                ("url", models.URLField(blank=True, default="")),
+                ("notes", models.TextField(blank=True, default="")),
             ],
         ),
         migrations.CreateModel(
-            name='Tag',
+            name="Tag",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50, unique=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=50, unique=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Venue',
+            name="Venue",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=160)),
-                ('city', models.CharField(blank=True, default='', max_length=80)),
-                ('state', models.CharField(blank=True, default='', max_length=60)),
-                ('country', models.CharField(default='US', max_length=2)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=160)),
+                ("city", models.CharField(blank=True, default="", max_length=80)),
+                ("state", models.CharField(blank=True, default="", max_length=60)),
+                ("country", models.CharField(default="US", max_length=2)),
             ],
         ),
         migrations.CreateModel(
-            name='OrgUnit',
+            name="OrgUnit",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=120)),
-                ('org_type', models.CharField(choices=[('CONFERENCE', 'Conference'), ('DIVISION', 'Division'), ('REGION', 'Region'), ('CLASSIFICATION', 'Classification'), ('LEAGUE_TIER', 'League Tier'), ('OTHER', 'Other')], default='OTHER', max_length=20)),
-                ('league', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='org_units', to='archive.league')),
-                ('parent', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='children', to='archive.orgunit')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=120)),
+                (
+                    "org_type",
+                    models.CharField(
+                        choices=[
+                            ("CONFERENCE", "Conference"),
+                            ("DIVISION", "Division"),
+                            ("REGION", "Region"),
+                            ("CLASSIFICATION", "Classification"),
+                            ("LEAGUE_TIER", "League Tier"),
+                            ("OTHER", "Other"),
+                        ],
+                        default="OTHER",
+                        max_length=20,
+                    ),
+                ),
+                (
+                    "league",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="org_units",
+                        to="archive.league",
+                    ),
+                ),
+                (
+                    "parent",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="children",
+                        to="archive.orgunit",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Season',
+            name="Season",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('year', models.IntegerField()),
-                ('label', models.CharField(blank=True, default='', max_length=40)),
-                ('start_date', models.DateField(blank=True, null=True)),
-                ('end_date', models.DateField(blank=True, null=True)),
-                ('league', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='seasons', to='archive.league')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("year", models.IntegerField()),
+                ("label", models.CharField(blank=True, default="", max_length=40)),
+                ("start_date", models.DateField(blank=True, null=True)),
+                ("end_date", models.DateField(blank=True, null=True)),
+                (
+                    "league",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="seasons",
+                        to="archive.league",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Acquisition',
+            name="Acquisition",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('acquired_on', models.DateField(default=django.utils.timezone.now)),
-                ('cost_usd', models.DecimalField(blank=True, decimal_places=2, max_digits=8, null=True)),
-                ('rights', models.CharField(choices=[('PERSONAL_ONLY', 'Personal use only'), ('SHAREABLE', 'Shareable'), ('UNKNOWN', 'Unknown')], default='UNKNOWN', max_length=20)),
-                ('notes', models.TextField(blank=True, default='')),
-                ('proof_path', models.CharField(blank=True, default='', max_length=500)),
-                ('source', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='acquisitions', to='archive.source')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("acquired_on", models.DateField(default=django.utils.timezone.now)),
+                (
+                    "cost_usd",
+                    models.DecimalField(
+                        blank=True, decimal_places=2, max_digits=8, null=True
+                    ),
+                ),
+                (
+                    "rights",
+                    models.CharField(
+                        choices=[
+                            ("PERSONAL_ONLY", "Personal use only"),
+                            ("SHAREABLE", "Shareable"),
+                            ("UNKNOWN", "Unknown"),
+                        ],
+                        default="UNKNOWN",
+                        max_length=20,
+                    ),
+                ),
+                ("notes", models.TextField(blank=True, default="")),
+                (
+                    "proof_path",
+                    models.CharField(blank=True, default="", max_length=500),
+                ),
+                (
+                    "source",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="acquisitions",
+                        to="archive.source",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Team',
+            name="Team",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=140)),
-                ('short_name', models.CharField(blank=True, default='', max_length=40)),
-                ('city', models.CharField(blank=True, default='', max_length=80)),
-                ('state', models.CharField(blank=True, default='', max_length=60)),
-                ('country', models.CharField(default='US', max_length=2)),
-                ('school_name', models.CharField(blank=True, default='', max_length=160)),
-                ('mascot', models.CharField(blank=True, default='', max_length=80)),
-                ('external_ids', models.JSONField(blank=True, default=dict)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=140)),
+                ("short_name", models.CharField(blank=True, default="", max_length=40)),
+                ("city", models.CharField(blank=True, default="", max_length=80)),
+                ("state", models.CharField(blank=True, default="", max_length=60)),
+                ("country", models.CharField(default="US", max_length=2)),
+                (
+                    "school_name",
+                    models.CharField(blank=True, default="", max_length=160),
+                ),
+                ("mascot", models.CharField(blank=True, default="", max_length=80)),
+                ("external_ids", models.JSONField(blank=True, default=dict)),
             ],
             options={
-                'indexes': [models.Index(fields=['name'], name='archive_tea_name_157318_idx'), models.Index(fields=['short_name'], name='archive_tea_short_n_9a6d5c_idx')],
+                "indexes": [
+                    models.Index(fields=["name"], name="archive_tea_name_157318_idx"),
+                    models.Index(
+                        fields=["short_name"], name="archive_tea_short_n_9a6d5c_idx"
+                    ),
+                ],
             },
         ),
         migrations.CreateModel(
-            name='TeamAffiliation',
+            name="TeamAffiliation",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('start_date', models.DateField(blank=True, null=True)),
-                ('end_date', models.DateField(blank=True, null=True)),
-                ('org_unit', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='team_links', to='archive.orgunit')),
-                ('season', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='team_affiliations', to='archive.season')),
-                ('team', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='affiliations', to='archive.team')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("start_date", models.DateField(blank=True, null=True)),
+                ("end_date", models.DateField(blank=True, null=True)),
+                (
+                    "org_unit",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="team_links",
+                        to="archive.orgunit",
+                    ),
+                ),
+                (
+                    "season",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="team_affiliations",
+                        to="archive.season",
+                    ),
+                ),
+                (
+                    "team",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="affiliations",
+                        to="archive.team",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Game',
+            name="Game",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('date_local', models.DateField()),
-                ('kickoff_time_local', models.TimeField(blank=True, null=True)),
-                ('week', models.CharField(blank=True, default='', max_length=16)),
-                ('game_type', models.CharField(choices=[('REG', 'Regular Season'), ('CONF', 'Conference Championship'), ('POST', 'Postseason'), ('BOWL', 'Bowl'), ('PLAYOFF', 'Playoff'), ('EXHIB', 'Exhibition/Spring'), ('OTHER', 'Other')], default='REG', max_length=16)),
-                ('competition_name', models.CharField(blank=True, default='', max_length=160)),
-                ('neutral_site', models.BooleanField(default=False)),
-                ('final_home_score', models.IntegerField(blank=True, null=True)),
-                ('final_away_score', models.IntegerField(blank=True, null=True)),
-                ('overtime_periods', models.IntegerField(blank=True, null=True)),
-                ('ap_rank_home', models.IntegerField(blank=True, null=True)),
-                ('ap_rank_away', models.IntegerField(blank=True, null=True)),
-                ('notes', models.TextField(blank=True, default='')),
-                ('external_ids', models.JSONField(blank=True, default=dict)),
-                ('league', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='games', to='archive.league')),
-                ('season', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='games', to='archive.season')),
-                ('away_team', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='away_games', to='archive.team')),
-                ('home_team', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='home_games', to='archive.team')),
-                ('venue', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='games', to='archive.venue')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("date_local", models.DateField()),
+                ("kickoff_time_local", models.TimeField(blank=True, null=True)),
+                ("week", models.CharField(blank=True, default="", max_length=16)),
+                (
+                    "game_type",
+                    models.CharField(
+                        choices=[
+                            ("REG", "Regular Season"),
+                            ("CONF", "Conference Championship"),
+                            ("POST", "Postseason"),
+                            ("BOWL", "Bowl"),
+                            ("PLAYOFF", "Playoff"),
+                            ("EXHIB", "Exhibition/Spring"),
+                            ("OTHER", "Other"),
+                        ],
+                        default="REG",
+                        max_length=16,
+                    ),
+                ),
+                (
+                    "competition_name",
+                    models.CharField(blank=True, default="", max_length=160),
+                ),
+                ("neutral_site", models.BooleanField(default=False)),
+                ("final_home_score", models.IntegerField(blank=True, null=True)),
+                ("final_away_score", models.IntegerField(blank=True, null=True)),
+                ("overtime_periods", models.IntegerField(blank=True, null=True)),
+                ("ap_rank_home", models.IntegerField(blank=True, null=True)),
+                ("ap_rank_away", models.IntegerField(blank=True, null=True)),
+                ("notes", models.TextField(blank=True, default="")),
+                ("external_ids", models.JSONField(blank=True, default=dict)),
+                (
+                    "league",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="games",
+                        to="archive.league",
+                    ),
+                ),
+                (
+                    "season",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="games",
+                        to="archive.season",
+                    ),
+                ),
+                (
+                    "away_team",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="away_games",
+                        to="archive.team",
+                    ),
+                ),
+                (
+                    "home_team",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="home_games",
+                        to="archive.team",
+                    ),
+                ),
+                (
+                    "venue",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="games",
+                        to="archive.venue",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='VideoAsset',
+            name="VideoAsset",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('asset_type', models.CharField(choices=[('FULL', 'Full Broadcast'), ('CONDENSED', 'Condensed'), ('COACHES', 'Coaches Film'), ('ALL22', 'All-22'), ('HIGHLIGHTS', 'Highlights'), ('RADIO', 'Radio Audio'), ('OTHER', 'Other')], default='FULL', max_length=16)),
-                ('file_path', models.CharField(max_length=700)),
-                ('container', models.CharField(blank=True, default='', max_length=16)),
-                ('video_codec', models.CharField(blank=True, default='', max_length=32)),
-                ('audio_codec', models.CharField(blank=True, default='', max_length=32)),
-                ('resolution_w', models.IntegerField(blank=True, null=True)),
-                ('resolution_h', models.IntegerField(blank=True, null=True)),
-                ('fps', models.DecimalField(blank=True, decimal_places=3, max_digits=6, null=True)),
-                ('bitrate_kbps', models.IntegerField(blank=True, null=True)),
-                ('duration_seconds', models.IntegerField(blank=True, null=True)),
-                ('file_size_bytes', models.BigIntegerField(blank=True, null=True)),
-                ('language', models.CharField(blank=True, default='en', max_length=16)),
-                ('has_commercials', models.BooleanField(default=True)),
-                ('quality_tier', models.CharField(choices=[('A', 'Tier A (Best Available)'), ('B', 'Tier B (Very Good)'), ('C', 'Tier C (Good)'), ('D', 'Tier D (Filler)')], default='C', max_length=1)),
-                ('quality_notes', models.TextField(blank=True, default='')),
-                ('is_preferred', models.BooleanField(default=False)),
-                ('checksum_sha256', models.CharField(blank=True, default='', max_length=64)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('last_verified_at', models.DateTimeField(blank=True, null=True)),
-                ('source_url', models.URLField(blank=True, default='')),
-                ('acquisition', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='assets', to='archive.acquisition')),
-                ('game', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='assets', to='archive.game')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "asset_type",
+                    models.CharField(
+                        choices=[
+                            ("FULL", "Full Broadcast"),
+                            ("CONDENSED", "Condensed"),
+                            ("COACHES", "Coaches Film"),
+                            ("ALL22", "All-22"),
+                            ("HIGHLIGHTS", "Highlights"),
+                            ("RADIO", "Radio Audio"),
+                            ("OTHER", "Other"),
+                        ],
+                        default="FULL",
+                        max_length=16,
+                    ),
+                ),
+                ("file_path", models.CharField(max_length=700)),
+                ("container", models.CharField(blank=True, default="", max_length=16)),
+                (
+                    "video_codec",
+                    models.CharField(blank=True, default="", max_length=32),
+                ),
+                (
+                    "audio_codec",
+                    models.CharField(blank=True, default="", max_length=32),
+                ),
+                ("resolution_w", models.IntegerField(blank=True, null=True)),
+                ("resolution_h", models.IntegerField(blank=True, null=True)),
+                (
+                    "fps",
+                    models.DecimalField(
+                        blank=True, decimal_places=3, max_digits=6, null=True
+                    ),
+                ),
+                ("bitrate_kbps", models.IntegerField(blank=True, null=True)),
+                ("duration_seconds", models.IntegerField(blank=True, null=True)),
+                ("file_size_bytes", models.BigIntegerField(blank=True, null=True)),
+                ("language", models.CharField(blank=True, default="en", max_length=16)),
+                ("has_commercials", models.BooleanField(default=True)),
+                (
+                    "quality_tier",
+                    models.CharField(
+                        choices=[
+                            ("A", "Tier A (Best Available)"),
+                            ("B", "Tier B (Very Good)"),
+                            ("C", "Tier C (Good)"),
+                            ("D", "Tier D (Filler)"),
+                        ],
+                        default="C",
+                        max_length=1,
+                    ),
+                ),
+                ("quality_notes", models.TextField(blank=True, default="")),
+                ("is_preferred", models.BooleanField(default=False)),
+                (
+                    "checksum_sha256",
+                    models.CharField(blank=True, default="", max_length=64),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("last_verified_at", models.DateTimeField(blank=True, null=True)),
+                ("source_url", models.URLField(blank=True, default="")),
+                (
+                    "acquisition",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="assets",
+                        to="archive.acquisition",
+                    ),
+                ),
+                (
+                    "game",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="assets",
+                        to="archive.game",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='AssetTag',
+            name="AssetTag",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('tag', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='asset_links', to='archive.tag')),
-                ('asset', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='tag_links', to='archive.videoasset')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "tag",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="asset_links",
+                        to="archive.tag",
+                    ),
+                ),
+                (
+                    "asset",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="tag_links",
+                        to="archive.videoasset",
+                    ),
+                ),
             ],
         ),
         migrations.AddIndex(
-            model_name='orgunit',
-            index=models.Index(fields=['league', 'org_type'], name='archive_org_league__94bbe2_idx'),
+            model_name="orgunit",
+            index=models.Index(
+                fields=["league", "org_type"], name="archive_org_league__94bbe2_idx"
+            ),
         ),
         migrations.AddConstraint(
-            model_name='orgunit',
-            constraint=models.UniqueConstraint(fields=('league', 'org_type', 'name'), name='uniq_orgunit_scope'),
+            model_name="orgunit",
+            constraint=models.UniqueConstraint(
+                fields=("league", "org_type", "name"), name="uniq_orgunit_scope"
+            ),
         ),
         migrations.AddConstraint(
-            model_name='season',
-            constraint=models.UniqueConstraint(fields=('league', 'year'), name='uniq_season_league_year'),
+            model_name="season",
+            constraint=models.UniqueConstraint(
+                fields=("league", "year"), name="uniq_season_league_year"
+            ),
         ),
         migrations.AddConstraint(
-            model_name='teamaffiliation',
-            constraint=models.UniqueConstraint(fields=('team', 'org_unit', 'season'), name='uniq_team_orgunit_season'),
+            model_name="teamaffiliation",
+            constraint=models.UniqueConstraint(
+                fields=("team", "org_unit", "season"), name="uniq_team_orgunit_season"
+            ),
         ),
         migrations.AddIndex(
-            model_name='game',
-            index=models.Index(fields=['league', 'season', 'date_local'], name='archive_gam_league__0d5a05_idx'),
+            model_name="game",
+            index=models.Index(
+                fields=["league", "season", "date_local"],
+                name="archive_gam_league__0d5a05_idx",
+            ),
         ),
         migrations.AddIndex(
-            model_name='game',
-            index=models.Index(fields=['home_team', 'date_local'], name='archive_gam_home_te_3619ca_idx'),
+            model_name="game",
+            index=models.Index(
+                fields=["home_team", "date_local"],
+                name="archive_gam_home_te_3619ca_idx",
+            ),
         ),
         migrations.AddIndex(
-            model_name='game',
-            index=models.Index(fields=['away_team', 'date_local'], name='archive_gam_away_te_006158_idx'),
+            model_name="game",
+            index=models.Index(
+                fields=["away_team", "date_local"],
+                name="archive_gam_away_te_006158_idx",
+            ),
         ),
         migrations.AddConstraint(
-            model_name='game',
-            constraint=models.CheckConstraint(condition=models.Q(('home_team', models.F('away_team')), _negated=True), name='chk_home_away_distinct'),
+            model_name="game",
+            constraint=models.CheckConstraint(
+                condition=models.Q(("home_team", models.F("away_team")), _negated=True),
+                name="chk_home_away_distinct",
+            ),
         ),
         migrations.AddConstraint(
-            model_name='game',
-            constraint=models.UniqueConstraint(fields=('league', 'season', 'date_local', 'home_team', 'away_team'), name='uniq_game_identity_basic'),
+            model_name="game",
+            constraint=models.UniqueConstraint(
+                fields=("league", "season", "date_local", "home_team", "away_team"),
+                name="uniq_game_identity_basic",
+            ),
         ),
         migrations.AddIndex(
-            model_name='videoasset',
-            index=models.Index(fields=['game', 'asset_type'], name='archive_vid_game_id_f26cb9_idx'),
+            model_name="videoasset",
+            index=models.Index(
+                fields=["game", "asset_type"], name="archive_vid_game_id_f26cb9_idx"
+            ),
         ),
         migrations.AddIndex(
-            model_name='videoasset',
-            index=models.Index(fields=['quality_tier'], name='archive_vid_quality_de1619_idx'),
+            model_name="videoasset",
+            index=models.Index(
+                fields=["quality_tier"], name="archive_vid_quality_de1619_idx"
+            ),
         ),
         migrations.AddIndex(
-            model_name='videoasset',
-            index=models.Index(fields=['is_preferred'], name='archive_vid_is_pref_f07885_idx'),
+            model_name="videoasset",
+            index=models.Index(
+                fields=["is_preferred"], name="archive_vid_is_pref_f07885_idx"
+            ),
         ),
         migrations.AddConstraint(
-            model_name='videoasset',
-            constraint=models.UniqueConstraint(condition=models.Q(('is_preferred', True)), fields=('game',), name='uniq_preferred_asset_per_game'),
+            model_name="videoasset",
+            constraint=models.UniqueConstraint(
+                condition=models.Q(("is_preferred", True)),
+                fields=("game",),
+                name="uniq_preferred_asset_per_game",
+            ),
         ),
         migrations.AddConstraint(
-            model_name='assettag',
-            constraint=models.UniqueConstraint(fields=('asset', 'tag'), name='uniq_asset_tag'),
+            model_name="assettag",
+            constraint=models.UniqueConstraint(
+                fields=("asset", "tag"), name="uniq_asset_tag"
+            ),
         ),
     ]

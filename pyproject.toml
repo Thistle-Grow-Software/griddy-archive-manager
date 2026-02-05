@@ -20,3 +20,36 @@ dependencies = [
 [[tool.uv.index]]
 name = "private-registry"
 url = "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/"
+
+[tool.ruff]
+line-length = 88
+target-version = "py314"
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "F",      # pyflakes
+    "W",      # pycodestyle warnings
+    "I",      # isort
+    "B",      # flake8-bugbear
+    "UP",     # pyupgrade (modernize syntax)
+    "DJ",     # flake8-django (Django-specific rules)
+    "SIM",    # flake8-simplify
+    "RUF",    # Ruff-specific rules
+    "C4",     # flake8-comprehensions
+    "DTZ",    # flake8-datetimez (catches naive datetime issues — big in Django)
+    "T20",    # flake8-print (catches stray print statements)
+    # "PT",     # flake8-pytest-style (if using pytest-django)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"**/migrations/*.py" = ["E501", "UP", "DJ"]  # auto-generated, don't lint heavily
+"**/settings/*.py" = ["F405", "E501"]                 # wildcard imports common in settings
+"**/settings.py" = ["F405", "E501"]
+"**/tests/**" = ["S101"]                      # assert is fine in tests
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"

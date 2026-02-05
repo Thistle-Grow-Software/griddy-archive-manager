@@ -4,38 +4,39 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('archive', '0004_rename_name_orgunit_long_name_orgunit_short_name'),
+        ("archive", "0004_rename_name_orgunit_long_name_orgunit_short_name"),
     ]
 
     operations = [
         migrations.RemoveConstraint(
-            model_name='orgunit',
-            name='uniq_orgunit_scope',
+            model_name="orgunit",
+            name="uniq_orgunit_scope",
         ),
         migrations.AddField(
-            model_name='team',
-            name='logo',
-            field=models.ImageField(null=True, upload_to='teams/logs/'),
+            model_name="team",
+            name="logo",
+            field=models.ImageField(null=True, upload_to="teams/logs/"),
         ),
         migrations.AddField(
-            model_name='team',
-            name='primary_color',
+            model_name="team",
+            name="primary_color",
             field=models.CharField(max_length=6, null=True),
         ),
         migrations.AddField(
-            model_name='team',
-            name='secondary_color',
+            model_name="team",
+            name="secondary_color",
             field=models.CharField(max_length=6, null=True),
         ),
         migrations.AddField(
-            model_name='team',
-            name='tertiary_color',
+            model_name="team",
+            name="tertiary_color",
             field=models.CharField(max_length=6, null=True),
         ),
         migrations.AddConstraint(
-            model_name='orgunit',
-            constraint=models.UniqueConstraint(fields=('league', 'org_type', 'short_name'), name='uniq_orgunit_scope'),
+            model_name="orgunit",
+            constraint=models.UniqueConstraint(
+                fields=("league", "org_type", "short_name"), name="uniq_orgunit_scope"
+            ),
         ),
     ]

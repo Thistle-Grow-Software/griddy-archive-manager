@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('archive', '0005_remove_orgunit_uniq_orgunit_scope_team_logo_and_more'),
+        ("archive", "0005_remove_orgunit_uniq_orgunit_scope_team_logo_and_more"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='venue',
-            name='capacity',
+            model_name="venue",
+            name="capacity",
             field=models.IntegerField(null=True),
         ),
     ]

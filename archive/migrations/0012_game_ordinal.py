@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('archive', '0011_add_related_names_to_teamvenueoccupancy'),
+        ("archive", "0011_add_related_names_to_teamvenueoccupancy"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='game',
-            name='ordinal',
+            model_name="game",
+            name="ordinal",
             field=models.IntegerField(null=True),
         ),
     ]

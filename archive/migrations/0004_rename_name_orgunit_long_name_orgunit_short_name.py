@@ -4,21 +4,20 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('archive', '0003_rename_name_league_long_name_league_short_name'),
+        ("archive", "0003_rename_name_league_long_name_league_short_name"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='orgunit',
-            old_name='name',
-            new_name='long_name',
+            model_name="orgunit",
+            old_name="name",
+            new_name="long_name",
         ),
         migrations.AddField(
-            model_name='orgunit',
-            name='short_name',
-            field=models.CharField(default='', max_length=10),
+            model_name="orgunit",
+            name="short_name",
+            field=models.CharField(default="", max_length=10),
             preserve_default=False,
         ),
     ]
