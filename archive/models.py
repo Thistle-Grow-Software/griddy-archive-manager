@@ -116,6 +116,12 @@ class Team(models.Model):
     primary_color = models.CharField(max_length=6, null=True)
     secondary_color = models.CharField(max_length=6, null=True)
     tertiary_color = models.CharField(max_length=6, null=True)
+    additional_colors = models.JSONField(null=True)
+
+    bonus_data = models.JSONField(
+        null=True,
+        help_text="Data supplied by third party providers that we haven't decided how or if to use yet.",
+    )
 
     class Meta:
         # Not truly unique globally, but this helps reduce duplicates.
