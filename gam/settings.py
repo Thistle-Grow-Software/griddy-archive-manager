@@ -125,3 +125,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_ROOT = os.getenv("MEDIA_ROOT")
+
+GRIDDY_NFL_EMAIL = os.getenv("GRIDDY_NFL_EMAIL")
+GRIDDY_NFL_PASSWORD = os.getenv("GRIDDY_NFL_PASSWORD")
