@@ -61,18 +61,29 @@ class SourceType(models.TextChoices):
 # -------------------------
 
 
-class League(models.Model):
+class GamBaseModel(models.Model):
+    bonus_data = models.JSONField(
+        null=True,
+        help_text="Data supplied by third party providers that we haven't decided how or if to use yet.",
+    )
+    external_ids = models.JSONField(blank=True, default=dict)
+
+    class Meta:
+        abstract = True
+
+
+class League(GamBaseModel):
     short_name = models.CharField(max_length=10, unique=True)
     long_name = models.CharField(max_length=120, unique=True)
     level = models.CharField(max_length=16, choices=Level.choices, default=Level.OTHER)
-    country = models.CharField(max_length=2, default="US")  # ISO-3166-1 alpha-2
+    country = models.CharField(max_length=60, default="US")  # ISO-3166-1 alpha-2
     notes = models.TextField(blank=True, default="")
 
     def __str__(self) -> str:
         return self.short_name
 
 
-class Season(models.Model):
+class Season(GamBaseModel):
     league = models.ForeignKey(League, on_delete=models.PROTECT, related_name="seasons")
     year = models.IntegerField()  # e.g. 2025
     label = models.CharField(
@@ -92,7 +103,7 @@ class Season(models.Model):
         return f"{self.league.name} {self.label or self.year}"
 
 
-class Team(models.Model):
+class Team(GamBaseModel):
     """
     Single table across all levels/leagues.
     League-specific org concepts (conference/division/classification/etc.)
@@ -103,25 +114,17 @@ class Team(models.Model):
     alternate_name = models.CharField(max_length=140, null=True)
     short_name = models.CharField(max_length=40, blank=True, default="")  # "UGA", "PIT"
     city = models.CharField(max_length=80, blank=True, default="")
-    state = models.CharField(max_length=60, blank=True, default="")
-    country = models.CharField(max_length=2, default="US")
+    state = models.CharField(max_length=60, blank=True, default="", null=True)
+    country = models.CharField(max_length=60, default="US")
     # Useful for HS + college:
     school_name = models.CharField(max_length=160, blank=True, default="")
     mascot = models.CharField(max_length=80, blank=True, default="")
-
-    # Optional JSON for ids like espn/team id, sportsref slug, etc.
-    external_ids = models.JSONField(blank=True, default=dict)
 
     logo = models.ImageField(upload_to="teams/logos/", null=True)
     primary_color = models.CharField(max_length=6, null=True)
     secondary_color = models.CharField(max_length=6, null=True)
     tertiary_color = models.CharField(max_length=6, null=True)
     additional_colors = models.JSONField(null=True)
-
-    bonus_data = models.JSONField(
-        null=True,
-        help_text="Data supplied by third party providers that we haven't decided how or if to use yet.",
-    )
 
     class Meta:
         # Not truly unique globally, but this helps reduce duplicates.
@@ -147,7 +150,7 @@ class Team(models.Model):
         return occupancy.venue if occupancy else None
 
 
-class OrgUnit(models.Model):
+class OrgUnit(GamBaseModel):
     """
     A flexible container for "conference", "division", "region", "classification", etc.
     Examples:
@@ -191,7 +194,7 @@ class OrgUnit(models.Model):
         return f"{self.league.short_name}: {self.short_name} ({self.org_type})"
 
 
-class TeamAffiliation(models.Model):
+class TeamAffiliation(GamBaseModel):
     """
     Many-to-many between Team and OrgUnit with optional season scoping.
     Supports realignment over time.
@@ -229,11 +232,11 @@ class TeamAffiliation(models.Model):
         return f"{self.team} → {self.org_unit} ({scope})"
 
 
-class Venue(models.Model):
+class Venue(GamBaseModel):
     name = models.CharField(max_length=160)
     city = models.CharField(max_length=80, blank=True, default="")
-    state = models.CharField(max_length=60, blank=True, default="")
-    country = models.CharField(max_length=2, default="US")
+    state = models.CharField(max_length=60, blank=True, default="", null=True)
+    country = models.CharField(max_length=60, default="US")
     capacity = models.IntegerField(null=True)
 
     class Meta:
@@ -247,7 +250,7 @@ class Venue(models.Model):
         return self.name
 
 
-class TeamVenueOccupancy(models.Model):
+class TeamVenueOccupancy(GamBaseModel):
     team = models.ForeignKey(
         Team, on_delete=models.CASCADE, related_name="venue_occupancies"
     )
@@ -263,7 +266,7 @@ class TeamVenueOccupancy(models.Model):
         return f"{self.team} @ {self.venue} ({self.start_date} - {end})"
 
 
-class Game(models.Model):
+class Game(GamBaseModel):
     league = models.ForeignKey(League, on_delete=models.PROTECT, related_name="games")
     season = models.ForeignKey(Season, on_delete=models.PROTECT, related_name="games")
     ordinal = models.IntegerField(null=True)
@@ -300,9 +303,6 @@ class Game(models.Model):
 
     notes = models.TextField(blank=True, default="")
 
-    # External identifiers to avoid duplicates when importing later.
-    external_ids = models.JSONField(blank=True, default=dict)
-
     class Meta:
         constraints = [
             models.CheckConstraint(
@@ -330,7 +330,7 @@ class Game(models.Model):
 # -------------------------
 
 
-class Source(models.Model):
+class Source(GamBaseModel):
     source_type = models.CharField(max_length=16, choices=SourceType.choices)
     name = models.CharField(
         max_length=140
@@ -342,7 +342,7 @@ class Source(models.Model):
         return f"{self.name} ({self.source_type})"
 
 
-class Acquisition(models.Model):
+class Acquisition(GamBaseModel):
     source = models.ForeignKey(
         Source, on_delete=models.PROTECT, related_name="acquisitions"
     )
@@ -362,7 +362,7 @@ class Acquisition(models.Model):
         return f"{self.source.name} on {self.acquired_on}"
 
 
-class VideoAsset(models.Model):
+class VideoAsset(GamBaseModel):
     """
     A single file (or a single primary artifact) representing one cut of one game.
     You can store multiple assets per game (full, condensed, all-22, etc.)
@@ -439,14 +439,14 @@ class VideoAsset(models.Model):
         return f"{self.game} [{self.asset_type}] {self.quality_tier}"
 
 
-class Tag(models.Model):
+class Tag(GamBaseModel):
     name = models.CharField(max_length=50, unique=True)
 
     def __str__(self) -> str:
         return self.name
 
 
-class AssetTag(models.Model):
+class AssetTag(GamBaseModel):
     asset = models.ForeignKey(
         VideoAsset, on_delete=models.CASCADE, related_name="tag_links"
     )
@@ -461,7 +461,7 @@ class AssetTag(models.Model):
         return f"{self.asset.game} - {self.tag}"
 
 
-class GameCompleteness(models.Model):
+class GameCompleteness(GamBaseModel):
     class Status(models.TextChoices):
         MISSING = "MISSING", "Missing"
         PARTIAL = "PARTIAL", "Partial"
