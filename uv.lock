@@ -349,7 +349,7 @@ wheels = [
 
 [[package]]
 name = "griddy"
-version = "0.8.2"
+version = "0.8.3"
 source = { registry = "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/" }
 dependencies = [
     { name = "black" },
@@ -362,9 +362,9 @@ dependencies = [
     { name = "requests" },
     { name = "twine" },
 ]
-sdist = { url = "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/griddy/0.8.2/griddy-0.8.2.tar.gz", hash = "sha256:0d07edbab7b6679e7fa4476f9ec65cb28dee03f446f829facc3d375ef8c67269" }
+sdist = { url = "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/griddy/0.8.3/griddy-0.8.3.tar.gz", hash = "sha256:a251a8f4d6eb86200382c3ba4a4c09372298634cf58cfaf7465be7f265a8c8c0" }
 wheels = [
-    { url = "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/griddy/0.8.2/griddy-0.8.2-py3-none-any.whl", hash = "sha256:e7a4182d2cb2a3250239f1a44a2a6c2acd1f0d7d4f9dd5907eefba1b9ab8e18f" },
+    { url = "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/griddy/0.8.3/griddy-0.8.3-py3-none-any.whl", hash = "sha256:242e79f2b00b41d24faa1afa310da48436aee477b02a4ee9638da9c0cdb5a9f2" },
 ]
 
 [[package]]
@@ -396,7 +396,7 @@ requires-dist = [
     { name = "django-debug-toolbar", specifier = ">=6.2.0" },
     { name = "django-extensions", specifier = ">=4.1" },
     { name = "django-stubs", specifier = ">=5.2.9" },
-    { name = "griddy", specifier = "==0.8.2" },
+    { name = "griddy", specifier = "==0.8.3" },
     { name = "ipython", specifier = ">=9.10.0" },
     { name = "isort", specifier = ">=7.0.0" },
     { name = "pillow", specifier = ">=12.1.0" },

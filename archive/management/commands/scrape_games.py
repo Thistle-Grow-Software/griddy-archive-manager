@@ -31,7 +31,7 @@ def nfl(
     login_password: Optional[str] = None,
     creds: Optional[str] = None,
     headless: Optional[bool] = False,
-        output_file: Optional[str] = None
+    output_file: Optional[str] = None,
 ):
     click.echo(f"Season: {season}")
     click.echo(f"Week: {week}")
@@ -41,18 +41,18 @@ def nfl(
     click.echo(f"Creds: {creds}")
     click.echo(f"Headless: {headless}")
 
-    scraper = NFLScraper(login_email=login_email,
-                         login_password=login_password,
-                         creds=creds,
-                         headless_login=headless)
-    game_data = scraper.gather_all_data_for_week(season=season,
-                                                 week=week,
-                                                 season_type=season_type,
-                                                 as_json=True)
-
-    if output_file is not None:
-        with open(output_file, "w") as outfile:
-            json.dump(game_data, outfile, indent=4, cls=DateTimeEncoder)
+    scraper = NFLScraper(
+        login_email=login_email,
+        login_password=login_password,
+        creds=creds,
+        headless_login=headless,
+    )
+    game_data = scraper.gather_all_data_for_week(
+        season=season, week=week, season_type=season_type, as_json=True
+    )
+    games = list(game_data.values())
+    for idx, game in enumerate(games):
+        with open(f"archive/fixtures/complete_game_{idx+1}.json", "w") as outfile:
+            json.dump(game, outfile, indent=4, cls=DateTimeEncoder)
     else:
         click.echo(game_data)
-

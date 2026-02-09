@@ -165,8 +165,12 @@ class NFLScraper(BaseScraper):
     def _cast_to_json(self, data: Dict) -> Dict:
         dictified_info = {}
         for info_type, sub_data in data.items():
+            if isinstance(sub_data, dict):
+                dictified_info[info_type] = self._cast_to_json(sub_data)
+                continue
+
             if isinstance(sub_data, list):
-                dictified_info[info_type] = [play.model_dump() for play in sub_data]
+                dictified_info[info_type] = [item.model_dump() for item in sub_data]
                 continue
 
             dictified_info[info_type] = sub_data.model_dump()
@@ -174,12 +178,50 @@ class NFLScraper(BaseScraper):
         return dictified_info
 
     def gather_all_data_for_week(
-        self, season: int, week: int, season_type: SeasonTypeEnum = "REG", as_json: bool = False
+        self,
+        season: int,
+        week: int,
+        season_type: SeasonTypeEnum = "REG",
+        as_json: bool = False,
     ) -> Dict:
         games = self.client.schedules.get_scheduled_games(
             season=season, season_type=season_type, week=week
         ).games
         all_game_data = {g.id: {"scheduled_games": g} for g in games}
+
+        # Fetch weekly game details (single request for all games in the week)
+        # Explicit server_url required: the SDK shares a mutable SDKConfiguration, and
+        # accessing any ProSDK endpoint (e.g. schedules) sets server_type to "pro",
+        # causing subsequent regular-API calls to hit the wrong server.
+        weekly_details = self.client.games.get_weekly_game_details(
+            season=season,
+            type_=season_type,
+            week=week,
+            include_drive_chart=True,
+            include_replays=True,
+            include_standings=True,
+            include_tagged_videos=True,
+            server_url="https://api.nfl.com",
+        )
+        logger.info(f"Fetched weekly game details for {len(weekly_details)} games")
+        weekly_details_by_game = {detail.id: detail for detail in weekly_details}
+
+        for game_id, detail in weekly_details_by_game.items():
+            if game_id in all_game_data:
+                unique_data = {}
+                if detail.summary is not None:
+                    unique_data["summary"] = detail.summary
+                if detail.drive_chart is not None:
+                    unique_data["drive_chart"] = detail.drive_chart
+                if detail.replays is not None:
+                    unique_data["replays"] = detail.replays
+                if detail.away_team_standings is not None:
+                    unique_data["away_team_standings"] = detail.away_team_standings
+                if detail.home_team_standings is not None:
+                    unique_data["home_team_standings"] = detail.home_team_standings
+                if detail.tagged_videos is not None:
+                    unique_data["tagged_videos"] = detail.tagged_videos
+                all_game_data[game_id]["weekly_game_details"] = unique_data
 
         game_count = len(games)
         cur_game = 1
