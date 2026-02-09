@@ -1,3 +1,7 @@
+import json
+
+from datetime import date, datetime, time
+
 import requests
 from django.core.files.base import ContentFile
 
@@ -19,6 +23,13 @@ def get_content_file_from_url(url: str) -> ContentFile:
     response = requests.get(url)
     response.raise_for_status()
     return ContentFile(response.content)
+
+
+class DateTimeEncoder(json.JSONEncoder):
+    def default(self, o):
+        if isinstance(o, (datetime, date, time)):
+            return o.isoformat()
+        return super().default(o=o)
 
 
 US_STATES = {

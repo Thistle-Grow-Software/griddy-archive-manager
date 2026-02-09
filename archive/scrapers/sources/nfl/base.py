@@ -1,5 +1,12 @@
+import json
 import logging
+import time
 from datetime import date
+from random import uniform
+from typing import Dict, Optional
+
+from griddy.nfl import GriddyNFL
+from griddy.nfl.models import SeasonTypeEnum
 
 logger = logging.getLogger(__name__)
 
@@ -10,6 +17,50 @@ from archive.utils import get_content_file_from_url
 
 class NFLScraper(BaseScraper):
     logo_format_instructions = "h_144,w_144,q_auto,f_auto,dpr_2.0"
+
+    def __init__(
+        self,
+        login_email: str = None,
+        login_password: str = None,
+        creds: Optional[Dict | str] = None,
+        headless_login: bool = True,
+    ):
+        self._validate_init_params(
+            login_email=login_email,
+            login_password=login_password,
+            creds=creds,
+            headless_login=headless_login,
+        )
+        if login_email:
+            self.client = GriddyNFL(
+                login_email=login_email,
+                login_password=login_password,
+                headless_login=headless_login,
+            )
+        else:
+            if isinstance(creds, str):
+                with open(creds, "r") as infile:
+                    creds = json.load(infile)
+
+            self.client = GriddyNFL(nfl_auth=creds, headless_login=headless_login)
+
+    def _validate_init_params(
+        self,
+        login_email: str = None,
+        login_password: str = None,
+        creds: dict = None,
+        headless_login: bool = True,
+    ):
+        if login_email and creds:
+            raise ValueError("You must provide either login_email OR creds, not both.")
+        elif not (login_email or creds):
+            raise ValueError(
+                "You must provide either login_email or creds, you've provided neither."
+            )
+        elif login_email and not login_password:
+            raise ValueError(
+                "You're attempting email + password login, but have not provided login_password."
+            )
 
     def transform_team_data(self, nfl_data: dict) -> dict:
         griddy_data = {
@@ -110,3 +161,64 @@ class NFLScraper(BaseScraper):
             return
         tvo = TeamVenueOccupancy(team=team, venue=venue)
         tvo.save()
+
+    def _cast_to_json(self, data: Dict) -> Dict:
+        dictified_info = {}
+        for info_type, sub_data in data.items():
+            if isinstance(sub_data, list):
+                dictified_info[info_type] = [play.model_dump() for play in sub_data]
+                continue
+
+            dictified_info[info_type] = sub_data.model_dump()
+
+        return dictified_info
+
+    def gather_all_data_for_week(
+        self, season: int, week: int, season_type: SeasonTypeEnum = "REG", as_json: bool = False
+    ) -> Dict:
+        games = self.client.schedules.get_scheduled_games(
+            season=season, season_type=season_type, week=week
+        ).games
+        all_game_data = {g.id: {"scheduled_games": g} for g in games}
+
+        game_count = len(games)
+        cur_game = 1
+
+        for game in games:
+            logger.info(f"Working on game {game.id} - No {cur_game} of {game_count}")
+            sked_game_dtls = self.client.schedules.get_scheduled_game(game_id=game.id)
+            logger.info("Fetched scheduled_game details")
+            pro_game_id = str(sked_game_dtls.game_id)
+            logger.info(f"Pro Game ID: {pro_game_id}")
+
+            # Non-secured endpoint
+            box_score = self.client.pro_games.get_stats_boxscore(game_id=pro_game_id)
+            logger.info("Fetched box score")
+            game_center = self.client.pro_games.get_gamecenter(game_id=pro_game_id)
+            logger.info("Fetched game center")
+
+            # Secured Endpoints
+            play_list = self.client.pro_games.get_playlist(game_id=pro_game_id).plays
+            logger.info("Fetched play list")
+            # win_probabilities = self.client.pro_games.get_plays_win_probability(
+            #     game_id=pro_game_id
+            # )
+
+            all_game_data[game.id].update(
+                {
+                    "sked_game_dtls": sked_game_dtls,
+                    "box_score": box_score,
+                    "game_center": game_center,
+                    "play_list": play_list,
+                    # "win_probabilities": win_probabilities,
+                }
+            )
+            if as_json:
+                all_game_data[game.id] = self._cast_to_json(data=all_game_data[game.id])
+
+            cur_game += 1
+            sleep_time = uniform(2.5, 3.5)
+            logger.info(f"Pausing for {str(sleep_time)[:3]} seconds.")
+            time.sleep(sleep_time)
+
+        return all_game_data

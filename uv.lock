@@ -231,6 +231,18 @@ wheels = [
 ]
 
 [[package]]
+name = "django-click"
+version = "2.5.0"
+source = { registry = "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/" }
+dependencies = [
+    { name = "click" },
+]
+sdist = { url = "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/django-click/2.5.0/django_click-2.5.0.tar.gz", hash = "sha256:60d346a04d0db991d0bb31754c0dcad282643aa26a4701ca5ff5df742a7473f8" }
+wheels = [
+    { url = "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/django-click/2.5.0/django_click-2.5.0-py3-none-any.whl", hash = "sha256:6bcb71d0bac47f67b91d9ee1972d881d72b5bf20cd2a45a57265cdfac49b88aa" },
+]
+
+[[package]]
 name = "django-debug-toolbar"
 version = "6.2.0"
 source = { registry = "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/" }
@@ -361,12 +373,15 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "beautifulsoup4" },
+    { name = "black" },
     { name = "django" },
+    { name = "django-click" },
     { name = "django-debug-toolbar" },
     { name = "django-extensions" },
     { name = "django-stubs" },
     { name = "griddy" },
     { name = "ipython" },
+    { name = "isort" },
     { name = "pillow" },
     { name = "psycopg" },
     { name = "requests" },
@@ -375,12 +390,15 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "beautifulsoup4", specifier = ">=4.14.3" },
+    { name = "black", specifier = ">=26.1.0" },
     { name = "django", specifier = ">=6.0.1" },
+    { name = "django-click", specifier = ">=2.5.0" },
     { name = "django-debug-toolbar", specifier = ">=6.2.0" },
     { name = "django-extensions", specifier = ">=4.1" },
     { name = "django-stubs", specifier = ">=5.2.9" },
     { name = "griddy", specifier = "==0.7.4" },
     { name = "ipython", specifier = ">=9.10.0" },
+    { name = "isort", specifier = ">=7.0.0" },
     { name = "pillow", specifier = ">=12.1.0" },
     { name = "psycopg", specifier = ">=3.3.2" },
     { name = "requests", specifier = ">=2.32.5" },
@@ -529,6 +547,15 @@ dependencies = [
 sdist = { url = "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/ipython-pygments-lexers/1.1.1/ipython_pygments_lexers-1.1.1.tar.gz", hash = "sha256:09c0138009e56b6854f9535736f4171d855c8c08a563a0dcd8022f78355c7e81" }
 wheels = [
     { url = "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/ipython-pygments-lexers/1.1.1/ipython_pygments_lexers-1.1.1-py3-none-any.whl", hash = "sha256:a9462224a505ade19a605f71f8fa63c2048833ce50abc86768a0d81d876dc81c" },
+]
+
+[[package]]
+name = "isort"
+version = "7.0.0"
+source = { registry = "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/" }
+sdist = { url = "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/isort/7.0.0/isort-7.0.0.tar.gz", hash = "sha256:5513527951aadb3ac4292a41a16cbc50dd1642432f5e8c20057d414bdafb4187" }
+wheels = [
+    { url = "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/isort/7.0.0/isort-7.0.0-py3-none-any.whl", hash = "sha256:1bcabac8bc3c36c7fb7b98a76c8abb18e0f841a3ba81decac7691008592499c1" },
 ]
 
 [[package]]
