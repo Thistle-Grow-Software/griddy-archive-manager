@@ -301,6 +301,10 @@ class Game(GamBaseModel):
     ap_rank_home = models.IntegerField(null=True, blank=True)
     ap_rank_away = models.IntegerField(null=True, blank=True)
 
+    broadcast_channel = models.CharField(max_length=40, blank=True, default="")
+    status = models.CharField(max_length=20, blank=True, default="")
+    kickoff_utc = models.DateTimeField(null=True, blank=True)
+
     notes = models.TextField(blank=True, default="")
 
     class Meta:
@@ -323,6 +327,325 @@ class Game(GamBaseModel):
 
     def __str__(self) -> str:
         return f"{self.date_local} {self.away_team} @ {self.home_team}"
+
+
+class QuarterScore(GamBaseModel):
+    game = models.ForeignKey(
+        Game, on_delete=models.CASCADE, related_name="quarter_scores"
+    )
+    team = models.ForeignKey(Team, on_delete=models.PROTECT)
+    period = models.PositiveSmallIntegerField()  # 1-4 quarters, 5+ OT
+    points = models.PositiveSmallIntegerField(default=0)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["game", "team", "period"],
+                name="uniq_quarter_score",
+            ),
+        ]
+        ordering = ["game", "team", "period"]
+
+    def __str__(self):
+        return f"{self.game} - {self.team} Q{self.period}: {self.points}"
+
+
+class TeamStandingsSnapshot(GamBaseModel):
+    team = models.ForeignKey(
+        Team, on_delete=models.PROTECT, related_name="standings_snapshots"
+    )
+    season = models.ForeignKey(
+        Season, on_delete=models.PROTECT, related_name="standings_snapshots"
+    )
+    week = models.PositiveSmallIntegerField()
+
+    overall_wins = models.PositiveSmallIntegerField(default=0)
+    overall_losses = models.PositiveSmallIntegerField(default=0)
+    overall_ties = models.PositiveSmallIntegerField(default=0)
+    overall_win_pct = models.FloatField(default=0.0)
+    points_for = models.PositiveIntegerField(default=0)
+    points_against = models.PositiveIntegerField(default=0)
+
+    conference_wins = models.PositiveSmallIntegerField(default=0)
+    conference_losses = models.PositiveSmallIntegerField(default=0)
+    conference_rank = models.PositiveSmallIntegerField(null=True, blank=True)
+
+    division_wins = models.PositiveSmallIntegerField(default=0)
+    division_losses = models.PositiveSmallIntegerField(default=0)
+    division_rank = models.PositiveSmallIntegerField(null=True, blank=True)
+
+    home_wins = models.PositiveSmallIntegerField(default=0)
+    home_losses = models.PositiveSmallIntegerField(default=0)
+    road_wins = models.PositiveSmallIntegerField(default=0)
+    road_losses = models.PositiveSmallIntegerField(default=0)
+
+    streak_length = models.PositiveSmallIntegerField(default=0)
+    streak_type = models.CharField(max_length=1, blank=True, default="")  # W, L, T
+
+    clinched_playoff = models.BooleanField(default=False)
+    clinched_division = models.BooleanField(default=False)
+    clinched_bye = models.BooleanField(default=False)
+    eliminated = models.BooleanField(default=False)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["team", "season", "week"],
+                name="uniq_standings_snapshot",
+            ),
+        ]
+        indexes = [
+            models.Index(fields=["season", "week"]),
+        ]
+
+    def __str__(self):
+        return (
+            f"{self.team} {self.season} Wk{self.week}: "
+            f"{self.overall_wins}-{self.overall_losses}-{self.overall_ties}"
+        )
+
+
+class Drive(GamBaseModel):
+    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name="drives")
+    sequence = models.PositiveSmallIntegerField()
+    team = models.ForeignKey(
+        Team, on_delete=models.PROTECT, null=True, blank=True, related_name="+"
+    )
+
+    started_quarter = models.PositiveSmallIntegerField(null=True, blank=True)
+    started_clock = models.CharField(max_length=8, blank=True, default="")
+    started_description = models.CharField(max_length=60, blank=True, default="")
+    started_yard_line = models.CharField(max_length=20, blank=True, default="")
+
+    ended_quarter = models.PositiveSmallIntegerField(null=True, blank=True)
+    ended_clock = models.CharField(max_length=8, blank=True, default="")
+    ended_description = models.CharField(max_length=60, blank=True, default="")
+    ended_yard_line = models.CharField(max_length=20, blank=True, default="")
+    ended_with_score = models.BooleanField(default=False)
+
+    plays_count = models.PositiveSmallIntegerField(default=0)
+    first_downs = models.PositiveSmallIntegerField(default=0)
+    yards_gained = models.IntegerField(default=0)
+    yards_gained_net = models.IntegerField(default=0)
+    yards_gained_by_penalty = models.IntegerField(default=0)
+    time_of_possession = models.CharField(max_length=8, blank=True, default="")
+    inside_20 = models.BooleanField(default=False)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["game", "sequence"],
+                name="uniq_drive_game_seq",
+            ),
+        ]
+        ordering = ["game", "sequence"]
+
+    def __str__(self):
+        return f"{self.game} Drive {self.sequence}: {self.ended_description}"
+
+
+class Play(GamBaseModel):
+    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name="plays")
+    play_id = models.IntegerField()
+    sequence = models.FloatField()
+    quarter = models.PositiveSmallIntegerField(null=True, blank=True)
+    down = models.PositiveSmallIntegerField(null=True, blank=True)
+    yards_to_go = models.PositiveSmallIntegerField(null=True, blank=True)
+    play_type = models.CharField(max_length=40, blank=True, default="")
+    play_description = models.TextField(blank=True, default="")
+    play_state = models.CharField(max_length=20, blank=True, default="")
+    possession_team = models.ForeignKey(
+        Team, on_delete=models.PROTECT, null=True, blank=True, related_name="+"
+    )
+    home_score = models.PositiveSmallIntegerField(default=0)
+    visitor_score = models.PositiveSmallIntegerField(default=0)
+    yard_line_number = models.PositiveSmallIntegerField(null=True, blank=True)
+    yard_line_side = models.CharField(max_length=5, blank=True, default="")
+    is_scoring = models.BooleanField(default=False)
+    is_big_play = models.BooleanField(default=False)
+    is_stp_play = models.BooleanField(default=False)
+    is_marker_play = models.BooleanField(default=False)
+    is_red_zone_play = models.BooleanField(null=True, blank=True)
+    start_game_clock = models.CharField(max_length=8, blank=True, default="")
+    end_game_clock = models.CharField(max_length=8, blank=True, default="")
+    ngs_data = models.JSONField(null=True, blank=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["game", "play_id"],
+                name="uniq_play_game_playid",
+            ),
+        ]
+        indexes = [
+            models.Index(fields=["game", "sequence"]),
+            models.Index(fields=["game", "quarter"]),
+        ]
+        ordering = ["game", "sequence"]
+
+    def __str__(self):
+        return f"{self.game} Play {self.play_id}: {self.play_type}"
+
+
+class PlayStat(GamBaseModel):
+    play = models.ForeignKey(Play, on_delete=models.CASCADE, related_name="stats")
+    team_abbr = models.CharField(max_length=5, blank=True, default="")
+    player_name = models.CharField(max_length=120, blank=True, default="")
+    gsis_id = models.CharField(max_length=20, blank=True, default="")
+    stat_id = models.IntegerField()
+    yards = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.player_name} stat {self.stat_id}: {self.yards}yds"
+
+
+class PlayerGameStatBase(GamBaseModel):
+    """Abstract base for per-game player stat lines."""
+
+    class Meta:
+        abstract = True
+
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    team = models.ForeignKey(Team, on_delete=models.PROTECT)
+    side = models.CharField(max_length=4)  # "home" or "away"
+    player_name = models.CharField(max_length=120)
+    jersey_number = models.IntegerField(null=True, blank=True)
+    position = models.CharField(max_length=10, blank=True, default="")
+
+    def __str__(self):
+        return f"{self.player_name} ({self.position}) - {self.game}"
+
+
+class PassingBoxscore(PlayerGameStatBase):
+    attempts = models.IntegerField(default=0)
+    completions = models.IntegerField(default=0)
+    completion_pct = models.FloatField(null=True, blank=True)
+    yards = models.IntegerField(default=0)
+    yards_per_attempt = models.FloatField(null=True, blank=True)
+    touchdowns = models.IntegerField(default=0)
+    interceptions = models.IntegerField(default=0)
+    sacks = models.IntegerField(default=0)
+    sack_yards = models.IntegerField(default=0)
+    qb_rating = models.FloatField(null=True, blank=True)
+    longest_pass = models.IntegerField(null=True, blank=True)
+    longest_td_pass = models.IntegerField(null=True, blank=True)
+
+
+class RushingBoxscore(PlayerGameStatBase):
+    attempts = models.IntegerField(default=0)
+    yards = models.IntegerField(default=0)
+    avg_yards = models.FloatField(null=True, blank=True)
+    touchdowns = models.IntegerField(default=0)
+    longest_rush = models.IntegerField(null=True, blank=True)
+    longest_td_rush = models.IntegerField(null=True, blank=True)
+
+
+class ReceivingBoxscore(PlayerGameStatBase):
+    receptions = models.IntegerField(default=0)
+    yards = models.IntegerField(default=0)
+    avg_yards = models.FloatField(null=True, blank=True)
+    touchdowns = models.IntegerField(default=0)
+    targets = models.IntegerField(null=True, blank=True)
+    longest_reception = models.IntegerField(null=True, blank=True)
+    longest_td_reception = models.IntegerField(null=True, blank=True)
+    yards_after_catch = models.IntegerField(null=True, blank=True)
+
+
+class TacklesBoxscore(PlayerGameStatBase):
+    tackles = models.IntegerField(default=0)
+    assists = models.IntegerField(default=0)
+    sacks = models.FloatField(default=0)
+    sack_yards = models.IntegerField(default=0)
+    qb_hits = models.IntegerField(default=0)
+    tackles_for_loss = models.IntegerField(default=0)
+    tackles_for_loss_yards = models.IntegerField(default=0)
+    safeties = models.IntegerField(default=0)
+    special_teams_tackles = models.IntegerField(default=0)
+    special_teams_assists = models.IntegerField(default=0)
+    special_teams_blocks = models.IntegerField(default=0)
+
+
+class FumblesBoxscore(PlayerGameStatBase):
+    fumbles = models.IntegerField(default=0)
+    own_recoveries = models.IntegerField(default=0)
+    own_recovery_yards = models.IntegerField(default=0)
+    own_recovery_tds = models.IntegerField(default=0)
+    opp_recoveries = models.IntegerField(default=0)
+    opp_recovery_yards = models.IntegerField(default=0)
+    opp_recovery_tds = models.IntegerField(default=0)
+    forced_fumbles = models.IntegerField(default=0)
+    out_of_bounds = models.IntegerField(default=0)
+
+
+class FieldGoalsBoxscore(PlayerGameStatBase):
+    attempts = models.IntegerField(default=0)
+    made = models.IntegerField(default=0)
+    blocked = models.IntegerField(default=0)
+    yards = models.IntegerField(default=0)
+    avg_yards = models.FloatField(null=True, blank=True)
+    longest = models.IntegerField(null=True, blank=True)
+
+
+class ExtraPointsBoxscore(PlayerGameStatBase):
+    attempts = models.IntegerField(default=0)
+    made = models.IntegerField(default=0)
+    blocked = models.IntegerField(default=0)
+
+
+class KickingBoxscore(PlayerGameStatBase):
+    kickoffs = models.IntegerField(default=0)
+    yards = models.IntegerField(default=0)
+    touchbacks = models.IntegerField(default=0)
+    inside_20 = models.IntegerField(default=0)
+    out_of_bounds = models.IntegerField(default=0)
+    to_endzone = models.IntegerField(default=0)
+    return_yards = models.IntegerField(default=0)
+
+
+class PuntingBoxscore(PlayerGameStatBase):
+    attempts = models.IntegerField(default=0)
+    yards = models.IntegerField(default=0)
+    gross_avg = models.FloatField(null=True, blank=True)
+    net_avg = models.FloatField(null=True, blank=True)
+    blocked = models.IntegerField(default=0)
+    longest = models.IntegerField(null=True, blank=True)
+    touchbacks = models.IntegerField(default=0)
+    inside_20 = models.IntegerField(default=0)
+    return_yards = models.IntegerField(default=0)
+
+
+class ReturnBoxscore(PlayerGameStatBase):
+    """Covers both kick returns and punt returns."""
+
+    return_type = models.CharField(max_length=12)  # "kick" or "punt"
+    returns = models.IntegerField(default=0)
+    yards = models.IntegerField(default=0)
+    avg_yards = models.FloatField(null=True, blank=True)
+    touchdowns = models.IntegerField(default=0)
+    longest = models.IntegerField(null=True, blank=True)
+    longest_td = models.IntegerField(null=True, blank=True)
+    fair_catches = models.IntegerField(default=0)
+
+
+class GameReplay(GamBaseModel):
+    game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name="replays")
+    replay_type = models.CharField(max_length=20, blank=True, default="")
+    sub_type = models.CharField(max_length=80, blank=True, default="")
+    title = models.CharField(max_length=200, blank=True, default="")
+    description = models.TextField(blank=True, default="")
+    duration = models.IntegerField(null=True, blank=True)  # seconds
+    external_id = models.CharField(max_length=60, blank=True, default="")
+    mcp_playback_id = models.CharField(max_length=40, blank=True, default="")
+    publish_date = models.DateTimeField(null=True, blank=True)
+    thumbnail_url = models.URLField(blank=True, default="")
+
+    class Meta:
+        indexes = [
+            models.Index(fields=["game", "sub_type"]),
+        ]
+
+    def __str__(self):
+        return f"{self.game} - {self.sub_type or self.title}"
 
 
 # -------------------------
