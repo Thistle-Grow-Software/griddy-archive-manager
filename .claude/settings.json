@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash(git commit)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'tgf-format'"
+          },
+          {
+            "type": "command",
+            "command": "bash -c 'git log -1 --pretty=%s | grep -qE \"^(feat|fix|refactor|docs|test|chore|ci|style|perf|build)\\(GAM( #[0-9]+)?\\): .+\" || (echo \"Commit message must follow format: type(GAM #<issue>): message\" && exit 1)'"
+          }
+        ]
+      }
+    ]
+  }
+}
