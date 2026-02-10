@@ -5,28 +5,67 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('archive', '0001_initial'),
+        ("archive", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='GameCompleteness',
+            name="GameCompleteness",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('scope', models.CharField(max_length=64)),
-                ('status', models.CharField(choices=[('MISSING', 'Missing'), ('PARTIAL', 'Partial'), ('COMPLETE', 'Complete'), ('COMPLETE_NEEDS_UPGRADE', 'Complete (Needs Upgrade)')], max_length=32)),
-                ('best_full_quality_score', models.PositiveSmallIntegerField(blank=True, null=True)),
-                ('has_full', models.BooleanField(default=False)),
-                ('has_condensed', models.BooleanField(default=False)),
-                ('has_all22', models.BooleanField(default=False)),
-                ('computed_at', models.DateTimeField(auto_now=True)),
-                ('game', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='completeness', to='archive.game')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("scope", models.CharField(max_length=64)),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("MISSING", "Missing"),
+                            ("PARTIAL", "Partial"),
+                            ("COMPLETE", "Complete"),
+                            ("COMPLETE_NEEDS_UPGRADE", "Complete (Needs Upgrade)"),
+                        ],
+                        max_length=32,
+                    ),
+                ),
+                (
+                    "best_full_quality_score",
+                    models.PositiveSmallIntegerField(blank=True, null=True),
+                ),
+                ("has_full", models.BooleanField(default=False)),
+                ("has_condensed", models.BooleanField(default=False)),
+                ("has_all22", models.BooleanField(default=False)),
+                ("computed_at", models.DateTimeField(auto_now=True)),
+                (
+                    "game",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="completeness",
+                        to="archive.game",
+                    ),
+                ),
             ],
             options={
-                'indexes': [models.Index(fields=['scope', 'status'], name='archive_gam_scope_94bbe4_idx'), models.Index(fields=['status'], name='archive_gam_status_26d0de_idx')],
-                'constraints': [models.UniqueConstraint(fields=('game', 'scope'), name='uniq_game_scope_completeness')],
+                "indexes": [
+                    models.Index(
+                        fields=["scope", "status"], name="archive_gam_scope_94bbe4_idx"
+                    ),
+                    models.Index(
+                        fields=["status"], name="archive_gam_status_26d0de_idx"
+                    ),
+                ],
+                "constraints": [
+                    models.UniqueConstraint(
+                        fields=("game", "scope"), name="uniq_game_scope_completeness"
+                    )
+                ],
             },
         ),
     ]

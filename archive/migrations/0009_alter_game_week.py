@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('archive', '0008_alter_team_logo'),
+        ("archive", "0008_alter_team_logo"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='game',
-            name='week',
+            model_name="game",
+            name="week",
             field=models.IntegerField(null=True),
         ),
     ]

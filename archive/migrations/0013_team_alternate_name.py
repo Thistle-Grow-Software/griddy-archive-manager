@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('archive', '0012_game_ordinal'),
+        ("archive", "0012_game_ordinal"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='team',
-            name='alternate_name',
+            model_name="team",
+            name="alternate_name",
             field=models.CharField(max_length=140, null=True),
         ),
     ]

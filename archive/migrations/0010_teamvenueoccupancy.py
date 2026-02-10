@@ -5,20 +5,37 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('archive', '0009_alter_game_week'),
+        ("archive", "0009_alter_game_week"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='TeamVenueOccupancy',
+            name="TeamVenueOccupancy",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('start_date', models.DateField(null=True)),
-                ('end_date', models.DateField(null=True)),
-                ('team', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='archive.team')),
-                ('venue', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='archive.venue')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("start_date", models.DateField(null=True)),
+                ("end_date", models.DateField(null=True)),
+                (
+                    "team",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="archive.team"
+                    ),
+                ),
+                (
+                    "venue",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT, to="archive.venue"
+                    ),
+                ),
             ],
         ),
     ]

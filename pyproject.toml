@@ -6,11 +6,58 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "beautifulsoup4>=4.14.3",
+    "black>=26.1.0",
     "django>=6.0.1",
+    "django-click>=2.5.0",
     "django-debug-toolbar>=6.2.0",
     "django-extensions>=4.1",
+    "django-stubs>=5.2.9",
+    "griddy==0.8.3",
     "ipython>=9.10.0",
+    "isort>=7.0.0",
     "pillow>=12.1.0",
     "psycopg>=3.3.2",
     "requests>=2.32.5",
 ]
+
+[[tool.uv.index]]
+name = "private-registry"
+url = "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/"
+
+[tool.ruff]
+line-length = 88
+target-version = "py314"
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "F",      # pyflakes
+    "W",      # pycodestyle warnings
+    "I",      # isort
+    "B",      # flake8-bugbear
+    "UP",     # pyupgrade (modernize syntax)
+    "DJ",     # flake8-django (Django-specific rules)
+    "SIM",    # flake8-simplify
+    "RUF",    # Ruff-specific rules
+    "C4",     # flake8-comprehensions
+    "DTZ",    # flake8-datetimez (catches naive datetime issues — big in Django)
+    "T20",    # flake8-print (catches stray print statements)
+    # "PT",     # flake8-pytest-style (if using pytest-django)
+]
+ignore = [
+    "E501",
+    "DJ001"
+]
+
+[tool.ruff.lint.per-file-ignores]
+"**/models.py" = ["RUF012"]
+"**/migrations/*.py" = ["ALL"]  # auto-generated, don't lint heavily
+"**/settings/*.py" = ["F405", "E501"]                 # wildcard imports common in settings
+"**/settings.py" = ["F405", "E501"]
+"**/tests/**" = ["S101"]                      # assert is fine in tests
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"

@@ -4,14 +4,15 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('archive', '0006_venue_capacity'),
+        ("archive", "0006_venue_capacity"),
     ]
 
     operations = [
         migrations.AddConstraint(
-            model_name='venue',
-            constraint=models.UniqueConstraint(fields=('name', 'city', 'state'), name='uniq_venue_city_state'),
+            model_name="venue",
+            constraint=models.UniqueConstraint(
+                fields=("name", "city", "state"), name="uniq_venue_city_state"
+            ),
         ),
     ]
