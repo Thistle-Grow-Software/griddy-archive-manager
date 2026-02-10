@@ -22,9 +22,15 @@ class SportsRefCFBScraper(BaseScraper):
     date_format_string = "%b %d, %Y"
     time_format_string = "%I:%M %p"
 
-    def __init__(self, season: int):
+    def __init__(
+        self, league_short_name: str = "NCAA - FBS", season: int | None = None
+    ):
         self.soup: BeautifulSoup | Tag | None = None
-        self.league = League.objects.get()
+        self.league = League.objects.get(short_name=league_short_name)
+
+        if season is None:
+            season = date.today().year
+
         self.season = Season.objects.get(league=self.league, year=season)
         self.fcs_schools = set()
         self.failed_games = []
@@ -231,7 +237,9 @@ class SportsRefCFBScraper(BaseScraper):
             "game_type": self._determine_game_type(game_data["notes"]),
             "competition_name": game_data["notes"],
             "neutral_site": game_data["game_location"] == "N",
-            "external_ids": {"sports_reference": game_data["link_path"].split("/")[-1]},
+            "external_ids": {
+                "sports_reference": game_data["boxscore_path"].split("/")[-1]
+            },
             "notes": game_data["notes"],
             "ordinal": game_data["ranker"],
             **self._extract_game_team_info(game_data=game_data),
