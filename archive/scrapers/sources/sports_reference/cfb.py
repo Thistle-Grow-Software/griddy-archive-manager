@@ -135,7 +135,7 @@ class SportsRefCFBScraper(BaseScraper):
         response = requests.get(full_url)
         response.raise_for_status()
 
-        full_soup = BeautifulSoup(response.text)
+        full_soup = BeautifulSoup(response.text, features="html.parser")
         self.soup = full_soup.find(id="schedule")
 
     def extract_game_rows_from_schedule(self) -> list[dict]:
@@ -143,7 +143,7 @@ class SportsRefCFBScraper(BaseScraper):
         body_rows = self.soup.find("tbody").find_all("tr")
 
         for row in body_rows:
-            if row["class"] == ["thead"]:
+            if row.get("class") == ["thead"]:
                 continue
 
             row_data = {}
@@ -154,13 +154,16 @@ class SportsRefCFBScraper(BaseScraper):
 
                 if key == "date_game":
                     anchor_tag = cell.find("a")
-                    row_data["boxscore_path"] = anchor_tag["href"]
+                    if anchor_tag:
+                        row_data["boxscore_path"] = anchor_tag["href"]
                 elif key == "winner_school_name":
                     anchor_tag = cell.find("a")
-                    row_data["winning_team_path"] = anchor_tag["href"]
+                    if anchor_tag:
+                        row_data["winning_team_path"] = anchor_tag["href"]
                 elif key == "loser_school_name":
                     anchor_tag = cell.find("a")
-                    row_data["losing_team_path"] = anchor_tag["href"]
+                    if anchor_tag:
+                        row_data["losing_team_path"] = anchor_tag["href"]
 
             header_cell = row.find("th")
             # Maps "ranker": i where i is the game number
@@ -237,9 +240,11 @@ class SportsRefCFBScraper(BaseScraper):
             "game_type": self._determine_game_type(game_data["notes"]),
             "competition_name": game_data["notes"],
             "neutral_site": game_data["game_location"] == "N",
-            "external_ids": {
-                "sports_reference": game_data["boxscore_path"].split("/")[-1]
-            },
+            "external_ids": (
+                {"sports_reference": game_data["boxscore_path"].split("/")[-1]}
+                if "boxscore_path" in game_data
+                else {}
+            ),
             "notes": game_data["notes"],
             "ordinal": game_data["ranker"],
             **self._extract_game_team_info(game_data=game_data),
@@ -263,6 +268,6 @@ class SportsRefCFBScraper(BaseScraper):
             except ObjectDoesNotExist:
                 self.failed_games.append(gd)
         if create:
-            return Game.objects.bulk_create(game_objects)
+            return Game.objects.bulk_create(game_objects, ignore_conflicts=True)
         else:
             return game_objects
