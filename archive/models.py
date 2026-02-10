@@ -631,13 +631,13 @@ class GameReplay(GamBaseModel):
     game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name="replays")
     replay_type = models.CharField(max_length=20, blank=True, default="")
     sub_type = models.CharField(max_length=80, blank=True, default="")
-    title = models.CharField(max_length=200, blank=True, default="")
+    title = models.CharField(max_length=500, blank=True, default="")
     description = models.TextField(blank=True, default="")
     duration = models.IntegerField(null=True, blank=True)  # seconds
     external_id = models.CharField(max_length=60, blank=True, default="")
     mcp_playback_id = models.CharField(max_length=40, blank=True, default="")
     publish_date = models.DateTimeField(null=True, blank=True)
-    thumbnail_url = models.URLField(blank=True, default="")
+    thumbnail_url = models.URLField(max_length=500, blank=True, default="")
 
     class Meta:
         indexes = [
