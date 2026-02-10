@@ -586,6 +586,10 @@ class NFLDataIngestor:
         for p in play_list:
             # Resolve possession team by abbreviation
             poss_abbr = getattr(p, "possession_team", None)
+            if poss_abbr == "LA":
+                # For some reason, some of the playlists use "LA" as the
+                # abbreviation for the LA Rams, _only_ for possession abbr.
+                poss_abbr = "LAR"
             poss_team = self._resolve_team(abbr=poss_abbr) if poss_abbr else None
 
             # Collect NGS data
