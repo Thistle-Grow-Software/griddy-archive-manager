@@ -259,8 +259,8 @@ class NFLScraper(BaseScraper):
                 all_game_data[game.id] = self._cast_to_json(data=all_game_data[game.id])
 
             cur_game += 1
-            sleep_time = uniform(2.5, 3.5)
-            logger.info(f"Pausing for {str(sleep_time)[:3]} seconds.")
-            time.sleep(sleep_time)
+            # sleep_time = uniform(2.5, 3.5)
+            # logger.info(f"Pausing for {str(sleep_time)[:3]} seconds.")
+            # time.sleep(sleep_time)
 
         return all_game_data

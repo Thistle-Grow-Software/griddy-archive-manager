@@ -10,6 +10,23 @@ Griddy Archive Manager (GAM) is a Django 6.0+ application for cataloging and man
 - **PostgreSQL** database (name: `griddy`)
 - Single Django app: `archive`
 
+## Environment Variables
+
+The following environment variables are of particular interest to this project:
+- `GRIDDY_NFL_EMAIL` - Email to use in `GriddyNFL` when authenticating with email + password
+- `GRIDDY_NFL_PASSWORD` - Password to use in `GriddyNFL` when authenticating with email + password
+- `PG_HOST`, `PG_PORT`, `PG_DB_NAME`, `PG_USER`, `PG_PASSWORD` - Postgres connection values
+- - `MEDIA_ROOT` - Directory for uploaded media files (team logos, etc.)
+- `AWS_CODEARTIFACT_TOKEN` - Authentication token used for interacting with AWS CodeArtifact PyPi repository
+- `UV_INDEX_PRIVATE_REGISTRY_USERNAME` - Username used by `uv` when interacting with CodeArtifact
+- `UV_INDEX_PRIVATE_REGISTRY_PASSWORD` - Same value as `AWS_CODEARTIFACT_TOKEN`, used by `uv` to interact with CodeArtifact
+
+## Custom Shell Functions and Aliases (from ~/.bashrc)
+- `artifact-token` - Initializes necessary authentication info for interacting with AWS CodeArtifact. Usage: `artifact-token`
+- `gam` - Navigates to the project directory, sets project specific env vars, and invokes `artifact-token`. Usage: `gam`
+- `uvrm` - A quality of life shortcut for `uv run manage.py`. Usage: `uvrm <management command>`. Example: `uvrm makemigrations` to make Django migrations
+- `tgf-format` - Runs `isort` and `black` _in the current directory_. Usage: `tgf-format`
+
 ## Common Commands
 
 ```bash
@@ -17,32 +34,60 @@ Griddy Archive Manager (GAM) is a Django 6.0+ application for cataloging and man
 uv sync                              # Install/sync dependencies from uv.lock
 
 # Database
-python manage.py migrate             # Apply migrations
-python manage.py makemigrations      # Generate migrations after model changes
+uvrm makemigrations      # Generate migrations after model changes
+uvrm migrate             # Apply migrations
+
 
 # Server
-python manage.py runserver           # Start dev server (admin at /admin/)
+uvrm runserver           # Start dev server (admin at /admin/)
 
 # Shell
-python manage.py shell              # Django shell (uses IPython)
-python manage.py shell_plus         # Enhanced shell via django-extensions (auto-imports models)
+uvrm shell              # Django shell (uses IPython)
+uvrm shell_plus         # Enhanced shell via django-extensions (auto-imports models)
 
 # Management commands
-python manage.py scrapegames <html_file>  # Import teams/affiliations from scraped HTML
+uvrm scrapegames <html_file>  # Import teams/affiliations from scraped HTML
 
 # Tests
-python manage.py test                # Run all tests
-python manage.py test archive        # Run archive app tests
-python manage.py test archive.tests.TestClassName.test_method  # Single test
+uvrm test                # Run all tests
+uvrm test archive        # Run archive app tests
+uvrm test archive.tests.TestClassName.test_method  # Single test
 ```
 
-## Environment Variables
+## Git Conventions
 
-Required for database connection:
-- `PG_USER`, `PG_PASSWORD`, `PG_HOST`, `PG_PORT`
+- **Always run `tgf-format` before committing.** A pre-commit hook enforces this, but if committing manually, run it first.
+- Use **Conventional Commits** for all commit messages.
+- **Deriving the GitHub issue number:** Check the current branch name. If it contains a number, that number is the GitHub issue number. If the branch has no number, there is no associated issue.
 
-Optional:
-- `MEDIA_ROOT` - Directory for uploaded media files (team logos, etc.)
+### Commit messages
+
+- Always include `GAM` in the scope.
+- If there is an associated issue: `feat(GAM #42): add player stats endpoint`
+- If there is no associated issue: `feat(GAM): add player stats endpoint`
+- Valid types: `feat`, `fix`, `refactor`, `docs`, `test`, `chore`, `ci`, `style`, `perf`, `build`
+- Keep the subject line under 72 characters. Add a body for non-trivial changes.
+
+### Pull requests (via `gh pr create`)
+
+- PR title follows the same format as commit messages:
+  - `feat(GAM #42): add player stats endpoint`
+- If there is an associated issue, append `Closes #<issue num>` as the last line of the PR body.
+
+### Examples
+
+Branch: `feature/42-player-stats`
+→ Issue number: 42
+→ Commit: `feat(GAM #42): add player stats endpoint`
+→ PR title: `feat(GAM #42): add player stats endpoint`
+→ PR body ends with: `Closes #42`
+
+Branch: `refactor/cleanup-api-client`
+→ No issue number
+→ Commit: `refactor(GAM): extract API client into separate module`
+→ PR title: `refactor(GAM): extract API client into separate module`
+→ PR body: no `Closes` line
+
 
 ## Architecture
 
