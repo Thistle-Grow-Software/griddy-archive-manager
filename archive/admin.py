@@ -2,9 +2,32 @@ from django.contrib import admin
 
 from . import models
 
+
+class TeamInline(admin.TabularInline):
+    model = models.Team
+    fk_name = "franchise"
+    fields = ("name", "city", "short_name", "era_start_date", "era_end_date")
+    extra = 0
+
+
+@admin.register(models.Franchise)
+class FranchiseAdmin(admin.ModelAdmin):
+    list_display = ("name", "league")
+    list_filter = ("league",)
+    search_fields = ("name",)
+    inlines = [TeamInline]
+
+
+@admin.register(models.Team)
+class TeamAdmin(admin.ModelAdmin):
+    list_display = ("name", "franchise", "era_start_date", "era_end_date")
+    list_filter = ("franchise__league",)
+    search_fields = ("name",)
+    raw_id_fields = ("franchise",)
+
+
 admin.site.register(models.League)
 admin.site.register(models.Season)
-admin.site.register(models.Team)
 admin.site.register(models.OrgUnit)
 admin.site.register(models.TeamAffiliation)
 admin.site.register(models.Venue)

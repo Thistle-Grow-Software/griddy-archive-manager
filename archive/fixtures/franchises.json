@@ -1,0 +1,2942 @@
+[
+{
+  "model": "archive.franchise",
+  "pk": 169,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Cardinals",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 170,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "UAB",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 171,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Middle Tennessee",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 172,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Bills",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 173,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Alabama State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 174,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Albany",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 175,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Alcorn State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 176,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Austin Peay",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 177,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Brown",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 178,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Bryant",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 179,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Bucknell",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 180,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Butler",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 181,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Cal Poly",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 182,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Campbell",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 183,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Central Arkansas",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 184,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Charleston Southern",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 185,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Chattanooga",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 186,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Colgate",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 187,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Columbia",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 188,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Cornell",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 189,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Dartmouth",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 190,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Davidson",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 191,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Dayton",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 192,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Delaware State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 193,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Drake",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 194,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Duquesne",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 195,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "East Tennessee State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 196,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "East Texas A&M",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 197,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Eastern Illinois",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 198,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Eastern Kentucky",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 199,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Eastern Washington",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 200,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Elon",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 201,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Florida A&M",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 202,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Fordham",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 203,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Furman",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 204,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Georgetown",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 205,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Abilene Christian",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 206,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Alabama A&M",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 207,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Grambling State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 208,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Hampton",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 209,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Harvard",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 210,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Holy Cross",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 211,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Houston Christian",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 212,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Howard",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 213,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Idaho",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 214,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Idaho State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 215,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Illinois State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 216,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Incarnate Word",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 217,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Indiana State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 218,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Jackson State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 219,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Lafayette",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 220,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Lamar",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 221,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Lehigh",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 222,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Lindenwood",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 223,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Maine",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 224,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Marist",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 225,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Mercer",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 226,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Merrimack",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 227,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Mississippi Valley State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 228,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Monmouth",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 229,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Montana",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 230,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Gardner-Webb",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 231,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "The Citadel",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 232,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Bethune-Cookman",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 233,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "LIU",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 234,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "McNeese",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 235,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Nebraska",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 236,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Montana State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 237,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Morehead State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 238,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Morgan State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 239,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Murray State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 240,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "New Hampshire",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 241,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Norfolk State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 242,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "North Alabama",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 243,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "North Carolina A&T",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 244,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "North Carolina Central",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 245,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "North Dakota",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 246,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "North Dakota State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 247,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Northern Arizona",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 248,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Northern Colorado",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 249,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Northern Iowa",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 250,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Northwestern State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 251,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Penn",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 252,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Portland State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 253,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Prairie View A&M",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 254,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Presbyterian",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 255,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Princeton",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 256,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Rhode Island",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 257,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Richmond",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 258,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Robert Morris",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 259,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Sacramento State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 260,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Sacred Heart",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 261,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Saint Francis (PA)",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 262,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "St. Thomas",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 263,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Samford",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 264,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "San Diego",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 265,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "South Carolina State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 266,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "South Dakota",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 267,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "South Dakota State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 268,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Southeast Missouri State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 269,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Southeastern Louisiana",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 270,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Southern",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 271,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Southern Illinois",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 272,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Southern Utah",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 273,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Stephen F. Austin",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 274,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Stetson",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 275,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Stonehill",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 276,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Stony Brook",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 277,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Tarleton State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 278,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Tennessee State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 279,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Tennessee Tech",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 280,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Texas Southern",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 281,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Towson",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 282,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Utah Tech",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 283,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "UTRGV",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 284,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Valparaiso",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 285,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Villanova",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 286,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "VMI",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 287,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Wagner",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 288,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Weber State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 289,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Western Carolina",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 290,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Western Illinois",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 291,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "William & Mary",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 292,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Wofford",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 293,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Yale",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 294,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "UT Martin",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 295,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Akron",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 296,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Youngstown State",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 297,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Alabama",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 298,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Arizona",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 299,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Ball State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 300,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Hawaii",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 301,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "BYU",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 302,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "FIU",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 303,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Illinois",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 304,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Bears",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 305,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Bengals",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 306,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Tulane",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 307,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Buccaneers",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 308,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Titans",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 309,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Browns",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 310,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Cowboys",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 311,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Broncos",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 312,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Arkansas",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 313,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Army",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 314,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Auburn",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 315,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Baylor",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 316,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Boise State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 317,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Buffalo",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 318,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Central Michigan",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 319,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Charlotte",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 320,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Clemson",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 321,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Colorado",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 322,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Delaware",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 323,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Duke",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 324,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Eastern Michigan",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 325,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Florida",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 326,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Fresno State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 327,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Georgia Southern",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 328,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Georgia Tech",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 329,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "South Carolina",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 330,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Iowa",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 331,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Arkansas-Pine Bluff",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 332,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Nicholls",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 333,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "UC Davis",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 334,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Central Connecticut",
+    "league": 5
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 335,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "SMU",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 336,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Iowa State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 337,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "James Madison",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 338,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Kansas State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 339,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Kent State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 340,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Kentucky",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 341,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Louisiana Tech",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 342,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Louisville",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 343,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Marshall",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 344,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Maryland",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 345,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Miami (FL)",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 346,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Michigan",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 347,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Minnesota",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 348,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Missouri",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 349,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Navy",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 350,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Nevada",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 351,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "New Mexico",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 352,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "New Mexico State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 353,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "North Carolina",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 354,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "North Texas",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 355,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Northwestern",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 356,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Notre Dame",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 357,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Ohio State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 358,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Oklahoma State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 359,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Oregon",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 360,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Penn State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 361,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Purdue",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 362,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Rice",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 363,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Sam Houston",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 364,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "San Jose State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 365,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "South Alabama",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 366,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "South Florida",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 367,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Syracuse",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 368,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Texas",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 369,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Packers",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 370,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Texas A&M",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 371,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Texas Tech",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 372,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Toledo",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 373,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Ole Miss",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 374,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "TCU",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 375,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Utah",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 376,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Utah State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 377,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Stanford",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 378,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Virginia",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 379,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Virginia Tech",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 380,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Washington",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 381,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "West Virginia",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 382,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Western Michigan",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 383,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Appalachian State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 384,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Arizona State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 385,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Arkansas State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 386,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Boston College",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 387,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Bowling Green",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 388,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "California",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 389,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Cincinnati",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 390,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Coastal Carolina",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 391,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Colorado State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 392,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "East Carolina",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 393,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Florida Atlantic",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 394,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Florida State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 395,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Georgia State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 396,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Indiana",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 397,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Jacksonville State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 398,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Kansas",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 399,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Kennesaw State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 400,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Liberty",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 401,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Louisiana",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 402,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Vikings",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 403,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Memphis",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 404,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Miami (OH)",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 405,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Michigan State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 406,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Mississippi State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 407,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Missouri State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 408,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "UCF",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 409,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "LSU",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 410,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "ULM",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 411,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "UMass",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 412,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "UTSA",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 413,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Northern Illinois",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 414,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Ohio",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 415,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Oklahoma",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 416,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Old Dominion",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 417,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Oregon State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 418,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Pittsburgh",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 419,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Rutgers",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 420,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "San Diego State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 421,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Georgia",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 422,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Wyoming",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 423,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Tennessee",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 424,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Tulsa",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 425,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "UCLA",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 426,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Temple",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 427,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Vanderbilt",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 428,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Wake Forest",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 429,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Washington State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 430,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Western Kentucky",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 431,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Wisconsin",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 432,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Air Force",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 433,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "UConn",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 434,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "UNLV",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 435,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Falcons",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 436,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Ravens",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 437,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Panthers",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 438,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Houston",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 439,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Texas State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 440,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Troy",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 441,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Chiefs",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 442,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "USC",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 443,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Southern Miss",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 444,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "UTEP",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 445,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "NC State",
+    "league": 4
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 446,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Lions",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 447,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Texans",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 448,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Colts",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 449,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Jaguars",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 450,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Rams",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 451,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Raiders",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 452,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Chargers",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 453,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Dolphins",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 454,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Patriots",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 455,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Saints",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 456,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Jets",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 457,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Giants",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 458,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Eagles",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 459,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Steelers",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 460,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "49ers",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 461,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Seahawks",
+    "league": 3
+  }
+},
+{
+  "model": "archive.franchise",
+  "pk": 462,
+  "fields": {
+    "bonus_data": null,
+    "external_ids": {},
+    "name": "Commanders",
+    "league": 3
+  }
+}
+]

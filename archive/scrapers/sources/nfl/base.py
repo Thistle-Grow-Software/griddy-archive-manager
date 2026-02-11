@@ -10,7 +10,15 @@ from griddy.nfl.models import SeasonTypeEnum
 
 logger = logging.getLogger(__name__)
 
-from archive.models import OrgUnit, Team, TeamAffiliation, TeamVenueOccupancy, Venue
+from archive.models import (
+    Franchise,
+    League,
+    OrgUnit,
+    Team,
+    TeamAffiliation,
+    TeamVenueOccupancy,
+    Venue,
+)
 from archive.scrapers import BaseScraper
 from archive.utils import get_content_file_from_url
 
@@ -125,6 +133,13 @@ class NFLScraper(BaseScraper):
         team_data = self.transform_team_data(nfl_data=raw_data)
         logger.info("Transformed data")
         logo_url = team_data.pop("logo")
+
+        franchise, _ = Franchise.objects.get_or_create(
+            league=League.objects.get(short_name="NFL"),
+            name=raw_data["nickname"],
+        )
+        team_data["franchise"] = franchise
+
         team = Team(**team_data)
         team.save()
         logger.info(f"Saved team to disk. ID={team.id}")

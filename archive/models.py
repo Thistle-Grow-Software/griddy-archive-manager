@@ -103,6 +103,36 @@ class Season(GamBaseModel):
         return f"{self.league.name} {self.label or self.year}"
 
 
+class Franchise(GamBaseModel):
+    """Groups era-specific Team records under a single franchise identity."""
+
+    name = models.CharField(max_length=160)
+    league = models.ForeignKey(
+        League, on_delete=models.PROTECT, related_name="franchises"
+    )
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["league", "name"], name="uniq_franchise_league_name"
+            )
+        ]
+        verbose_name_plural = "franchises"
+
+    def __str__(self):
+        return f"{self.name} ({self.league.short_name})"
+
+    @property
+    def current_team(self):
+        return self.teams.filter(era_end_date__isnull=True).first()
+
+    def team_for_date(self, target_date):
+        return self.teams.filter(
+            Q(era_start_date__isnull=True) | Q(era_start_date__lte=target_date),
+            Q(era_end_date__isnull=True) | Q(era_end_date__gte=target_date),
+        ).first()
+
+
 class Team(GamBaseModel):
     """
     Single table across all levels/leagues.
@@ -110,10 +140,19 @@ class Team(GamBaseModel):
     should be modeled via TeamAffiliation (below).
     """
 
+    franchise = models.ForeignKey(
+        Franchise,
+        null=True,
+        blank=True,
+        on_delete=models.PROTECT,
+        related_name="teams",
+    )
     name = models.CharField(max_length=140)  # "Georgia", "Pittsburgh Steelers"
     alternate_name = models.CharField(max_length=140, null=True)
     short_name = models.CharField(max_length=40, blank=True, default="")  # "UGA", "PIT"
     city = models.CharField(max_length=80, blank=True, default="")
+    era_start_date = models.DateField(null=True, blank=True)
+    era_end_date = models.DateField(null=True, blank=True)
     state = models.CharField(max_length=60, blank=True, default="", null=True)
     country = models.CharField(max_length=60, default="US")
     # Useful for HS + college:
@@ -135,6 +174,10 @@ class Team(GamBaseModel):
 
     def __str__(self) -> str:
         return self.name
+
+    @property
+    def is_current_era(self):
+        return self.era_end_date is None
 
     @property
     def current_venue(self):
