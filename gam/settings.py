@@ -137,12 +137,15 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Logging configuration
 # https://docs.djangoproject.com/en/6.0/topics/logging/
 
+LOG_DIR = BASE_DIR / "logs"
+LOG_DIR.mkdir(exist_ok=True)
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "formatters": {
         "verbose": {
-            "format": "{levelname} {asctime} {module} {message}",
+            "format": "{levelname} {asctime} {name} {filename}:{lineno} {message}",
             "style": "{",
         },
         "simple": {
@@ -155,19 +158,26 @@ LOGGING = {
             "class": "logging.StreamHandler",
             "formatter": "verbose",
         },
+        "file": {
+            "class": "logging.handlers.TimedRotatingFileHandler",
+            "filename": str(LOG_DIR / "gam.log"),
+            "when": "midnight",
+            "backupCount": 30,
+            "formatter": "verbose",
+        },
     },
     "root": {
-        "handlers": ["console"],
+        "handlers": ["console", "file"],
         "level": "WARNING",
     },
     "loggers": {
         "django": {
-            "handlers": ["console"],
+            "handlers": ["console", "file"],
             "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
             "propagate": False,
         },
         "archive": {
-            "handlers": ["console"],
+            "handlers": ["console", "file"],
             "level": os.getenv("ARCHIVE_LOG_LEVEL", "DEBUG"),
             "propagate": False,
         },
