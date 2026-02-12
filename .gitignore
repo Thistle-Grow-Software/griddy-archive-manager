@@ -164,3 +164,4 @@ cython_debug/
 .idea/
 creds.json
 busted.json
+.claude/claude-session-setup.sh

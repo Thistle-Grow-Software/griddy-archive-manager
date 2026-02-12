@@ -10,7 +10,17 @@ from griddy.nfl.models import SeasonTypeEnum
 
 logger = logging.getLogger(__name__)
 
-from archive.models import OrgUnit, Team, TeamAffiliation, TeamVenueOccupancy, Venue
+from archive.models import (
+    Franchise,
+    Game,
+    League,
+    OrgUnit,
+    Team,
+    TeamAffiliation,
+    TeamVenueOccupancy,
+    Venue,
+    Season
+)
 from archive.scrapers import BaseScraper
 from archive.utils import get_content_file_from_url
 
@@ -24,6 +34,7 @@ class NFLScraper(BaseScraper):
         login_password: str = None,
         creds: Optional[Dict | str] = None,
         headless_login: bool = True,
+        year: int = None
     ):
         self._validate_init_params(
             login_email=login_email,
@@ -43,6 +54,10 @@ class NFLScraper(BaseScraper):
                     creds = json.load(infile)
 
             self.client = GriddyNFL(nfl_auth=creds, headless_login=headless_login)
+
+        self.league = League.objects.get(short_name="NFL")
+        self.season = Season.objects.get(league=self.league,
+                                         year=year)
 
     def _validate_init_params(
         self,
@@ -125,6 +140,13 @@ class NFLScraper(BaseScraper):
         team_data = self.transform_team_data(nfl_data=raw_data)
         logger.info("Transformed data")
         logo_url = team_data.pop("logo")
+
+        franchise, _ = Franchise.objects.get_or_create(
+            league=League.objects.get(short_name="NFL"),
+            name=raw_data["nickname"],
+        )
+        team_data["franchise"] = franchise
+
         team = Team(**team_data)
         team.save()
         logger.info(f"Saved team to disk. ID={team.id}")
@@ -184,9 +206,19 @@ class NFLScraper(BaseScraper):
         season_type: SeasonTypeEnum = "REG",
         as_json: bool = False,
     ) -> Dict:
+        if (not self.season) or (self.season.year != season):
+            self.season = Season.objects.get(year=season)
+
+        existing_game_nfl_ids = Game.objects.filter(league=self.league,
+                                                    season=self.season).values_list("external_ids__nfl_game_id",
+                                                                                    flat=True)
+
         games = self.client.schedules.get_scheduled_games(
             season=season, season_type=season_type, week=week
         ).games
+
+        games = [g for g in games if g.id not in existing_game_nfl_ids]
+
         all_game_data = {g.id: {"scheduled_games": g} for g in games}
 
         # Fetch weekly game details (single request for all games in the week)
@@ -227,7 +259,7 @@ class NFLScraper(BaseScraper):
         cur_game = 1
 
         for game in games:
-            logger.info(f"Working on game {game.id} - No {cur_game} of {game_count}")
+            logger.info(f"Working on game {game.id} - No {cur_game} of {game_count} for week {week} of {season}")
             sked_game_dtls = self.client.schedules.get_scheduled_game(game_id=game.id)
             logger.info("Fetched scheduled_game details")
             pro_game_id = str(sked_game_dtls.game_id)

@@ -57,6 +57,7 @@ def nfl(
         login_password=login_password,
         creds=creds,
         headless_login=headless,
+        year=season
     )
 
     for week in range(min_week, max_week + 1):
