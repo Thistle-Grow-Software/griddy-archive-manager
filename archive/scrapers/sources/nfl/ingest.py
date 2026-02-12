@@ -178,16 +178,11 @@ class NFLDataIngestor:
         self._build_team_lookups()
 
     def _build_team_lookups(self):
-        nfl_teams = (
-            Team.objects.filter(affiliations__org_unit__league=self.league)
-            .distinct()
-            .iterator()
-        )
         self._team_by_abbr: Dict[str, Team] = {}
         self._team_by_smart_id: Dict[str, Team] = {}
         self._team_by_nfl_id: Dict[str, Team] = {}
 
-        for t in nfl_teams:
+        for t in self.season.get_teams():
             if t.short_name:
                 self._team_by_abbr[t.short_name] = t
             nfl_ids = (t.external_ids or {}).get("nfl.com", {})
@@ -323,6 +318,7 @@ class NFLDataIngestor:
 
         # Build defaults for update_or_create
         defaults = {
+            # TODO: Handle postseason games too
             "game_type": "REG",
         }
 

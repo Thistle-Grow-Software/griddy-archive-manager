@@ -1,3 +1,5 @@
+from typing import List
+
 from django.db import models
 from django.db.models import Q
 from django.utils import timezone
@@ -100,7 +102,17 @@ class Season(GamBaseModel):
         ]
 
     def __str__(self) -> str:
-        return f"{self.league.name} {self.label or self.year}"
+        return f"{self.league.short_name} {self.label or self.year}"
+
+    def get_teams(self) -> List[Team]:
+        affiliations = (TeamAffiliation.objects.select_related("team")
+        .filter(
+            # Affiliation started before the season began
+            Q(start_date__isnull=True) | Q(start_date__lte=self.end_date),
+            Q(end_date__isnull=True) | Q(end_date__gte=self.start_date),
+            org_unit__league=self.league
+        ))
+        return [ta.team for ta in affiliations]
 
 
 class Franchise(GamBaseModel):
