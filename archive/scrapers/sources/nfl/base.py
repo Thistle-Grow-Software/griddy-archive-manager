@@ -15,14 +15,16 @@ from archive.models import (
     Game,
     League,
     OrgUnit,
+    Season,
     Team,
     TeamAffiliation,
     TeamVenueOccupancy,
     Venue,
-    Season
 )
 from archive.scrapers import BaseScraper
 from archive.utils import get_content_file_from_url
+
+PRO_API_MIN_SEASON = 2020
 
 
 class NFLScraper(BaseScraper):
@@ -34,7 +36,7 @@ class NFLScraper(BaseScraper):
         login_password: str = None,
         creds: Optional[Dict | str] = None,
         headless_login: bool = True,
-        year: int = None
+        year: int = None,
     ):
         self._validate_init_params(
             login_email=login_email,
@@ -56,8 +58,7 @@ class NFLScraper(BaseScraper):
             self.client = GriddyNFL(nfl_auth=creds, headless_login=headless_login)
 
         self.league = League.objects.get(short_name="NFL")
-        self.season = Season.objects.get(league=self.league,
-                                         year=year)
+        self.season = Season.objects.get(league=self.league, year=year)
 
     def _validate_init_params(
         self,
@@ -209,19 +210,13 @@ class NFLScraper(BaseScraper):
         if (not self.season) or (self.season.year != season):
             self.season = Season.objects.get(year=season)
 
-        existing_game_nfl_ids = Game.objects.filter(league=self.league,
-                                                    season=self.season).values_list("external_ids__nfl_game_id",
-                                                                                    flat=True)
+        existing_game_nfl_ids = Game.objects.filter(
+            league=self.league, season=self.season
+        ).values_list("external_ids__nfl_game_id", flat=True)
 
-        games = self.client.schedules.get_scheduled_games(
-            season=season, season_type=season_type, week=week
-        ).games
+        use_pro_api = season >= PRO_API_MIN_SEASON
 
-        games = [g for g in games if g.id not in existing_game_nfl_ids]
-
-        all_game_data = {g.id: {"scheduled_games": g} for g in games}
-
-        # Fetch weekly game details (single request for all games in the week)
+        # Fetch weekly game details (available for all seasons).
         # Explicit server_url required: the SDK shares a mutable SDKConfiguration, and
         # accessing any ProSDK endpoint (e.g. schedules) sets server_type to "pro",
         # causing subsequent regular-API calls to hit the wrong server.
@@ -238,61 +233,100 @@ class NFLScraper(BaseScraper):
         logger.info(f"Fetched weekly game details for {len(weekly_details)} games")
         weekly_details_by_game = {detail.id: detail for detail in weekly_details}
 
+        # ----- Game discovery: build all_game_data keyed by game ID -----
+        if use_pro_api:
+            games = self.client.schedules.get_scheduled_games(
+                season=season, season_type=season_type, week=week
+            ).games
+            games = [g for g in games if g.id not in existing_game_nfl_ids]
+            all_game_data = {g.id: {"scheduled_games": g} for g in games}
+        else:
+            # Pre-2020: discover games from WeeklyGameDetail objects
+            all_game_data = {}
+            for game_id, detail in weekly_details_by_game.items():
+                if game_id in existing_game_nfl_ids:
+                    continue
+                all_game_data[game_id] = {"wgd_detail": detail}
+
+        # ----- Enrich with WGD supplemental data -----
         for game_id, detail in weekly_details_by_game.items():
-            if game_id in all_game_data:
-                unique_data = {}
-                if detail.summary is not None:
-                    unique_data["summary"] = detail.summary
-                if detail.drive_chart is not None:
-                    unique_data["drive_chart"] = detail.drive_chart
-                if detail.replays is not None:
-                    unique_data["replays"] = detail.replays
-                if detail.away_team_standings is not None:
-                    unique_data["away_team_standings"] = detail.away_team_standings
-                if detail.home_team_standings is not None:
-                    unique_data["home_team_standings"] = detail.home_team_standings
-                if detail.tagged_videos is not None:
-                    unique_data["tagged_videos"] = detail.tagged_videos
-                all_game_data[game_id]["weekly_game_details"] = unique_data
+            if game_id not in all_game_data:
+                continue
+            unique_data = {}
+            if detail.summary is not None:
+                unique_data["summary"] = detail.summary
+            if detail.drive_chart is not None:
+                unique_data["drive_chart"] = detail.drive_chart
+            if detail.replays is not None:
+                unique_data["replays"] = detail.replays
+            if detail.away_team_standings is not None:
+                unique_data["away_team_standings"] = detail.away_team_standings
+            if detail.home_team_standings is not None:
+                unique_data["home_team_standings"] = detail.home_team_standings
+            if detail.tagged_videos is not None:
+                unique_data["tagged_videos"] = detail.tagged_videos
+            all_game_data[game_id]["weekly_game_details"] = unique_data
 
-        game_count = len(games)
-        cur_game = 1
+        # ----- Per-game detail fetching -----
+        game_ids = list(all_game_data.keys())
+        game_count = len(game_ids)
 
-        for game in games:
-            logger.info(f"Working on game {game.id} - No {cur_game} of {game_count} for week {week} of {season}")
-            sked_game_dtls = self.client.schedules.get_scheduled_game(game_id=game.id)
-            logger.info("Fetched scheduled_game details")
-            pro_game_id = str(sked_game_dtls.game_id)
-            logger.info(f"Pro Game ID: {pro_game_id}")
-
-            # Non-secured endpoint
-            box_score = self.client.pro_games.get_stats_boxscore(game_id=pro_game_id)
-            logger.info("Fetched box score")
-            game_center = self.client.pro_games.get_gamecenter(game_id=pro_game_id)
-            logger.info("Fetched game center")
-
-            # Secured Endpoints
-            play_list = self.client.pro_games.get_playlist(game_id=pro_game_id).plays
-            logger.info("Fetched play list")
-            # win_probabilities = self.client.pro_games.get_plays_win_probability(
-            #     game_id=pro_game_id
-            # )
-
-            all_game_data[game.id].update(
-                {
-                    "sked_game_dtls": sked_game_dtls,
-                    "box_score": box_score,
-                    "game_center": game_center,
-                    "play_list": play_list,
-                    # "win_probabilities": win_probabilities,
-                }
+        for cur_game, game_id in enumerate(game_ids, start=1):
+            logger.info(
+                f"Working on game {game_id} - No {cur_game} of {game_count} "
+                f"for week {week} of {season}"
             )
-            if as_json:
-                all_game_data[game.id] = self._cast_to_json(data=all_game_data[game.id])
 
-            cur_game += 1
-            # sleep_time = uniform(2.5, 3.5)
-            # logger.info(f"Pausing for {str(sleep_time)[:3]} seconds.")
-            # time.sleep(sleep_time)
+            if use_pro_api:
+                sked_game_dtls = self.client.schedules.get_scheduled_game(
+                    game_id=game_id
+                )
+                logger.info("Fetched scheduled_game details")
+                pro_game_id = str(sked_game_dtls.game_id)
+                logger.info(f"Pro Game ID: {pro_game_id}")
+
+                box_score = self.client.pro_games.get_stats_boxscore(
+                    game_id=pro_game_id
+                )
+                logger.info("Fetched box score")
+                game_center = self.client.pro_games.get_gamecenter(game_id=pro_game_id)
+                logger.info("Fetched game center")
+
+                play_list = self.client.pro_games.get_playlist(
+                    game_id=pro_game_id
+                ).plays
+                logger.info("Fetched play list")
+
+                all_game_data[game_id].update(
+                    {
+                        "sked_game_dtls": sked_game_dtls,
+                        "box_score": box_score,
+                        "game_center": game_center,
+                        "play_list": play_list,
+                    }
+                )
+            else:
+                # Pre-2020: use regular API endpoints only
+                regular_box_score = self.client.games.get_box_score(
+                    game_id=game_id,
+                    server_url="https://api.nfl.com",
+                )
+                logger.info("Fetched regular box score")
+
+                regular_play_by_play = self.client.games.get_play_by_play(
+                    game_id=game_id,
+                    server_url="https://api.nfl.com",
+                )
+                logger.info("Fetched regular play-by-play")
+
+                all_game_data[game_id].update(
+                    {
+                        "regular_box_score": regular_box_score,
+                        "regular_play_by_play": regular_play_by_play,
+                    }
+                )
+
+            if as_json:
+                all_game_data[game_id] = self._cast_to_json(data=all_game_data[game_id])
 
         return all_game_data

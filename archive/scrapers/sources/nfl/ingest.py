@@ -168,6 +168,73 @@ _STREAK_TYPE_MAP = {
     "T": "T",
 }
 
+# -------------------------
+# Regular API boxscore field mappings
+# SDK snake_case attribute → Django model field name
+# -------------------------
+
+_REGULAR_PASSING_FIELDS = {
+    "attempts": "attempts",
+    "completions": "completions",
+    "completion_pct": "completion_pct",
+    "yards": "yards",
+    "touchdowns": "touchdowns",
+    "interceptions": "interceptions",
+    "sacks": "sacks",
+    "sack_yards": "sack_yards",
+    "rating": "qb_rating",
+}
+
+_REGULAR_RUSHING_FIELDS = {
+    "carries": "attempts",
+    "yards": "yards",
+    "yards_per_carry": "avg_yards",
+    "touchdowns": "touchdowns",
+    "long_rush": "longest_rush",
+}
+
+_REGULAR_RECEIVING_FIELDS = {
+    "receptions": "receptions",
+    "yards": "yards",
+    "yards_per_reception": "avg_yards",
+    "touchdowns": "touchdowns",
+    "targets": "targets",
+    "long_reception": "longest_reception",
+}
+
+_REGULAR_TACKLES_FIELDS = {
+    "tackles": "tackles",
+    "assisted_tackles": "assists",
+    "sacks": "sacks",
+    "qb_hits": "qb_hits",
+    "tackles_for_loss": "tackles_for_loss",
+    "safeties": "safeties",
+}
+
+_REGULAR_FUMBLES_FIELDS = {
+    "forced_fumbles": "forced_fumbles",
+    "fumble_recoveries": "opp_recoveries",
+}
+
+_REGULAR_FIELD_GOALS_FIELDS = {
+    "field_goals_attempted": "attempts",
+    "field_goals_made": "made",
+    "long_field_goal": "longest",
+}
+
+_REGULAR_EXTRA_POINTS_FIELDS = {
+    "extra_points_attempted": "attempts",
+    "extra_points_made": "made",
+}
+
+# Maps regular API stat attribute → (Django model, field mapping, extra kwargs)
+REGULAR_BOXSCORE_CATEGORY_MAP = {
+    "passing": (PassingBoxscore, _REGULAR_PASSING_FIELDS),
+    "rushing": (RushingBoxscore, _REGULAR_RUSHING_FIELDS),
+    "receiving": (ReceivingBoxscore, _REGULAR_RECEIVING_FIELDS),
+    "defensive": (TacklesBoxscore, _REGULAR_TACKLES_FIELDS),
+}
+
 
 class NFLDataIngestor:
     """Stores NFL game data from the GriddyNFL SDK into Django models."""
@@ -240,14 +307,23 @@ class NFLDataIngestor:
         scheduled_game = data.get("scheduled_games")
         sked_details = data.get("sked_game_dtls")
         wgd = data.get("weekly_game_details", {})
+        wgd_detail = data.get("wgd_detail")
         box_score = data.get("box_score")
         play_list = data.get("play_list")
         game_center = data.get("game_center")
+        regular_box_score = data.get("regular_box_score")
+        regular_play_by_play = data.get("regular_play_by_play")
 
         game = self._store_game_record(
-            game_id, scheduled_game, sked_details, game_center
+            game_id,
+            scheduled_game,
+            sked_details,
+            game_center,
+            wgd_detail=wgd_detail,
+            regular_box_score=regular_box_score,
         )
 
+        # Quarter scores only available from Pro API
         if sked_details and hasattr(sked_details, "score") and sked_details.score:
             self._store_quarter_scores(game, sked_details)
 
@@ -267,9 +343,13 @@ class NFLDataIngestor:
 
         if play_list:
             self._store_plays(game, play_list)
+        elif regular_play_by_play:
+            self._store_regular_plays(game, regular_play_by_play)
 
         if box_score:
             self._store_boxscore(game, box_score)
+        elif regular_box_score:
+            self._store_regular_boxscore(game, regular_box_score)
 
         return game
 
@@ -277,7 +357,15 @@ class NFLDataIngestor:
     # Game record
     # ------------------------------------------------------------------
 
-    def _store_game_record(self, game_id, scheduled_game, sked_details, game_center):
+    def _store_game_record(
+        self,
+        game_id,
+        scheduled_game,
+        sked_details,
+        game_center,
+        wgd_detail=None,
+        regular_box_score=None,
+    ):
         # Resolve teams
         home_team = None
         away_team = None
@@ -302,6 +390,16 @@ class NFLDataIngestor:
                 abbr=getattr(sked_details, "visitor_team_abbr", None)
             )
 
+        # Fallback to WGD detail (pre-2020 path)
+        if not home_team and wgd_detail:
+            ht = getattr(wgd_detail, "home_team", None)
+            if ht:
+                home_team = self._resolve_team(abbr=getattr(ht, "abbreviation", None))
+        if not away_team and wgd_detail:
+            at = getattr(wgd_detail, "away_team", None)
+            if at:
+                away_team = self._resolve_team(abbr=getattr(at, "abbreviation", None))
+
         if not home_team or not away_team:
             raise ValueError(
                 f"Cannot resolve teams for game {game_id}: "
@@ -312,6 +410,18 @@ class NFLDataIngestor:
         date_local = None
         if scheduled_game and hasattr(scheduled_game, "date_"):
             date_local = scheduled_game.date_
+        if not date_local and wgd_detail:
+            raw_date = getattr(wgd_detail, "date_", None)
+            if raw_date:
+                if isinstance(raw_date, str):
+                    from datetime import date as date_cls
+
+                    try:
+                        date_local = date_cls.fromisoformat(raw_date)
+                    except ValueError:
+                        pass
+                else:
+                    date_local = raw_date
 
         if not date_local:
             raise ValueError(f"Cannot determine date for game {game_id}")
@@ -409,6 +519,67 @@ class NFLDataIngestor:
 
             if bonus:
                 defaults["bonus_data"] = bonus
+
+        # Pre-2020 fallback: populate from WeeklyGameDetail
+        if not scheduled_game and wgd_detail:
+            defaults["week"] = getattr(wgd_detail, "week", None)
+            defaults["kickoff_utc"] = getattr(wgd_detail, "time", None)
+            defaults["status"] = getattr(wgd_detail, "status", "") or ""
+            defaults["neutral_site"] = getattr(wgd_detail, "neutral_site", False)
+
+            # Venue
+            venue_data = getattr(wgd_detail, "venue", None)
+            if venue_data:
+                venue_name = getattr(venue_data, "name", None)
+                if venue_name:
+                    venue = Venue.objects.filter(name=venue_name).first()
+                    if venue:
+                        defaults["venue"] = venue
+
+            # Game type from week_type or game_type
+            week_type = getattr(wgd_detail, "week_type", None)
+            game_type_val = getattr(wgd_detail, "game_type", None)
+            if week_type == "POST" or game_type_val == "POST":
+                defaults["game_type"] = "POST"
+
+            # Broadcast info
+            broadcast_info = getattr(wgd_detail, "broadcast_info", None)
+            if broadcast_info:
+                home_channels = getattr(broadcast_info, "home_network_channels", None)
+                if home_channels:
+                    defaults["broadcast_channel"] = home_channels[0]
+
+            # External IDs
+            ext_ids = {}
+            ext_id_list = getattr(wgd_detail, "external_ids", None)
+            if ext_id_list:
+                for eid in ext_id_list:
+                    source = getattr(eid, "source", None)
+                    id_val = getattr(eid, "id", None)
+                    if source and id_val:
+                        ext_ids[source] = id_val
+            ext_ids["nfl_game_id"] = game_id
+            defaults["external_ids"] = ext_ids
+
+            # Final scores from regular box score team_stats
+            if regular_box_score:
+                team_stats = getattr(regular_box_score, "team_stats", None)
+                if team_stats:
+                    home_ts = getattr(team_stats, "home", None)
+                    away_ts = getattr(team_stats, "away", None)
+                    if home_ts:
+                        score_val = getattr(home_ts, "score", None)
+                        if score_val is not None:
+                            defaults["final_home_score"] = score_val
+                    if away_ts:
+                        score_val = getattr(away_ts, "score", None)
+                        if score_val is not None:
+                            defaults["final_away_score"] = score_val
+
+            # Detect overtime from WGD status
+            wgd_status = getattr(wgd_detail, "status", "")
+            if wgd_status == "FINAL_OVERTIME":
+                defaults["overtime_periods"] = 1
 
         game, created = Game.objects.update_or_create(
             league=self.league,
@@ -766,3 +937,231 @@ class NFLDataIngestor:
         if rows:
             GameReplay.objects.bulk_create(rows)
             logger.debug("Created %d replays for game %d", len(rows), game.pk)
+
+    # ------------------------------------------------------------------
+    # Regular API boxscore stats (pre-2020)
+    # ------------------------------------------------------------------
+
+    def _store_regular_boxscore(self, game: Game, box_score):
+        """Store boxscore data from the regular API (BoxScoreResponse2).
+
+        The regular API organizes stats as PlayerGameStats objects with nested
+        stat category attributes (passing, rushing, receiving, defensive, kicking),
+        unlike the Pro API which provides flat dicts per category.
+        """
+        # Delete existing boxscore rows
+        for model_cls, _ in REGULAR_BOXSCORE_CATEGORY_MAP.values():
+            model_cls.objects.filter(game=game).delete()
+        FumblesBoxscore.objects.filter(game=game).delete()
+        FieldGoalsBoxscore.objects.filter(game=game).delete()
+        ExtraPointsBoxscore.objects.filter(game=game).delete()
+
+        player_stats = getattr(box_score, "player_stats", None)
+        if not player_stats:
+            return
+
+        for side in ("home", "away"):
+            side_stats = getattr(player_stats, side, None)
+            if not side_stats:
+                continue
+
+            team = game.home_team if side == "home" else game.away_team
+
+            # Collect all players from offense and defense lists
+            all_players = []
+            for group in ("offense", "defense"):
+                group_list = getattr(side_stats, group, None) or []
+                all_players.extend(group_list)
+
+            for pgs in all_players:
+                player = getattr(pgs, "player", None)
+                player_name = ""
+                jersey_number = None
+                position = ""
+                ext_ids = {}
+
+                if player:
+                    player_name = getattr(player, "display_name", "") or ""
+                    jersey_number = getattr(player, "jersey_number", None)
+                    position = getattr(player, "position", "") or ""
+                    nfl_id = getattr(player, "nfl_id", None)
+                    if nfl_id:
+                        ext_ids = {"nfl.com": {"nflId": nfl_id}}
+
+                base_kwargs = {
+                    "game": game,
+                    "team": team,
+                    "side": side,
+                    "player_name": player_name,
+                    "jersey_number": jersey_number,
+                    "position": position,
+                    "external_ids": ext_ids,
+                }
+
+                # Standard stat categories
+                for attr_name, (
+                    model_cls,
+                    field_map,
+                ) in REGULAR_BOXSCORE_CATEGORY_MAP.items():
+                    stat_obj = getattr(pgs, attr_name, None)
+                    if not stat_obj:
+                        continue
+
+                    kwargs = dict(base_kwargs)
+                    has_data = False
+                    for sdk_field, model_field in field_map.items():
+                        val = getattr(stat_obj, sdk_field, None)
+                        if val is not None:
+                            kwargs[model_field] = val
+                            has_data = True
+
+                    if has_data:
+                        model_cls.objects.create(**kwargs)
+
+                # Fumbles from rushing stats
+                rushing_obj = getattr(pgs, "rushing", None)
+                if rushing_obj:
+                    fumbles_val = getattr(rushing_obj, "fumbles", None)
+                    if fumbles_val and fumbles_val > 0:
+                        FumblesBoxscore.objects.create(
+                            **base_kwargs, fumbles=fumbles_val
+                        )
+
+                # Kicking stats → FieldGoals + ExtraPoints
+                kicking_obj = getattr(pgs, "kicking", None)
+                if kicking_obj:
+                    fg_kwargs = dict(base_kwargs)
+                    has_fg = False
+                    for sdk_field, model_field in _REGULAR_FIELD_GOALS_FIELDS.items():
+                        val = getattr(kicking_obj, sdk_field, None)
+                        if val is not None:
+                            fg_kwargs[model_field] = val
+                            has_fg = True
+                    if has_fg:
+                        FieldGoalsBoxscore.objects.create(**fg_kwargs)
+
+                    xp_kwargs = dict(base_kwargs)
+                    has_xp = False
+                    for sdk_field, model_field in _REGULAR_EXTRA_POINTS_FIELDS.items():
+                        val = getattr(kicking_obj, sdk_field, None)
+                        if val is not None:
+                            xp_kwargs[model_field] = val
+                            has_xp = True
+                    if has_xp:
+                        ExtraPointsBoxscore.objects.create(**xp_kwargs)
+
+        logger.debug("Stored regular boxscore stats for game %d", game.pk)
+
+    # ------------------------------------------------------------------
+    # Regular API plays (pre-2020)
+    # ------------------------------------------------------------------
+
+    def _store_regular_plays(self, game: Game, play_by_play):
+        """Store play-by-play data from the regular API (PlayByPlayResponse).
+
+        Flattens drives[].plays[] into Play records. The regular API does not
+        provide per-play stat breakdowns (PlayParticipantStats is empty), so
+        PlayStat rows are created from PlayParticipant role/player info only
+        where possible.
+        """
+        Play.objects.filter(game=game).delete()
+
+        drives = getattr(play_by_play, "drives", None) or []
+        play_rows = []
+        play_number_counter = 0
+
+        for drive in drives:
+            drive_team = getattr(drive, "team", None)
+            drive_team_abbr = (
+                getattr(drive_team, "abbreviation", None) if drive_team else None
+            )
+            poss_team = (
+                self._resolve_team(abbr=drive_team_abbr) if drive_team_abbr else None
+            )
+
+            plays = getattr(drive, "plays", None) or []
+            for p in plays:
+                play_number_counter += 1
+                raw_play_id = getattr(p, "play_id", None)
+                # play_id from regular API is a string; the model expects int
+                try:
+                    play_id_int = (
+                        int(raw_play_id) if raw_play_id else play_number_counter
+                    )
+                except ValueError, TypeError:
+                    play_id_int = play_number_counter
+
+                # Parse yard_line (e.g. "KC 25") into side + number
+                yard_line_raw = getattr(p, "yard_line", "") or ""
+                yard_line_side = ""
+                yard_line_number = None
+                if yard_line_raw:
+                    parts = yard_line_raw.split()
+                    if len(parts) == 2:
+                        yard_line_side = parts[0]
+                        try:
+                            yard_line_number = int(parts[1])
+                        except ValueError:
+                            pass
+
+                play = Play(
+                    game=game,
+                    play_id=play_id_int,
+                    sequence=float(play_number_counter),
+                    quarter=getattr(p, "quarter", None),
+                    down=getattr(p, "down", None),
+                    yards_to_go=getattr(p, "distance", None),
+                    play_type=getattr(p, "play_type", "") or "",
+                    play_description=getattr(p, "description", "") or "",
+                    possession_team=poss_team,
+                    yard_line_number=yard_line_number,
+                    yard_line_side=yard_line_side,
+                    start_game_clock=getattr(p, "game_clock", "") or "",
+                    ngs_data=None,
+                )
+                play_rows.append(play)
+
+        created_plays = Play.objects.bulk_create(play_rows)
+
+        # Build PlayStat rows from participants where possible
+        play_stat_rows = []
+        play_by_id = {p.play_id: p for p in created_plays}
+
+        for drive in drives:
+            plays = getattr(drive, "plays", None) or []
+            for p in plays:
+                raw_play_id = getattr(p, "play_id", None)
+                try:
+                    play_id_int = int(raw_play_id) if raw_play_id else None
+                except ValueError, TypeError:
+                    play_id_int = None
+
+                play_obj = play_by_id.get(play_id_int) if play_id_int else None
+                if not play_obj:
+                    continue
+
+                participants = getattr(p, "players", None) or []
+                for participant in participants:
+                    player = getattr(participant, "player", None)
+                    if not player:
+                        continue
+                    play_stat_rows.append(
+                        PlayStat(
+                            play=play_obj,
+                            team_abbr=getattr(player, "team_abbr", "") or "",
+                            player_name=getattr(player, "display_name", "") or "",
+                            gsis_id=getattr(player, "gsis_id", "") or "",
+                            stat_id=0,
+                            yards=getattr(p, "yards_gained", 0) or 0,
+                        )
+                    )
+
+        if play_stat_rows:
+            PlayStat.objects.bulk_create(play_stat_rows)
+
+        logger.debug(
+            "Created %d plays and %d play stats (regular) for game %d",
+            len(created_plays),
+            len(play_stat_rows),
+            game.pk,
+        )
