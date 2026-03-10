@@ -29,7 +29,7 @@ class SportsRefCFBScraper(BaseScraper):
         self.league = League.objects.get(short_name=league_short_name)
 
         if season is None:
-            season = date.today().year
+            season = datetime.now(tz=ZoneInfo("UTC")).date().year
 
         self.season = Season.objects.get(league=self.league, year=season)
         self.fcs_schools = set()

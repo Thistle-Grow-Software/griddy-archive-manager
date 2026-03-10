@@ -1,5 +1,4 @@
 import json
-from typing import Optional
 
 import djclick as click
 from griddy.nfl.models import SeasonTypeEnum
@@ -33,14 +32,14 @@ def nfl(
     season: int,
     week: int,
     season_type: SeasonTypeEnum = "REG",
-    login_email: Optional[str] = None,
-    login_password: Optional[str] = None,
-    creds: Optional[str] = None,
-    headless: Optional[bool] = False,
-    output_file: Optional[str] = None,
-    store_db: Optional[bool] = False,
-    min_week: Optional[int] = None,
-    max_week: Optional[int] = None,
+    login_email: str | None = None,
+    login_password: str | None = None,
+    creds: str | None = None,
+    headless: bool | None = False,
+    output_file: str | None = None,
+    store_db: bool | None = False,
+    min_week: int | None = None,
+    max_week: int | None = None,
 ):
     click.echo(f"Season: {season}")
     click.echo(f"Week: {week}")
@@ -57,7 +56,7 @@ def nfl(
         login_password=login_password,
         creds=creds,
         headless_login=headless,
-        year=season
+        year=season,
     )
 
     for week in range(min_week, max_week + 1):
@@ -78,7 +77,7 @@ def nfl(
                 json_data = scraper._cast_to_json(data=game_data)
                 games_list = list(json_data.values())
                 for idx, game in enumerate(games_list):
-                    with open(f"{output_file}_{idx+1}.json", "w") as outfile:
+                    with open(f"{output_file}_{idx + 1}.json", "w") as outfile:
                         json.dump(game, outfile, indent=4, cls=DateTimeEncoder)
                 click.echo(f"Also wrote {len(games_list)} JSON files.")
         else:
@@ -88,7 +87,7 @@ def nfl(
             games = list(game_data.values())
             for idx, game in enumerate(games):
                 with open(
-                    f"archive/fixtures/complete_game_{idx+1}.json", "w"
+                    f"archive/fixtures/complete_game_{idx + 1}.json", "w"
                 ) as outfile:
                     json.dump(game, outfile, indent=4, cls=DateTimeEncoder)
             else:
@@ -103,8 +102,8 @@ def nfl(
 )
 def cfb(
     season: int,
-    output_file: Optional[str] = None,
-    store_db: Optional[bool] = False,
+    output_file: str | None = None,
+    store_db: bool | None = False,
 ):
     """Scrape NCAA FBS game data from sports-reference.com for a given SEASON year."""
     click.echo(f"Scraping NCAA FBS games for the {season} season...")

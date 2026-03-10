@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install dependencies
+        run: uv sync --group dev
+        env:
+          UV_INDEX_PRIVATE_REGISTRY_USERNAME: aws
+          UV_INDEX_PRIVATE_REGISTRY_PASSWORD: ${{ secrets.AWS_CODEARTIFACT_TOKEN }}
+
+      - name: Ruff check
+        run: uv run ruff check .
+
+      - name: Ruff format check
+        run: uv run ruff format --check .
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install dependencies
+        run: uv sync --group dev
+        env:
+          UV_INDEX_PRIVATE_REGISTRY_USERNAME: aws
+          UV_INDEX_PRIVATE_REGISTRY_PASSWORD: ${{ secrets.AWS_CODEARTIFACT_TOKEN }}
+
+      - name: Run tests
+        run: uv run pytest
+        env:
+          DJANGO_SETTINGS_MODULE: gam.settings_ci

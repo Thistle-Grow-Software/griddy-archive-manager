@@ -62,7 +62,6 @@ def reverse_franchises(apps, schema_editor):
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("archive", "0023_add_franchise_model"),
     ]

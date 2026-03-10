@@ -1,28 +1,25 @@
 import json
 import logging
-import time
 from datetime import date
-from random import uniform
-from typing import Dict, Optional
 
 from griddy.nfl import GriddyNFL
 from griddy.nfl.models import SeasonTypeEnum
-
-logger = logging.getLogger(__name__)
 
 from archive.models import (
     Franchise,
     Game,
     League,
     OrgUnit,
+    Season,
     Team,
     TeamAffiliation,
     TeamVenueOccupancy,
     Venue,
-    Season
 )
 from archive.scrapers import BaseScraper
 from archive.utils import get_content_file_from_url
+
+logger = logging.getLogger(__name__)
 
 
 class NFLScraper(BaseScraper):
@@ -30,11 +27,11 @@ class NFLScraper(BaseScraper):
 
     def __init__(
         self,
-        login_email: str = None,
-        login_password: str = None,
-        creds: Optional[Dict | str] = None,
+        login_email: str | None = None,
+        login_password: str | None = None,
+        creds: dict | str | None = None,
         headless_login: bool = True,
-        year: int = None
+        year: int | None = None,
     ):
         self._validate_init_params(
             login_email=login_email,
@@ -50,20 +47,19 @@ class NFLScraper(BaseScraper):
             )
         else:
             if isinstance(creds, str):
-                with open(creds, "r") as infile:
+                with open(creds) as infile:
                     creds = json.load(infile)
 
             self.client = GriddyNFL(nfl_auth=creds, headless_login=headless_login)
 
         self.league = League.objects.get(short_name="NFL")
-        self.season = Season.objects.get(league=self.league,
-                                         year=year)
+        self.season = Season.objects.get(league=self.league, year=year)
 
     def _validate_init_params(
         self,
-        login_email: str = None,
-        login_password: str = None,
-        creds: dict = None,
+        login_email: str | None = None,
+        login_password: str | None = None,
+        creds: dict | None = None,
         headless_login: bool = True,
     ):
         if login_email and creds:
@@ -184,7 +180,7 @@ class NFLScraper(BaseScraper):
         tvo = TeamVenueOccupancy(team=team, venue=venue)
         tvo.save()
 
-    def _cast_to_json(self, data: Dict) -> Dict:
+    def _cast_to_json(self, data: dict) -> dict:
         dictified_info = {}
         for info_type, sub_data in data.items():
             if isinstance(sub_data, dict):
@@ -205,13 +201,13 @@ class NFLScraper(BaseScraper):
         week: int,
         season_type: SeasonTypeEnum = "REG",
         as_json: bool = False,
-    ) -> Dict:
+    ) -> dict:
         if (not self.season) or (self.season.year != season):
             self.season = Season.objects.get(year=season)
 
-        existing_game_nfl_ids = Game.objects.filter(league=self.league,
-                                                    season=self.season).values_list("external_ids__nfl_game_id",
-                                                                                    flat=True)
+        existing_game_nfl_ids = Game.objects.filter(
+            league=self.league, season=self.season
+        ).values_list("external_ids__nfl_game_id", flat=True)
 
         games = self.client.schedules.get_scheduled_games(
             season=season, season_type=season_type, week=week
@@ -259,7 +255,9 @@ class NFLScraper(BaseScraper):
         cur_game = 1
 
         for game in games:
-            logger.info(f"Working on game {game.id} - No {cur_game} of {game_count} for week {week} of {season}")
+            logger.info(
+                f"Working on game {game.id} - No {cur_game} of {game_count} for week {week} of {season}"
+            )
             sked_game_dtls = self.client.schedules.get_scheduled_game(game_id=game.id)
             logger.info("Fetched scheduled_game details")
             pro_game_id = str(sked_game_dtls.game_id)

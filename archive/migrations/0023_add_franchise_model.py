@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("archive", "0022_alter_gamereplay_thumbnail_url"),
     ]

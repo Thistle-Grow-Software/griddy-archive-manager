@@ -1,5 +1,3 @@
-from typing import List
-
 from django.db import models
 from django.db.models import Q
 from django.utils import timezone
@@ -104,14 +102,13 @@ class Season(GamBaseModel):
     def __str__(self) -> str:
         return f"{self.league.short_name} {self.label or self.year}"
 
-    def get_teams(self) -> List[Team]:
-        affiliations = (TeamAffiliation.objects.select_related("team")
-        .filter(
+    def get_teams(self) -> list[Team]:
+        affiliations = TeamAffiliation.objects.select_related("team").filter(
             # Affiliation started before the season began
             Q(start_date__isnull=True) | Q(start_date__lte=self.end_date),
             Q(end_date__isnull=True) | Q(end_date__gte=self.start_date),
-            org_unit__league=self.league
-        ))
+            org_unit__league=self.league,
+        )
         return [ta.team for ta in affiliations]
 
 
@@ -557,15 +554,15 @@ class PlayStat(GamBaseModel):
 class PlayerGameStatBase(GamBaseModel):
     """Abstract base for per-game player stat lines."""
 
-    class Meta:
-        abstract = True
-
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     team = models.ForeignKey(Team, on_delete=models.PROTECT)
     side = models.CharField(max_length=4)  # "home" or "away"
     player_name = models.CharField(max_length=120)
     jersey_number = models.IntegerField(null=True, blank=True)
     position = models.CharField(max_length=10, blank=True, default="")
+
+    class Meta:
+        abstract = True
 
     def __str__(self):
         return f"{self.player_name} ({self.position}) - {self.game}"
