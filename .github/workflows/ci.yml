@@ -44,7 +44,7 @@ jobs:
         run: uv sync --group dev
         env:
           UV_INDEX_PRIVATE_REGISTRY_USERNAME: aws
-          UV_INDEX_PRIVATE_REGISTRY_PASSWORD: ${{ secrets.AWS_CODEARTIFACT_TOKEN }}
+          UV_INDEX_PRIVATE_REGISTRY_PASSWORD: ${CODEARTIFACT_TOKEN}
 
       - name: Ruff check
         run: uv run ruff check .
