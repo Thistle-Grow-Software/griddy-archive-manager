@@ -58,17 +58,38 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v6
-
       - name: Set up Python
-        run: uv python install
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: "latest"
+
+      - name: Configure AWS credentials (for CodeArtifact)
+        uses: aws-actions/configure-aws-credentials@v5.0.0
+        with:
+          aws-region: ${{ secrets.AWS_REGION }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Get CodeArtifact token
+        run: |
+          CODEARTIFACT_TOKEN=$(aws codeartifact get-authorization-token \
+            --domain ${{ secrets.AWS_CODEARTIFACT_DOMAIN }} \
+            --domain-owner ${{ secrets.AWS_CODEARTIFACT_DOMAIN_OWNER }} \
+            --region ${{ secrets.AWS_REGION }} \
+            --query authorizationToken \
+            --output text)
+          echo "CODEARTIFACT_TOKEN=$CODEARTIFACT_TOKEN" >> $GITHUB_ENV
 
       - name: Install dependencies
         run: uv sync --group dev
         env:
           UV_INDEX_PRIVATE_REGISTRY_USERNAME: aws
-          UV_INDEX_PRIVATE_REGISTRY_PASSWORD: ${{ secrets.AWS_CODEARTIFACT_TOKEN }}
+          UV_INDEX_PRIVATE_REGISTRY_PASSWORD: ${{ env.CODEARTIFACT_TOKEN }}
 
       - name: Run tests
         run: uv run pytest
