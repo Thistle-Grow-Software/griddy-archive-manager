@@ -47,6 +47,6 @@ runs:
           --domain-owner ${{ inputs.codeartifact-domain-owner }} \
           --query authorizationToken \
           --output text)
-        echo "CODEARTIFACT_AUTH_TOKEN=${TOKEN}" >> "GITHUB_ENV"
+        echo "CODEARTIFACT_AUTH_TOKEN=${TOKEN}" >> "$GITHUB_ENV"
         echo "UV_INDEX_PRIVATE_REGISTRY_USERNAME=aws" >> "$GITHUB_ENV"
-        echo "UV_INDEX_PRIVATE_REGISTRY_PASSWORD=${TOKEN}" >> "GITHUB_ENV"
+        echo "UV_INDEX_PRIVATE_REGISTRY_PASSWORD=${TOKEN}" >> "$GITHUB_ENV"
