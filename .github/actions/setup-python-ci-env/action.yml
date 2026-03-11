@@ -1,0 +1,54 @@
+name: "Setup Python CI Environment"
+description: "Checkout, setup Python + uv, authenticate CodeArtifact, install dependencies"
+
+inputs:
+  python-version:
+    description: "Python version to use"
+    required: false
+    default: "3.14"
+  uv-version:
+    description: "UV version to use"
+    required: false
+    default: "latest"
+  aws-region:
+    description: "AWS Region"
+    required: false
+    default: "us-east-1"
+  aws-role-to-assume:
+    description: "IAM role ARN for OIDC"
+    required: true
+  codeartifact-domain:
+    description: "CodeArtifact domain"
+    required: true
+  codeartifact-domain-owner:
+    description: "CodeArtifact domain owner account ID"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-python@v6
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v5
+      with:
+        role-to-assume: ${{ inputs.aws-role-to-assume }}
+        aws-region: ${{ inputs.aws-region }}
+
+    - name: Get CodeArtifact token
+      shell: bash
+      run: |
+        TOKEN=$(aws codeartifact get-authorization-token \
+          --domain ${{ inputs.codeartifact-domain }} \
+          --domain-owner ${{ inputs.codeartifact-domain-owner }} \
+          --query authorizationToken \
+          --output text)
+        echo "CODEARTIFACT_AUTH_TOKEN=${TOKEN}" >> "GITHUB_ENV"
+        echo "UV_INDEX_PRIVATE_REGISTRY_USERNAME=aws" >> "$GITHUB_ENV"
+        echo "UV_INDEX_PRIVATE_REGISTRY_PASSWORD=${TOKEN}" >> "GITHUB_ENV"
