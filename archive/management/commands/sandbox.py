@@ -33,7 +33,10 @@ def sandbox():
 @click.option("--creds-file", type=str)
 @click.option("--fetch", default=False, is_flag=True, flag_value=True)
 def comparison(
-    email: str = None, password: str = None, creds_file: str = None, fetch: bool = False
+    email: str | None = None,
+    password: str | None = None,
+    creds_file: str | None = None,
+    fetch: bool = False,
 ):
 
     game_id = "10012015-0910-001f-0988-f51e8eea770e"
