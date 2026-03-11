@@ -1,3 +1,5 @@
+from typing import ClassVar
+
 from django.contrib import admin
 
 from . import models
@@ -15,7 +17,7 @@ class FranchiseAdmin(admin.ModelAdmin):
     list_display = ("name", "league")
     list_filter = ("league",)
     search_fields = ("name",)
-    inlines = [TeamInline]
+    inlines: ClassVar[list] = [TeamInline]
 
 
 @admin.register(models.Team)

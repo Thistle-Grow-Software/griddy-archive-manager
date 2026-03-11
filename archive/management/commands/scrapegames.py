@@ -18,14 +18,7 @@ class Command(BaseCommand):
         parser.add_argument("--data_path", type=str)
 
     def handle(self, *args, **options):
-        from pprint import pprint
-
-        print("\n\noptions:")
-        pprint(options, indent=4)
-
         league_short_name = options["league"]
-        season = options["season"]
-        week = options.get("week")
 
         match league_short_name:
             case "NCAA - FBS":

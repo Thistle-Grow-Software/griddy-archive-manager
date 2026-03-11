@@ -1,4 +1,5 @@
 import logging
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -10,6 +11,7 @@ class BaseScraper:
 
     def _fetch_with_playwright(self, url: str) -> str:
         from playwright.sync_api import sync_playwright
+
         with sync_playwright() as playwright:
             logger.info("Launching browser with playwright.")
             browser = playwright.firefox.launch(headless=True)
@@ -19,7 +21,6 @@ class BaseScraper:
             page.goto(url, wait_until="domcontentloaded")
 
             return page.content()
-
 
     def fetch_soup(self, sub_path: str, use_playwright: bool = False) -> BeautifulSoup:
         full_url = f"{self.base_url}{sub_path}"

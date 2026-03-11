@@ -1,0 +1,30 @@
+name: Linting (Ruff)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    name: Ruff
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-python-ci-env
+        with:
+          aws-role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          codeartifact-domain: ${{ secrets.AWS_CODEARTIFACT_DOMAIN }}
+          codeartifact-domain-owner: ${{ secrets.AWS_ACCOUNT_ID }}
+
+      - name: Install deps
+        run: uv sync --group dev
+
+      - name: Ruff check
+        run: uv run ruff check .
+
+      - name: Ruff format check
+        run: uv run ruff format --check .

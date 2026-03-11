@@ -1,6 +1,6 @@
+import contextlib
 import logging
 from datetime import datetime
-from typing import Dict, List, Optional
 
 from django.db import transaction
 
@@ -178,9 +178,9 @@ class NFLDataIngestor:
         self._build_team_lookups()
 
     def _build_team_lookups(self):
-        self._team_by_abbr: Dict[str, Team] = {}
-        self._team_by_smart_id: Dict[str, Team] = {}
-        self._team_by_nfl_id: Dict[str, Team] = {}
+        self._team_by_abbr: dict[str, Team] = {}
+        self._team_by_smart_id: dict[str, Team] = {}
+        self._team_by_nfl_id: dict[str, Team] = {}
 
         for t in self.season.get_teams():
             if t.short_name:
@@ -193,10 +193,10 @@ class NFLDataIngestor:
 
     def _resolve_team(
         self,
-        abbr: Optional[str] = None,
-        smart_id: Optional[str] = None,
-        nfl_id: Optional[str] = None,
-    ) -> Optional[Team]:
+        abbr: str | None = None,
+        smart_id: str | None = None,
+        nfl_id: str | None = None,
+    ) -> Team | None:
         if smart_id and smart_id in self._team_by_smart_id:
             return self._team_by_smart_id[smart_id]
         if abbr and abbr in self._team_by_abbr:
@@ -216,7 +216,7 @@ class NFLDataIngestor:
     # Public entry point
     # ------------------------------------------------------------------
 
-    def ingest_week(self, week_data: Dict, week: int) -> List[Game]:
+    def ingest_week(self, week_data: dict, week: int) -> list[Game]:
         """Store all games from gather_all_data_for_week(as_json=False) output."""
         games = []
         for game_id, game_data in week_data.items():
@@ -236,7 +236,7 @@ class NFLDataIngestor:
     # Per-game orchestrator
     # ------------------------------------------------------------------
 
-    def _ingest_game(self, game_id: str, data: Dict, week: int) -> Game:
+    def _ingest_game(self, game_id: str, data: dict, week: int) -> Game:
         scheduled_game = data.get("scheduled_games")
         sked_details = data.get("sked_game_dtls")
         wgd = data.get("weekly_game_details", {})
@@ -382,9 +382,9 @@ class NFLDataIngestor:
                 if away_ts and hasattr(away_ts, "point_total"):
                     defaults["final_away_score"] = away_ts.point_total
                 # Overtime
-                if home_ts and getattr(home_ts, "point_ot", 0):
-                    defaults["overtime_periods"] = 1
-                elif away_ts and getattr(away_ts, "point_ot", 0):
+                if (home_ts and getattr(home_ts, "point_ot", 0)) or (
+                    away_ts and getattr(away_ts, "point_ot", 0)
+                ):
                     defaults["overtime_periods"] = 1
 
                 # Override status from score phase
@@ -402,10 +402,8 @@ class NFLDataIngestor:
                 bonus["released_to_clubs"] = released
 
             if game_center:
-                try:
+                with contextlib.suppress(Exception):
                     bonus["game_center"] = game_center.model_dump()
-                except Exception:
-                    pass
 
             if bonus:
                 defaults["bonus_data"] = bonus
@@ -731,12 +729,10 @@ class NFLDataIngestor:
             raw_date = getattr(r, "publish_date", None)
             if raw_date:
                 if isinstance(raw_date, str):
-                    try:
+                    with contextlib.suppress(ValueError, TypeError):
                         publish_date = datetime.fromisoformat(
                             raw_date.replace("Z", "+00:00")
                         )
-                    except ValueError, TypeError:
-                        pass
                 elif isinstance(raw_date, datetime):
                     publish_date = raw_date
 
