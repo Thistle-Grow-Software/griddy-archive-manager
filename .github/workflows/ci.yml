@@ -38,7 +38,7 @@ jobs:
             --region ${{ secrets.AWS_REGION }} \
             --query authorizationToken \
             --output text)
-          echo "CODEARTIFACT_TOKEN=$CODEARTIFACT_TOKEN" >> $GITHUB_ENV
+          echo "CODEARTIFACT_TOKEN=$AWS_CODEARTIFACT_TOKEN" >> $GITHUB_ENV
 
       - name: Install dependencies
         run: uv sync --group dev
