@@ -1,0 +1,15 @@
+name: Quality Gates
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  quality-gates:
+    uses: Thistle-Grow-Software/.github/.github/workflows/python-quality-gates.yml@main
+    with:
+      needs-codeartifact: true
+      mypy-enabled: false
+      src-paths: "gam/"
+    secrets: inherit
