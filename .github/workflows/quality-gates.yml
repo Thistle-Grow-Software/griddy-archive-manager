@@ -16,4 +16,7 @@ jobs:
       needs-codeartifact: true
       mypy-enabled: false
       src-paths: "gam/"
-    secrets: inherit
+    secrets:
+      aws-role-arn: ${{ secrets.AWS_ROLE_ARN }}
+      codeartifact-domain: ${{ secrets.AWS_CODEARTIFACT_DOMAIN }}
+      codeartifact-domain-owner: ${{ secrets.AWS_ACCOUNT_ID }}
