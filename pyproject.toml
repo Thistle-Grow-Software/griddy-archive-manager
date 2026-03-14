@@ -12,6 +12,7 @@ dependencies = [
     "griddy==0.8.8",
     "pillow>=12.1.0",
     "psycopg>=3.3.2",
+    "pytest-cov>=7.0.0",
     "requests>=2.32.5",
 ]
 
