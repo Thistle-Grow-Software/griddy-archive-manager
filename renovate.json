@@ -1,0 +1,15 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "packageRules": [
+    {
+      "matchManagers": ["pep621"],
+      "matchPackageNames": ["griddy"],
+      "registryUrls": [
+        "https://thistle-grow-685711685350.d.codeartifact.us-east-1.amazonaws.com/pypi/griddy/simple/"
+      ],
+      "groupName": "griddy SDK",
+      "schedule": ["every weekday"]
+    }
+  ]
+}

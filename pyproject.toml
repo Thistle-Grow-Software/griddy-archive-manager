@@ -9,7 +9,7 @@ dependencies = [
     "django>=6.0.1",
     "django-click>=2.5.0",
     "django-stubs>=5.2.9",
-    "griddy==0.8.8",
+    "griddy>=0.45.0,<1.0",
     "pillow>=12.1.0",
     "psycopg>=3.3.2",
     "pytest-cov>=7.0.0",
