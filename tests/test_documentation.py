@@ -1,8 +1,7 @@
 """Tests to ensure documentation infrastructure is correctly configured."""
 
-from pathlib import Path
-
 import tomllib
+from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DOCS_DIR = PROJECT_ROOT / "docs"
@@ -25,7 +24,9 @@ def test_zensical_toml_has_mkdocstrings():
     """zensical.toml must configure mkdocstrings plugin."""
     config = tomllib.loads(ZENSICAL_TOML.read_text())
     plugins = config["project"].get("plugins", {})
-    assert "mkdocstrings" in plugins, "mkdocstrings plugin not configured in zensical.toml"
+    assert "mkdocstrings" in plugins, (
+        "mkdocstrings plugin not configured in zensical.toml"
+    )
 
 
 def test_zensical_toml_has_material_theme():
@@ -72,7 +73,9 @@ def test_nav_pages_match_docs_directory():
         return paths
 
     for path in extract_paths(nav):
-        assert (DOCS_DIR / path).exists(), f"Nav references docs/{path} but file not found"
+        assert (DOCS_DIR / path).exists(), (
+            f"Nav references docs/{path} but file not found"
+        )
 
 
 def test_readme_is_not_empty():
@@ -121,9 +124,7 @@ def test_models_reference_page_has_key_models():
         "VideoAsset",
     ]
     for model in required_models:
-        assert f"archive.models.{model}" in content, (
-            f"Models reference missing {model}"
-        )
+        assert f"archive.models.{model}" in content, f"Models reference missing {model}"
 
 
 def test_commands_page_documents_all_commands():
