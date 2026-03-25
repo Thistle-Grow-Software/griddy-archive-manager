@@ -25,6 +25,10 @@ dev = [
     "django-extensions>=4.1",
     "ipython>=9.10.0",
 ]
+docs = [
+    "zensical>=0.0.28",
+    "mkdocstrings[python]>=0.29.0",
+]
 
 [[tool.uv.index]]
 name = "private-registry"
