@@ -75,7 +75,7 @@ class GamBaseModel(models.Model):
 class League(GamBaseModel):
     short_name = models.CharField(max_length=10, unique=True)
     long_name = models.CharField(max_length=120, unique=True)
-    level = models.CharField(max_length=16, choices=Level.choices, default=Level.OTHER)
+    level = models.CharField(max_length=16, choices=Level, default=Level.OTHER)
     country = models.CharField(max_length=60, default="US")  # ISO-3166-1 alpha-2
     notes = models.TextField(blank=True, default="")
 
@@ -225,9 +225,7 @@ class OrgUnit(GamBaseModel):
     )
     short_name = models.CharField(max_length=10)
     long_name = models.CharField(max_length=120)
-    org_type = models.CharField(
-        max_length=20, choices=OrgType.choices, default=OrgType.OTHER
-    )
+    org_type = models.CharField(max_length=20, choices=OrgType, default=OrgType.OTHER)
     parent = models.ForeignKey(
         "self", null=True, blank=True, on_delete=models.PROTECT, related_name="children"
     )
@@ -326,9 +324,7 @@ class Game(GamBaseModel):
     kickoff_time_local = models.TimeField(null=True, blank=True)
 
     week = models.IntegerField(null=True)
-    game_type = models.CharField(
-        max_length=16, choices=GameType.choices, default=GameType.REG
-    )
+    game_type = models.CharField(max_length=16, choices=GameType, default=GameType.REG)
     competition_name = models.CharField(
         max_length=160, blank=True, default=""
     )  # "Rose Bowl", "SEC Championship", etc.
@@ -706,7 +702,7 @@ class GameReplay(GamBaseModel):
 
 
 class Source(GamBaseModel):
-    source_type = models.CharField(max_length=16, choices=SourceType.choices)
+    source_type = models.CharField(max_length=16, choices=SourceType)
     name = models.CharField(
         max_length=140
     )  # "YouTube", "NFL+", "Paramount+", "DVD", "OTA DVR", etc.
@@ -725,9 +721,7 @@ class Acquisition(GamBaseModel):
     cost_usd = models.DecimalField(
         max_digits=8, decimal_places=2, null=True, blank=True
     )
-    rights = models.CharField(
-        max_length=20, choices=Rights.choices, default=Rights.UNKNOWN
-    )
+    rights = models.CharField(max_length=20, choices=Rights, default=Rights.UNKNOWN)
     notes = models.TextField(blank=True, default="")
 
     # Optional: store path to receipt/proof in your filesystem
@@ -754,7 +748,7 @@ class VideoAsset(GamBaseModel):
     )
 
     asset_type = models.CharField(
-        max_length=16, choices=AssetType.choices, default=AssetType.FULL
+        max_length=16, choices=AssetType, default=AssetType.FULL
     )
 
     file_path = models.CharField(max_length=700)  # absolute or archive-relative
@@ -779,7 +773,7 @@ class VideoAsset(GamBaseModel):
     has_commercials = models.BooleanField(default=True)
 
     quality_tier = models.CharField(
-        max_length=1, choices=QualityTier.choices, default=QualityTier.C
+        max_length=1, choices=QualityTier, default=QualityTier.C
     )
     quality_notes = models.TextField(blank=True, default="")
 
@@ -849,7 +843,7 @@ class GameCompleteness(GamBaseModel):
     scope = models.CharField(max_length=64)
     # examples: "NFL_ALL", "STEELERS_ALL", "UGA_ALL", "UGA_2010s"
 
-    status = models.CharField(max_length=32, choices=Status.choices)
+    status = models.CharField(max_length=32, choices=Status)
     best_full_quality_score = models.PositiveSmallIntegerField(null=True, blank=True)
 
     has_full = models.BooleanField(default=False)
