@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_extensions",
     "debug_toolbar",
+    "rest_framework",
+    "django_filters",
     "archive",
 ]
 
@@ -182,4 +184,27 @@ LOGGING = {
             "propagate": False,
         },
     },
+}
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.CursorPagination",
+    "PAGE_SIZE": 50,
+    "DEFAULT_FILTER_BACKENDS": [
+        "django_filters.rest_framework.DjangoFilterBackend",
+        "rest_framework.filters.SearchFilter",
+        "rest_framework.filters.OrderingFilter",
+    ],
+    # "DEFAULT_AUTHENTICATION_CLASSES": [
+    #     # TODO: Decide on this
+    # ]
+    # "DEFAULT_PERMISSION_CLASSES": [
+    #     # TODO: Decide on this
+    # ]
+    "DEFAULT_RENDERER_CLASSES": [
+        "rest_framework.renderers.JSONRenderer",
+        "rest_framework.renderers.BrowsableAPIRenderer",
+    ],
+    # "DEFAULT_THROTTLE_CLASSES": [],
+    # "DEFAULT_THROTTLE_RATES": []
 }
