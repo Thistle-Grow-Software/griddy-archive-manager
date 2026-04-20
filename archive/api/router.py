@@ -8,6 +8,13 @@ from archive.api.viewsets.boxscore import (
     RushingBoxscoreViewSet,
     TacklesBoxscoreViewSet,
 )
+from archive.api.viewsets.boxscore_special_teams import (
+    ExtraPointsBoxscoreViewSet,
+    FieldGoalsBoxscoreViewSet,
+    KickingBoxscoreViewSet,
+    PuntingBoxscoreViewSet,
+    ReturnBoxscoreViewSet,
+)
 from archive.api.viewsets.franchise import FranchiseViewSet
 from archive.api.viewsets.game import GameViewSet
 from archive.api.viewsets.game_nested import (
@@ -78,6 +85,31 @@ game_nested_urls = [
         "games/<int:game_pk>/boxscores/fumbles/",
         FumblesBoxscoreViewSet.as_view({"get": "list", "post": "create"}),
         name="game-boxscores-fumbles",
+    ),
+    path(
+        "games/<int:game_pk>/boxscores/field-goals/",
+        FieldGoalsBoxscoreViewSet.as_view({"get": "list", "post": "create"}),
+        name="game-boxscores-field-goals",
+    ),
+    path(
+        "games/<int:game_pk>/boxscores/extra-points/",
+        ExtraPointsBoxscoreViewSet.as_view({"get": "list", "post": "create"}),
+        name="game-boxscores-extra-points",
+    ),
+    path(
+        "games/<int:game_pk>/boxscores/kicking/",
+        KickingBoxscoreViewSet.as_view({"get": "list", "post": "create"}),
+        name="game-boxscores-kicking",
+    ),
+    path(
+        "games/<int:game_pk>/boxscores/punting/",
+        PuntingBoxscoreViewSet.as_view({"get": "list", "post": "create"}),
+        name="game-boxscores-punting",
+    ),
+    path(
+        "games/<int:game_pk>/boxscores/returns/",
+        ReturnBoxscoreViewSet.as_view({"get": "list", "post": "create"}),
+        name="game-boxscores-returns",
     ),
 ]
 
