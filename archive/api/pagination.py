@@ -12,5 +12,5 @@ class GamePagination(CursorPagination):
 
 
 class PlayPagination(CursorPagination):
-    page_size = 100
+    page_size = 200
     ordering = "sequence"
