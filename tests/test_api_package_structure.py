@@ -46,11 +46,13 @@ def test_router_is_default_router():
     assert isinstance(mod.router, DefaultRouter)
 
 
-def test_router_urlpatterns_equals_router_urls():
-    """router.py must define urlpatterns = router.urls."""
+def test_router_urlpatterns_includes_router_urls():
+    """router.py must define urlpatterns that include router.urls."""
     mod = importlib.import_module("archive.api.router")
     assert hasattr(mod, "urlpatterns")
-    assert mod.urlpatterns is mod.router.urls
+    # urlpatterns includes all router URLs plus any nested URL patterns
+    for url in mod.router.urls:
+        assert url in mod.urlpatterns
 
 
 # --- Pagination ---
