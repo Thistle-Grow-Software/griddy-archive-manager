@@ -1,6 +1,12 @@
 from rest_framework import serializers
 
-from archive.models import PassingBoxscore, ReceivingBoxscore, RushingBoxscore
+from archive.models import (
+    FumblesBoxscore,
+    PassingBoxscore,
+    ReceivingBoxscore,
+    RushingBoxscore,
+    TacklesBoxscore,
+)
 
 
 class PlayerGameStatBaseSerializer(serializers.Serializer):
@@ -151,4 +157,102 @@ class ReceivingBoxscoreWriteSerializer(serializers.ModelSerializer):
             "longest_reception",
             "longest_td_reception",
             "yards_after_catch",
+        ]
+
+
+class TacklesBoxscoreSerializer(serializers.ModelSerializer):
+    team = serializers.PrimaryKeyRelatedField(read_only=True)
+
+    class Meta:
+        model = TacklesBoxscore
+        fields = [
+            "id",
+            "game",
+            "team",
+            "side",
+            "player_name",
+            "jersey_number",
+            "position",
+            "tackles",
+            "assists",
+            "sacks",
+            "sack_yards",
+            "qb_hits",
+            "tackles_for_loss",
+            "tackles_for_loss_yards",
+            "safeties",
+            "special_teams_tackles",
+            "special_teams_assists",
+            "special_teams_blocks",
+        ]
+        read_only_fields = ["id", "game"]
+
+
+class TacklesBoxscoreWriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TacklesBoxscore
+        fields = [
+            "team",
+            "side",
+            "player_name",
+            "jersey_number",
+            "position",
+            "tackles",
+            "assists",
+            "sacks",
+            "sack_yards",
+            "qb_hits",
+            "tackles_for_loss",
+            "tackles_for_loss_yards",
+            "safeties",
+            "special_teams_tackles",
+            "special_teams_assists",
+            "special_teams_blocks",
+        ]
+
+
+class FumblesBoxscoreSerializer(serializers.ModelSerializer):
+    team = serializers.PrimaryKeyRelatedField(read_only=True)
+
+    class Meta:
+        model = FumblesBoxscore
+        fields = [
+            "id",
+            "game",
+            "team",
+            "side",
+            "player_name",
+            "jersey_number",
+            "position",
+            "fumbles",
+            "own_recoveries",
+            "own_recovery_yards",
+            "own_recovery_tds",
+            "opp_recoveries",
+            "opp_recovery_yards",
+            "opp_recovery_tds",
+            "forced_fumbles",
+            "out_of_bounds",
+        ]
+        read_only_fields = ["id", "game"]
+
+
+class FumblesBoxscoreWriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FumblesBoxscore
+        fields = [
+            "team",
+            "side",
+            "player_name",
+            "jersey_number",
+            "position",
+            "fumbles",
+            "own_recoveries",
+            "own_recovery_yards",
+            "own_recovery_tds",
+            "opp_recoveries",
+            "opp_recovery_yards",
+            "opp_recovery_tds",
+            "forced_fumbles",
+            "out_of_bounds",
         ]

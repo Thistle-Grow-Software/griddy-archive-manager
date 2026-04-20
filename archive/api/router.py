@@ -2,9 +2,11 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 from archive.api.viewsets.boxscore import (
+    FumblesBoxscoreViewSet,
     PassingBoxscoreViewSet,
     ReceivingBoxscoreViewSet,
     RushingBoxscoreViewSet,
+    TacklesBoxscoreViewSet,
 )
 from archive.api.viewsets.franchise import FranchiseViewSet
 from archive.api.viewsets.game import GameViewSet
@@ -66,6 +68,16 @@ game_nested_urls = [
         "games/<int:game_pk>/boxscores/receiving/",
         ReceivingBoxscoreViewSet.as_view({"get": "list", "post": "create"}),
         name="game-boxscores-receiving",
+    ),
+    path(
+        "games/<int:game_pk>/boxscores/tackles/",
+        TacklesBoxscoreViewSet.as_view({"get": "list", "post": "create"}),
+        name="game-boxscores-tackles",
+    ),
+    path(
+        "games/<int:game_pk>/boxscores/fumbles/",
+        FumblesBoxscoreViewSet.as_view({"get": "list", "post": "create"}),
+        name="game-boxscores-fumbles",
     ),
 ]
 
