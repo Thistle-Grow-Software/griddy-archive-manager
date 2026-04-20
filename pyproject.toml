@@ -65,6 +65,7 @@ ignore = [
 "**/models.py" = ["RUF012"]
 "**/serializers/**" = ["RUF012"]       # DRF Meta.fields convention
 "**/viewsets/**" = ["RUF012"]          # DRF class-level list attributes
+"**/filters.py" = ["RUF012"]          # django-filter Meta.fields convention
 "**/migrations/*.py" = ["ALL"]  # auto-generated, don't lint heavily
 "**/settings/*.py" = ["F405", "E501"]                 # wildcard imports common in settings
 "**/settings.py" = ["F405", "E501"]
