@@ -27,6 +27,7 @@ from archive.api.viewsets.org_unit import OrgUnitViewSet
 from archive.api.viewsets.play import GamePlayViewSet
 from archive.api.viewsets.play_stat import PlayStatViewSet
 from archive.api.viewsets.season import SeasonViewSet
+from archive.api.viewsets.standings import TeamStandingsSnapshotViewSet
 from archive.api.viewsets.team import TeamViewSet
 from archive.api.viewsets.team_affiliation import TeamAffiliationViewSet
 from archive.api.viewsets.team_venue_occupancy import TeamVenueOccupancyViewSet
@@ -46,6 +47,7 @@ router.register(
     basename="teamvenueoccupancy",
 )
 router.register("games", GameViewSet, basename="game")
+router.register("standings", TeamStandingsSnapshotViewSet, basename="standings")
 
 game_nested_urls = [
     path(
