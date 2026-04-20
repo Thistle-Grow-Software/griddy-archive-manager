@@ -18,6 +18,7 @@ from archive.api.viewsets.boxscore_special_teams import (
 )
 from archive.api.viewsets.franchise import FranchiseViewSet
 from archive.api.viewsets.game import GameViewSet
+from archive.api.viewsets.game_completeness import GameCompletenessViewSet
 from archive.api.viewsets.game_nested import (
     GameDriveViewSet,
     GameQuarterScoreViewSet,
@@ -30,6 +31,7 @@ from archive.api.viewsets.play_stat import PlayStatViewSet
 from archive.api.viewsets.season import SeasonViewSet
 from archive.api.viewsets.source import SourceViewSet
 from archive.api.viewsets.standings import TeamStandingsSnapshotViewSet
+from archive.api.viewsets.tag import AssetTagViewSet, TagViewSet
 from archive.api.viewsets.team import TeamViewSet
 from archive.api.viewsets.team_affiliation import TeamAffiliationViewSet
 from archive.api.viewsets.team_venue_occupancy import TeamVenueOccupancyViewSet
@@ -54,6 +56,11 @@ router.register("standings", TeamStandingsSnapshotViewSet, basename="standings")
 router.register("sources", SourceViewSet, basename="source")
 router.register("acquisitions", AcquisitionViewSet, basename="acquisition")
 router.register("video-assets", VideoAssetViewSet, basename="videoasset")
+router.register("tags", TagViewSet, basename="tag")
+router.register("asset-tags", AssetTagViewSet, basename="assettag")
+router.register(
+    "game-completeness", GameCompletenessViewSet, basename="gamecompleteness"
+)
 
 game_nested_urls = [
     path(
