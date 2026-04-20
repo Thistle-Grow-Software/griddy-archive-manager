@@ -34,6 +34,7 @@ from archive.api.viewsets.team import TeamViewSet
 from archive.api.viewsets.team_affiliation import TeamAffiliationViewSet
 from archive.api.viewsets.team_venue_occupancy import TeamVenueOccupancyViewSet
 from archive.api.viewsets.venue import VenueViewSet
+from archive.api.viewsets.video_asset import VideoAssetViewSet
 
 router = DefaultRouter()
 router.register("leagues", LeagueViewSet, basename="league")
@@ -52,6 +53,7 @@ router.register("games", GameViewSet, basename="game")
 router.register("standings", TeamStandingsSnapshotViewSet, basename="standings")
 router.register("sources", SourceViewSet, basename="source")
 router.register("acquisitions", AcquisitionViewSet, basename="acquisition")
+router.register("video-assets", VideoAssetViewSet, basename="videoasset")
 
 game_nested_urls = [
     path(
