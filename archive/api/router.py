@@ -24,6 +24,7 @@ from archive.api.viewsets.game_nested import (
 )
 from archive.api.viewsets.league import LeagueViewSet
 from archive.api.viewsets.org_unit import OrgUnitViewSet
+from archive.api.viewsets.play import GamePlayViewSet
 from archive.api.viewsets.season import SeasonViewSet
 from archive.api.viewsets.team import TeamViewSet
 from archive.api.viewsets.team_affiliation import TeamAffiliationViewSet
@@ -110,6 +111,16 @@ game_nested_urls = [
         "games/<int:game_pk>/boxscores/returns/",
         ReturnBoxscoreViewSet.as_view({"get": "list", "post": "create"}),
         name="game-boxscores-returns",
+    ),
+    path(
+        "games/<int:game_pk>/plays/",
+        GamePlayViewSet.as_view({"get": "list", "post": "create"}),
+        name="game-plays-list",
+    ),
+    path(
+        "games/<int:game_pk>/plays/<int:pk>/",
+        GamePlayViewSet.as_view({"get": "retrieve"}),
+        name="game-plays-detail",
     ),
 ]
 
