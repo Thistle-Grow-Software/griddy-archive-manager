@@ -1,6 +1,7 @@
 from rest_framework.routers import DefaultRouter
 
 from archive.api.viewsets.franchise import FranchiseViewSet
+from archive.api.viewsets.game import GameViewSet
 from archive.api.viewsets.league import LeagueViewSet
 from archive.api.viewsets.org_unit import OrgUnitViewSet
 from archive.api.viewsets.season import SeasonViewSet
@@ -22,5 +23,6 @@ router.register(
     TeamVenueOccupancyViewSet,
     basename="teamvenueoccupancy",
 )
+router.register("games", GameViewSet, basename="game")
 
 urlpatterns = router.urls
