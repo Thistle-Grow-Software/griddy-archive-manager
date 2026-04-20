@@ -1,6 +1,7 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 
+from archive.api.viewsets.acquisition import AcquisitionViewSet
 from archive.api.viewsets.boxscore import (
     FumblesBoxscoreViewSet,
     PassingBoxscoreViewSet,
@@ -27,6 +28,7 @@ from archive.api.viewsets.org_unit import OrgUnitViewSet
 from archive.api.viewsets.play import GamePlayViewSet
 from archive.api.viewsets.play_stat import PlayStatViewSet
 from archive.api.viewsets.season import SeasonViewSet
+from archive.api.viewsets.source import SourceViewSet
 from archive.api.viewsets.standings import TeamStandingsSnapshotViewSet
 from archive.api.viewsets.team import TeamViewSet
 from archive.api.viewsets.team_affiliation import TeamAffiliationViewSet
@@ -48,6 +50,8 @@ router.register(
 )
 router.register("games", GameViewSet, basename="game")
 router.register("standings", TeamStandingsSnapshotViewSet, basename="standings")
+router.register("sources", SourceViewSet, basename="source")
+router.register("acquisitions", AcquisitionViewSet, basename="acquisition")
 
 game_nested_urls = [
     path(
