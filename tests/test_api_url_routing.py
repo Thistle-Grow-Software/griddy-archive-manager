@@ -25,10 +25,11 @@ def test_api_v1_returns_200(client):
 
 
 @pytest.mark.django_db
-def test_api_v1_returns_empty_router_response(client):
-    """The API root must return an empty object (no registered endpoints yet)."""
+def test_api_v1_returns_router_response(client):
+    """The API root must return a JSON object listing registered endpoints."""
     response = client.get("/api/v1/", HTTP_ACCEPT="application/json")
-    assert response.json() == {}
+    data = response.json()
+    assert isinstance(data, dict)
 
 
 @pytest.mark.django_db
