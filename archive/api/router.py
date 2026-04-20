@@ -1,7 +1,13 @@
+from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 from archive.api.viewsets.franchise import FranchiseViewSet
 from archive.api.viewsets.game import GameViewSet
+from archive.api.viewsets.game_nested import (
+    GameDriveViewSet,
+    GameQuarterScoreViewSet,
+    GameReplayViewSet,
+)
 from archive.api.viewsets.league import LeagueViewSet
 from archive.api.viewsets.org_unit import OrgUnitViewSet
 from archive.api.viewsets.season import SeasonViewSet
@@ -25,4 +31,22 @@ router.register(
 )
 router.register("games", GameViewSet, basename="game")
 
-urlpatterns = router.urls
+game_nested_urls = [
+    path(
+        "games/<int:game_pk>/quarter-scores/",
+        GameQuarterScoreViewSet.as_view({"get": "list", "post": "create"}),
+        name="game-quarter-scores",
+    ),
+    path(
+        "games/<int:game_pk>/drives/",
+        GameDriveViewSet.as_view({"get": "list", "post": "create"}),
+        name="game-drives",
+    ),
+    path(
+        "games/<int:game_pk>/replays/",
+        GameReplayViewSet.as_view({"get": "list", "post": "create"}),
+        name="game-replays",
+    ),
+]
+
+urlpatterns = router.urls + game_nested_urls
