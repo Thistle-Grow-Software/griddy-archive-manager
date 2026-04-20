@@ -195,16 +195,23 @@ REST_FRAMEWORK = {
         "rest_framework.filters.SearchFilter",
         "rest_framework.filters.OrderingFilter",
     ],
-    # "DEFAULT_AUTHENTICATION_CLASSES": [
-    #     # TODO: Decide on this
-    # ]
-    # "DEFAULT_PERMISSION_CLASSES": [
-    #     # TODO: Decide on this
-    # ]
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.BasicAuthentication",
+    ],
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
+    ],
     "DEFAULT_RENDERER_CLASSES": [
         "rest_framework.renderers.JSONRenderer",
         "rest_framework.renderers.BrowsableAPIRenderer",
     ],
-    # "DEFAULT_THROTTLE_CLASSES": [],
-    # "DEFAULT_THROTTLE_RATES": []
+    "DEFAULT_THROTTLE_CLASSES": [
+        "rest_framework.throttling.AnonRateThrottle",
+        "rest_framework.throttling.UserRateThrottle",
+    ],
+    "DEFAULT_THROTTLE_RATES": {
+        "anon": "100/hour",
+        "user": "1000/hour",
+    },
 }
