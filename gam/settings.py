@@ -131,6 +131,11 @@ MEDIA_ROOT = os.getenv("MEDIA_ROOT")
 GRIDDY_NFL_EMAIL = os.getenv("GRIDDY_NFL_EMAIL")
 GRIDDY_NFL_PASSWORD = os.getenv("GRIDDY_NFL_PASSWORD")
 
+# JWT / JWKS authentication — IdP-agnostic (works with Clerk, Auth0, etc.)
+JWKS_URL = os.getenv("JWKS_URL")
+JWT_AUDIENCE = os.getenv("JWT_AUDIENCE")
+JWT_ISSUER = os.getenv("JWT_ISSUER")
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/6.0/ref/settings/#default-auto-field
 
