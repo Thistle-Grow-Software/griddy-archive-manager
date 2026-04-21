@@ -20,6 +20,7 @@ from archive.models import Game, Play
 class GamePlayViewSet(
     ListModelMixin, CreateModelMixin, RetrieveModelMixin, GenericViewSet
 ):
+    queryset = Play.objects.none()
     pagination_class = PlayPagination
     filter_backends = [DjangoFilterBackend, OrderingFilter]
     filterset_fields = ["quarter", "play_type", "is_scoring", "possession_team"]

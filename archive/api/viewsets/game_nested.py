@@ -28,6 +28,8 @@ class GameNestedMixin:
 class GameQuarterScoreViewSet(
     GameNestedMixin, ListModelMixin, CreateModelMixin, GenericViewSet
 ):
+    queryset = QuarterScore.objects.none()
+
     def get_queryset(self):
         return QuarterScore.objects.filter(
             game_id=self.kwargs["game_pk"]
@@ -42,6 +44,8 @@ class GameQuarterScoreViewSet(
 class GameDriveViewSet(
     GameNestedMixin, ListModelMixin, CreateModelMixin, GenericViewSet
 ):
+    queryset = Drive.objects.none()
+
     def get_queryset(self):
         return (
             Drive.objects.filter(game_id=self.kwargs["game_pk"])
@@ -58,6 +62,8 @@ class GameDriveViewSet(
 class GameReplayViewSet(
     GameNestedMixin, ListModelMixin, CreateModelMixin, GenericViewSet
 ):
+    queryset = GameReplay.objects.none()
+
     def get_queryset(self):
         return GameReplay.objects.filter(game_id=self.kwargs["game_pk"])
 

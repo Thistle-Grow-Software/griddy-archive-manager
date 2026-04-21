@@ -26,6 +26,8 @@ from archive.models import (
 class FieldGoalsBoxscoreViewSet(
     GameNestedMixin, ListModelMixin, CreateModelMixin, GenericViewSet
 ):
+    queryset = FieldGoalsBoxscore.objects.none()
+
     def get_queryset(self):
         return FieldGoalsBoxscore.objects.filter(
             game_id=self.kwargs["game_pk"]
@@ -40,6 +42,8 @@ class FieldGoalsBoxscoreViewSet(
 class ExtraPointsBoxscoreViewSet(
     GameNestedMixin, ListModelMixin, CreateModelMixin, GenericViewSet
 ):
+    queryset = ExtraPointsBoxscore.objects.none()
+
     def get_queryset(self):
         return ExtraPointsBoxscore.objects.filter(
             game_id=self.kwargs["game_pk"]
@@ -54,6 +58,8 @@ class ExtraPointsBoxscoreViewSet(
 class KickingBoxscoreViewSet(
     GameNestedMixin, ListModelMixin, CreateModelMixin, GenericViewSet
 ):
+    queryset = KickingBoxscore.objects.none()
+
     def get_queryset(self):
         return KickingBoxscore.objects.filter(
             game_id=self.kwargs["game_pk"]
@@ -68,6 +74,8 @@ class KickingBoxscoreViewSet(
 class PuntingBoxscoreViewSet(
     GameNestedMixin, ListModelMixin, CreateModelMixin, GenericViewSet
 ):
+    queryset = PuntingBoxscore.objects.none()
+
     def get_queryset(self):
         return PuntingBoxscore.objects.filter(
             game_id=self.kwargs["game_pk"]
@@ -82,6 +90,8 @@ class PuntingBoxscoreViewSet(
 class ReturnBoxscoreViewSet(
     GameNestedMixin, ListModelMixin, CreateModelMixin, GenericViewSet
 ):
+    queryset = ReturnBoxscore.objects.none()
+
     def get_queryset(self):
         return ReturnBoxscore.objects.filter(
             game_id=self.kwargs["game_pk"]

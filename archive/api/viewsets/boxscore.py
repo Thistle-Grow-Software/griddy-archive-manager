@@ -26,6 +26,8 @@ from archive.models import (
 class PassingBoxscoreViewSet(
     GameNestedMixin, ListModelMixin, CreateModelMixin, GenericViewSet
 ):
+    queryset = PassingBoxscore.objects.none()
+
     def get_queryset(self):
         return PassingBoxscore.objects.filter(
             game_id=self.kwargs["game_pk"]
@@ -40,6 +42,8 @@ class PassingBoxscoreViewSet(
 class RushingBoxscoreViewSet(
     GameNestedMixin, ListModelMixin, CreateModelMixin, GenericViewSet
 ):
+    queryset = RushingBoxscore.objects.none()
+
     def get_queryset(self):
         return RushingBoxscore.objects.filter(
             game_id=self.kwargs["game_pk"]
@@ -54,6 +58,8 @@ class RushingBoxscoreViewSet(
 class ReceivingBoxscoreViewSet(
     GameNestedMixin, ListModelMixin, CreateModelMixin, GenericViewSet
 ):
+    queryset = ReceivingBoxscore.objects.none()
+
     def get_queryset(self):
         return ReceivingBoxscore.objects.filter(
             game_id=self.kwargs["game_pk"]
@@ -68,6 +74,8 @@ class ReceivingBoxscoreViewSet(
 class TacklesBoxscoreViewSet(
     GameNestedMixin, ListModelMixin, CreateModelMixin, GenericViewSet
 ):
+    queryset = TacklesBoxscore.objects.none()
+
     def get_queryset(self):
         return TacklesBoxscore.objects.filter(
             game_id=self.kwargs["game_pk"]
@@ -82,6 +90,8 @@ class TacklesBoxscoreViewSet(
 class FumblesBoxscoreViewSet(
     GameNestedMixin, ListModelMixin, CreateModelMixin, GenericViewSet
 ):
+    queryset = FumblesBoxscore.objects.none()
+
     def get_queryset(self):
         return FumblesBoxscore.objects.filter(
             game_id=self.kwargs["game_pk"]

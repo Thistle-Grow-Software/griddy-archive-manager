@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_extensions",
     "debug_toolbar",
+    "drf_spectacular",
     "rest_framework",
     "django_filters",
     "archive",
@@ -210,6 +211,14 @@ REST_FRAMEWORK = {
         "rest_framework.renderers.JSONRenderer",
         "rest_framework.renderers.BrowsableAPIRenderer",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     # "DEFAULT_THROTTLE_CLASSES": [],
     # "DEFAULT_THROTTLE_RATES": []
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "GAM API",
+    "DESCRIPTION": "REST API for the Griddy Archive Manager",
+    "VERSION": "0.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
 }
