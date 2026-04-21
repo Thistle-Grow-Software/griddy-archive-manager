@@ -10,6 +10,7 @@ from archive.models import Play, PlayStat
 
 
 class PlayStatViewSet(ListModelMixin, CreateModelMixin, GenericViewSet):
+    queryset = PlayStat.objects.none()
     pagination_class = None
 
     def get_play(self):

@@ -1,5 +1,7 @@
+from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
 
+from archive.api.serializers.team import TeamReferenceSerializer
 from archive.models import Franchise
 
 
@@ -26,9 +28,8 @@ class FranchiseDetailSerializer(serializers.ModelSerializer):
             "teams",
         ]
 
+    @extend_schema_field(TeamReferenceSerializer(many=True))
     def get_teams(self, obj):
-        from archive.api.serializers.team import TeamReferenceSerializer
-
         return TeamReferenceSerializer(obj.teams.all(), many=True).data
 
 

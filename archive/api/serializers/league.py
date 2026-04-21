@@ -1,5 +1,7 @@
+from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
 
+from archive.api.serializers.season import SeasonListSerializer
 from archive.models import League
 
 
@@ -28,9 +30,8 @@ class LeagueDetailSerializer(serializers.ModelSerializer):
             "seasons",
         ]
 
+    @extend_schema_field(SeasonListSerializer(many=True))
     def get_seasons(self, obj):
-        from archive.api.serializers.season import SeasonListSerializer
-
         return SeasonListSerializer(obj.seasons.all(), many=True).data
 
 

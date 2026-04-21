@@ -28,3 +28,20 @@ if "debug_toolbar" in settings.INSTALLED_APPS:
     from debug_toolbar.toolbar import debug_toolbar_urls
 
     urlpatterns += debug_toolbar_urls()
+
+if "drf_spectacular" in settings.INSTALLED_APPS:
+    from drf_spectacular.views import (
+        SpectacularAPIView,
+        SpectacularRedocView,
+        SpectacularSwaggerView,
+    )
+
+    urlpatterns += [
+        path("api/v1/schema/", SpectacularAPIView.as_view(), name="schema"),
+        path(
+            "api/v1/schema/swagger-ui/",
+            SpectacularSwaggerView.as_view(),
+            name="swagger-ui",
+        ),
+        path("api/v1/redoc/", SpectacularRedocView.as_view(), name="redoc"),
+    ]
