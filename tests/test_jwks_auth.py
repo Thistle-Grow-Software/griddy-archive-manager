@@ -373,6 +373,104 @@ class TestMisconfiguration:
 # ---------------------------------------------------------------------------
 
 
+# ---------------------------------------------------------------------------
+# Authorized-party enforcement (TGF-315)
+# ---------------------------------------------------------------------------
+
+
+class TestAuthorizedParty:
+    """`azp` claim must match ``JWT_AUTHORIZED_PARTIES`` when configured."""
+
+    def test_missing_setting_skips_check(self, factory, rsa_keypair):
+        """Backwards compat: tokens issued by harnesses without ``azp`` still pass."""
+        token = _encode(rsa_keypair)
+        public_key = rsa_keypair.public_key()
+        request = factory.get("/", HTTP_AUTHORIZATION=f"Bearer {token}")
+        with override_settings(
+            JWKS_URL="http://example.test/jwks",
+            JWT_AUDIENCE=TEST_AUDIENCE,
+            JWT_ISSUER=TEST_ISSUER,
+            JWT_AUTHORIZED_PARTIES=[],
+        ):
+            with _patch_signing_key(public_key):
+                principal, _ = JWKSAuthentication().authenticate(request)
+            assert principal.subject == "user_123"
+
+    def test_matching_azp_accepted(self, factory, rsa_keypair):
+        token = _encode(
+            rsa_keypair,
+            extra_claims={"azp": "http://localhost:3000"},
+        )
+        public_key = rsa_keypair.public_key()
+        request = factory.get("/", HTTP_AUTHORIZATION=f"Bearer {token}")
+        with override_settings(
+            JWKS_URL="http://example.test/jwks",
+            JWT_AUDIENCE=TEST_AUDIENCE,
+            JWT_ISSUER=TEST_ISSUER,
+            JWT_AUTHORIZED_PARTIES=["http://localhost:3000"],
+        ):
+            with _patch_signing_key(public_key):
+                principal, claims = JWKSAuthentication().authenticate(request)
+            assert principal.subject == "user_123"
+            assert claims["azp"] == "http://localhost:3000"
+
+    def test_mismatched_azp_rejected(self, factory, rsa_keypair):
+        token = _encode(
+            rsa_keypair,
+            extra_claims={"azp": "http://evil.example"},
+        )
+        public_key = rsa_keypair.public_key()
+        request = factory.get("/", HTTP_AUTHORIZATION=f"Bearer {token}")
+        with (
+            override_settings(
+                JWKS_URL="http://example.test/jwks",
+                JWT_AUDIENCE=TEST_AUDIENCE,
+                JWT_ISSUER=TEST_ISSUER,
+                JWT_AUTHORIZED_PARTIES=["http://localhost:3000"],
+            ),
+            _patch_signing_key(public_key),
+            pytest.raises(exceptions.AuthenticationFailed, match="authorized party"),
+        ):
+            JWKSAuthentication().authenticate(request)
+
+    def test_missing_azp_rejected_when_configured(self, factory, rsa_keypair):
+        """Tokens without ``azp`` cannot satisfy a non-empty allowlist."""
+        token = _encode(rsa_keypair)
+        public_key = rsa_keypair.public_key()
+        request = factory.get("/", HTTP_AUTHORIZATION=f"Bearer {token}")
+        with (
+            override_settings(
+                JWKS_URL="http://example.test/jwks",
+                JWT_AUDIENCE=TEST_AUDIENCE,
+                JWT_ISSUER=TEST_ISSUER,
+                JWT_AUTHORIZED_PARTIES=["http://localhost:3000"],
+            ),
+            _patch_signing_key(public_key),
+            pytest.raises(exceptions.AuthenticationFailed, match="authorized party"),
+        ):
+            JWKSAuthentication().authenticate(request)
+
+    def test_multiple_allowed_parties(self, factory, rsa_keypair):
+        token = _encode(
+            rsa_keypair,
+            extra_claims={"azp": "https://portal.griddy.test"},
+        )
+        public_key = rsa_keypair.public_key()
+        request = factory.get("/", HTTP_AUTHORIZATION=f"Bearer {token}")
+        with override_settings(
+            JWKS_URL="http://example.test/jwks",
+            JWT_AUDIENCE=TEST_AUDIENCE,
+            JWT_ISSUER=TEST_ISSUER,
+            JWT_AUTHORIZED_PARTIES=[
+                "http://localhost:3000",
+                "https://portal.griddy.test",
+            ],
+        ):
+            with _patch_signing_key(public_key):
+                principal, _ = JWKSAuthentication().authenticate(request)
+            assert principal.subject == "user_123"
+
+
 class TestLocalJWKSHarness:
     """Exercise the full stack via ``scripts/local_jwks_server.py``.
 

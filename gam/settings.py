@@ -132,10 +132,22 @@ MEDIA_ROOT = os.getenv("MEDIA_ROOT")
 GRIDDY_NFL_EMAIL = os.getenv("GRIDDY_NFL_EMAIL")
 GRIDDY_NFL_PASSWORD = os.getenv("GRIDDY_NFL_PASSWORD")
 
-# JWT / JWKS authentication — IdP-agnostic (works with Clerk, Auth0, etc.)
-JWKS_URL = os.getenv("JWKS_URL")
-JWT_AUDIENCE = os.getenv("JWT_AUDIENCE")
-JWT_ISSUER = os.getenv("JWT_ISSUER")
+# JWT / JWKS authentication — IdP-agnostic class fed from Clerk-named env vars.
+# The auth class itself is IdP-agnostic; settings.py is the one place we name the
+# IdP. Swap providers by changing these env vars (and the dashboard/secret-store
+# that owns them) without touching the auth class.
+JWKS_URL = os.getenv("CLERK_JWKS_URL")
+JWT_AUDIENCE = os.getenv("CLERK_AUDIENCE")
+JWT_ISSUER = os.getenv("CLERK_ISSUER")
+JWT_AUTHORIZED_PARTIES = [
+    party.strip()
+    for party in os.getenv("CLERK_AUTHORIZED_PARTIES", "").split(",")
+    if party.strip()
+]
+# Server-side Clerk Backend API key. Loaded from AWS Secrets Manager in
+# deployed envs; .env in dev. Reserved for user-lookup work in TGF-317; not
+# used for token verification.
+CLERK_SECRET_KEY = os.getenv("CLERK_SECRET_KEY")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/6.0/ref/settings/#default-auto-field
@@ -201,9 +213,9 @@ REST_FRAMEWORK = {
         "rest_framework.filters.SearchFilter",
         "rest_framework.filters.OrderingFilter",
     ],
-    # "DEFAULT_AUTHENTICATION_CLASSES": [
-    #     # TODO: Decide on this
-    # ]
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "gam.auth.jwt.JWKSAuthentication",
+    ],
     # "DEFAULT_PERMISSION_CLASSES": [
     #     # TODO: Decide on this
     # ]
