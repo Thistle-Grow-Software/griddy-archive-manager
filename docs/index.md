@@ -38,3 +38,7 @@ See the [Getting Started](getting-started.md) guide for installation and setup i
 ## Architecture
 
 See the [Architecture](architecture.md) page for a detailed description of the data model and scraper hierarchy.
+
+## API Authentication
+
+See [API Authentication](api-authentication.md) for how to obtain a bearer token for the REST API, including a helper script for minting Clerk tokens programmatically.
