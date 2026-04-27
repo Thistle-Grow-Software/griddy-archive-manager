@@ -100,9 +100,23 @@ class JWKSAuthentication(authentication.BaseAuthentication):
         token = self._extract_bearer_token(request)
         if token is None:
             return None
+        if not self._looks_like_jwt(token):
+            # Let other auth classes (e.g. APIKeyAuthentication) handle it.
+            return None
 
         claims = self._decode_token(token)
         return (JWTPrincipal(claims=claims), claims)
+
+    @staticmethod
+    def _looks_like_jwt(token: str) -> bool:
+        """Cheap shape check: a JWT is exactly ``header.payload.signature``.
+
+        Returning ``False`` here yields ``None`` from ``authenticate`` so DRF
+        falls through to the next configured authentication class instead of
+        rejecting the request as a malformed JWT. Without this, a valid API
+        key like ``grd_live_<hex>`` would be eaten by the JWT class.
+        """
+        return token.count(".") == 2
 
     def authenticate_header(self, request: Any) -> str:
         return self.keyword

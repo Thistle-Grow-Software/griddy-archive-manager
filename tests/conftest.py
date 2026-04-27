@@ -12,6 +12,15 @@ from __future__ import annotations
 
 import pytest
 
+# Re-export reusable auth factories so any test module gets them via
+# pytest's standard fixture discovery (no per-file import needed).
+from tests.fixtures.auth import (  # noqa: F401
+    jwks_harness,
+    make_account,
+    make_api_key,
+    mint_jwt,
+)
+
 
 @pytest.fixture(autouse=True)
 def _bypass_api_permissions(request, monkeypatch):

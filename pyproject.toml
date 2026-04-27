@@ -88,4 +88,5 @@ python_functions = ["test_*"]
 addopts = "--no-migrations"
 markers = [
     "enforce_api_permissions: do not bypass HasAPIPermission for this test",
+    "smoke: live external-dependency smoke test; skipped unless explicitly opted in",
 ]
