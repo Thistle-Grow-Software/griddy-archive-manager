@@ -14,9 +14,11 @@ from archive.api.serializers.franchise import (
     FranchiseWriteSerializer,
 )
 from archive.models import Franchise
+from gam.auth.permissions import CatalogPermissionMixin
 
 
 class FranchiseViewSet(
+    CatalogPermissionMixin,
     ListModelMixin,
     CreateModelMixin,
     RetrieveModelMixin,

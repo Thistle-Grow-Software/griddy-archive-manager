@@ -42,3 +42,7 @@ See the [Architecture](architecture.md) page for a detailed description of the d
 ## API Authentication
 
 See [API Authentication](api-authentication.md) for how to obtain a bearer token for the REST API, including a helper script for minting Clerk tokens programmatically.
+
+## Permissions
+
+See [Permission Catalog](auth/permissions.md) for the list of permissions the API recognizes, the `resource:verb` naming convention, and how DRF enforces them.

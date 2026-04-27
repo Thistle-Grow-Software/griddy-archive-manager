@@ -14,9 +14,11 @@ from archive.api.serializers.org_unit import (
     OrgUnitWriteSerializer,
 )
 from archive.models import OrgUnit
+from gam.auth.permissions import CatalogPermissionMixin
 
 
 class OrgUnitViewSet(
+    CatalogPermissionMixin,
     ListModelMixin,
     CreateModelMixin,
     RetrieveModelMixin,

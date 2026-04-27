@@ -86,3 +86,6 @@ python_files = ["tests.py", "test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
 addopts = "--no-migrations"
+markers = [
+    "enforce_api_permissions: do not bypass HasAPIPermission for this test",
+]

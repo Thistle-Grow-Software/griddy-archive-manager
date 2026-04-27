@@ -14,9 +14,11 @@ from archive.api.serializers.league import (
     LeagueWriteSerializer,
 )
 from archive.models import League
+from gam.auth.permissions import CatalogPermissionMixin
 
 
 class LeagueViewSet(
+    CatalogPermissionMixin,
     ListModelMixin,
     CreateModelMixin,
     RetrieveModelMixin,

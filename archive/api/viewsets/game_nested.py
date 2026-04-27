@@ -11,9 +11,10 @@ from archive.api.serializers.game_nested import (
     QuarterScoreWriteSerializer,
 )
 from archive.models import Drive, Game, GameReplay, QuarterScore
+from gam.auth.permissions import CatalogPermissionMixin
 
 
-class GameNestedMixin:
+class GameNestedMixin(CatalogPermissionMixin):
     """Mixin that scopes querysets to the parent game from the URL."""
 
     pagination_class = None  # Nested endpoints return all results for a single game

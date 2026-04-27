@@ -14,9 +14,11 @@ from archive.api.serializers.team_venue_occupancy import (
     TeamVenueOccupancyWriteSerializer,
 )
 from archive.models import TeamVenueOccupancy
+from gam.auth.permissions import CatalogPermissionMixin
 
 
 class TeamVenueOccupancyViewSet(
+    CatalogPermissionMixin,
     ListModelMixin,
     CreateModelMixin,
     RetrieveModelMixin,

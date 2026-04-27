@@ -8,16 +8,21 @@ from archive.api.serializers.tag import (
     TagSerializer,
 )
 from archive.models import AssetTag, Tag
+from gam.auth.permissions import HoldingsPermissionMixin
 
 
-class TagViewSet(ModelViewSet):
+class TagViewSet(HoldingsPermissionMixin, ModelViewSet):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
     pagination_class = DefaultCursorPagination
 
 
 class AssetTagViewSet(
-    ListModelMixin, CreateModelMixin, DestroyModelMixin, GenericViewSet
+    HoldingsPermissionMixin,
+    ListModelMixin,
+    CreateModelMixin,
+    DestroyModelMixin,
+    GenericViewSet,
 ):
     pagination_class = DefaultCursorPagination
 
