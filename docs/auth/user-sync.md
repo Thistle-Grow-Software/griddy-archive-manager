@@ -1,4 +1,10 @@
-# Lazy User Sync
+# Lazy User Sync (Internal)
+
+!!! note "Audience"
+
+    This page is for **GAM contributors** writing Django views/serializers
+    that need a persisted user row. API consumers don't need to read it —
+    use [API Authentication](index.md) instead.
 
 Authenticated requests carry a validated JWT. Most reads only need the
 claims — and we want those reads to stay free of database hits. This page

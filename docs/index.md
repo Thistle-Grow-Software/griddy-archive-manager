@@ -41,16 +41,9 @@ See the [Architecture](architecture.md) page for a detailed description of the d
 
 ## API Authentication
 
-See [API Authentication](api-authentication.md) for how to obtain a bearer token for the REST API, including a helper script for minting Clerk tokens programmatically.
+The Griddy API supports two auth paths: short-lived Clerk-issued JWTs for end-user apps, and long-lived API keys for SDK and machine-to-machine access. Start with the [API Authentication overview](auth/index.md) to pick the right one, then follow the guide:
 
-## Permissions
-
-See [Permission Catalog](auth/permissions.md) for the list of permissions the API recognizes, the `resource:verb` naming convention, and how DRF enforces them.
-
-## User sync
-
-See [Lazy User Sync](auth/user-sync.md) for the pattern that maps Clerk JWT identities to Django `User` rows on demand, including when to use the lightweight principal vs. when to upgrade.
-
-## API keys
-
-See [API Keys](auth/api-keys.md) for the SDK / machine-to-machine auth path: token format, hashing, scopes, lifecycle, and the privilege-escalation guard.
+- [JWT (End-User Apps)](auth/jwt.md) — for browser-driven access where a real user signs in.
+- [API Keys (SDK / M2M)](auth/api-keys.md) — for backend, CI, and SDK integrations.
+- [Permissions](auth/permissions.md) — the catalog of permission strings, identical for both paths.
+- [Errors & Troubleshooting](auth/errors.md) — what `401` vs `403` mean, common causes, and a debugging walkthrough.

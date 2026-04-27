@@ -1,9 +1,9 @@
 # API Keys
 
-API keys are the auth path for **SDK** and **machine-to-machine** access —
-developers calling the Griddy API from their own backend with no end-user
-in the loop. Browser-driven access continues to use Clerk JWTs (see
-[API Authentication](../api-authentication.md)).
+API keys are the auth path for **SDK** and **machine-to-machine**
+access — code calling the Griddy API from your own backend, a CI job,
+or any context with no end user in the loop. If your code is acting on
+behalf of a signed-in user, see [JWT Authentication](jwt.md) instead.
 
 ## Token format
 
@@ -11,132 +11,182 @@ in the loop. Browser-driven access continues to use Clerk JWTs (see
 grd_{environment}_{48 hex chars}
 ```
 
-- `environment` is `live` or `test`. Test keys signal "ok to embed in CI
-  fixtures, dev sandboxes, demo recordings"; live keys signal "production
-  credentials, treat carefully."
-- The 48-hex-char body is `secrets.token_hex(24)` — 192 bits of entropy.
-- Total length is ~57 chars. The `grd_` scheme prefix is intentional so
-  leaked credentials are easy to spot in source code, log dumps, and
-  GitHub's secret scanner.
+- `environment` is `live` or `test`. Test keys are an intent signal —
+  "ok to embed in CI fixtures, dev sandboxes, demo recordings." Live
+  keys signal production credentials and should be treated as such.
+  Both hit the same database; the prefix is informational, not
+  isolating.
+- 48 hex chars = 192 bits of entropy.
+- The `grd_` scheme prefix is intentional so leaked credentials are
+  easy to spot in source code, log dumps, and GitHub's secret scanner.
 
 Example: `grd_live_a1b2c3d4e5f607182930414253647586a7b8c9d0e1f20304`.
 
-## Storage model
+## Issuing a key
 
-Only the **hash** of the token lives in the database. The plaintext is
-returned exactly once at issuance and never recoverable.
-
-```
-APIKey
-├── account       (FK → ClerkAccount)
-├── name          (operator-facing label)
-├── environment   (live | test)
-├── key_prefix    (indexed, ~17 chars: `grd_{env}_{first 8 hex}`)
-├── key_hash      (SHA-256 of full plaintext, hex)
-├── scopes        (JSON list using the TGF-316 catalog)
-├── created_at
-├── last_used_at  (deferred, throttled — see below)
-├── expires_at    (optional)
-└── revoked_at    (optional)
-```
-
-We use SHA-256, not bcrypt/argon2, because the input is high-entropy
-random — a slow KDF only buys you anything when the input is a
-low-entropy human password. Brute-forcing a 192-bit key against a stored
-hash is not the threat model.
-
-## Authentication flow
-
-`gam.auth.api_key.APIKeyAuthentication` sits in
-`DEFAULT_AUTHENTICATION_CLASSES` alongside `JWKSAuthentication`. Both
-accept `Authorization: Bearer <token>`; each returns `None` for tokens
-that don't match its scheme so the next class can try:
-
-1. Token starts with `grd_` → API key path. Otherwise → JWT path.
-2. Strict regex check on shape; malformed tokens fail fast.
-3. Compute `key_prefix` from the presented secret, look up candidates by
-   the indexed prefix column.
-4. SHA-256 the full token and compare against each candidate's `key_hash`
-   using `hmac.compare_digest` (constant time — no timing leak about
-   which candidate matched).
-5. Reject revoked or expired keys with `AuthenticationFailed`.
-6. On success, set `request.user = ClerkAccount` and `request.auth =
-   APIKey`. Permission checks read scopes off `request.auth.scopes`.
-
-## Scopes
-
-API key scopes use the **same string catalog** as JWT permissions
-(`catalog:read`, `catalog:write`, `holdings:read`, `holdings:write` —
-see [Permission Catalog](permissions.md)). `HasAPIPermission` accepts
-permissions from either source — viewsets don't need to know which auth
-path the request came in on.
-
-Issue keys with the minimum scope an integration actually needs.
-Read-only dashboards get `["catalog:read"]`; ingestion pipelines get
-read + write for the relevant domain. Avoid issuing all four on a key
-that only needs one.
-
-## Lifecycle
-
-### Issuance
+### Via the API
 
 ```bash
-POST /api/v1/api-keys/
+curl -X POST https://api.griddy.test/api/v1/api-keys/ \
+  -H "Authorization: Bearer $CLERK_SESSION_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "CI server",
+    "environment": "live",
+    "scopes": ["catalog:read"],
+    "expires_at": "2027-01-01T00:00:00Z"
+  }'
+```
+
+Response:
+
+```json
 {
-  "name": "CI server",
-  "environment": "live",
-  "scopes": ["catalog:read"],
-  "expires_at": "2027-01-01T00:00:00Z"   // optional
+  "api_key": {
+    "id": 42,
+    "name": "CI server",
+    "environment": "live",
+    "key_prefix": "grd_live_a1b2c3d4",
+    "scopes": ["catalog:read"],
+    "created_at": "2026-04-27T13:00:00Z",
+    "last_used_at": null,
+    "expires_at": "2027-01-01T00:00:00Z",
+    "revoked_at": null,
+    "is_active": true
+  },
+  "plaintext": "grd_live_a1b2c3d4e5f607182930414253647586a7b8c9d0e1f20304",
+  "warning": "Store this token now — it will not be shown again. If you lose it, revoke this key and issue a new one."
 }
 ```
 
-Response includes the plaintext token under `plaintext` and a `warning`
-field reminding the operator it will not be shown again.
+The plaintext token is in the `plaintext` field. It is shown **exactly
+once** — there's no API for retrieving it later. If you lose it,
+revoke the key and issue a new one.
 
-### Revocation
+Issuance requires a Clerk session token, not another API key. This is a
+deliberate guard against privilege escalation — see
+[Why API keys can't manage other API keys](#why-api-keys-cant-manage-other-api-keys).
+
+### Via the dashboard (when available)
+
+A dashboard for issuing and managing keys is in flight (TGF-343). Until
+it ships, use the API directly.
+
+## Using a key
 
 ```bash
-POST /api/v1/api-keys/{id}/revoke/
+curl -H "Authorization: Bearer grd_live_..." \
+     https://api.griddy.test/api/v1/leagues/
 ```
 
-Idempotent — calling it on an already-revoked key returns `200` with the
-existing `revoked_at`. Once revoked, the next request bearing that
-token gets `401 API key has been revoked.`
+Same header, same shape, same endpoint set as JWT auth. The server
+picks the right verifier based on the `grd_` prefix.
 
-### Last-used tracking
+```python
+import os
+import requests
 
-`last_used_at` updates are deferred via `transaction.on_commit` and
-throttled to at most one write per key per
-`LAST_USED_THROTTLE_SECONDS` (default 60s). The throttle lives in a
-single conditional `UPDATE`, so a high-RPS key produces at most one
-write per minute regardless of request rate.
+response = requests.get(
+    "https://api.griddy.test/api/v1/leagues/",
+    headers={"Authorization": f"Bearer {os.environ['GRIDDY_API_KEY']}"},
+    timeout=10,
+)
+response.raise_for_status()
+print(response.json())
+```
 
-## Privilege escalation guard
+```typescript
+const response = await fetch("https://api.griddy.test/api/v1/leagues/", {
+  headers: {
+    Authorization: `Bearer ${process.env.GRIDDY_API_KEY}`,
+  },
+});
+const data = await response.json();
+```
 
-API keys **cannot manage other API keys**. The `/api/v1/api-keys/`
-endpoints require a Clerk JWT principal (`IsJWTPrincipal` permission
-class). A stolen or leaked key cannot be used to mint replacement keys
-or hide its tracks — the legitimate account holder must sign in via
-Clerk to do that.
+Always source the token from an environment variable or a secrets
+manager. Never check it into a repo, even briefly — GitHub's secret
+scanner will flag the `grd_` prefix and revoke it on push.
 
-## When to use which auth
+## Listing your keys
 
-| Scenario | Auth path |
+```bash
+curl -H "Authorization: Bearer $CLERK_SESSION_TOKEN" \
+     https://api.griddy.test/api/v1/api-keys/
+```
+
+Returns every key your account owns, **without** the plaintext. You'll
+get the prefix, scopes, and lifecycle timestamps — enough to identify
+which key is which when revoking.
+
+## Revoking
+
+```bash
+curl -X POST https://api.griddy.test/api/v1/api-keys/42/revoke/ \
+  -H "Authorization: Bearer $CLERK_SESSION_TOKEN"
+```
+
+Revocation is **immediate and permanent**. The next request bearing
+that token gets `401 API key has been revoked.` Calling revoke twice
+is idempotent — the second call returns `200` with the existing
+`revoked_at` timestamp.
+
+Revoke a key:
+
+- Before you suspect it's leaked, not after — proactive rotation is
+  the cheap option.
+- Whenever an integration is decommissioned.
+- When an employee with access to the key leaves.
+
+## Scopes
+
+API keys carry scopes from the same catalog as JWT permissions —
+`catalog:read`, `catalog:write`, `holdings:read`, `holdings:write`. See
+[Permissions](permissions.md) for the full list and what each grants.
+
+Issue every key with the **minimum** scope its integration actually
+needs. A read-only dashboard should not get `catalog:write`. A
+data-ingest pipeline that touches only catalog resources should not get
+`holdings:*`.
+
+## Lifecycle
+
+| Field | Meaning |
 |---|---|
-| Browser-driven UI, real end user | Clerk session token (JWT) |
-| SDK call from a developer's backend | API key |
-| CI / CD pipelines | API key (test or live, depending on env) |
-| Internal scripts / data-science notebooks | API key |
-| Webhooks signed by a third-party (future) | HMAC over body, not covered here |
+| `created_at` | When the key was issued. |
+| `last_used_at` | Approximate timestamp of most recent successful authentication. Updates are batched (~1 write per key per minute), so don't rely on second-level precision. |
+| `expires_at` | Optional. Once past, the key is rejected with `401`. |
+| `revoked_at` | Set when revoked. Once set, never unset. |
 
-If the integration impersonates a user, use a JWT. If it acts as the
-account itself, use an API key.
+`is_active` in the response body is a convenience flag —
+`!is_revoked && !is_expired`.
+
+## Why API keys can't manage other API keys
+
+A key cannot mint, list, revoke, or modify keys via `/api/v1/api-keys/`
+— that endpoint requires a Clerk session token (the human account
+owner). The reasoning:
+
+- A leaked key with management scope could mint replacement keys, hide
+  its tracks by revoking and re-issuing, and survive the legitimate
+  owner's revocation attempt.
+- The fix is structural, not scope-based: management endpoints simply
+  don't accept API key auth. Full stop.
+
+If you need a service-to-service flow that includes key management,
+that's a higher-trust pattern (e.g., a signed admin token from your
+own auth server) — not something to bolt onto API key scopes.
 
 ## Operational notes
 
-- Rotate keys before they're suspected of being leaked, not after. The
-  cost is one CI redeploy.
-- Treat test keys like passwords too — they hit a real DB; `test` is a
-  signal about *intent*, not isolation.
-- Keys are scoped to the requesting `ClerkAccount`. Cross-account access
-  requires a separate key issued by that account's owner.
+- **Rotate before you're sure you need to.** The cost of rotation is
+  one CI redeploy; the cost of a leaked-and-not-rotated key is
+  proportional to how long it's been leaked.
+- **Test keys are not isolated.** They share the same database and
+  permission model as live keys. The `test` prefix is for *intent*
+  ("ok to share in screenshots") not for sandboxing.
+- **One key per integration.** Resist the urge to share a key across
+  multiple consumers — it makes revocation surgical instead of
+  cataclysmic when you need to remove access for one of them.
+- **Never log the plaintext.** Log `key_prefix` if you need to
+  correlate; the prefix uniquely identifies a key without exposing it.
