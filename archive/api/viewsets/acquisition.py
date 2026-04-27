@@ -8,9 +8,10 @@ from archive.api.serializers.acquisition import (
     AcquisitionWriteSerializer,
 )
 from archive.models import Acquisition
+from gam.auth.permissions import HoldingsPermissionMixin
 
 
-class AcquisitionViewSet(ModelViewSet):
+class AcquisitionViewSet(HoldingsPermissionMixin, ModelViewSet):
     pagination_class = DefaultCursorPagination
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ["source", "rights"]

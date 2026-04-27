@@ -20,9 +20,11 @@ from archive.api.serializers.team import (
 )
 from archive.api.serializers.venue import VenueDetailSerializer
 from archive.models import Game, Team, TeamVenueOccupancy
+from gam.auth.permissions import CatalogPermissionMixin
 
 
 class TeamViewSet(
+    CatalogPermissionMixin,
     ListModelMixin,
     CreateModelMixin,
     RetrieveModelMixin,

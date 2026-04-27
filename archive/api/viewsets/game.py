@@ -35,9 +35,11 @@ from archive.models import (
     RushingBoxscore,
     TacklesBoxscore,
 )
+from gam.auth.permissions import CatalogPermissionMixin
 
 
 class GameViewSet(
+    CatalogPermissionMixin,
     ListModelMixin,
     CreateModelMixin,
     RetrieveModelMixin,

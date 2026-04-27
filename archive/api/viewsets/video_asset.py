@@ -11,6 +11,7 @@ from archive.api.serializers.video_asset import (
     VideoAssetWriteSerializer,
 )
 from archive.models import VideoAsset
+from gam.auth.permissions import HoldingsPermissionMixin
 
 
 class VideoAssetPagination(CursorPagination):
@@ -18,7 +19,7 @@ class VideoAssetPagination(CursorPagination):
     ordering = "-created_at"
 
 
-class VideoAssetViewSet(ModelViewSet):
+class VideoAssetViewSet(HoldingsPermissionMixin, ModelViewSet):
     pagination_class = VideoAssetPagination
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = ["game", "asset_type", "quality_tier", "is_preferred"]

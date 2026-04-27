@@ -11,6 +11,7 @@ from archive.api.serializers.standings import (
     TeamStandingsSnapshotWriteSerializer,
 )
 from archive.models import TeamStandingsSnapshot
+from gam.auth.permissions import CatalogPermissionMixin
 
 
 class StandingsFilter(django_filters.FilterSet):
@@ -22,7 +23,11 @@ class StandingsFilter(django_filters.FilterSet):
 
 
 class TeamStandingsSnapshotViewSet(
-    ListModelMixin, CreateModelMixin, RetrieveModelMixin, GenericViewSet
+    CatalogPermissionMixin,
+    ListModelMixin,
+    CreateModelMixin,
+    RetrieveModelMixin,
+    GenericViewSet,
 ):
     pagination_class = DefaultCursorPagination
     filter_backends = [DjangoFilterBackend, OrderingFilter]

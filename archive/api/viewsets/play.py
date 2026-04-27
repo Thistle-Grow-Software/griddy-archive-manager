@@ -15,10 +15,15 @@ from archive.api.serializers.play import (
     PlayWriteSerializer,
 )
 from archive.models import Game, Play
+from gam.auth.permissions import CatalogPermissionMixin
 
 
 class GamePlayViewSet(
-    ListModelMixin, CreateModelMixin, RetrieveModelMixin, GenericViewSet
+    CatalogPermissionMixin,
+    ListModelMixin,
+    CreateModelMixin,
+    RetrieveModelMixin,
+    GenericViewSet,
 ):
     queryset = Play.objects.none()
     pagination_class = PlayPagination

@@ -7,9 +7,12 @@ from archive.api.serializers.play_stat import (
     PlayStatWriteSerializer,
 )
 from archive.models import Play, PlayStat
+from gam.auth.permissions import CatalogPermissionMixin
 
 
-class PlayStatViewSet(ListModelMixin, CreateModelMixin, GenericViewSet):
+class PlayStatViewSet(
+    CatalogPermissionMixin, ListModelMixin, CreateModelMixin, GenericViewSet
+):
     queryset = PlayStat.objects.none()
     pagination_class = None
 

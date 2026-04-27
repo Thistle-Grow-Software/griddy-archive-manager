@@ -7,9 +7,10 @@ from archive.api.serializers.source import (
     SourceWriteSerializer,
 )
 from archive.models import Source
+from gam.auth.permissions import HoldingsPermissionMixin
 
 
-class SourceViewSet(ModelViewSet):
+class SourceViewSet(HoldingsPermissionMixin, ModelViewSet):
     queryset = Source.objects.all()
     pagination_class = DefaultCursorPagination
 

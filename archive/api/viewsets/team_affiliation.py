@@ -14,9 +14,11 @@ from archive.api.serializers.team_affiliation import (
     TeamAffiliationWriteSerializer,
 )
 from archive.models import TeamAffiliation
+from gam.auth.permissions import CatalogPermissionMixin
 
 
 class TeamAffiliationViewSet(
+    CatalogPermissionMixin,
     ListModelMixin,
     CreateModelMixin,
     RetrieveModelMixin,

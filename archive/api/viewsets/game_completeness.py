@@ -14,9 +14,11 @@ from archive.api.serializers.game_completeness import (
     GameCompletenessWriteSerializer,
 )
 from archive.models import GameCompleteness
+from gam.auth.permissions import CatalogPermissionMixin
 
 
 class GameCompletenessViewSet(
+    CatalogPermissionMixin,
     ListModelMixin,
     CreateModelMixin,
     RetrieveModelMixin,

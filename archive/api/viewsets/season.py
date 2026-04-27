@@ -14,9 +14,11 @@ from archive.api.serializers.season import (
     SeasonWriteSerializer,
 )
 from archive.models import Season
+from gam.auth.permissions import CatalogPermissionMixin
 
 
 class SeasonViewSet(
+    CatalogPermissionMixin,
     ListModelMixin,
     CreateModelMixin,
     RetrieveModelMixin,

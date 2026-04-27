@@ -15,9 +15,11 @@ from archive.api.serializers.venue import (
     VenueWriteSerializer,
 )
 from archive.models import Venue
+from gam.auth.permissions import CatalogPermissionMixin
 
 
 class VenueViewSet(
+    CatalogPermissionMixin,
     ListModelMixin,
     CreateModelMixin,
     RetrieveModelMixin,
