@@ -258,8 +258,22 @@ class TestInvalidTokens:
         ):
             JWKSAuthentication().authenticate(request)
 
-    def test_malformed_token_rejected(self, factory, rsa_keypair):
+    def test_non_jwt_shape_returns_none(self, factory, rsa_keypair):
+        """Tokens that don't look like JWTs are passed to the next auth class.
+
+        After TGF-319, JWKSAuthentication only owns tokens with the
+        ``header.payload.signature`` shape. Anything else (API keys,
+        garbage) returns ``None`` so DRF can try the next class.
+        """
         request = factory.get("/", HTTP_AUTHORIZATION="Bearer not-a-real-jwt")
+
+        with _patch_signing_key(rsa_keypair.public_key()):
+            assert JWKSAuthentication().authenticate(request) is None
+
+    def test_jwt_shape_but_garbage_payload_rejected(self, factory, rsa_keypair):
+        """Tokens shaped like JWTs (3 dot-separated parts) are still rejected
+        when they fail to decode."""
+        request = factory.get("/", HTTP_AUTHORIZATION="Bearer not.a.realjwt")
 
         with (
             _patch_signing_key(rsa_keypair.public_key()),
