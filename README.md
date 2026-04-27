@@ -62,6 +62,53 @@ The admin interface is available at `http://localhost:8000/admin/`.
 | `GRIDDY_NFL_PASSWORD` | NFL.com password for authenticated scraping |
 | `MEDIA_ROOT` | Directory for uploaded media files (team logos, etc.) |
 | `AWS_CODEARTIFACT_TOKEN` | Authentication token for AWS CodeArtifact |
+| `CLERK_JWKS_URL` | Clerk JWKS endpoint Django fetches public signing keys from |
+| `CLERK_ISSUER` | Clerk Frontend API URL — must equal the `iss` claim on every token |
+| `CLERK_AUDIENCE` | API identifier Clerk stamps into the `aud` claim |
+| `CLERK_AUTHORIZED_PARTIES` | Comma-separated origins allowed in the `azp` claim |
+| `CLERK_SECRET_KEY` | Server-side Clerk Backend API key (loaded from AWS Secrets Manager in deployed envs) |
+
+See `.env.example` for development defaults.
+
+## Authentication
+
+GAM uses [Clerk](https://clerk.com/)-issued JWTs for API authentication, verified via
+the JWKS-based `JWKSAuthentication` class registered as DRF's
+`DEFAULT_AUTHENTICATION_CLASSES`. The auth class itself is IdP-agnostic — it reads
+generic `JWKS_URL`, `JWT_AUDIENCE`, `JWT_ISSUER`, and `JWT_AUTHORIZED_PARTIES`
+settings; `gam/settings.py` is the single place that names Clerk as the provider.
+
+### Smoke-testing against the dev Clerk instance
+
+1. Ensure `.env` is populated from `.env.example`. The dev `CLERK_JWKS_URL`,
+   `CLERK_ISSUER`, and `CLERK_AUDIENCE` already point at the shared
+   `casual-earwig-79` dev instance.
+2. Mint a token from a real Clerk session. Two options:
+   - **Account Portal** — open `https://casual-earwig-79.accounts.dev`, sign in
+     as a test user (provisioned in TGF-314), and copy the `__session` cookie
+     value from the browser DevTools.
+   - **Dashboard impersonation** — Clerk Dashboard → Users → pick a user →
+     "Impersonate user" → grab the session token.
+3. Paste the token into [jwt.io](https://jwt.io) and confirm `aud` matches your
+   `CLERK_AUDIENCE` and `iss` matches `CLERK_ISSUER`.
+4. Hit the API:
+
+   ```bash
+   uv run manage.py runserver
+   curl -H "Authorization: Bearer <token>" \
+        http://127.0.0.1:8000/api/v1/leagues/
+   ```
+
+   A 200 confirms end-to-end token validation. A 401 with
+   `{"detail": "Invalid authorized party."}` means your token's `azp` is not in
+   `CLERK_AUTHORIZED_PARTIES` (likely the portal origin differs from
+   `http://localhost:3000`).
+
+### Local JWKS harness (no Clerk required)
+
+For tests and offline dev, `scripts/local_jwks_server.py` boots a local JWKS
+server and emits a signed token. Leave `CLERK_AUTHORIZED_PARTIES` blank to
+skip the `azp` check when using the harness.
 
 ## Architecture
 

@@ -120,7 +120,7 @@ class JWKSAuthentication(authentication.BaseAuthentication):
 
         try:
             signing_key = _get_jwks_client().get_signing_key_from_jwt(token).key
-            return jwt.decode(
+            claims = jwt.decode(
                 token,
                 signing_key,
                 algorithms=ALLOWED_ALGORITHMS,
@@ -145,3 +145,23 @@ class JWKSAuthentication(authentication.BaseAuthentication):
             ) from exc
         except jwt.PyJWTError as exc:
             raise exceptions.AuthenticationFailed(f"Invalid token: {exc}") from exc
+
+        self._enforce_authorized_party(claims)
+        return claims
+
+    @staticmethod
+    def _enforce_authorized_party(claims: dict[str, Any]) -> None:
+        """Reject tokens whose ``azp`` claim is not in ``JWT_AUTHORIZED_PARTIES``.
+
+        If the setting is empty or unset, the check is skipped — useful for
+        local dev harnesses that issue tokens without an ``azp`` claim. When
+        configured, the claim must be present and exactly match one of the
+        allowed origins; this is what binds a Clerk-issued token to the
+        portal frontend that requested it.
+        """
+        allowed = getattr(settings, "JWT_AUTHORIZED_PARTIES", None) or []
+        if not allowed:
+            return
+        azp = claims.get("azp")
+        if azp not in allowed:
+            raise exceptions.AuthenticationFailed("Invalid authorized party.")
