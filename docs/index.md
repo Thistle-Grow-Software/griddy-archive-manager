@@ -46,3 +46,7 @@ See [API Authentication](api-authentication.md) for how to obtain a bearer token
 ## Permissions
 
 See [Permission Catalog](auth/permissions.md) for the list of permissions the API recognizes, the `resource:verb` naming convention, and how DRF enforces them.
+
+## User sync
+
+See [Lazy User Sync](auth/user-sync.md) for the pattern that maps Clerk JWT identities to Django `User` rows on demand, including when to use the lightweight principal vs. when to upgrade.

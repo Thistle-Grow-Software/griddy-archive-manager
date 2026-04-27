@@ -17,7 +17,7 @@ client refresh cadence tolerates.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from functools import lru_cache
+from functools import cached_property, lru_cache
 from typing import Any
 
 import jwt
@@ -51,6 +51,21 @@ class JWTPrincipal:
     @property
     def subject(self) -> str | None:
         return self.claims.get("sub")
+
+    @cached_property
+    def user(self):
+        """Return the synced Django ``User`` for this principal (DB hit on first access).
+
+        Lazy on purpose: most read-only requests never need a persisted
+        user row. Views that record audits, set FKs, or otherwise integrate
+        with ``django.contrib.auth`` should access this; pure read paths
+        should keep using the principal directly. See
+        :func:`gam.auth.sync.get_or_create_user_from_claims` for the upsert
+        semantics.
+        """
+        from gam.auth.sync import get_or_create_user_from_claims
+
+        return get_or_create_user_from_claims(self.claims)
 
     def __str__(self) -> str:
         return self.subject or "JWTPrincipal"
