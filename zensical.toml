@@ -16,6 +16,14 @@ nav = [
     { "Getting Started" = "getting-started.md" },
     { "Architecture" = "architecture.md" },
     { "Management Commands" = "commands.md" },
+    { "API Authentication" = [
+        { "Overview" = "auth/index.md" },
+        { "JWT (End-User Apps)" = "auth/jwt.md" },
+        { "API Keys (SDK / M2M)" = "auth/api-keys.md" },
+        { "Permissions" = "auth/permissions.md" },
+        { "Errors & Troubleshooting" = "auth/errors.md" },
+        { "Internal: User Sync" = "auth/user-sync.md" },
+    ]},
     { "API Reference" = [
         { "" = "reference/index.md" },
         { "Models" = "reference/models.md" },

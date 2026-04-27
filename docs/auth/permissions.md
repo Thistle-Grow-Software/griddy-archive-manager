@@ -1,90 +1,49 @@
-# Permission Catalog
+# Permissions
 
-This page is the canonical reference for the permissions the Griddy API
-recognizes, the convention used to name them, and how DRF enforces them.
-Once SDK clients depend on these strings they become a public contract —
-treat additions as cheap and removals as breaking.
+Authenticated requests are gated by **permissions** — short string
+identifiers that say "this token may perform this kind of action." Both
+auth paths use the same catalog: JWTs carry permissions in the
+`permissions` claim, API keys carry them in the `scopes` field, and the
+strings — and the endpoints they unlock — are identical either way.
 
-## Naming convention: `resource:verb`
+These strings are a **stable contract**. Once SDK consumers depend on
+them, removals are breaking changes; additions are cheap.
 
-Every permission is named `<resource>:<verb>` (e.g. `catalog:read`).
+## The catalog
 
-**Resource first, verb second.** Three reasons:
+Two domains, two verbs each. Four permissions total.
 
-1. **Sorts and globs naturally.** Listing a token's permissions groups them
-   by data domain, and future wildcard support (`catalog:*`) reads cleanly.
-2. **Verbs grow more often than resources.** New verbs (`export`, `archive`,
-   `restore`) tend to appear inside an existing domain, so resource-first
-   keeps related entries adjacent.
-3. **Colon over dot.** The colon separator matches OAuth scope conventions
-   used by Stripe, Slack, GitHub, and others — easier for SDK consumers to
-   recognize as a permission rather than a method path.
-
-The other two conventions we considered:
-
-- **`verb:resource` (GitHub-style, e.g. `read:catalog`).** Rejected because
-  it groups all read-only access together at the cost of splitting each
-  resource across multiple list positions.
-- **`resource.verb` (Google-style, e.g. `catalog.read`).** Rejected because
-  the dot is also our module-path separator and JSON access notation; using
-  it for permissions invites visual collisions.
-
-## Catalog
-
-The initial set is deliberately small. Two domains, two verbs each:
-
-| Permission | Grants | Enforced on |
+| Permission | Grants | Endpoints |
 |---|---|---|
-| `catalog:read` | List/retrieve catalog resources (leagues, seasons, games, teams, venues, org units, affiliations, standings, plays, boxscores, drives, replays, completeness records). | `LeagueViewSet`, `SeasonViewSet`, `FranchiseViewSet`, `TeamViewSet`, `OrgUnitViewSet`, `TeamAffiliationViewSet`, `VenueViewSet`, `TeamVenueOccupancyViewSet`, `GameViewSet`, `GameCompletenessViewSet`, `TeamStandingsSnapshotViewSet`, `GamePlayViewSet`, `PlayStatViewSet`, all nested boxscore viewsets. |
-| `catalog:write` | Create/update/delete the same resources. | Same viewsets (write actions). |
-| `holdings:read` | List/retrieve holdings resources (sources, acquisitions, video assets, tags, asset tags). | `SourceViewSet`, `AcquisitionViewSet`, `VideoAssetViewSet`, `TagViewSet`, `AssetTagViewSet`. |
-| `holdings:write` | Create/update/delete holdings resources. | Same viewsets (write actions). |
+| `catalog:read` | Read catalog resources — leagues, seasons, games, teams, venues, organizational hierarchy, affiliations, standings, plays, boxscores, drives, replays, completeness records. | `GET` on every catalog endpoint. |
+| `catalog:write` | Create, update, and delete the same resources. | `POST` / `PUT` / `PATCH` / `DELETE` on every catalog endpoint. |
+| `holdings:read` | Read holdings resources — sources, acquisitions, video assets, tags, asset tags. | `GET` on every holdings endpoint. |
+| `holdings:write` | Create, update, and delete the same resources. | `POST` / `PUT` / `PATCH` / `DELETE` on every holdings endpoint. |
 
-The catalog/holdings split mirrors the project's two-domain data model
-described in `archive/CLAUDE.md`. Holdings tend to be more sensitive
-(internal acquisition records, file paths) than catalog data, so we want to
-gate them with separate permissions even when read-only.
+**Catalog** describes football data that exists in the world (games,
+teams, venues). **Holdings** describes what you own (video files,
+acquisition records). Holdings tend to be more sensitive — file paths,
+purchase metadata — so they're gated separately even when read-only.
 
-## Enforcement
+If your token has only `catalog:read`, the holdings endpoints return
+`403` regardless of HTTP method, and vice versa. Read-only access
+doesn't grant write — even within a single domain — so a token with
+`catalog:read` can list leagues but cannot create one.
 
-DRF reads the permission set from the validated JWT's `permissions` claim
-(populated by Clerk — see "JWT template" below). Every viewset that should
-be gated uses one of two mixins from `gam.auth.permissions`:
+## Naming convention
 
-```python
-from gam.auth.permissions import CatalogPermissionMixin, HoldingsPermissionMixin
+Every permission is named `<resource>:<verb>`. The resource comes
+first, the verb second, and the separator is a colon.
 
-class LeagueViewSet(CatalogPermissionMixin, ...):
-    ...
-
-class SourceViewSet(HoldingsPermissionMixin, ...):
-    ...
-```
-
-Each mixin sets `permission_classes = [HasAPIPermission]` and
-`required_permissions` to the appropriate action map.
-:class:`HasAPIPermission` looks up the current DRF action (`list`,
-`retrieve`, `create`, `update`, `partial_update`, `destroy`) in the map; if
-no entry matches, it falls back to the `default` key (used for custom
-`@action` methods).
-
-Override on a single viewset when needed:
-
-```python
-class TeamViewSet(CatalogPermissionMixin, ...):
-    required_permissions = {
-        **CATALOG_PERMISSIONS,
-        "merge": [Permissions.CATALOG_WRITE],  # custom @action
-    }
-```
-
-A view with no `required_permissions` is treated as "no permission
-required" — `HasAPIPermission` returns `True` and other permission classes
-(if any) decide the outcome.
+If you're integrating from elsewhere, expect this convention to extend
+predictably. New verbs (`export`, `archive`, `restore`) will appear
+inside existing domains. New resources will introduce new prefixes.
+Wildcards (`catalog:*`) are not supported today but the format is set
+up for them.
 
 ## Token format
 
-`HasAPIPermission` accepts the `permissions` claim in either form:
+The Griddy API accepts two equivalent shapes for the permissions list:
 
 ```json
 { "permissions": ["catalog:read", "holdings:read"] }
@@ -94,18 +53,17 @@ required" — `HasAPIPermission` returns `True` and other permission classes
 { "permissions": "catalog:read holdings:read" }
 ```
 
-The space-delimited string form mirrors how OAuth `scope` is serialized,
-making it convenient for IdPs that can only emit string claims.
+The space-delimited string form mirrors how OAuth `scope` is serialized
+on the wire, making it convenient for IdPs that can only emit string
+claims. Use whichever your client emits naturally; both are accepted.
 
-## Session token customization (Clerk)
+## Configuring permissions on tokens
 
-The `permissions` claim is **not** populated automatically by Clerk; it
-must be added under **Sessions → Customize session token** in the Clerk
-dashboard. Use the *session token*, not a JWT template — Clerk recommends
-session-token customization whenever you want session-bound data plus
-custom claims, and it has lower latency than custom JWT templates.
+### For JWTs (Clerk)
 
-Suggested claim (reads from user public metadata):
+Add the `permissions` claim under **Sessions → Customize session
+token** in the Clerk dashboard. A common pattern reads from user public
+metadata:
 
 ```json
 {
@@ -113,7 +71,7 @@ Suggested claim (reads from user public metadata):
 }
 ```
 
-Or, if using Clerk Organizations:
+Or for organization-based RBAC:
 
 ```json
 {
@@ -121,32 +79,52 @@ Or, if using Clerk Organizations:
 }
 ```
 
-Reach for a JWT template (Dashboard → JWT Templates) only when you need a
-token with a different shape than Clerk's default session token — e.g.
-for a third-party integration like Supabase or Firebase that requires a
-specific audience/issuer/claim set. Tokens minted from a JWT template
-cannot include session-bound claims like `sid`, `v`, `pla`, or `fea`.
+See [JWT Authentication](jwt.md) for full details, including why the
+session token (not a JWT template) is the right place for this.
 
-Until the session token claim is configured, all gated endpoints will
-return `403` for real Clerk tokens — the local-dev harness
-(`scripts/local_jwks_server.py`) and the `mint_clerk_token.py` script can
-include arbitrary claims for testing.
+### For API keys
 
-## Adding a new permission
+Specify scopes at issuance:
 
-1. Add a constant to :class:`gam.auth.permissions.Permissions`.
-2. Reference it from the appropriate action map (or create a new mixin).
-3. Document it in the table above with what it grants and where it is
-   enforced.
-4. If the permission is meant to be granted by default, update the Clerk
-   session token claim / user metadata so existing tokens carry it.
+```json
+POST /api/v1/api-keys/
+{
+  "name": "Read-only dashboard",
+  "scopes": ["catalog:read"]
+}
+```
 
-Removing a permission is a breaking change for SDK clients — prefer
-deprecating (stop enforcing it, leave it in tokens) over deleting.
+Once issued, scopes cannot be changed. Issue a new key with the
+desired scopes and revoke the old one.
 
-## Out of scope (for now)
+## What "missing permission" looks like
 
-Per-object permissions (e.g. "user X can edit asset Y but not Z") are
-intentionally **not** implemented in this iteration. We expect access
-patterns to clarify before designing object-level rules; revisit once
-SDK consumers and concrete tenancy requirements are in hand.
+If a token authenticates successfully but lacks the required
+permission, the API returns:
+
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{"detail": "Token is missing one or more required permissions."}
+```
+
+A `403` always means *authenticated, but not authorized*. If you're
+seeing it on every request and you expect to have access, check that:
+
+1. The endpoint actually requires what you think it does — write
+   endpoints need `*:write`, not `*:read`.
+2. Your token actually carries the claim you expect — decode it at
+   [jwt.io](https://jwt.io) (for JWTs) or list your API keys to see
+   their scopes.
+3. The catalog/holdings split is intentional — `catalog:read` does not
+   grant access to `/api/v1/sources/`.
+
+See [Errors & Troubleshooting](errors.md) for the full debugging walkthrough.
+
+## What's not in the catalog (yet)
+
+Per-object permissions — "user X can edit asset Y but not asset Z" —
+are intentionally not implemented. The current model is "if you have
+the verb, you have it everywhere within the domain." Revisit when
+multi-tenancy and per-row sharing become real requirements.
