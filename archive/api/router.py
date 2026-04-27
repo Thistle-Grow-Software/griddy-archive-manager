@@ -37,8 +37,10 @@ from archive.api.viewsets.team_affiliation import TeamAffiliationViewSet
 from archive.api.viewsets.team_venue_occupancy import TeamVenueOccupancyViewSet
 from archive.api.viewsets.venue import VenueViewSet
 from archive.api.viewsets.video_asset import VideoAssetViewSet
+from gam.accounts.api.viewsets import APIKeyViewSet
 
 router = DefaultRouter()
+router.register("api-keys", APIKeyViewSet, basename="apikey")
 router.register("leagues", LeagueViewSet, basename="league")
 router.register("seasons", SeasonViewSet, basename="season")
 router.register("franchises", FranchiseViewSet, basename="franchise")

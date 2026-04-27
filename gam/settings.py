@@ -216,6 +216,7 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "gam.auth.jwt.JWKSAuthentication",
+        "gam.auth.api_key.APIKeyAuthentication",
     ],
     # "DEFAULT_PERMISSION_CLASSES": [
     #     # TODO: Decide on this

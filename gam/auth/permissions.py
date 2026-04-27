@@ -101,10 +101,22 @@ class HasAPIPermission(permissions.BasePermission):
 
     @staticmethod
     def _token_permissions(request: Request) -> set[str]:
-        claims = getattr(request, "auth", None) or {}
-        if not isinstance(claims, dict):
+        """Extract permissions from either a JWT claims dict or an APIKey row.
+
+        ``request.auth`` is a ``dict`` for :class:`JWKSAuthentication` and an
+        :class:`gam.accounts.models.APIKey` instance for
+        :class:`gam.auth.api_key.APIKeyAuthentication`. Both surface
+        permissions via the same string catalog (TGF-316), just under
+        different attribute names — JWTs use the ``permissions`` claim,
+        API keys use the ``scopes`` field.
+        """
+        auth = getattr(request, "auth", None)
+        if auth is None:
             return set()
-        return _coerce_permissions(claims.get("permissions"))
+        if isinstance(auth, dict):
+            return _coerce_permissions(auth.get("permissions"))
+        scopes = getattr(auth, "scopes", None)
+        return _coerce_permissions(scopes)
 
     @staticmethod
     def _required_for_action(request: Request, view: APIView) -> set[str]:
