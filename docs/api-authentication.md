@@ -43,11 +43,14 @@ Clerk user and exchanges it for a JWT in two Backend API calls.
 ```bash
 export CLERK_SECRET_KEY=sk_test_...
 
-# Default session token:
+# Default session token (use this for GAM — picks up custom claims you
+# configured under "Customize session token" in the Clerk dashboard):
 python scripts/mint_clerk_token.py --user-id user_2abcDEF...
 
-# Token shaped by a specific Clerk JWT template (matches GAM's audience):
-python scripts/mint_clerk_token.py --user-id user_2abcDEF... --template griddy-api
+# Token shaped by a specific Clerk JWT template — only needed when you
+# want a non-session token shape (third-party integrations like Supabase,
+# Firebase, Convex, etc.). Most GAM use cases do NOT need this.
+python scripts/mint_clerk_token.py --user-id user_2abcDEF... --template my-template
 
 # Inline into a curl call:
 TOKEN=$(python scripts/mint_clerk_token.py --user-id user_2abcDEF...)
@@ -107,8 +110,8 @@ For browser-driven testing or when integrating a real frontend, call
 import { useAuth } from "@clerk/clerk-react";
 
 const { getToken } = useAuth();
-const token = await getToken();              // default session token
-const apiToken = await getToken({ template: "griddy-api" }); // custom template
+const token = await getToken();              // default session token (use this for GAM)
+const supabaseToken = await getToken({ template: "supabase" }); // only for 3rd-party integrations
 ```
 
 Pass the result through as `Authorization: Bearer <token>` on `fetch` calls.
@@ -118,7 +121,7 @@ Pass the result through as `Authorization: Bearer <token>` on `fetch` calls.
 | Symptom | Likely cause |
 |---|---|
 | `Invalid issuer.` | `CLERK_ISSUER` does not match the token's `iss`. |
-| `Invalid audience.` | Token was minted without (or with the wrong) JWT template; set `--template` to one whose audience matches `CLERK_AUDIENCE`. |
+| `Invalid audience.` | `CLERK_AUDIENCE` does not match the token's `aud`. The default Clerk session token's audience is your Clerk Frontend API URL — set `CLERK_AUDIENCE` to that. Only pass `--template` if you've created a custom JWT template specifically to override the audience. |
 | `Invalid authorized party.` | `CLERK_AUTHORIZED_PARTIES` is set but the token's `azp` is missing or not in the list. Backend-API-minted tokens (from `mint_clerk_token.py`) and `local_jwks_server.py` tokens have no `azp` — leave the env var empty for those flows. |
 | `Token has expired.` | Mint a fresh one — Clerk session tokens default to ~60s TTL. |
 | `Unable to resolve signing key` | `CLERK_JWKS_URL` is wrong or unreachable from the Django process. |

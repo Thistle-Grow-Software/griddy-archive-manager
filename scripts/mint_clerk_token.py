@@ -1,5 +1,5 @@
 """
-Mint a Clerk session JWT for a given user via Clerk's Backend API.
+Mint a Clerk session token for a given user via Clerk's Backend API.
 
 Useful for hitting GAM's authenticated DRF endpoints from scripts, ``curl``,
 ``httpie``, or test harnesses without driving a browser sign-in flow.
@@ -7,19 +7,29 @@ Useful for hitting GAM's authenticated DRF endpoints from scripts, ``curl``,
 The script does two Backend API calls:
 
 1. ``POST /v1/sessions`` to create (or reuse) a session for the user.
-2. ``POST /v1/sessions/<session_id>/tokens[/<template>]`` to mint a JWT.
+2. ``POST /v1/sessions/<session_id>/tokens[/<template>]`` to mint a token.
 
 Both calls require ``CLERK_SECRET_KEY``. Direct session creation is permitted
 on Clerk *development* instances; production instances reject it, so this
 script is intended for local dev and CI against a dev instance only.
+
+Without ``--template``, you get the default Clerk **session token**, which
+picks up custom claims you configured under "Customize session token" in
+the Clerk dashboard (e.g. the ``permissions`` claim GAM reads — see
+``docs/auth/permissions.md``). This is what almost all GAM use cases want.
+
+Pass ``--template`` only when you need a token shaped by a custom **JWT
+template** — typically for a third-party integration (Supabase, Firebase,
+Convex, Hasura) that requires a specific audience/issuer/claim set. JWT
+templates cannot include session-bound claims like ``sid``.
 
 Usage::
 
     export CLERK_SECRET_KEY=sk_test_...
     python scripts/mint_clerk_token.py --user-id user_2abcDEF...
 
-    # With a custom JWT template (matches GAM's configured audience):
-    python scripts/mint_clerk_token.py --user-id user_... --template griddy-api
+    # Only when targeting a custom JWT template (e.g. for Supabase):
+    python scripts/mint_clerk_token.py --user-id user_... --template supabase
 
     # Drop straight into a curl call:
     TOKEN=$(python scripts/mint_clerk_token.py --user-id user_...)
@@ -97,8 +107,10 @@ def main(argv: list[str] | None = None) -> int:
         "--template",
         default=None,
         help=(
-            "Optional Clerk JWT template name. Use this when the API expects a "
-            "specific audience or custom claims; omit for the default session token."
+            "Optional Clerk JWT template name. Only set this when targeting a "
+            "third-party integration (Supabase, Firebase, etc.) that requires a "
+            "specific token shape. Omit to get the default session token, which "
+            "is what GAM expects."
         ),
     )
     parser.add_argument(

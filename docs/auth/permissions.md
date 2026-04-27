@@ -97,11 +97,15 @@ required" — `HasAPIPermission` returns `True` and other permission classes
 The space-delimited string form mirrors how OAuth `scope` is serialized,
 making it convenient for IdPs that can only emit string claims.
 
-## JWT template (Clerk)
+## Session token customization (Clerk)
 
 The `permissions` claim is **not** populated automatically by Clerk; it
-must be added to the JWT template in the Clerk dashboard. Suggested
-template snippet (read from organization role + user public metadata):
+must be added under **Sessions → Customize session token** in the Clerk
+dashboard. Use the *session token*, not a JWT template — Clerk recommends
+session-token customization whenever you want session-bound data plus
+custom claims, and it has lower latency than custom JWT templates.
+
+Suggested claim (reads from user public metadata):
 
 ```json
 {
@@ -117,10 +121,16 @@ Or, if using Clerk Organizations:
 }
 ```
 
-Until the template is updated, all gated endpoints will return `403` for
-real Clerk tokens — the local-dev harness (`scripts/local_jwks_server.py`)
-and the `mint_clerk_token.py` script can include arbitrary claims for
-testing.
+Reach for a JWT template (Dashboard → JWT Templates) only when you need a
+token with a different shape than Clerk's default session token — e.g.
+for a third-party integration like Supabase or Firebase that requires a
+specific audience/issuer/claim set. Tokens minted from a JWT template
+cannot include session-bound claims like `sid`, `v`, `pla`, or `fea`.
+
+Until the session token claim is configured, all gated endpoints will
+return `403` for real Clerk tokens — the local-dev harness
+(`scripts/local_jwks_server.py`) and the `mint_clerk_token.py` script can
+include arbitrary claims for testing.
 
 ## Adding a new permission
 
@@ -129,7 +139,7 @@ testing.
 3. Document it in the table above with what it grants and where it is
    enforced.
 4. If the permission is meant to be granted by default, update the Clerk
-   JWT template / user metadata so existing tokens carry it.
+   session token claim / user metadata so existing tokens carry it.
 
 Removing a permission is a breaking change for SDK clients — prefer
 deprecating (stop enforcing it, leave it in tokens) over deleting.
