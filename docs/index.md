@@ -50,3 +50,7 @@ See [Permission Catalog](auth/permissions.md) for the list of permissions the AP
 ## User sync
 
 See [Lazy User Sync](auth/user-sync.md) for the pattern that maps Clerk JWT identities to Django `User` rows on demand, including when to use the lightweight principal vs. when to upgrade.
+
+## API keys
+
+See [API Keys](auth/api-keys.md) for the SDK / machine-to-machine auth path: token format, hashing, scopes, lifecycle, and the privilege-escalation guard.
