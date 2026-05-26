@@ -133,6 +133,21 @@ MEDIA_ROOT = os.getenv("MEDIA_ROOT")
 GRIDDY_NFL_EMAIL = os.getenv("GRIDDY_NFL_EMAIL")
 GRIDDY_NFL_PASSWORD = os.getenv("GRIDDY_NFL_PASSWORD")
 
+# Cloudflare R2 — destination for the batch HLS packaging pipeline (TGF-362,
+# ADR-0008). S3-compatible; the endpoint is https://<account>.r2.cloudflarestorage.com.
+# Production reads the keys from AWS Secrets Manager, not .env.
+R2_BUCKET = os.getenv("R2_BUCKET")
+R2_ENDPOINT_URL = os.getenv("R2_ENDPOINT_URL")
+R2_ACCESS_KEY_ID = os.getenv("R2_ACCESS_KEY_ID")
+R2_SECRET_ACCESS_KEY = os.getenv("R2_SECRET_ACCESS_KEY")
+
+# Default league source trees the packaging pipeline walks when none are passed
+# on the command line. Colon-separated absolute paths (e.g. the four mounts in
+# the TGF-337 catalog report).
+HLS_SOURCE_ROOTS = [
+    p.strip() for p in os.getenv("HLS_SOURCE_ROOTS", "").split(":") if p.strip()
+]
+
 # JWT / JWKS authentication — IdP-agnostic class fed from Clerk-named env vars.
 # The auth class itself is IdP-agnostic; settings.py is the one place we name the
 # IdP. Swap providers by changing these env vars (and the dashboard/secret-store

@@ -1,0 +1,180 @@
+"""Upload packaged HLS output to object storage, idempotently.
+
+The :class:`Uploader` base class implements the idempotency contract once, in
+:meth:`Uploader.sync_dir`: list everything already under a game's prefix, upload
+the freshly packaged files (overwriting), then delete whatever was under the
+prefix but is no longer part of the output. Re-packaging a game therefore leaves
+no orphaned segments behind. Subclasses supply three primitives — list, put,
+delete — so the same logic drives the real Cloudflare R2 backend
+(:class:`R2Uploader`, S3-compatible via boto3) and the
+:class:`InMemoryUploader` used in tests, with no network.
+"""
+
+from __future__ import annotations
+
+import logging
+from abc import ABC, abstractmethod
+from collections.abc import Iterable
+from dataclasses import dataclass
+from pathlib import Path
+
+logger = logging.getLogger("archive")
+
+# Content types for the objects the packager emits. R2/S3 serve whatever is
+# stored, and the player (hls.js) is content-type sensitive for the manifest.
+_CONTENT_TYPES = {
+    ".m3u8": "application/vnd.apple.mpegurl",
+    ".m4s": "video/iso.segment",
+    ".mp4": "video/mp4",
+}
+_DEFAULT_CONTENT_TYPE = "application/octet-stream"
+
+
+def content_type_for(path: Path) -> str:
+    return _CONTENT_TYPES.get(path.suffix.lower(), _DEFAULT_CONTENT_TYPE)
+
+
+@dataclass(frozen=True)
+class SyncResult:
+    """What :meth:`Uploader.sync_dir` did for one prefix."""
+
+    prefix: str
+    uploaded_keys: list[str]
+    deleted_keys: list[str]
+    bytes_uploaded: int
+
+
+def _iter_files(local_dir: Path) -> list[Path]:
+    return sorted(p for p in local_dir.rglob("*") if p.is_file())
+
+
+class Uploader(ABC):
+    """Object-storage backend with an idempotent directory sync."""
+
+    @abstractmethod
+    def list_keys(self, prefix: str) -> set[str]:
+        """Return every existing object key under ``prefix``."""
+
+    @abstractmethod
+    def put_file(self, key: str, local_path: Path, content_type: str) -> int:
+        """Upload ``local_path`` to ``key``; return bytes written."""
+
+    @abstractmethod
+    def delete_keys(self, keys: Iterable[str]) -> None:
+        """Delete the given object keys."""
+
+    def sync_dir(self, prefix: str, local_dir: Path) -> SyncResult:
+        """Mirror ``local_dir`` to ``prefix``, removing orphaned objects.
+
+        Keys are ``{prefix}/{path-relative-to-local_dir}``. Existing objects are
+        overwritten; any object under ``prefix`` not present in this upload is
+        deleted so a re-run never leaves stale segments behind.
+        """
+        existing = self.list_keys(prefix)
+        uploaded: list[str] = []
+        bytes_uploaded = 0
+
+        for path in _iter_files(local_dir):
+            relative = path.relative_to(local_dir).as_posix()
+            key = f"{prefix}/{relative}"
+            bytes_uploaded += self.put_file(key, path, content_type_for(path))
+            uploaded.append(key)
+
+        orphans = sorted(existing - set(uploaded))
+        if orphans:
+            self.delete_keys(orphans)
+
+        logger.debug(
+            "synced %s: %d uploaded, %d deleted, %d bytes",
+            prefix,
+            len(uploaded),
+            len(orphans),
+            bytes_uploaded,
+        )
+        return SyncResult(
+            prefix=prefix,
+            uploaded_keys=uploaded,
+            deleted_keys=orphans,
+            bytes_uploaded=bytes_uploaded,
+        )
+
+
+class InMemoryUploader(Uploader):
+    """In-memory backend for tests: records keys and their sizes."""
+
+    def __init__(self) -> None:
+        self.objects: dict[str, int] = {}
+
+    def list_keys(self, prefix: str) -> set[str]:
+        marker = f"{prefix}/"
+        return {k for k in self.objects if k == prefix or k.startswith(marker)}
+
+    def put_file(self, key: str, local_path: Path, content_type: str) -> int:
+        size = local_path.stat().st_size
+        self.objects[key] = size
+        return size
+
+    def delete_keys(self, keys: Iterable[str]) -> None:
+        for key in keys:
+            self.objects.pop(key, None)
+
+
+class R2Uploader(Uploader):
+    """Cloudflare R2 backend (S3-compatible) backed by boto3.
+
+    boto3 is imported lazily so this module — and the packaging pipeline's unit
+    tests — load without boto3 installed; it is only required to actually push
+    to R2.
+    """
+
+    # R2 ignores the AWS region but boto3 requires one; "auto" is conventional.
+    _REGION = "auto"
+    # S3 deletes are capped at 1000 keys per request.
+    _DELETE_BATCH = 1000
+
+    def __init__(
+        self,
+        *,
+        bucket: str,
+        endpoint_url: str,
+        access_key_id: str,
+        secret_access_key: str,
+    ) -> None:
+        try:
+            import boto3
+        except ImportError as exc:  # pragma: no cover - exercised only without boto3
+            raise RuntimeError(
+                "boto3 is required to upload to R2; install it with `uv sync`"
+            ) from exc
+
+        self.bucket = bucket
+        self._client = boto3.client(
+            "s3",
+            endpoint_url=endpoint_url,
+            aws_access_key_id=access_key_id,
+            aws_secret_access_key=secret_access_key,
+            region_name=self._REGION,
+        )
+
+    def list_keys(self, prefix: str) -> set[str]:
+        keys: set[str] = set()
+        paginator = self._client.get_paginator("list_objects_v2")
+        for page in paginator.paginate(Bucket=self.bucket, Prefix=f"{prefix}/"):
+            for obj in page.get("Contents", []):
+                keys.add(obj["Key"])
+        return keys
+
+    def put_file(self, key: str, local_path: Path, content_type: str) -> int:
+        self._client.upload_file(
+            str(local_path),
+            self.bucket,
+            key,
+            ExtraArgs={"ContentType": content_type},
+        )
+        return local_path.stat().st_size
+
+    def delete_keys(self, keys: Iterable[str]) -> None:
+        batch = [{"Key": k} for k in keys]
+        for start in range(0, len(batch), self._DELETE_BATCH):
+            chunk = batch[start : start + self._DELETE_BATCH]
+            self._client.delete_objects(Bucket=self.bucket, Delete={"Objects": chunk})
