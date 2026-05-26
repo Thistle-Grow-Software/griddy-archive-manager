@@ -120,7 +120,7 @@ def probe_media(path: Path) -> MediaProbe:
     duration = info.get("format", {}).get("duration")
     try:
         duration_seconds = float(duration) if duration is not None else None
-    except (TypeError, ValueError):
+    except TypeError, ValueError:
         duration_seconds = None
 
     return MediaProbe(
