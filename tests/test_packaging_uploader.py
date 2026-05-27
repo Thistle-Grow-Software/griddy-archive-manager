@@ -4,8 +4,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import pytest
+
 from archive.packaging.uploader import (
     InMemoryUploader,
+    WranglerLocalUploader,
     content_type_for,
 )
 
@@ -72,3 +75,91 @@ def test_sync_dir_does_not_touch_other_games(tmp_path):
     # "nfl/2024/" ancestry (prefix matching is boundary-aware).
     uploader.sync_dir("nfl/2024/game-a", _make_bundle(tmp_path / "a2"))
     assert any(k.startswith("nfl/2024/game-b/") for k in uploader.objects)
+
+
+class _RecordingRunner:
+    """Captures the wrangler argv lists instead of executing them."""
+
+    def __init__(self) -> None:
+        self.calls: list[list[str]] = []
+
+    def __call__(self, cmd) -> None:
+        self.calls.append(list(cmd))
+
+
+def test_wrangler_local_put_builds_command(tmp_path):
+    manifest = tmp_path / "master.m3u8"
+    manifest.write_text("#EXTM3U\n")
+    runner = _RecordingRunner()
+    uploader = WranglerLocalUploader(
+        bucket="film", persist_to=".wrangler/state", runner=runner
+    )
+
+    written = uploader.put_file(
+        "nfl/2024/game/master.m3u8", manifest, "application/vnd.apple.mpegurl"
+    )
+
+    assert written == len("#EXTM3U\n")
+    assert runner.calls == [
+        [
+            "npx",
+            "wrangler",
+            "r2",
+            "object",
+            "put",
+            "film/nfl/2024/game/master.m3u8",
+            "--file",
+            str(manifest),
+            "--content-type",
+            "application/vnd.apple.mpegurl",
+            "--local",
+            "--persist-to",
+            ".wrangler/state",
+        ]
+    ]
+
+
+def test_wrangler_local_sync_is_upload_only(tmp_path):
+    bundle = _make_bundle(
+        tmp_path / "bundle", segments=("seg_00000.m4s", "seg_00001.m4s")
+    )
+    runner = _RecordingRunner()
+    uploader = WranglerLocalUploader(bucket="film", runner=runner)
+
+    result = uploader.sync_dir("nfl/2024/game", bundle)
+
+    # One `put` per file (init.mp4, master.m3u8, two segments); never lists/deletes.
+    assert len(runner.calls) == 4
+    assert all(call[4] == "put" for call in runner.calls)
+    assert result.deleted_keys == []
+    assert sorted(result.uploaded_keys) == [
+        "nfl/2024/game/init.mp4",
+        "nfl/2024/game/master.m3u8",
+        "nfl/2024/game/seg_00000.m4s",
+        "nfl/2024/game/seg_00001.m4s",
+    ]
+
+
+def test_wrangler_local_delete_keys_issues_commands():
+    runner = _RecordingRunner()
+    uploader = WranglerLocalUploader(bucket="film", runner=runner)
+
+    uploader.delete_keys(["nfl/2024/game/seg_00099.m4s"])
+
+    assert runner.calls == [
+        [
+            "npx",
+            "wrangler",
+            "r2",
+            "object",
+            "delete",
+            "film/nfl/2024/game/seg_00099.m4s",
+            "--local",
+        ]
+    ]
+
+
+def test_wrangler_local_list_is_unsupported():
+    uploader = WranglerLocalUploader(bucket="film", runner=_RecordingRunner())
+    with pytest.raises(NotImplementedError):
+        uploader.list_keys("nfl/2024/game")

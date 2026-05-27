@@ -92,3 +92,32 @@ def test_rejects_non_positive_segment_duration(tmp_path, settings):
     root.mkdir()
     with pytest.raises(CommandError, match="segment-duration"):
         call_command("package_hls", str(root), "--dry-run", "--segment-duration", "0")
+
+
+def test_local_and_dry_run_are_mutually_exclusive(tmp_path):
+    root = tmp_path / "NFL (1920)"
+    root.mkdir()
+    with pytest.raises(CommandError, match="mutually exclusive"):
+        call_command(
+            "package_hls", str(root), "--dry-run", "--local", "--bucket", "film"
+        )
+
+
+def test_local_requires_a_bucket(tmp_path, settings):
+    root = tmp_path / "NFL (1920)"
+    root.mkdir()
+    settings.R2_BUCKET = None
+    with pytest.raises(CommandError, match="needs a bucket name"):
+        call_command("package_hls", str(root), "--local")
+
+
+def test_builds_local_uploader_when_bucket_given(tmp_path, patched):
+    # Empty root -> zero files -> no wrangler is ever invoked, but the local
+    # uploader is constructed, exercising the --local wiring without the CLI.
+    root = tmp_path / "NFL (1920)"
+    root.mkdir()
+
+    out = StringIO()
+    call_command("package_hls", str(root), "--local", "--bucket", "film", stdout=out)
+    assert "files processed : 0" in out.getvalue()
+    assert "local R2 (Miniflare)" in out.getvalue()

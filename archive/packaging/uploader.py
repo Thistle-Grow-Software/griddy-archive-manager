@@ -13,8 +13,9 @@ delete — so the same logic drives the real Cloudflare R2 backend
 from __future__ import annotations
 
 import logging
+import subprocess
 from abc import ABC, abstractmethod
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable, Sequence
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -178,3 +179,117 @@ class R2Uploader(Uploader):
         for start in range(0, len(batch), self._DELETE_BATCH):
             chunk = batch[start : start + self._DELETE_BATCH]
             self._client.delete_objects(Bucket=self.bucket, Delete={"Objects": chunk})
+
+
+WranglerRunner = Callable[[Sequence[str]], None]
+
+
+class WranglerLocalUploader(Uploader):
+    """Local Miniflare R2 backend for the cost-free PoC (ADR-0008 / TGF-362).
+
+    Loads packaged objects into the same local R2 store ``wrangler dev`` serves
+    by shelling out to ``wrangler r2 object put ... --local``. This is the
+    local-first path that lets the PoC run without provisioning real R2.
+
+    The wrangler CLI exposes only ``get``/``put``/``delete`` for objects — there
+    is no ``list`` (cloudflare/workers-sdk#13008) — so the base class's
+    list-then-delete orphan sweep cannot run here. :meth:`sync_dir` is therefore
+    **upload-only**: a ``put`` overwrites the object at a key, but re-packaging a
+    game into *fewer* segments than a prior run may leave stale ones behind. For
+    the static catalog that is rare and harmless for the PoC, and a prefix can be
+    cleared by hand via :meth:`delete_keys`. The remote :class:`R2Uploader` keeps
+    full idempotency for production (TGF-364).
+
+    ``persist_to`` must match the directory ``wrangler dev`` uses or the Worker
+    will not see the loaded objects (both default to ``.wrangler/state``).
+    ``cwd`` runs wrangler from the Worker project directory so its config and
+    persistence line up.
+    """
+
+    def __init__(
+        self,
+        *,
+        bucket: str,
+        persist_to: Path | str | None = None,
+        command: Sequence[str] = ("npx", "wrangler"),
+        cwd: Path | str | None = None,
+        runner: WranglerRunner | None = None,
+    ) -> None:
+        self.bucket = bucket
+        self._persist_to = Path(persist_to) if persist_to else None
+        self._command = list(command)
+        self._cwd = Path(cwd) if cwd else None
+        self._runner = runner or self._run_subprocess
+
+    def _wrangler(self, *args: str) -> list[str]:
+        cmd = [*self._command, "r2", "object", *args, "--local"]
+        if self._persist_to is not None:
+            cmd += ["--persist-to", str(self._persist_to)]
+        return cmd
+
+    def _run_subprocess(self, cmd: Sequence[str]) -> None:
+        try:
+            subprocess.run(
+                list(cmd),
+                capture_output=True,
+                text=True,
+                check=True,
+                cwd=str(self._cwd) if self._cwd else None,
+            )
+        except FileNotFoundError as exc:  # pragma: no cover - environment-dependent
+            raise RuntimeError(
+                "wrangler executable not found; install it or pass --wrangler-cmd "
+                "/ --wrangler-cwd pointing at the Worker project"
+            ) from exc
+        except subprocess.CalledProcessError as exc:  # pragma: no cover
+            raise RuntimeError(f"wrangler failed: {exc.stderr}") from exc
+
+    def list_keys(self, prefix: str) -> set[str]:
+        raise NotImplementedError(
+            "the wrangler CLI cannot list R2 objects "
+            "(cloudflare/workers-sdk#13008); local sync is upload-only"
+        )
+
+    def put_file(self, key: str, local_path: Path, content_type: str) -> int:
+        self._runner(
+            self._wrangler(
+                "put",
+                f"{self.bucket}/{key}",
+                "--file",
+                str(local_path),
+                "--content-type",
+                content_type,
+            )
+        )
+        return local_path.stat().st_size
+
+    def delete_keys(self, keys: Iterable[str]) -> None:
+        for key in keys:
+            self._runner(self._wrangler("delete", f"{self.bucket}/{key}"))
+
+    def sync_dir(self, prefix: str, local_dir: Path) -> SyncResult:
+        """Upload every file under ``local_dir`` to ``prefix`` (upload-only).
+
+        Unlike the base implementation this neither lists nor deletes: the
+        wrangler CLI cannot enumerate objects, so orphan cleanup is skipped.
+        """
+        uploaded: list[str] = []
+        bytes_uploaded = 0
+        for path in _iter_files(local_dir):
+            relative = path.relative_to(local_dir).as_posix()
+            key = f"{prefix}/{relative}"
+            bytes_uploaded += self.put_file(key, path, content_type_for(path))
+            uploaded.append(key)
+
+        logger.debug(
+            "loaded %s into local R2: %d objects, %d bytes (upload-only, no sweep)",
+            prefix,
+            len(uploaded),
+            bytes_uploaded,
+        )
+        return SyncResult(
+            prefix=prefix,
+            uploaded_keys=uploaded,
+            deleted_keys=[],
+            bytes_uploaded=bytes_uploaded,
+        )

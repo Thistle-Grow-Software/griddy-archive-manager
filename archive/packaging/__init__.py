@@ -9,7 +9,13 @@ from .keys import MANIFEST_NAME, derive_game_key, league_from_root
 from .packager import PackageResult, PackagingError, package_to_hls
 from .pipeline import PackagingPipeline, PackagingSummary
 from .probe import MediaProbe, ProbeError, probe_media
-from .uploader import InMemoryUploader, R2Uploader, SyncResult, Uploader
+from .uploader import (
+    InMemoryUploader,
+    R2Uploader,
+    SyncResult,
+    Uploader,
+    WranglerLocalUploader,
+)
 
 __all__ = [
     "MANIFEST_NAME",
@@ -23,6 +29,7 @@ __all__ = [
     "R2Uploader",
     "SyncResult",
     "Uploader",
+    "WranglerLocalUploader",
     "derive_game_key",
     "league_from_root",
     "package_to_hls",
