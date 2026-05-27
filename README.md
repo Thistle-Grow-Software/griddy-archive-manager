@@ -67,6 +67,11 @@ The admin interface is available at `http://localhost:8000/admin/`.
 | `CLERK_AUDIENCE` | API identifier Clerk stamps into the `aud` claim |
 | `CLERK_AUTHORIZED_PARTIES` | Comma-separated origins allowed in the `azp` claim |
 | `CLERK_SECRET_KEY` | Server-side Clerk Backend API key (loaded from AWS Secrets Manager in deployed envs) |
+| `R2_BUCKET` | Cloudflare R2 bucket the `package_hls` pipeline uploads HLS output to |
+| `R2_ENDPOINT_URL` | R2 S3-compatible endpoint (`https://<account-id>.r2.cloudflarestorage.com`) |
+| `R2_ACCESS_KEY_ID` | R2 access key ID (from AWS Secrets Manager in deployed envs) |
+| `R2_SECRET_ACCESS_KEY` | R2 secret access key (from AWS Secrets Manager in deployed envs) |
+| `HLS_SOURCE_ROOTS` | Colon-separated league source trees `package_hls` walks by default |
 
 See `.env.example` for development defaults.
 
