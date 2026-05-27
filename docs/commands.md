@@ -174,3 +174,61 @@ uv run manage.py sandbox boxscore_comparison --fetch --creds-file creds.json
 - Compares historic game details, live stats, and historical stats endpoints
 - Compares against modern pro API endpoints (boxscore, game center, playlist)
 - Generates `historic_game_info.json` and `pro_game_info.json`
+
+## package_hls
+
+Batch-package the game-film catalog to CMAF/HLS and upload it to Cloudflare R2.
+Implements the one-time batch packaging from ADR-0008 (TGF-362): it walks the
+league source trees and, per game, produces fragmented-MP4 (CMAF) segments plus
+an HLS `master.m3u8` at a ~6s target, then uploads each game to a stable R2
+prefix. The ~99% of the catalog that is H.264/AAC is stream-copied losslessly;
+the handful of VP9/AV1/HEVC/Opus/AC-3 outliers are transcoded to H.264/AAC
+first.
+
+```bash
+# Package every root in HLS_SOURCE_ROOTS and upload to R2.
+uv run manage.py package_hls
+
+# Package explicit roots, one game per league, without uploading (local check).
+uv run manage.py package_hls "/mnt/g/NFL (1920)" "/mnt/g/UFL (2024)" \
+    --limit-per-league 1 --dry-run
+```
+
+**Arguments:**
+
+| Argument | Type | Description |
+|---|---|---|
+| `roots` | str (zero or more) | League source directories to walk. Defaults to `settings.HLS_SOURCE_ROOTS` when omitted. |
+
+**Options:**
+
+| Option | Type | Description |
+|---|---|---|
+| `--segment-duration` | int | HLS target segment length in seconds (default: `6`) |
+| `--limit-per-league` | int | Package at most N files per source root — useful for validating one game per league before a full run |
+| `--dry-run` | flag | Probe and package locally but upload nothing to R2 |
+
+**Behavior:**
+
+- Walks each root for video files, deriving a stable, idempotent R2 key prefix
+  from the path: `{league}/{relative-path-slug}/` (e.g.
+  `nfl/2024/week-1/ravens-at-chiefs/master.m3u8`)
+- Decides per stream: H.264 video and AAC audio are stream-copied; anything else
+  is transcoded to H.264/AAC (so an H.264 + AC-3 file copies the video and only
+  re-encodes the audio)
+- Idempotent: re-packaging a game overwrites its output and deletes any object
+  under its prefix that is no longer part of the output, leaving no orphaned
+  segments
+- A per-file failure is logged and counted but never aborts the batch
+- On completion, prints a summary — files processed, copied vs transcoded
+  counts, bytes uploaded, and output size as a multiple of source (a warning is
+  logged above the ~1.5× budget)
+
+**Prerequisites:**
+
+- `ffmpeg` and `ffprobe` on `PATH`
+- R2 configuration for non-dry-run uploads: `R2_BUCKET`, `R2_ENDPOINT_URL`,
+  `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` (see `.env.example`). In deployed
+  environments the keys come from AWS Secrets Manager, not `.env`.
+- `HLS_SOURCE_ROOTS` (colon-separated absolute paths) if running without
+  positional `roots` arguments
