@@ -165,3 +165,7 @@ cython_debug/
 creds.json
 busted.json
 .claude/claude-session-setup.sh
+
+# Local wrangler/Miniflare state from `wrangler r2 object put --local` etc.
+# (created when running package_hls --local from this repo root).
+.wrangler/
