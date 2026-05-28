@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import logging
 import tempfile
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -23,6 +23,10 @@ from .probe import probe_media
 from .uploader import Uploader
 
 logger = logging.getLogger("archive")
+
+# Optional progress callback. Pipelines that want per-file progress (e.g. the
+# management command writing to its stdout) pass one of these into ``run``.
+ProgressCallback = Callable[[str], None]
 
 # Container extensions worth probing. Mirrors the catalog scanner's set; the
 # archive is overwhelmingly .mp4 with a couple of .ts.
@@ -105,22 +109,35 @@ class PackagingPipeline:
                 yield path
 
     def run(
-        self, roots: list[Path], *, limit_per_root: int | None = None
+        self,
+        roots: list[Path],
+        *,
+        limit_per_root: int | None = None,
+        progress: ProgressCallback | None = None,
     ) -> PackagingSummary:
         summary = PackagingSummary()
         for root in roots:
             if not root.is_dir():
                 logger.warning("not a directory, skipping: %s", root)
                 continue
-            for processed_here, source in enumerate(self.iter_source_files(root)):
-                if limit_per_root is not None and processed_here >= limit_per_root:
-                    break
-                self._process_file(root, source, summary)
+            sources = list(self.iter_source_files(root))
+            if limit_per_root is not None:
+                sources = sources[:limit_per_root]
+            total = len(sources)
+            for index, source in enumerate(sources, start=1):
+                if progress is not None:
+                    progress(f"[{index}/{total}] packaging {source.name}")
+                self._process_file(root, source, summary, progress=progress)
         self._log_summary(summary)
         return summary
 
     def _process_file(
-        self, root: Path, source: Path, summary: PackagingSummary
+        self,
+        root: Path,
+        source: Path,
+        summary: PackagingSummary,
+        *,
+        progress: ProgressCallback | None = None,
     ) -> None:
         try:
             probe = probe_media(source)
@@ -133,11 +150,21 @@ class PackagingPipeline:
                     segment_duration=self._segment_duration,
                 )
                 if not self._dry_run:
+                    object_count = 1 + len(result.segment_paths)  # manifest + segs/init
+                    if progress is not None:
+                        progress(f"  loading {object_count} objects to {key_prefix}…")
                     sync = self._uploader.sync_dir(key_prefix, Path(tmp))
                     summary.bytes_uploaded += sync.bytes_uploaded
+                    if progress is not None:
+                        progress(
+                            f"  loaded {len(sync.uploaded_keys)} objects "
+                            f"({sync.bytes_uploaded} bytes)"
+                        )
         except Exception as exc:  # isolate one file's failure from the batch
             logger.exception("failed to package %s", source)
             summary.failures.append(FailedFile(path=source, error=str(exc)))
+            if progress is not None:
+                progress(f"  FAILED: {exc}")
             return
 
         summary.files_processed += 1

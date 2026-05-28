@@ -121,3 +121,18 @@ def test_builds_local_uploader_when_bucket_given(tmp_path, patched):
     call_command("package_hls", str(root), "--local", "--bucket", "film", stdout=out)
     assert "files processed : 0" in out.getvalue()
     assert "local R2 (Miniflare)" in out.getvalue()
+
+
+def test_dry_run_emits_per_file_progress(tmp_path, patched):
+    """Each source file gets a [i/N] packaging line so runs aren't silent."""
+    root = tmp_path / "NFL (1920)"
+    root.mkdir()
+    (root / "game-a.mp4").write_bytes(b"v" * 50)
+    (root / "game-b.mp4").write_bytes(b"v" * 50)
+
+    out = StringIO()
+    call_command("package_hls", str(root), "--dry-run", stdout=out)
+
+    text = out.getvalue()
+    assert "[1/2] packaging game-a.mp4" in text
+    assert "[2/2] packaging game-b.mp4" in text

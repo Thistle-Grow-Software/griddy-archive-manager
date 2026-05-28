@@ -163,3 +163,47 @@ def test_wrangler_local_list_is_unsupported():
     uploader = WranglerLocalUploader(bucket="film", runner=_RecordingRunner())
     with pytest.raises(NotImplementedError):
         uploader.list_keys("nfl/2024/game")
+
+
+def test_wrangler_local_sync_parallelizes_puts(tmp_path):
+    """Sync issues puts concurrently up to max_workers and returns stable output."""
+    import threading
+
+    bundle = _make_bundle(
+        tmp_path / "bundle",
+        segments=tuple(f"seg_{i:05d}.m4s" for i in range(8)),
+    )
+
+    inflight = 0
+    peak_inflight = 0
+    lock = threading.Lock()
+
+    def slow_runner(_cmd):
+        nonlocal inflight, peak_inflight
+        with lock:
+            inflight += 1
+            peak_inflight = max(peak_inflight, inflight)
+        # Hold the call open long enough to overlap with siblings.
+        threading.Event().wait(0.05)
+        with lock:
+            inflight -= 1
+
+    uploader = WranglerLocalUploader(bucket="film", max_workers=4, runner=slow_runner)
+    result = uploader.sync_dir("nfl/2024/game", bundle)
+
+    # 10 files (manifest + init + 8 segments), every put issued, output stable.
+    assert len(result.uploaded_keys) == 10
+    assert result.uploaded_keys == sorted(result.uploaded_keys)
+    assert peak_inflight > 1, "expected concurrent puts with max_workers=4"
+    assert peak_inflight <= 4, "should not exceed configured max_workers"
+
+
+def test_wrangler_local_max_workers_one_runs_sequentially(tmp_path):
+    bundle = _make_bundle(tmp_path / "bundle", segments=("seg_00000.m4s",))
+    runner = _RecordingRunner()
+    uploader = WranglerLocalUploader(bucket="film", max_workers=1, runner=runner)
+
+    result = uploader.sync_dir("nfl/2024/game", bundle)
+
+    assert len(runner.calls) == 3  # master + init + 1 segment
+    assert sorted(result.uploaded_keys) == result.uploaded_keys

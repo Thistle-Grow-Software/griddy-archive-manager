@@ -16,6 +16,7 @@ import logging
 import subprocess
 from abc import ABC, abstractmethod
 from collections.abc import Callable, Iterable, Sequence
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -204,7 +205,15 @@ class WranglerLocalUploader(Uploader):
     will not see the loaded objects (both default to ``.wrangler/state``).
     ``cwd`` runs wrangler from the Worker project directory so its config and
     persistence line up.
+
+    ``max_workers`` parallelizes the per-object ``wrangler r2 object put``
+    invocations across a thread pool; each invocation spawns its own Node
+    process so wall-clock scales close to linearly with the worker count, and
+    Miniflare's SQLite (in WAL mode) accepts concurrent writers. Set to ``1``
+    for the sequential, debug-friendly behavior.
     """
+
+    _DEFAULT_MAX_WORKERS = 8
 
     def __init__(
         self,
@@ -213,12 +222,14 @@ class WranglerLocalUploader(Uploader):
         persist_to: Path | str | None = None,
         command: Sequence[str] = ("npx", "wrangler"),
         cwd: Path | str | None = None,
+        max_workers: int = _DEFAULT_MAX_WORKERS,
         runner: WranglerRunner | None = None,
     ) -> None:
         self.bucket = bucket
         self._persist_to = Path(persist_to) if persist_to else None
         self._command = list(command)
         self._cwd = Path(cwd) if cwd else None
+        self._max_workers = max(1, max_workers)
         self._runner = runner or self._run_subprocess
 
     def _wrangler(self, *args: str) -> list[str]:
@@ -270,22 +281,39 @@ class WranglerLocalUploader(Uploader):
     def sync_dir(self, prefix: str, local_dir: Path) -> SyncResult:
         """Upload every file under ``local_dir`` to ``prefix`` (upload-only).
 
-        Unlike the base implementation this neither lists nor deletes: the
-        wrangler CLI cannot enumerate objects, so orphan cleanup is skipped.
+        Unlike the base implementation this neither lists nor deletes — the
+        wrangler CLI cannot enumerate objects, so orphan cleanup is skipped —
+        and puts are issued in parallel across ``self._max_workers`` threads,
+        since per-call Node spin-up dominates the wall-clock cost.
         """
+        jobs = [
+            (f"{prefix}/{path.relative_to(local_dir).as_posix()}", path)
+            for path in _iter_files(local_dir)
+        ]
+
         uploaded: list[str] = []
         bytes_uploaded = 0
-        for path in _iter_files(local_dir):
-            relative = path.relative_to(local_dir).as_posix()
-            key = f"{prefix}/{relative}"
-            bytes_uploaded += self.put_file(key, path, content_type_for(path))
-            uploaded.append(key)
 
+        def _upload(job: tuple[str, Path]) -> tuple[str, int]:
+            key, path = job
+            return key, self.put_file(key, path, content_type_for(path))
+
+        # Cap workers at the job count so the pool isn't oversized for small games.
+        workers = min(self._max_workers, max(1, len(jobs)))
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            futures = [pool.submit(_upload, job) for job in jobs]
+            for future in as_completed(futures):
+                key, written = future.result()
+                uploaded.append(key)
+                bytes_uploaded += written
+
+        uploaded.sort()  # `as_completed` is non-deterministic; keep output stable.
         logger.debug(
-            "loaded %s into local R2: %d objects, %d bytes (upload-only, no sweep)",
+            "loaded %s into local R2: %d objects, %d bytes (upload-only, %d workers)",
             prefix,
             len(uploaded),
             bytes_uploaded,
+            workers,
         )
         return SyncResult(
             prefix=prefix,

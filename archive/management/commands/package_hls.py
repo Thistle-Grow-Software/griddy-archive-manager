@@ -100,6 +100,15 @@ class Command(BaseCommand):
                 "(TGF-361) — so its config and local persistence align."
             ),
         )
+        parser.add_argument(
+            "--local-workers",
+            type=int,
+            default=8,
+            help=(
+                "Parallel `wrangler r2 object put` calls per game when --local. "
+                "Default 8. Set to 1 for sequential, debug-friendly behavior."
+            ),
+        )
 
     def handle(self, *args, **options) -> None:
         roots = self._resolve_roots(options["roots"])
@@ -125,7 +134,11 @@ class Command(BaseCommand):
         pipeline = PackagingPipeline(
             uploader, segment_duration=segment_duration, dry_run=dry_run
         )
-        summary = pipeline.run(roots, limit_per_root=options["limit_per_league"])
+        summary = pipeline.run(
+            roots,
+            limit_per_root=options["limit_per_league"],
+            progress=self.stdout.write,
+        )
 
         self._report(summary, dry_run=dry_run)
 
@@ -173,6 +186,7 @@ class Command(BaseCommand):
             persist_to=options["persist_to"],
             command=shlex.split(options["wrangler_cmd"]),
             cwd=options["wrangler_cwd"],
+            max_workers=options["local_workers"],
         )
 
     def _report(self, summary, *, dry_run: bool) -> None:
