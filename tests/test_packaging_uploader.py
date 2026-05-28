@@ -207,3 +207,65 @@ def test_wrangler_local_max_workers_one_runs_sequentially(tmp_path):
 
     assert len(runner.calls) == 3  # master + init + 1 segment
     assert sorted(result.uploaded_keys) == result.uploaded_keys
+
+
+class _FlakyRunner:
+    """Fake runner that raises on the first ``fail_first`` calls, then succeeds."""
+
+    def __init__(self, fail_first: int) -> None:
+        self.calls: list[list[str]] = []
+        self._fail_first = fail_first
+
+    def __call__(self, cmd) -> None:
+        self.calls.append(list(cmd))
+        if len(self.calls) <= self._fail_first:
+            raise RuntimeError(f"simulated transient failure {len(self.calls)}")
+
+
+def test_wrangler_local_put_retries_transient_failures(tmp_path):
+    payload = tmp_path / "a.bin"
+    payload.write_bytes(b"data")
+    runner = _FlakyRunner(fail_first=2)
+    uploader = WranglerLocalUploader(
+        bucket="film",
+        max_attempts=3,
+        retry_backoff_base=0,  # no sleep in tests
+        runner=runner,
+    )
+
+    written = uploader.put_file("test/a", payload, "application/octet-stream")
+
+    assert written == 4
+    assert len(runner.calls) == 3  # 2 failures + 1 success
+
+
+def test_wrangler_local_put_raises_after_exhausting_retries(tmp_path):
+    payload = tmp_path / "a.bin"
+    payload.write_bytes(b"data")
+    runner = _FlakyRunner(fail_first=5)  # always fails within the attempt budget
+    uploader = WranglerLocalUploader(
+        bucket="film",
+        max_attempts=3,
+        retry_backoff_base=0,
+        runner=runner,
+    )
+
+    with pytest.raises(RuntimeError, match="simulated transient failure"):
+        uploader.put_file("test/a", payload, "application/octet-stream")
+    assert len(runner.calls) == 3
+
+
+def test_wrangler_local_max_attempts_one_disables_retries(tmp_path):
+    payload = tmp_path / "a.bin"
+    payload.write_bytes(b"data")
+    runner = _FlakyRunner(fail_first=1)
+    uploader = WranglerLocalUploader(
+        bucket="film",
+        max_attempts=1,
+        retry_backoff_base=0,
+        runner=runner,
+    )
+
+    with pytest.raises(RuntimeError):
+        uploader.put_file("test/a", payload, "application/octet-stream")
+    assert len(runner.calls) == 1  # no retry

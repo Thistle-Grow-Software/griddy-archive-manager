@@ -13,12 +13,15 @@ delete — so the same logic drives the real Cloudflare R2 backend
 from __future__ import annotations
 
 import logging
+import os
 import subprocess
+import time
 from abc import ABC, abstractmethod
 from collections.abc import Callable, Iterable, Sequence
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
+from typing import ClassVar
 
 logger = logging.getLogger("archive")
 
@@ -211,9 +214,26 @@ class WranglerLocalUploader(Uploader):
     process so wall-clock scales close to linearly with the worker count, and
     Miniflare's SQLite (in WAL mode) accepts concurrent writers. Set to ``1``
     for the sequential, debug-friendly behavior.
+
+    ``max_attempts`` adds retry-with-backoff around each put: the wrangler CLI
+    has many tiny ways to transiently fail (npm-registry update fetch hiccups,
+    SQLite ``BUSY`` under parallel writers, workerd 500s) and one failed put
+    is enough to abort a 400-object game. Retries make those self-healing.
     """
 
     _DEFAULT_MAX_WORKERS = 8
+    _DEFAULT_MAX_ATTEMPTS = 3
+    _DEFAULT_RETRY_BACKOFF_BASE = 1.0
+
+    # Env vars injected into every wrangler subprocess to suppress the CLI's
+    # background network calls. Even with ``--local`` the wrangler binary will
+    # fetch update-check / telemetry endpoints on each invocation by default;
+    # those fetches are a recurring source of transient ``fetch failed`` errors
+    # mid-batch. Disabling them removes the cause entirely.
+    _WRANGLER_ENV: ClassVar[dict[str, str]] = {
+        "WRANGLER_SEND_METRICS": "false",
+        "NO_UPDATE_NOTIFIER": "1",
+    }
 
     def __init__(
         self,
@@ -223,6 +243,8 @@ class WranglerLocalUploader(Uploader):
         command: Sequence[str] = ("npx", "wrangler"),
         cwd: Path | str | None = None,
         max_workers: int = _DEFAULT_MAX_WORKERS,
+        max_attempts: int = _DEFAULT_MAX_ATTEMPTS,
+        retry_backoff_base: float = _DEFAULT_RETRY_BACKOFF_BASE,
         runner: WranglerRunner | None = None,
     ) -> None:
         self.bucket = bucket
@@ -230,6 +252,8 @@ class WranglerLocalUploader(Uploader):
         self._command = list(command)
         self._cwd = Path(cwd) if cwd else None
         self._max_workers = max(1, max_workers)
+        self._max_attempts = max(1, max_attempts)
+        self._retry_backoff_base = max(0.0, retry_backoff_base)
         self._runner = runner or self._run_subprocess
 
     def _wrangler(self, *args: str) -> list[str]:
@@ -239,6 +263,7 @@ class WranglerLocalUploader(Uploader):
         return cmd
 
     def _run_subprocess(self, cmd: Sequence[str]) -> None:
+        env = {**os.environ, **self._WRANGLER_ENV}
         try:
             subprocess.run(
                 list(cmd),
@@ -246,6 +271,7 @@ class WranglerLocalUploader(Uploader):
                 text=True,
                 check=True,
                 cwd=str(self._cwd) if self._cwd else None,
+                env=env,
             )
         except FileNotFoundError as exc:  # pragma: no cover - environment-dependent
             raise RuntimeError(
@@ -255,6 +281,32 @@ class WranglerLocalUploader(Uploader):
         except subprocess.CalledProcessError as exc:  # pragma: no cover
             raise RuntimeError(f"wrangler failed: {exc.stderr}") from exc
 
+    def _invoke_with_retry(self, cmd: Sequence[str], *, label: str) -> None:
+        """Run ``cmd`` via the runner, retrying transient failures with backoff."""
+        last_exc: BaseException | None = None
+        for attempt in range(1, self._max_attempts + 1):
+            try:
+                self._runner(cmd)
+                if attempt > 1:
+                    logger.info("%s succeeded on attempt %d", label, attempt)
+                return
+            except RuntimeError as exc:
+                last_exc = exc
+                if attempt >= self._max_attempts:
+                    break
+                backoff = self._retry_backoff_base * (2 ** (attempt - 1))
+                logger.warning(
+                    "%s failed (attempt %d/%d), retrying in %.1fs: %s",
+                    label,
+                    attempt,
+                    self._max_attempts,
+                    backoff,
+                    exc,
+                )
+                time.sleep(backoff)
+        assert last_exc is not None
+        raise last_exc
+
     def list_keys(self, prefix: str) -> set[str]:
         raise NotImplementedError(
             "the wrangler CLI cannot list R2 objects "
@@ -262,21 +314,23 @@ class WranglerLocalUploader(Uploader):
         )
 
     def put_file(self, key: str, local_path: Path, content_type: str) -> int:
-        self._runner(
-            self._wrangler(
-                "put",
-                f"{self.bucket}/{key}",
-                "--file",
-                str(local_path),
-                "--content-type",
-                content_type,
-            )
+        cmd = self._wrangler(
+            "put",
+            f"{self.bucket}/{key}",
+            "--file",
+            str(local_path),
+            "--content-type",
+            content_type,
         )
+        self._invoke_with_retry(cmd, label=f"put {key}")
         return local_path.stat().st_size
 
     def delete_keys(self, keys: Iterable[str]) -> None:
         for key in keys:
-            self._runner(self._wrangler("delete", f"{self.bucket}/{key}"))
+            self._invoke_with_retry(
+                self._wrangler("delete", f"{self.bucket}/{key}"),
+                label=f"delete {key}",
+            )
 
     def sync_dir(self, prefix: str, local_dir: Path) -> SyncResult:
         """Upload every file under ``local_dir`` to ``prefix`` (upload-only).

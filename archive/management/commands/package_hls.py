@@ -109,6 +109,16 @@ class Command(BaseCommand):
                 "Default 8. Set to 1 for sequential, debug-friendly behavior."
             ),
         )
+        parser.add_argument(
+            "--local-max-attempts",
+            type=int,
+            default=3,
+            help=(
+                "Retry attempts per `wrangler r2 object put` invocation when "
+                "--local (covers transient workerd/SQLite/network hiccups). "
+                "Default 3. Set to 1 to disable retries."
+            ),
+        )
 
     def handle(self, *args, **options) -> None:
         roots = self._resolve_roots(options["roots"])
@@ -187,6 +197,7 @@ class Command(BaseCommand):
             command=shlex.split(options["wrangler_cmd"]),
             cwd=options["wrangler_cwd"],
             max_workers=options["local_workers"],
+            max_attempts=options["local_max_attempts"],
         )
 
     def _report(self, summary, *, dry_run: bool) -> None:
