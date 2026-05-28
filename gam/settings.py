@@ -165,6 +165,19 @@ JWT_AUTHORIZED_PARTIES = [
 # used for token verification.
 CLERK_SECRET_KEY = os.getenv("CLERK_SECRET_KEY")
 
+# Playback / video delivery (TGF-360, ADR-0008). The origin is environment
+# driven so the same code targets a local Worker (e.g. http://localhost:8787)
+# during the PoC and a production host later. The signing secret is shared
+# with the Worker that fronts R2; rotating it invalidates outstanding URLs.
+VIDEO_ORIGIN_URL = os.getenv("VIDEO_ORIGIN_URL", "http://localhost:8787")
+PLAYBACK_TOKEN_SECRET = os.getenv("PLAYBACK_TOKEN_SECRET", "")
+PLAYBACK_TOKEN_ALGORITHM = os.getenv("PLAYBACK_TOKEN_ALGORITHM", "HS256")
+PLAYBACK_TOKEN_ISSUER = os.getenv("PLAYBACK_TOKEN_ISSUER", "griddy-api")
+PLAYBACK_TOKEN_AUDIENCE = os.getenv("PLAYBACK_TOKEN_AUDIENCE", "griddy-video-worker")
+# Capped at 15 minutes by ``gam.playback.tokens.MAX_TTL_SECONDS``; values
+# larger than the cap are silently clamped down to it.
+PLAYBACK_TOKEN_TTL_SECONDS = int(os.getenv("PLAYBACK_TOKEN_TTL_SECONDS", "900"))
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/6.0/ref/settings/#default-auto-field
 
