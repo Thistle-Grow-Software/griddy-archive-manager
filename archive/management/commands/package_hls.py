@@ -18,6 +18,7 @@ Examples::
 
 from __future__ import annotations
 
+import shlex
 from pathlib import Path
 
 from django.conf import settings
@@ -25,7 +26,11 @@ from django.core.management.base import BaseCommand, CommandError
 
 from archive.packaging import PackagingPipeline
 from archive.packaging.packager import DEFAULT_SEGMENT_DURATION
-from archive.packaging.uploader import InMemoryUploader, R2Uploader
+from archive.packaging.uploader import (
+    InMemoryUploader,
+    R2Uploader,
+    WranglerLocalUploader,
+)
 
 
 class Command(BaseCommand):
@@ -60,24 +65,90 @@ class Command(BaseCommand):
             action="store_true",
             help="Probe and package locally but upload nothing to R2.",
         )
+        parser.add_argument(
+            "--local",
+            action="store_true",
+            help=(
+                "Load packaged output into the local Miniflare R2 store via "
+                "`wrangler r2 object put --local` (the cost-free PoC path, "
+                "ADR-0008) instead of uploading to real R2."
+            ),
+        )
+        parser.add_argument(
+            "--bucket",
+            default=None,
+            help="R2 bucket name for --local (defaults to settings.R2_BUCKET).",
+        )
+        parser.add_argument(
+            "--persist-to",
+            default=None,
+            help=(
+                "Miniflare persistence directory for --local. Must match the "
+                "`wrangler dev --persist-to` value (default .wrangler/state)."
+            ),
+        )
+        parser.add_argument(
+            "--wrangler-cmd",
+            default="npx wrangler",
+            help='Command used to invoke wrangler for --local (default "npx wrangler").',
+        )
+        parser.add_argument(
+            "--wrangler-cwd",
+            default=None,
+            help=(
+                "Directory to run wrangler from for --local — the Worker project "
+                "(TGF-361) — so its config and local persistence align."
+            ),
+        )
+        parser.add_argument(
+            "--local-workers",
+            type=int,
+            default=8,
+            help=(
+                "Parallel `wrangler r2 object put` calls per game when --local. "
+                "Default 8. Set to 1 for sequential, debug-friendly behavior."
+            ),
+        )
+        parser.add_argument(
+            "--local-max-attempts",
+            type=int,
+            default=3,
+            help=(
+                "Retry attempts per `wrangler r2 object put` invocation when "
+                "--local (covers transient workerd/SQLite/network hiccups). "
+                "Default 3. Set to 1 to disable retries."
+            ),
+        )
 
     def handle(self, *args, **options) -> None:
         roots = self._resolve_roots(options["roots"])
         dry_run: bool = options["dry_run"]
+        local: bool = options["local"]
         segment_duration: int = options["segment_duration"]
         if segment_duration <= 0:
             raise CommandError("--segment-duration must be a positive integer.")
+        if dry_run and local:
+            raise CommandError("--dry-run and --local are mutually exclusive.")
 
-        uploader = InMemoryUploader() if dry_run else self._build_r2_uploader()
+        if dry_run:
+            uploader = InMemoryUploader()
+            target = "dry run, no upload"
+        elif local:
+            uploader = self._build_local_uploader(options)
+            target = "loading into local R2 (Miniflare)"
+        else:
+            uploader = self._build_r2_uploader()
+            target = "uploading to R2"
 
-        self.stdout.write(
-            f"Packaging {len(roots)} root(s) "
-            f"({'dry run, no upload' if dry_run else 'uploading to R2'})…"
-        )
+        self.stdout.write(f"Packaging {len(roots)} root(s) ({target})…")
         pipeline = PackagingPipeline(
             uploader, segment_duration=segment_duration, dry_run=dry_run
         )
-        summary = pipeline.run(roots, limit_per_root=options["limit_per_league"])
+        summary = pipeline.run(
+            roots,
+            limit_per_root=options["limit_per_league"],
+            progress=self.stdout.write,
+        )
 
         self._report(summary, dry_run=dry_run)
 
@@ -112,6 +183,21 @@ class Command(BaseCommand):
             endpoint_url=settings.R2_ENDPOINT_URL,
             access_key_id=settings.R2_ACCESS_KEY_ID,
             secret_access_key=settings.R2_SECRET_ACCESS_KEY,
+        )
+
+    def _build_local_uploader(self, options) -> WranglerLocalUploader:
+        bucket = options["bucket"] or getattr(settings, "R2_BUCKET", None)
+        if not bucket:
+            raise CommandError(
+                "--local needs a bucket name; pass --bucket or set R2_BUCKET."
+            )
+        return WranglerLocalUploader(
+            bucket=bucket,
+            persist_to=options["persist_to"],
+            command=shlex.split(options["wrangler_cmd"]),
+            cwd=options["wrangler_cwd"],
+            max_workers=options["local_workers"],
+            max_attempts=options["local_max_attempts"],
         )
 
     def _report(self, summary, *, dry_run: bool) -> None:

@@ -13,10 +13,15 @@ delete — so the same logic drives the real Cloudflare R2 backend
 from __future__ import annotations
 
 import logging
+import os
+import subprocess
+import time
 from abc import ABC, abstractmethod
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable, Sequence
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
+from typing import ClassVar
 
 logger = logging.getLogger("archive")
 
@@ -178,3 +183,195 @@ class R2Uploader(Uploader):
         for start in range(0, len(batch), self._DELETE_BATCH):
             chunk = batch[start : start + self._DELETE_BATCH]
             self._client.delete_objects(Bucket=self.bucket, Delete={"Objects": chunk})
+
+
+WranglerRunner = Callable[[Sequence[str]], None]
+
+
+class WranglerLocalUploader(Uploader):
+    """Local Miniflare R2 backend for the cost-free PoC (ADR-0008 / TGF-362).
+
+    Loads packaged objects into the same local R2 store ``wrangler dev`` serves
+    by shelling out to ``wrangler r2 object put ... --local``. This is the
+    local-first path that lets the PoC run without provisioning real R2.
+
+    The wrangler CLI exposes only ``get``/``put``/``delete`` for objects — there
+    is no ``list`` (cloudflare/workers-sdk#13008) — so the base class's
+    list-then-delete orphan sweep cannot run here. :meth:`sync_dir` is therefore
+    **upload-only**: a ``put`` overwrites the object at a key, but re-packaging a
+    game into *fewer* segments than a prior run may leave stale ones behind. For
+    the static catalog that is rare and harmless for the PoC, and a prefix can be
+    cleared by hand via :meth:`delete_keys`. The remote :class:`R2Uploader` keeps
+    full idempotency for production (TGF-364).
+
+    ``persist_to`` must match the directory ``wrangler dev`` uses or the Worker
+    will not see the loaded objects (both default to ``.wrangler/state``).
+    ``cwd`` runs wrangler from the Worker project directory so its config and
+    persistence line up.
+
+    ``max_workers`` parallelizes the per-object ``wrangler r2 object put``
+    invocations across a thread pool; each invocation spawns its own Node
+    process so wall-clock scales close to linearly with the worker count, and
+    Miniflare's SQLite (in WAL mode) accepts concurrent writers. Set to ``1``
+    for the sequential, debug-friendly behavior.
+
+    ``max_attempts`` adds retry-with-backoff around each put: the wrangler CLI
+    has many tiny ways to transiently fail (npm-registry update fetch hiccups,
+    SQLite ``BUSY`` under parallel writers, workerd 500s) and one failed put
+    is enough to abort a 400-object game. Retries make those self-healing.
+    """
+
+    _DEFAULT_MAX_WORKERS = 8
+    _DEFAULT_MAX_ATTEMPTS = 3
+    _DEFAULT_RETRY_BACKOFF_BASE = 1.0
+
+    # Env vars injected into every wrangler subprocess to suppress the CLI's
+    # background network calls. Even with ``--local`` the wrangler binary will
+    # fetch update-check / telemetry endpoints on each invocation by default;
+    # those fetches are a recurring source of transient ``fetch failed`` errors
+    # mid-batch. Disabling them removes the cause entirely.
+    _WRANGLER_ENV: ClassVar[dict[str, str]] = {
+        "WRANGLER_SEND_METRICS": "false",
+        "NO_UPDATE_NOTIFIER": "1",
+    }
+
+    def __init__(
+        self,
+        *,
+        bucket: str,
+        persist_to: Path | str | None = None,
+        command: Sequence[str] = ("npx", "wrangler"),
+        cwd: Path | str | None = None,
+        max_workers: int = _DEFAULT_MAX_WORKERS,
+        max_attempts: int = _DEFAULT_MAX_ATTEMPTS,
+        retry_backoff_base: float = _DEFAULT_RETRY_BACKOFF_BASE,
+        runner: WranglerRunner | None = None,
+    ) -> None:
+        self.bucket = bucket
+        self._persist_to = Path(persist_to) if persist_to else None
+        self._command = list(command)
+        self._cwd = Path(cwd) if cwd else None
+        self._max_workers = max(1, max_workers)
+        self._max_attempts = max(1, max_attempts)
+        self._retry_backoff_base = max(0.0, retry_backoff_base)
+        self._runner = runner or self._run_subprocess
+
+    def _wrangler(self, *args: str) -> list[str]:
+        cmd = [*self._command, "r2", "object", *args, "--local"]
+        if self._persist_to is not None:
+            cmd += ["--persist-to", str(self._persist_to)]
+        return cmd
+
+    def _run_subprocess(self, cmd: Sequence[str]) -> None:
+        env = {**os.environ, **self._WRANGLER_ENV}
+        try:
+            subprocess.run(
+                list(cmd),
+                capture_output=True,
+                text=True,
+                check=True,
+                cwd=str(self._cwd) if self._cwd else None,
+                env=env,
+            )
+        except FileNotFoundError as exc:  # pragma: no cover - environment-dependent
+            raise RuntimeError(
+                "wrangler executable not found; install it or pass --wrangler-cmd "
+                "/ --wrangler-cwd pointing at the Worker project"
+            ) from exc
+        except subprocess.CalledProcessError as exc:  # pragma: no cover
+            raise RuntimeError(f"wrangler failed: {exc.stderr}") from exc
+
+    def _invoke_with_retry(self, cmd: Sequence[str], *, label: str) -> None:
+        """Run ``cmd`` via the runner, retrying transient failures with backoff."""
+        last_exc: BaseException | None = None
+        for attempt in range(1, self._max_attempts + 1):
+            try:
+                self._runner(cmd)
+                if attempt > 1:
+                    logger.info("%s succeeded on attempt %d", label, attempt)
+                return
+            except RuntimeError as exc:
+                last_exc = exc
+                if attempt >= self._max_attempts:
+                    break
+                backoff = self._retry_backoff_base * (2 ** (attempt - 1))
+                logger.warning(
+                    "%s failed (attempt %d/%d), retrying in %.1fs: %s",
+                    label,
+                    attempt,
+                    self._max_attempts,
+                    backoff,
+                    exc,
+                )
+                time.sleep(backoff)
+        assert last_exc is not None
+        raise last_exc
+
+    def list_keys(self, prefix: str) -> set[str]:
+        raise NotImplementedError(
+            "the wrangler CLI cannot list R2 objects "
+            "(cloudflare/workers-sdk#13008); local sync is upload-only"
+        )
+
+    def put_file(self, key: str, local_path: Path, content_type: str) -> int:
+        cmd = self._wrangler(
+            "put",
+            f"{self.bucket}/{key}",
+            "--file",
+            str(local_path),
+            "--content-type",
+            content_type,
+        )
+        self._invoke_with_retry(cmd, label=f"put {key}")
+        return local_path.stat().st_size
+
+    def delete_keys(self, keys: Iterable[str]) -> None:
+        for key in keys:
+            self._invoke_with_retry(
+                self._wrangler("delete", f"{self.bucket}/{key}"),
+                label=f"delete {key}",
+            )
+
+    def sync_dir(self, prefix: str, local_dir: Path) -> SyncResult:
+        """Upload every file under ``local_dir`` to ``prefix`` (upload-only).
+
+        Unlike the base implementation this neither lists nor deletes — the
+        wrangler CLI cannot enumerate objects, so orphan cleanup is skipped —
+        and puts are issued in parallel across ``self._max_workers`` threads,
+        since per-call Node spin-up dominates the wall-clock cost.
+        """
+        jobs = [
+            (f"{prefix}/{path.relative_to(local_dir).as_posix()}", path)
+            for path in _iter_files(local_dir)
+        ]
+
+        uploaded: list[str] = []
+        bytes_uploaded = 0
+
+        def _upload(job: tuple[str, Path]) -> tuple[str, int]:
+            key, path = job
+            return key, self.put_file(key, path, content_type_for(path))
+
+        # Cap workers at the job count so the pool isn't oversized for small games.
+        workers = min(self._max_workers, max(1, len(jobs)))
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            futures = [pool.submit(_upload, job) for job in jobs]
+            for future in as_completed(futures):
+                key, written = future.result()
+                uploaded.append(key)
+                bytes_uploaded += written
+
+        uploaded.sort()  # `as_completed` is non-deterministic; keep output stable.
+        logger.debug(
+            "loaded %s into local R2: %d objects, %d bytes (upload-only, %d workers)",
+            prefix,
+            len(uploaded),
+            bytes_uploaded,
+            workers,
+        )
+        return SyncResult(
+            prefix=prefix,
+            uploaded_keys=uploaded,
+            deleted_keys=[],
+            bytes_uploaded=bytes_uploaded,
+        )
