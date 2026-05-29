@@ -34,6 +34,7 @@ class Permissions:
     CATALOG_WRITE = "catalog:write"
     HOLDINGS_READ = "holdings:read"
     HOLDINGS_WRITE = "holdings:write"
+    VIDEO_PLAYBACK = "video:playback"
 
 
 # Action → required permissions mappings shared by viewsets in each domain.

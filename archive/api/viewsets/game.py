@@ -1,6 +1,11 @@
+from typing import ClassVar
+from urllib.parse import urlencode
+
+from django.conf import settings
 from django.db.models import Count, Q, Sum
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.decorators import action
+from rest_framework.exceptions import NotFound
 from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.mixins import (
     CreateModelMixin,
@@ -22,6 +27,7 @@ from archive.api.serializers.game_actions import (
     FullBoxscoreSerializer,
     GameSummarySerializer,
 )
+from archive.api.serializers.playback import PlaybackResponseSerializer
 from archive.models import (
     ExtraPointsBoxscore,
     FieldGoalsBoxscore,
@@ -35,7 +41,12 @@ from archive.models import (
     RushingBoxscore,
     TacklesBoxscore,
 )
-from gam.auth.permissions import CatalogPermissionMixin
+from gam.auth.permissions import (
+    CATALOG_PERMISSIONS,
+    CatalogPermissionMixin,
+    Permissions,
+)
+from gam.playback.tokens import mint_playback_token
 
 
 class GameViewSet(
@@ -51,6 +62,14 @@ class GameViewSet(
     filterset_class = GameFilter
     search_fields = ["competition_name", "notes"]
     ordering_fields = ["date_local", "week", "final_home_score", "final_away_score"]
+
+    # Playback is gated by its own scope (video:playback) on top of the
+    # shared catalog map — the entitlement check in TGF-360 lives at the
+    # scope layer so 403s fall out of the existing permission machinery.
+    required_permissions: ClassVar[dict[str, list[str]]] = {
+        **CATALOG_PERMISSIONS,
+        "playback": [Permissions.VIDEO_PLAYBACK],
+    }
 
     def get_queryset(self):
         qs = Game.objects.select_related(
@@ -69,6 +88,8 @@ class GameViewSet(
             return FullBoxscoreSerializer
         if self.action == "summary":
             return GameSummarySerializer
+        if self.action == "playback":
+            return PlaybackResponseSerializer
         return GameWriteSerializer
 
     @action(detail=True, methods=["get"], url_path="full-boxscore")
@@ -138,3 +159,59 @@ class GameViewSet(
         }
         serializer = GameSummarySerializer(data)
         return Response(serializer.data)
+
+    @action(detail=True, methods=["get"])
+    def playback(self, request, pk=None):
+        """Mint a short-lived, game-scoped HLS playback URL (TGF-360, ADR-0008).
+
+        Returns ``{type, url, expires_at}``. The ``url`` points at
+        ``{VIDEO_ORIGIN_URL}/games/{id}/master.m3u8`` with a signed token
+        embedded as ``?t=...``; the Worker that fronts R2 (TGF-361 / TGF-363)
+        verifies that token with the same shared secret. Entitlement is
+        enforced upstream by the ``video:playback`` permission scope.
+        """
+        # ``get_object`` honours the queryset and raises 404 for unknown ids,
+        # which satisfies the AC without an extra existence check.
+        try:
+            game = Game.objects.only("id").get(pk=pk)
+        except Game.DoesNotExist as exc:
+            raise NotFound("Unknown game id.") from exc
+
+        subject = self._token_subject(request)
+        minted = mint_playback_token(subject=subject, game_id=game.id)
+
+        origin = settings.VIDEO_ORIGIN_URL.rstrip("/")
+        query = urlencode({"t": minted.token})
+        url = f"{origin}/games/{game.id}/master.m3u8?{query}"
+
+        payload = {
+            "type": "hls",
+            "url": url,
+            "expires_at": minted.expires_at,
+        }
+        serializer = PlaybackResponseSerializer(payload)
+        return Response(serializer.data)
+
+    @staticmethod
+    def _token_subject(request) -> str:
+        """Derive the token ``sub`` claim from whatever auth principal we have.
+
+        JWT requests expose claims under ``request.auth`` (a dict); API key
+        requests expose the :class:`APIKey` row, which carries the owning
+        Clerk account's ``clerk_sub``. Either source maps to a single string
+        so the minted token stays consistent regardless of which credential
+        type the caller used.
+        """
+        auth = getattr(request, "auth", None)
+        if isinstance(auth, dict):
+            sub = auth.get("sub")
+            if sub:
+                return str(sub)
+        if auth is not None:
+            account = getattr(auth, "account", None)
+            sub = getattr(account, "clerk_sub", None)
+            if sub:
+                return str(sub)
+        user = getattr(request, "user", None)
+        sub = getattr(user, "subject", None) or getattr(user, "username", None)
+        return str(sub) if sub else "anonymous"
