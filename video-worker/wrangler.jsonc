@@ -1,0 +1,49 @@
+{
+	// Cloudflare Worker that fronts the R2 video bucket and gates every HLS
+	// request (ADR-0008, TGF-361). Local-first for the PoC: `wrangler dev` binds
+	// BUCKET to Miniflare's local R2 simulation under `.wrangler/state`, which is
+	// the same store `package_hls --local` loads into. Promoting to production is
+	// configuration only — flip the binding to the remote bucket and add a custom
+	// `routes`/`route` for video.dev.griddy.football (TGF-340) — with no code change.
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "griddy-video-worker",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-01-01",
+	"observability": {
+		"enabled": true
+	},
+	// `wrangler dev` listens here so it matches Django's VIDEO_ORIGIN_URL default
+	// (http://localhost:8787); the playback API mints URLs against that origin.
+	"dev": {
+		"port": 8787
+	},
+	// R2 bucket binding. The binding name (BUCKET) is what the Worker code uses;
+	// the bucket_name is the only thing that differs between local and prod.
+	"r2_buckets": [
+		{
+			"binding": "BUCKET",
+			"bucket_name": "griddy-video"
+		}
+	],
+	// Non-secret configuration. PLAYBACK_TOKEN_SECRET is NOT here — it is a secret
+	// supplied via `.dev.vars` locally and `wrangler secret put` in production, and
+	// must equal Django's PLAYBACK_TOKEN_SECRET so token signatures agree.
+	"vars": {
+		// Comma-separated portal dev origins allowed cross-origin (never `*`,
+		// because the segment fetches are credentialed). Vite defaults to :5173;
+		// :3000 covers the Clerk-authorized-party origin from the API .env.
+		"ALLOWED_ORIGINS": "http://localhost:5173,http://localhost:3000",
+		// Token (from the playback API) verification parameters — must match
+		// gam.playback.tokens defaults: issuer "griddy-api", audience
+		// "griddy-video-worker", HS256.
+		"PLAYBACK_TOKEN_ISSUER": "griddy-api",
+		"PLAYBACK_TOKEN_AUDIENCE": "griddy-video-worker",
+		// Session cookie minted by this Worker after a token exchange.
+		"SESSION_COOKIE_NAME": "griddy_video_session",
+		"SESSION_COOKIE_ISSUER": "griddy-video-worker",
+		"SESSION_COOKIE_AUDIENCE": "griddy-video-session",
+		// 6 hours — comfortably longer than a full game (AC: >= 4h) so the cookie
+		// never expires mid-stream and no mid-game refresh is required.
+		"SESSION_COOKIE_TTL_SECONDS": "21600"
+	}
+}
