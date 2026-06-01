@@ -1,0 +1,6 @@
+# Local secrets for `wrangler dev`. Copy to `.dev.vars` (gitignored) and fill in.
+#
+# PLAYBACK_TOKEN_SECRET MUST be byte-for-byte identical to the Django API's
+# PLAYBACK_TOKEN_SECRET (gam/settings.py) — the Worker verifies the HS256 token
+# the playback API minted, so a mismatched secret makes every request 403.
+PLAYBACK_TOKEN_SECRET="dev-secret-change-me"
