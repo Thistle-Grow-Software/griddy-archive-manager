@@ -41,7 +41,12 @@ class Command(BaseCommand):
     )
 
     def add_arguments(self, parser) -> None:
-        parser.add_argument("source", help="Path to the source video file.")
+        parser.add_argument(
+            "source",
+            nargs="?",
+            default=None,
+            help="Path to the source video file (omit only with --skip-package).",
+        )
         parser.add_argument(
             "--game-id",
             required=True,
@@ -78,12 +83,30 @@ class Command(BaseCommand):
             action="store_true",
             help="Also mint a playback token and print the local playback URL.",
         )
+        parser.add_argument(
+            "--skip-package",
+            action="store_true",
+            help="Skip packaging/loading and only mint a token for an "
+            "already-loaded game (implies --mint-token; no source needed).",
+        )
 
     def handle(self, *args, **options) -> None:
+        game_id: str = str(options["game_id"])
+
+        # Mint-only fast path: the game is already in the local R2 store, so just
+        # issue a fresh token (tokens are short-lived; packaging is not).
+        if options["skip_package"]:
+            self.stdout.write(
+                f"Skipping packaging; minting against already-loaded games/{game_id}/."
+            )
+            self._print_playback_url(game_id)
+            return
+
+        if not options["source"]:
+            raise CommandError("source is required unless --skip-package is given.")
         source = Path(options["source"])
         if not source.is_file():
             raise CommandError(f"Source file not found: {source}")
-        game_id: str = str(options["game_id"])
         segment_duration: int = options["segment_duration"]
         if segment_duration <= 0:
             raise CommandError("--segment-duration must be a positive integer.")
