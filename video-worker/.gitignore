@@ -3,3 +3,8 @@ dist/
 .wrangler/
 .dev.vars
 *.log
+
+# Playwright PoC run artifacts (poc/playback.spec.ts)
+test-results/
+poc/playwright-report/
+poc/.last-run.json

@@ -14,5 +14,8 @@
 		"skipLibCheck": true,
 		"noEmit": true
 	},
-	"include": ["src", "test", "*.ts"]
+	// Worker + workerd unit tests only. The Node-side PoC harness (poc/,
+	// playwright.config.ts) runs under Node, not workerd, and is type-checked by
+	// the Playwright run itself, so it is intentionally excluded here.
+	"include": ["src", "test", "vitest.config.ts"]
 }

@@ -7,6 +7,9 @@ import { defineWorkersConfig } from "@cloudflare/vitest-pool-workers/config";
 // depending on a developer's `.dev.vars`.
 export default defineWorkersConfig({
 	test: {
+		// Only the workerd unit suite lives here; the Playwright playback spec
+		// under poc/ runs out-of-process against `wrangler dev` (npm run test:e2e).
+		include: ["test/**/*.spec.ts"],
 		poolOptions: {
 			workers: {
 				wrangler: { configPath: "./wrangler.jsonc" },

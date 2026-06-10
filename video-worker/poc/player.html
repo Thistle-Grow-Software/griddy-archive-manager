@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Griddy video PoC — HLS player (ADR-0008, TGF-363)</title>
+    <style>
+      :root { color-scheme: dark; }
+      body {
+        margin: 0;
+        font: 15px/1.5 system-ui, sans-serif;
+        background: #0b0e14;
+        color: #d6deeb;
+      }
+      header { padding: 16px 20px; border-bottom: 1px solid #1c2333; }
+      header h1 { margin: 0; font-size: 18px; }
+      header p { margin: 4px 0 0; color: #8a93a8; font-size: 13px; }
+      main { display: grid; gap: 16px; padding: 20px; max-width: 980px; }
+      video { width: 100%; background: #000; border-radius: 8px; aspect-ratio: 16 / 9; }
+      .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+      button {
+        font: inherit; padding: 6px 14px; border-radius: 6px;
+        border: 1px solid #2a3450; background: #131a2a; color: #d6deeb; cursor: pointer;
+      }
+      button:hover { background: #1b2436; }
+      #status {
+        font-family: ui-monospace, monospace; font-size: 13px;
+        white-space: pre-wrap; background: #0f1422; border: 1px solid #1c2333;
+        border-radius: 8px; padding: 12px; min-height: 1.5em;
+      }
+      .pill { padding: 2px 8px; border-radius: 999px; font-size: 12px; }
+      .pill.ok { background: #0d3320; color: #6ee7a8; }
+      .pill.err { background: #3a1320; color: #f08aa8; }
+      .pill.wait { background: #2a2410; color: #e8cf7a; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Griddy video PoC — HLS playback</h1>
+      <p>
+        One game served end-to-end via local R2 + Worker, gated by an ADR-0008
+        playback token. Pass the signed manifest URL as <code>?src=</code>.
+      </p>
+    </header>
+    <main>
+      <video id="video" controls playsinline muted></video>
+      <div class="row">
+        <span id="state" class="pill wait" data-testid="state">idle</span>
+        <button id="play" data-testid="play">Play</button>
+        <button id="seek" data-testid="seek">Seek +60s</button>
+        <span data-testid="currentTime">t=<span id="t">0.00</span>s</span>
+      </div>
+      <div id="status" data-testid="status">Booting…</div>
+    </main>
+
+    <!-- Served by poc/serve.mjs from node_modules/hls.js (no CDN, fully offline). -->
+    <script src="/vendor/hls.min.js"></script>
+    <script>
+      // The Playwright spec (and a human in the runbook) drives this page by
+      // passing the signed manifest URL as ?src=. Everything the test asserts on
+      // is mirrored onto window.__poc so assertions never race the DOM.
+      const params = new URLSearchParams(location.search);
+      const src = params.get("src");
+      const video = document.getElementById("video");
+      const statusEl = document.getElementById("status");
+      const stateEl = document.getElementById("state");
+      const tEl = document.getElementById("t");
+
+      const poc = (window.__poc = {
+        src,
+        manifestParsed: false,
+        fragsLoaded: 0,
+        firstFragWasRange: null,
+        seekFragsAfter: 0,
+        error: null,
+        fatal: false,
+        levelDuration: 0,
+        started: false,
+      });
+
+      function log(line) {
+        statusEl.textContent = `${line}\n${statusEl.textContent}`.slice(0, 4000);
+      }
+      function setState(text, cls) {
+        stateEl.textContent = text;
+        stateEl.className = `pill ${cls}`;
+      }
+
+      // currentTime is the ground truth for "is it actually playing".
+      video.addEventListener("timeupdate", () => {
+        poc.currentTime = video.currentTime;
+        tEl.textContent = video.currentTime.toFixed(2);
+      });
+
+      if (!src) {
+        setState("no src", "err");
+        log("No ?src= given. Append the signed manifest URL.");
+      } else if (!window.Hls) {
+        setState("no hls.js", "err");
+        log("hls.js failed to load from /vendor/hls.min.js");
+      } else if (!Hls.isSupported()) {
+        // Safari/iOS path: native HLS. The PoC's automated browsers (Chromium,
+        // Firefox) use MSE via hls.js; native is documented as the manual path.
+        setState("native HLS", "wait");
+        log("MSE/hls.js unsupported; falling back to native <video src>.");
+        video.src = src;
+        poc.native = true;
+      } else {
+        const hls = new Hls({
+          // Credentialed cross-origin: the session cookie the Worker sets on the
+          // manifest response must ride every segment fetch back to :8787.
+          xhrSetup: (xhr) => {
+            xhr.withCredentials = true;
+          },
+        });
+        window.__hls = hls;
+
+        hls.on(Hls.Events.MANIFEST_PARSED, (_e, data) => {
+          poc.manifestParsed = true;
+          poc.levelDuration = (data.levels?.[0]?.details?.totalduration) || 0;
+          setState("manifest parsed", "ok");
+          log(`MANIFEST_PARSED: ${data.levels.length} level(s)`);
+        });
+
+        hls.on(Hls.Events.FRAG_LOADED, (_e, data) => {
+          poc.fragsLoaded += 1;
+          if (poc.firstFragWasRange === null) {
+            // hls.js fetches the CMAF init segment with a byte-range; this
+            // confirms Range requests survive the auth gate (AC: scrubbing).
+            poc.firstFragWasRange = Boolean(data.frag?.byteRange?.length);
+          }
+          if (poc.seekRequested) poc.seekFragsAfter += 1;
+          tEl.title = `frags: ${poc.fragsLoaded}`;
+        });
+
+        hls.on(Hls.Events.LEVEL_LOADED, (_e, data) => {
+          if (!poc.levelDuration) poc.levelDuration = data.details?.totalduration || 0;
+        });
+
+        hls.on(Hls.Events.ERROR, (_e, data) => {
+          poc.error = `${data.type}/${data.details}`;
+          poc.fatal = poc.fatal || Boolean(data.fatal);
+          // The 403 path: an unauthorized manifest load surfaces here as a
+          // network error carrying the HTTP status the Worker returned.
+          const code = data.response?.code;
+          if (code) poc.errorStatus = code;
+          setState(`error: ${data.details}${code ? ` (${code})` : ""}`, "err");
+          log(`ERROR ${data.type}/${data.details}${code ? ` http=${code}` : ""}${data.fatal ? " [fatal]" : ""}`);
+        });
+
+        hls.loadSource(src);
+        hls.attachMedia(video);
+        log(`Loading ${src.slice(0, 80)}…`);
+      }
+
+      document.getElementById("play").addEventListener("click", async () => {
+        poc.started = true;
+        try {
+          await video.play();
+          setState("playing", "ok");
+        } catch (err) {
+          log(`play() rejected: ${err}`);
+        }
+      });
+
+      document.getElementById("seek").addEventListener("click", () => {
+        poc.seekRequested = true;
+        const target = Math.min(
+          (video.currentTime || 0) + 60,
+          (poc.levelDuration || 120) - 1,
+        );
+        poc.seekTarget = target;
+        video.currentTime = target;
+        log(`seek -> ${target.toFixed(1)}s`);
+      });
+      video.addEventListener("seeked", () => {
+        poc.seeked = true;
+        poc.seekedTo = video.currentTime;
+        log(`seeked: now ${video.currentTime.toFixed(2)}s`);
+      });
+    </script>
+  </body>
+</html>

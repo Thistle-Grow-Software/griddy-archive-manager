@@ -1,0 +1,14 @@
+{
+  "game_id": "2025001",
+  "source_name": "NFL Condensed Game - s2025e005 - 2025_Wk01_MIA_at_IND.mp4",
+  "source_bytes": 1250007910,
+  "output_bytes": 1249522647,
+  "size_ratio": 0.9996117920565799,
+  "segment_count": 324,
+  "segment_duration_seconds": 6,
+  "duration_seconds": 1937.468,
+  "transcoded": false,
+  "manifest_key": "games/2025001/master.m3u8",
+  "objects_loaded": 325,
+  "bytes_loaded": 1249522647
+}

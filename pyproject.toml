@@ -74,6 +74,7 @@ ignore = [
 "**/settings/*.py" = ["F405", "E501"]                 # wildcard imports common in settings
 "**/settings.py" = ["F405", "E501"]
 "**/tests/**" = ["S101"]                      # assert is fine in tests
+"scripts/**" = ["T201"]                       # standalone CLIs print to stdout
 
 [tool.ruff.format]
 quote-style = "double"
